@@ -5,16 +5,111 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
 
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
-
-    <h1 class="govuk-heading-xl">
-      {{ serviceName }}
-    </h1>
-
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+  <div class="govuk-grid-row">
+    <div class="govuk-width-container">
+      <h1 class="govuk-heading-l">
+        Enterprise Content Management System (ECMS)
+      </h1>
+    </div>
   </div>
-</div>
 
-{% endblock %}
+  <div class="govuk-width-container">
+    <p>What is evidence here blah blah.</p>
+  </div>
+
+  <div class="govuk-inset-text">
+    ECMS is part of the wider group of components that forms Customer Communications and Media Services (CCAMS). The other components are Notifications and Preferences.
+  </div>
+
+  <div class="govuk-width-container">
+
+    <div class="govuk-!-padding-bottom-4"></div>
+
+    <h2 class="govuk-heading-m">
+      Designs for developers
+    </h2>
+
+    <div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
+      <div class="govuk-!-padding-bottom-2"></div>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header app-custom-class">Name</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Date</th>
+            <th scope="col" class="govuk-table__header app-custom-class">User</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+          </tr>
+        </thead>
+
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Homepage</th>
+            <td class="govuk-table__cell">January 2026</td>
+            <td class="govuk-table__cell">Agent</td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--purple">
+                In progress
+              </strong>
+            </td>
+            <td class="govuk-table__cell"><a href="preferences/menu.html" class="govuk-link">View</a></td>
+          </tr>
+        </tbody>
+
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Search result page</th>
+            <td class="govuk-table__cell">January 2026</td>
+            <td class="govuk-table__cell">Agent</td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">
+                Not yet started
+              </strong>
+            </td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">View</a></td>
+          </tr>
+        </tbody>
+
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Full width filter</th>
+            <td class="govuk-table__cell">January 2026</td>
+            <td class="govuk-table__cell">Agent</td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">
+                Not yet started
+              </strong>
+            </td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">View</a></td>
+          </tr>
+        </tbody>
+
+
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Add another piece of evidence</th>
+            <td class="govuk-table__cell">January 2026</td>
+            <td class="govuk-table__cell">Agent</td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">
+                Not yet started
+              </strong>
+            <td class="govuk-table__cell"><a href="evidence/menu.html" class="govuk-link">View</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="govuk-!-padding-bottom-6"></div>
+
+
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+    <div class="govuk-!-padding-bottom-2"></div>
+
+  </div>
+
+  {% endblock %}
