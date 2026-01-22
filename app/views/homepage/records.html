@@ -42,25 +42,58 @@
 
     <h1 class="govuk-heading-l">View and Manage a document record</h1>
 
-    <p class="govuk-body">Search ECMS for records to view and manage. You can also run an advance search.</p>
+    <p class="govuk-body">Search ECMS using one of the fields below to view and manage records. You can also run an advance search.</p>
 
   
     {% from "govuk/components/input/macro.njk" import govukInput %}
 
     {{ govukInput({
-      label: {
-        text: "National Insurance number",
-        classes: "govuk-label--m",
-        isPageHeading: true
-      },
-      hint: {
-        text: "For example, ‘QQ 12 34 56 C’"
-      },
-      classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
-      id: "national-insurance-number",
-      name: "nationalInsuranceNumber",
-      spellcheck: false
-    }) }}
+        label: {
+          text: "National Insurance number",
+          classes: "govuk-label--m",
+          isPageHeading: true
+        },
+        hint: {
+          text: "For example, ‘QQ 12 34 56 C’"
+        },
+        classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
+        id: "national-insurance-number",
+        name: "nationalInsuranceNumber",
+        spellcheck: false
+      })
+    }}
+
+    {{ govukInput({
+        label: {
+          text: "Claim reference number",
+          classes: "govuk-label--m",
+          isPageHeading: true
+        },
+        hint: {
+          text: "For example, ‘xxxxx’"
+        },
+        classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
+        id: "national-insurance-number",
+        name: "nationalInsuranceNumber",
+        spellcheck: false
+      })
+    }}
+
+    {{ govukInput({
+        label: {
+          text: "Customer Reference Number (CRN)",
+          classes: "govuk-label--m",
+          isPageHeading: true
+        },
+        hint: {
+          text: "For example, ‘xxxxx’"
+        },
+        classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
+        id: "national-insurance-number",
+        name: "nationalInsuranceNumber",
+        spellcheck: false
+      })
+    }}
 
     <div class="govuk-button-group">
       {{ govukButton({

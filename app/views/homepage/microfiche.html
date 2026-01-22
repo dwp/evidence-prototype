@@ -1,0 +1,179 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Content page template –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="records" href="records" class="dwp-horizontal-navigation__link">Records</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="reports" class="dwp-horizontal-navigation__link">Reports</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HRRecords" href="hr-records" class="dwp-horizontal-navigation__link">HR Records</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="microfiche" href="microfiche" class="dwp-horizontal-navigation__link" aria-current="true">Microfiche</a>
+            </li> 
+        
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="document-upload" class="dwp-horizontal-navigation__link">Document Upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{% endblock %} {% block content %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+
+<div class="govuk-width-container">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-l">View and manage a microfiche</h1>
+
+    {{ govukSelect({
+      id: "year",
+      name: "year",
+      label: {
+        text: "Year",
+        classes: "govuk-label--m"
+      },
+      items: [
+        {
+          value: "2023",
+          text: "2023"
+        },
+        {
+          value: "2024",
+          text: "2024",
+          selected: true
+        },
+        {
+          value: "2025",
+          text: "2025"
+        },
+        {
+          value: "2026",
+          text: "2026"
+        }
+      ]
+    }) }}
+
+    {{ govukRadios({
+        classes: "govuk-radios--small",
+        name: "Month",
+        fieldset: {
+          legend: {
+            text: "Month",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "jan",
+            text: "January"
+          },
+          {
+            value: "feb",
+            text: "February"
+          },
+          {
+            value: "mar",
+            text: "March"
+          },
+          {
+            value: "apr",
+            text: "April"
+          },
+          {
+            value: "may",
+            text: "May"
+          },
+          {
+            value: "jun",
+            text: "June"
+          },
+          {
+            value: "jul",
+            text: "July"
+          },
+          {
+            value: "aug",
+            text: "August"
+          },
+          {
+            value: "sep",
+            text: "September"
+          },
+          {
+            value: "oct",
+            text: "October"
+          },
+          {
+            value: "nov",
+            text: "November"
+          },
+          {
+            value: "dec",
+            text: "December"
+          }
+        ]
+      }) }}
+
+
+      {{ govukInput({
+        label: {
+          text: "Staff ending",
+          classes: "govuk-label--m"
+        },
+        classes: "govuk-input--width-5 govuk-input--extra-letter-spacing",
+        hint: {
+        text: "Must be 4 characters long"
+        },
+        id: "staff-ending",
+        name: "staffEnding",
+        inputmode: "numeric",
+        spellcheck: false
+      }) }}
+
+       {{ govukInput({
+        label: {
+          text: "HR reference",
+          classes: "govuk-label--m"
+        },
+        classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
+        hint: {
+        text: "Must be XX characters long"
+        },
+        id: "hr-reference",
+        name: "HRreference",
+        inputmode: "numeric",
+        spellcheck: false
+      }) }}
+
+
+    {{ govukButton({
+      text: "Search"
+    }) }}
+    
+  </div>
+</div>
+</div>
+
+{% endblock %}
