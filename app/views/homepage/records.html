@@ -1,0 +1,77 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Content page template –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="records" class="dwp-horizontal-navigation__link" aria-current="true">Records</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HRRecords" href="hr-records" class="dwp-horizontal-navigation__link">Reports</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HRRecords" href="hr-records" class="dwp-horizontal-navigation__link">HR Records</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="microfiche" href="microfiche" class="dwp-horizontal-navigation__link">Microfiche</a>
+            </li> 
+        
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="document-upload" class="dwp-horizontal-navigation__link">Document Upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{% endblock %} {% block content %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+<div class="govuk-width-container">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">View and Manage a document record</h1>
+
+    <p class="govuk-body">Search ECMS for records to view and manage. You can also run an advance search or search within reports.</p>
+
+  
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    {{ govukInput({
+      label: {
+        text: "National Insurance number",
+        classes: "govuk-label--m",
+        isPageHeading: true
+      },
+      hint: {
+        text: "For example, ‘QQ 12 34 56 C’"
+      },
+      classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
+      id: "national-insurance-number",
+      name: "nationalInsuranceNumber",
+      spellcheck: false
+    }) }}
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Search"
+      }) }}
+    </div>
+    
+    <p class="govuk-body"><a class="govuk-link" href="#">Advanced Search</a><br /></p>
+    
+  </div>
+</div>
+</div>
+
+{% endblock %}

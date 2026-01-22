@@ -4,99 +4,65 @@
 
 <div class="govuk-!-padding-bottom-4"></div>
 
-{% endblock %} {% block content %} {% from
-"govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% endblock %} {% block content %} {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-        <h1 class="govuk-fieldset__heading">
-          What do you want to do today?
-        </h1>
-      </legend>
 
-      <div class="govuk-radios govuk-radios">
-        <div class="govuk-radios__item">
-          <input
-            class="govuk-radios__input"
-            id="nino-search"
-            name="nino"
-            type="radio"
-            value="true"
-          />
-          <label class="govuk-label govuk-radios__label" for="nino-search">
-            National Insurance Number (NINo) search
-          </label>
-          <div id="nino-search-item-hint" class="govuk-hint govuk-radios__hint">
-            Search ECMS for records to view and manage. You can also run an advance search or search within reports.
-          </div>
-        </div>
-        <div class="govuk-radios__item">
-          <input
-            class="govuk-radios__input"
-            id="hr-search"
-            name="hr"
-            type="radio"
-            value="false"
-          />
-          <label class="govuk-label govuk-radios__label" for="hr-search">
-            HR Search
-          </label>
-          <div id="hr-search-item-hint" class="govuk-hint govuk-radios__hint">
-            Search within HR records or microfiche.
-          </div>
-        </div>
-        <div class="govuk-radios__item">
-          <input
-            class="govuk-radios__input"
-            id="document-upload"
-            name="upload"
-            type="radio"
-            value="false"
-          />
-          <label class="govuk-label govuk-radios__label" for="document-upload">
-            Document Upload Service
-          </label>
-          <div id="hr-search-item-hint" class="govuk-hint govuk-radios__hint">
-            Manually upload documents to ECMS.
-          </div>
-        </div>
-      </div>
-    </fieldset>
-    <br />
-    <button
-      class="govuk-button"
-      value="true"
-      data-module="govuk-button"
-      onclick="check()"
-    >
-      Continue
-    </button>
+      {{ govukRadios({
+        name: "whereDoYouLive",
+        fieldset: {
+          legend: {
+            text: "What do you want to do today?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l govuk-!-padding-bottom-4"
+          }
+        },
+        items: [
+          {
+            value: "search-record",
+            text: "Search records",
+            hint: {
+              text: "Search ECMS for records to view and manage. You can also run an advanced search"
+            }
+          },
+          {
+            value: "search-reports",
+            text: "Search reports",
+            hint: {
+              text: "Search ECMS for reports to view and manage"
+            }
+          },
+          {
+            value: "hr-record",
+            text: "Search HR record",
+            hint: {
+              text: "Search ECMS for HR records to view and manage"
+            }
+          },
+          {
+            value: "microfiche",
+            text: "Search Microfiche",
+            hint: {
+              text: "Search ECMS for microfiches to view"
+            }
+          },
+          {
+            value: "Upload-document",
+            text: "Upload to Document Service",
+            hint: {
+              text: "upload a document to the Document Upload service"
+            }
+          }
+        ]
+      }) }}
 
-    <script>
-      function check() {
-        console.log("in function");
-        var radios = document.getElementsByName("notification");
-        var hasSelection = false;
-        for (var i = 0, len = radios.length; i < len; i++) {
-          if (radios[i].checked) {
-            hasSelection = true;
-          }
-        }
-        console.log({ hasSelection });
-        if (!hasSelection) {
-          window.location.href =
-            "/round-8/e5//error/have-you-been-contacted.html";
-        } else {
-          if (document.getElementById("notification-yes").checked) {
-            window.location.href = "employment-support-allowance.html";
-          } else {
-            window.location.href = "you-cannot-use-this-service";
-          }
-        }
-      }
-    </script>
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </div>
   </div>
 </div>
 
