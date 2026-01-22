@@ -10,12 +10,12 @@
             <a id="records" href="records" class="dwp-horizontal-navigation__link">Records</a>
             </li> 
 
-            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
-            <a id="reports" href="reports" class="dwp-horizontal-navigation__link" aria-current="true">Reports</a>
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="reports" class="dwp-horizontal-navigation__link">Reports</a>
             </li> 
 
-            <li class="dwp-horizontal-navigation__item">
-            <a id="HRRecords" href="hr-records" class="dwp-horizontal-navigation__link">HR Records</a>
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="HRRecords" href="hr-records" class="dwp-horizontal-navigation__link"  aria-current="true">HR Records</a>
             </li> 
 
             <li class="dwp-horizontal-navigation__item">
@@ -43,16 +43,16 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-    <h1 class="govuk-heading-l">View and manage a report</h1>
+    <h1 class="govuk-heading-l">View and manage a HR record</h1>
 
     {{ govukInput({
       label: {
-        text: "Office ID",
+        text: "National Insurance Number (NINo)",
         classes: "govuk-label--m"
       },
-      classes: "govuk-input--width-5 govuk-input--extra-letter-spacing",
+      classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
       hint: {
-        text: "Must be 5 digits long"
+        text: "For example, ‘QQ 12 34 56 C’"
       },
       id: "office-ID",
       name: "officeID",
@@ -62,59 +62,58 @@
 
     {{ govukInput({
       label: {
-        text: "Document type",
+        text: "First name",
         classes: "govuk-label--m"
       },
-      classes: "govuk-input--extra-letter-spacing",
-      hint: {
-        text: "Do we have any doc type hint text needed in here?"
-      },
+      classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
       id: "sort-code",
       name: "sortCode",
       inputmode: "numeric",
       spellcheck: false
     }) }}
 
+    {{ govukInput({
+      label: {
+        text: "Last name",
+        classes: "govuk-label--m"
+      },
+      classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
+      id: "sort-code",
+      name: "sortCode",
+      inputmode: "numeric",
+      spellcheck: false
+    }) }}
 
-    <div class="govuk-width-container">
+    {{ govukDateInput({
+        id: "date-of-birth",
+        namePrefix: "date-of-birth",
+        fieldset: {
+          legend: {
+            text: "Date of birth",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+          text: "For example, 27 3 2000"
+        }
+      }) }}
 
-        <div class="govuk-grid-row">
-          <label class="govuk-label govuk-label--m govuk-!-padding-left-3" for="sort-code">
-            What date was the report generated?
-          </label>
-          <div class="govuk-grid-column-one-half">
+      {{ govukInput({
+        label: {
+          text: "Staff number",
+          classes: "govuk-label--m"
+        },
+        classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
+        hint: {
+        text: "Must be xx characters long"
+        },
+        id: "sort-code",
+        name: "sortCode",
+        inputmode: "numeric",
+        spellcheck: false
+      }) }}
 
-            {{ govukDateInput({
-              id: "from",
-              namePrefix: "from",
-              fieldset: {
-                legend: {
-                  text: "From:"
-                }
-              },
-              hint: {
-                text: "For example, 27 3 2007"
-              }
-            }) }}
-
-          </div>
-          <div class="govuk-grid-column-one-half">
-
-              {{ govukDateInput({
-                id: "To",
-                namePrefix: "To",
-                fieldset: {
-                  legend: {
-                    text: "to:"
-                  }
-                },
-                hint: {
-                  text: "For example, 27 3 2007"
-                }
-              }) }}
-          </div>
-      </div>
-    </div>
 
     {{ govukButton({
       text: "Search"
