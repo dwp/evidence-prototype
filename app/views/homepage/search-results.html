@@ -30,12 +30,20 @@
         </ul>
     </nav>
 
+
 <div class="govuk-!-padding-bottom-4"></div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
 
 {% endblock %} {% block content %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
 
 <div class="govuk-width-container">
 <div class="govuk-grid-row">
@@ -45,223 +53,287 @@
 
     <p class="govuk-body">Showing <strong>1</strong> to <strong>20</strong> of <strong>40</strong> records</p>
 
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Continue",
+        href: "what-next"
+      }) }}
+    </div>
 
-{{  govukTable({
-    firstCellIsHeader: true,
-    classes: "govuk-table--small-text-until-tablet",
-    head: [
-      {
-        text: "Date Received / Issued"
-      },
-      {
-        text: "LOB Case ID"
-      },
-      {
-        text: "NINo"
-      },
-      {
-        text: "CRN"
-      },
-      {
-        text: "Claim reference"
-      },
-      {
-        text: "Name"
-      },
-      {
-        text: "Document type"
-      },
-      {
-        text: "Status"
-      },
-      {
-        text: "Class"
-      },
-      {
-        text: "Harmful"
-      },
-      {
-        text: "Benefit type"
-      }
-    ],
-    rows: [
-      [
-        {
-          text: "11/02/2025"
-        },
-        {
-          text: "001"
-        },
-        {
-          text: "QQ 12 34 56 C"
-        },
-        {
-          text: "1589"
-        },
-        {
-          text: "AA123"
-        },
-        {
-          text: "Leah Smith"
-        },
-        {
-          text: "SF300"
-        },
-        {
-          text: "Open"
-        },
-        {
-          text: "Supporting"
-        },
-        {
-          text: "Not harmful"
-        },
-        {
-          text: "Social fund"
-        }
-      ],
-      [
-        {
-          text: "11/02/2025"
-        },
-        {
-          text: "001"
-        },
-        {
-          text: "QQ 12 34 56 C"
-        },
-        {
-          text: "1589"
-        },
-        {
-          text: "AA123"
-        },
-        {
-          text: "Leah Smith"
-        },
-        {
-          text: "SF200"
-        },
-        {
-          text: "Open"
-        },
-        {
-          text: "Supporting"
-        },
-        {
-          text: "Not harmful"
-        },
-        {
-          text: "Social fund"
-        }
-      ],
-      [
-        {
-          text: "11/02/2025"
-        },
-        {
-          text: "001"
-        },
-        {
-          text: "QQ 12 34 56 C"
-        },
-        {
-          text: "1589"
-        },
-        {
-          text: "AA123"
-        },
-        {
-          text: "Leah Smith"
-        },
-        {
-          text: "On hold"
-        },
-        {
-          text: "Ephemeral"
-        },
-        {
-          text: "Supporting"
-        },
-        {
-          text: "Not harmful"
-        },
-        {
-          text: "Social fund"
-        }
-      ],
-      [
-        {
-          text: "11/02/2025"
-        },
-        {
-          text: "001"
-        },
-        {
-          text: "QQ 12 34 56 C"
-        },
-        {
-          text: "1589"
-        },
-        {
-          text: "AA123"
-        },
-        {
-          text: "Leah Smith"
-        },
-        {
-          text: "On hold"
-        },
-        {
-          text: "Ephemeral"
-        },
-        {
-          text: "Supporting"
-        },
-        {
-          text: "Not harmful"
-        },
-        {
-          text: "Social fund"
-        }
-      ],
-      [
-        {
-          text: "11/02/2025"
-        },
-        {
-          text: "001"
-        },
-        {
-          text: "QQ 12 34 56 C"
-        },
-        {
-          text: "1589"
-        },
-        {
-          text: "AA123"
-        },
-        {
-          text: "Leah Smith"
-        },
-        {
-          text: "Open"
-        },
-        {
-          text: "Ephemeral"
-        },
-        {
-          text: "Supporting"
-        },
-        {
-          text: "Not harmful"
-        },
-        {
-          text: "Social fund"
-        }
-      ]
-    ]
-  }) }}
+
+    {% set html %}
+      <div class="govuk-form-group">
+        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="table" name="table" type="checkbox" value="id">
+            <label class="govuk-label govuk-checkboxes__label" for="table">
+              <!-- maybe add some hidden text ? -->
+            </label>
+          </div>
+        </div>
+      </div>
+      {% endset %}
+
+      {{  govukTable({
+          firstCellIsHeader: true,
+          classes: "govuk-table--small-text-until-tablet",
+          head: [
+            {
+              text: "Select"
+            },
+            {
+              text: "Date Received / Issued"
+            },
+            {
+              text: "LOB Case ID"
+            },
+            {
+              text: "NINo"
+            },
+            {
+              text: "CRN"
+            },
+            {
+              text: "Claim reference"
+            },
+            {
+              text: "Name"
+            },
+            {
+              text: "Document type"
+            },
+            {
+              text: "Status"
+            },
+            {
+              text: "Class"
+            },
+            {
+              text: "Harmful"
+            },
+            {
+              text: "Benefit type"
+            }
+          ],
+          rows: [
+            [
+              {
+                html: html
+              },
+              {
+                text: "11/02/2025"
+              },
+              {
+                text: "001"
+              },
+              {
+                text: "QQ123456C"
+              },
+              {
+                text: "1589"
+              },
+              {
+                text: "AA123"
+              },
+              {
+                text: "Leah Smith"
+              },
+              {
+                text: "SF300"
+              },
+              {
+                text: "Open"
+              },
+              {
+                text: "Supporting"
+              },
+              {
+                text: "Not harmful"
+              },
+              {
+                text: "Social fund"
+              }
+            ],
+            [
+              {
+                html: html
+              },{
+                text: "11/02/2025"
+              },
+              {
+                text: "001"
+              },
+              {
+                text: "QQ123456C"
+              },
+              {
+                text: "1589"
+              },
+              {
+                text: "AA123"
+              },
+              {
+                text: "Leah Smith"
+              },
+              {
+                text: "SF200"
+              },
+              {
+                text: "Open"
+              },
+              {
+                text: "Supporting"
+              },
+              {
+                text: "Not harmful"
+              },
+              {
+                text: "Social fund"
+              }
+            ],
+            [
+              {
+                html: html
+              },{
+                text: "11/02/2025"
+              },
+              {
+                text: "001"
+              },
+              {
+                text: "QQ123456C"
+              },
+              {
+                text: "1589"
+              },
+              {
+                text: "AA123"
+              },
+              {
+                text: "Leah Smith"
+              },
+              {
+                text: "On hold"
+              },
+              {
+                text: "Ephemeral"
+              },
+              {
+                text: "Supporting"
+              },
+              {
+                text: "Not harmful"
+              },
+              {
+                text: "Social fund"
+              }
+            ],
+            [
+              {
+                html: html
+              },{
+                text: "11/02/2025"
+              },
+              {
+                text: "001"
+              },
+              {
+                text: "QQ123456C"
+              },
+              {
+                text: "1589"
+              },
+              {
+                text: "AA123"
+              },
+              {
+                text: "Leah Smith"
+              },
+              {
+                text: "On hold"
+              },
+              {
+                text: "Ephemeral"
+              },
+              {
+                text: "Supporting"
+              },
+              {
+                text: "Not harmful"
+              },
+              {
+                text: "Social fund"
+              }
+            ],
+            [
+              {
+                html: html
+              },
+              {
+                text: "11/02/2025"
+              },
+              {
+                text: "001"
+              },
+              {
+                text: "QQ123456C"
+              },
+              {
+                text: "1589"
+              },
+              {
+                text: "AA123"
+              },
+              {
+                text: "Leah Smith"
+              },
+              {
+                text: "Open"
+              },
+              {
+                text: "Ephemeral"
+              },
+              {
+                text: "Supporting"
+              },
+              {
+                text: "Not harmful"
+              },
+              {
+                text: "Social fund"
+              }
+            ]
+          ]
+        }) }}
+
+        {{ govukPagination({
+          previous: {
+            href: "#"
+          },
+          next: {
+            href: "#"
+          },
+          items: [
+            {
+              number: 1,
+              href: "#"
+            },
+            {
+              number: 2,
+              current: true,
+              href: "#"
+            },
+            {
+              number: 3,
+              href: "#"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue",
+          href: "what-next"
+        }) }}
     
   </div>
 </div>

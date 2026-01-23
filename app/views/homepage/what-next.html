@@ -1,0 +1,112 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Content page template –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="records" class="dwp-horizontal-navigation__link" aria-current="true">Records</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="reports" class="dwp-horizontal-navigation__link">Reports</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HRRecords" href="hr-records" class="dwp-horizontal-navigation__link">HR Records</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="microfiche" href="microfiche" class="dwp-horizontal-navigation__link">Microfiche</a>
+            </li> 
+        
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="document-upload" class="dwp-horizontal-navigation__link">Document Upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+{{ govukBackLink({
+  text: "Back"
+}) }}
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{% endblock %} {% block content %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+<div class="govuk-width-container">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+        <form action="/form-handler" method="post" novalidate>
+
+          {{ govukRadios({
+            name: "whereDoYouLive",
+            fieldset: {
+              legend: {
+                text: "What do you want to do with the selected records?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l govuk-!-padding-bottom-3"
+              }
+            },
+            items: [
+              {
+                value: "view-documents",
+                text: "View documents"
+              },
+              {
+                value: "close-documents",
+                text: "Close documents"
+              },
+              {
+                value: "manage-metadata",
+                text: "Manage metadata",
+                hint: {
+                  text: "For example, xyz"
+                }
+              },
+              {
+                value: "apply-hold",
+                text: "Apply hold"
+              },
+              {
+                value: "remove-hold",
+                text: "Remove hold"
+              },
+              {
+                value: "request-rescan",
+                text: "Request rescan"
+              },
+              {
+                value: "bulk-update",
+                text: "Bulk update"
+              },
+              {
+                value: "download",
+                text: "Download"
+              },
+              {
+                value: "create-copy",
+                text: "Create copy"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </form>
+    
+  </div>
+</div>
+</div>
+
+{% endblock %}
