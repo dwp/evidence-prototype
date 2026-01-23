@@ -42,47 +42,35 @@
 
     <h1 class="govuk-heading-l">View and Manage a document record</h1>
 
-    <p class="govuk-body">Search ECMS using one of the options below to view and manage records. You can also run an advance search.</p>
+    <p class="govuk-body">Search ECMS using a Customer Reference Number (CRN) below to view and manage records. You can also run an advance search.</p>
 
   
     {% from "govuk/components/input/macro.njk" import govukInput %}
 
-     {{ govukRadios({
-          name: "HowToSearch",
-          fieldset: {
-            legend: {
-              text: "How do you want to search for a record?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "NINo",
-              text: "National Insurance Number (NINo)"
-            },
-            {
-              value: "CRN",
-              text: "Customer Reference Number (CRN)"
-            },
-            {
-              value: "claim-reference-number",
-              text: "Claim Reference Numbers"
-            },
-            {
-              divider: "or"
-            },
-            {
-              value: "advanced-search",
-              text: "Advanced search"
-            }
-          ]
-        }) }}
+    {{ govukInput({
+        label: {
+          text: "Customer Reference Number (CRN)",
+          classes: "govuk-label--m",
+          isPageHeading: true
+        },
+        hint: {
+          text: "For example, ‘xxxxx’"
+        },
+        classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
+        id: "national-insurance-number",
+        name: "nationalInsuranceNumber",
+        spellcheck: false
+      })
+    }}
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Search",
+        href: "search-results"
+      }) }}
+    </div>
     
+    <p class="govuk-body"><a class="govuk-link" href="#">Advanced Search</a><br /></p>
     
   </div>
 </div>
