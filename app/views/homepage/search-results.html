@@ -1,0 +1,270 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Content page template –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="records" class="dwp-horizontal-navigation__link" aria-current="true">Records</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="reports" class="dwp-horizontal-navigation__link">Reports</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HRRecords" href="hr-records" class="dwp-horizontal-navigation__link">HR Records</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="microfiche" href="microfiche" class="dwp-horizontal-navigation__link">Microfiche</a>
+            </li> 
+        
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="document-upload" class="dwp-horizontal-navigation__link">Document Upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{% endblock %} {% block content %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+<div class="govuk-width-container">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Search results</h1>
+
+    <p class="govuk-body">Showing <strong>1</strong> to <strong>20</strong> of <strong>40</strong> records</p>
+
+
+{{  govukTable({
+    firstCellIsHeader: true,
+    classes: "govuk-table--small-text-until-tablet",
+    head: [
+      {
+        text: "Date Received / Issued"
+      },
+      {
+        text: "LOB Case ID"
+      },
+      {
+        text: "NINo"
+      },
+      {
+        text: "CRN"
+      },
+      {
+        text: "Claim reference"
+      },
+      {
+        text: "Name"
+      },
+      {
+        text: "Document type"
+      },
+      {
+        text: "Status"
+      },
+      {
+        text: "Class"
+      },
+      {
+        text: "Harmful"
+      },
+      {
+        text: "Benefit type"
+      }
+    ],
+    rows: [
+      [
+        {
+          text: "11/02/2025"
+        },
+        {
+          text: "001"
+        },
+        {
+          text: "QQ 12 34 56 C"
+        },
+        {
+          text: "1589"
+        },
+        {
+          text: "AA123"
+        },
+        {
+          text: "Leah Smith"
+        },
+        {
+          text: "SF300"
+        },
+        {
+          text: "Open"
+        },
+        {
+          text: "Supporting"
+        },
+        {
+          text: "Not harmful"
+        },
+        {
+          text: "Social fund"
+        }
+      ],
+      [
+        {
+          text: "11/02/2025"
+        },
+        {
+          text: "001"
+        },
+        {
+          text: "QQ 12 34 56 C"
+        },
+        {
+          text: "1589"
+        },
+        {
+          text: "AA123"
+        },
+        {
+          text: "Leah Smith"
+        },
+        {
+          text: "SF200"
+        },
+        {
+          text: "Open"
+        },
+        {
+          text: "Supporting"
+        },
+        {
+          text: "Not harmful"
+        },
+        {
+          text: "Social fund"
+        }
+      ],
+      [
+        {
+          text: "11/02/2025"
+        },
+        {
+          text: "001"
+        },
+        {
+          text: "QQ 12 34 56 C"
+        },
+        {
+          text: "1589"
+        },
+        {
+          text: "AA123"
+        },
+        {
+          text: "Leah Smith"
+        },
+        {
+          text: "On hold"
+        },
+        {
+          text: "Ephemeral"
+        },
+        {
+          text: "Supporting"
+        },
+        {
+          text: "Not harmful"
+        },
+        {
+          text: "Social fund"
+        }
+      ],
+      [
+        {
+          text: "11/02/2025"
+        },
+        {
+          text: "001"
+        },
+        {
+          text: "QQ 12 34 56 C"
+        },
+        {
+          text: "1589"
+        },
+        {
+          text: "AA123"
+        },
+        {
+          text: "Leah Smith"
+        },
+        {
+          text: "On hold"
+        },
+        {
+          text: "Ephemeral"
+        },
+        {
+          text: "Supporting"
+        },
+        {
+          text: "Not harmful"
+        },
+        {
+          text: "Social fund"
+        }
+      ],
+      [
+        {
+          text: "11/02/2025"
+        },
+        {
+          text: "001"
+        },
+        {
+          text: "QQ 12 34 56 C"
+        },
+        {
+          text: "1589"
+        },
+        {
+          text: "AA123"
+        },
+        {
+          text: "Leah Smith"
+        },
+        {
+          text: "Open"
+        },
+        {
+          text: "Ephemeral"
+        },
+        {
+          text: "Supporting"
+        },
+        {
+          text: "Not harmful"
+        },
+        {
+          text: "Social fund"
+        }
+      ]
+    ]
+  }) }}
+    
+  </div>
+</div>
+</div>
+
+{% endblock %}
