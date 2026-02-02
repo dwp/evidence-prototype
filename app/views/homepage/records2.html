@@ -20,7 +20,7 @@
             
             <li class="dwp-horizontal-navigation__item">
             <a id="microfiche" href="microfiche" class="dwp-horizontal-navigation__link">Microfiche</a>
-            </li>        
+            </li>      
         
             <li class="dwp-horizontal-navigation__item">
             <a id="documentUpload" href="document-upload" class="dwp-horizontal-navigation__link">Document Upload</a>
@@ -34,6 +34,7 @@
 {% endblock %} {% block content %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
 
 <div class="govuk-width-container">
 <div class="govuk-grid-row">
@@ -41,35 +42,46 @@
 
     <h1 class="govuk-heading-l">View and Manage a document record</h1>
 
-    <p class="govuk-body">Search ECMS using a Customer Reference Number (CRN) below to view and manage records. You can also run an advance search.</p>
+    <p class="govuk-body">Search ECMS using one of the options below to view and manage records. You can also run an advance search.</p>
 
   
-    {% from "govuk/components/input/macro.njk" import govukInput %}
 
-    {{ govukInput({
-        label: {
-          text: "Customer Reference Number (CRN)",
-          classes: "govuk-label--m",
-          isPageHeading: true
-        },
-        hint: {
-          text: "For example, ‘xxxxx’"
-        },
-        classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
-        id: "national-insurance-number",
-        name: "nationalInsuranceNumber",
-        spellcheck: false
-      })
-    }}
+     {{ govukRadios({
+          name: "HowToSearch",
+          fieldset: {
+            legend: {
+              text: "How do you want to search for a record?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "NINo",
+              text: "National Insurance Number (NINo)"
+            },
+            {
+              value: "CRN",
+              text: "Customer Reference Number (CRN)"
+            },
+            {
+              value: "claim-reference-number",
+              text: "Claim Reference Numbers"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "advanced-search",
+              text: "Advanced search"
+            }
+          ]
+        }) }}
 
-    <div class="govuk-button-group">
-      {{ govukButton({
-        text: "Search",
-        href: "search-results"
-      }) }}
-    </div>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
     
-    <p class="govuk-body"><a class="govuk-link" href="#">Advanced Search</a><br /></p>
     
   </div>
 </div>

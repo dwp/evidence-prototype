@@ -15,13 +15,12 @@
             </li> 
 
             <li class="dwp-horizontal-navigation__item">
-            <a id="HRRecords" href="hr-records" class="dwp-horizontal-navigation__link">HR Records</a>
-            </li> 
-
+            <a id="HR-Records" href="hr-records" class="dwp-horizontal-navigation__link">HR Records</a>
+            </li>    
+            
             <li class="dwp-horizontal-navigation__item">
             <a id="microfiche" href="microfiche" class="dwp-horizontal-navigation__link">Microfiche</a>
-            </li> 
-        
+            </li>       
         
             <li class="dwp-horizontal-navigation__item">
             <a id="documentUpload" href="document-upload" class="dwp-horizontal-navigation__link">Document Upload</a>
@@ -95,9 +94,99 @@
           ]
         }) }}
 
+        </div>
+      </div>
 
+
+
+      <form id="filter-form">
+        <div class="moj-filter cv-filter" style="background-color:#f3f2f1">
+          <div class="moj-filter__content">
+            <!-- filter options -->
+            <div class="moj-filter__options">
+              <fieldset class="govuk-fieldset">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Filters</legend>
+
+                  <div class="govuk-grid-row">
+
+
+                    <div class="govuk-grid-column-one-third leftside">
+                      <div class="govuk-!-padding-bottom-2"></div>
+
+                      <!-- filter by benefits -->
+                      <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Document type</legend>
+                            <div class="govuk-checkboxes--small">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="benefit-one" name="benefit" type="checkbox" value="Carer’s Allowance" checked data-name="Carer’s Allowance">
+                                    <label class="govuk-label govuk-checkboxes__label" for="benefit-one">BD8 (20)</label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="benefit-two" name="benefit" type="checkbox" value="Child Maintenance" checked data-name="Child Maintenance">
+                                  <label class="govuk-label govuk-checkboxes__label" for="benefit-two">BD600 (14)</label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="benefit-three" name="benefit" type="checkbox" value="Department for Work and Pensions" checked data-name="Department for Work and Pensions">
+                                    <label class="govuk-label govuk-checkboxes__label" for="benefit-three">CA4140 (8)</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                  </div>
+
+                  <div class="govuk-grid-column-one-third leftside">
+                      <div class="govuk-!-padding-bottom-2"></div>
+
+                      <!-- filter by benefits -->
+                      <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Benefit type</legend>
+                            <div class="govuk-checkboxes--small">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="benefit-one" name="benefit" type="checkbox" value="Carer’s Allowance" checked data-name="Carer’s Allowance">
+                                    <label class="govuk-label govuk-checkboxes__label" for="benefit-one">Carer’s Allowance</label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="benefit-four" name="benefit" type="checkbox" value="Employment Support Allowance (ESA)" checked data-name="Employment Support Allowance (ESA)">
+                                  <label class="govuk-label govuk-checkboxes__label" for="benefit-four">Employment Support Allowance (ESA)</label>
+                              </div>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="benefit-five" name="benefit" type="checkbox" value="Personal Independence Payment (PIP)" checked data-name="Personal Independence Payment (PIP)">
+                                    <label class="govuk-label govuk-checkboxes__label" for="benefit-five">Personal Independence Payment (PIP)</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                  </div>
+
+          </div>
+
+        
+            <!-- apply filter button -->
+
+
+      </fieldset>
+
+      
+  </form>
+
+  <div class="govuk-button-group">
+    <button type="apply-filter" id="apply-filter" class="govuk-button" data-module="govuk-button" onclick="filterTable()">
+      Apply filter
+    </button>
+    <a class="govuk-link" href="#" onclick="resetFilter()">Reset filter</a>
+  </div>
+
+</div>
+</div>
+</div>
+</form>
+
+<div class="govuk-!-margin-top-4"></div>
     
-
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
 
     {% set html %}
       <div class="govuk-form-group">
@@ -367,9 +456,8 @@
             }
           ]
         }) }}
-    
+    </div>
   </div>
-</div>
 </div>
 
 {% endblock %}
