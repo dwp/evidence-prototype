@@ -56,49 +56,17 @@
 
       {{ govukButton({
           text: "Show filter",
-          classes: "govuk-button--secondary govuk-!-margin-right-2"
+          classes: "govuk-button--secondary govuk-!-margin-right-2",
+          id: "toggle-filter" 
         }) }}
 
-       {{ mojButtonMenu({
-          button: {
-            text: "Actions"
-          },
-          items: [
-            {
-              text: "View documents"
-            },
-            {
-              text: "Close documents"
-            },
-            {
-              text: "Manage metadata"
-            },
-            {
-              text: "Apply hold"
-            },
-            {
-              text: "Remove hold"
-            },
-            {
-              text: "Request rescan"
-            },
-            {
-              text: "Bulk update"
-            },
-            {
-              text: "Download"
-            },
-            {
-              text: "Create copy"
-            }
-          ]
-        }) }}
+       
 
         </div>
       </div>
 
 
-  <div class="moj-filter" data-module="moj-filter">
+  <div id="toggle-display" class="moj-filter" data-module="moj-filter">
   <div class="moj-filter__header">
     <div class="moj-filter__header-title">
       <h2 class="govuk-heading-m">Filter</h2>
@@ -125,7 +93,7 @@
         <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> Carers Allowance</a></li>
       </ul>
     </div>
-    <div class="moj-filter__options">
+    <div class="moj-filter__options govuk-!-margin-bottom-5">
       <div class="govuk-grid-column-one-third">
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
@@ -194,6 +162,41 @@
     </div>
   </div>
 </div>
+
+{{ mojButtonMenu({
+    button: {
+      text: "Actions"
+    },
+    items: [
+      {
+        text: "View documents"
+      },
+      {
+        text: "Close documents"
+      },
+      {
+        text: "Manage metadata"
+      },
+      {
+        text: "Apply hold"
+      },
+      {
+        text: "Remove hold"
+      },
+      {
+        text: "Request rescan"
+      },
+      {
+        text: "Bulk update"
+      },
+      {
+        text: "Download"
+      },
+      {
+        text: "Create copy"
+      }
+    ]
+  }) }}
 
 <div class="govuk-!-margin-top-4"></div>
     
@@ -484,4 +487,14 @@
   </div>
 </div>
 
+<script>
+  const filterButton = document.querySelector("#toggle-filter");
+  const filterDisplay = document.querySelector("#toggle-display");
+
+  filterButton.addEventListener("click", (event) => {
+    filterDisplay.hidden = filterDisplay.hidden === true ? false : true;
+  });
+</script>
+
 {% endblock %}
+
