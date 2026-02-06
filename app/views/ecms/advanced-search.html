@@ -1,0 +1,231 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Content page template –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item  dwp-horizontal-navigation__item--selected">
+            <a id="records" href="records" class="dwp-horizontal-navigation__link" aria-current="true">Record search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="document-upload" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %} {% block content %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+<div class="govuk-width-container">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-l">Advanced search</h1>
+
+    {{ govukInput({
+      label: {
+        text: "National Insurance Number",
+        classes: "govuk-label--m"
+      },
+      classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
+      id: "nino",
+      name: "nino",
+      spellcheck: false
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "First name",
+        classes: "govuk-label--m"
+      },
+      classes: "govuk-input govuk-!-width-two-thirds govuk-input--extra-letter-spacing",
+      id: "first-name",
+      name: "FirstName",
+      inputmode: "alpha",
+      spellcheck: false
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Last name",
+        classes: "govuk-label--m"
+      },
+      classes: "govuk-input govuk-!-width-two-thirds govuk-input--extra-letter-spacing",
+      id: "last-name",
+      name: "lastName",
+      inputmode: "alpha",
+      spellcheck: false
+    }) }}
+
+    {{ govukDateInput({
+      id: "dob",
+      namePrefix: "dob",
+      fieldset: {
+        legend: {
+          text: "Date of birth",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+        {
+          name: "day",
+          classes: "govuk-input--width-2",
+          autocomplete: "bday-day"
+        },
+        {
+          name: "month",
+          classes: "govuk-input--width-2",
+          autocomplete: "bday-month"
+        },
+        {
+          name: "year",
+          classes: "govuk-input--width-4",
+          autocomplete: "bday-year"
+        }
+      ]
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Customer Reference Number",
+        classes: "govuk-label--m"
+      },
+      classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
+      id: "customer-reference",
+      name: "customerReference",
+      spellcheck: false
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Claim Reference",
+        classes: "govuk-label--m"
+      },
+      classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
+      id: "claim-reference",
+      name: "claimReference",
+      spellcheck: false
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Document type",
+        classes: "govuk-label--m"
+      },
+      classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
+      id: "document-type",
+      name: "documentType",
+      spellcheck: false
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Scan envelope ID",
+        classes: "govuk-label--m"
+      },
+      classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
+      id: "scan-envelope-id",
+      name: "scanEnvelopeID",
+      spellcheck: false
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Scan batch ID",
+        classes: "govuk-label--m"
+      },
+      classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
+      id: "scan-batch-id",
+      name: "scanBatchID",
+      spellcheck: false
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Line of business case ID",
+        classes: "govuk-label--m"
+      },
+      classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
+      id: "lob-case-id",
+      name: "lobCaseID",
+      spellcheck: false
+    }) }}
+
+
+    <div class="govuk-width-container">
+
+        <div class="govuk-grid-row">
+          <label class="govuk-label govuk-label--m govuk-!-padding-left-3" for="sort-code">
+            What date was the report generated?
+          </label>
+          <div class="govuk-grid-column-one-half">
+
+            {{ govukDateInput({
+              id: "from",
+              namePrefix: "from",
+              fieldset: {
+                legend: {
+                  text: "From:"
+                }
+              },
+              hint: {
+                text: "For example, 27 3 2007"
+              }
+            }) }}
+
+          </div>
+          <div class="govuk-grid-column-one-half">
+
+              {{ govukDateInput({
+                id: "To",
+                namePrefix: "To",
+                fieldset: {
+                  legend: {
+                    text: "to:"
+                  }
+                },
+                hint: {
+                  text: "For example, 27 3 2007"
+                }
+              }) }}
+          </div>
+      </div>
+    </div>
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Search",
+        href: "search-results"
+      }) }}
+    </div>
+    
+    
+  </div>
+</div>
+</div>
+
+{% endblock %}

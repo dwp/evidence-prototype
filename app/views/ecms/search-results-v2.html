@@ -39,6 +39,7 @@
 {% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "govuk/components/pagination/macro.njk" import govukPagination %}
 {%- from "moj/components/filter/macro.njk" import mojFilter -%}
+{%- from "moj/components/button-menu/macro.njk" import mojButtonMenu -%}
 
 
 <div class="govuk-width-container">
@@ -48,24 +49,161 @@
     <h1 class="govuk-heading-l">Search results</h1>
 
     <p class="govuk-body">Showing <strong>1</strong> to <strong>20</strong> of <strong>40</strong> records</p>
-    
-   
-
-    <div class="govuk-button-group">
 
       {{ govukButton({
           text: "Show filter",
-          classes: "govuk-button--secondary"
+          classes: "govuk-button--secondary govuk-!-margin-right-2",
+          id: "toggle-filter" 
         }) }}
 
-      {{ govukButton({
-        text: "Continue",
-        href: "what-next"
-      }) }}
+       
+
+        </div>
+      </div>
+
+
+  <div id="toggle-display" class="moj-filter" data-module="moj-filter">
+  <div class="moj-filter__header">
+    <div class="moj-filter__header-title">
+      <h2 class="govuk-heading-m">Filter</h2>
+    </div>
+    <div class="moj-filter__header-action">
+    </div>
+  </div>
+  <div class="moj-filter__content">
+    <div class="moj-filter__selected">
+      <div class="moj-filter__selected-heading">
+        <div class="moj-filter__heading-title">
+          <h2 class="govuk-heading-m">Selected filters</h2>
+        </div>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Document type</h3>
+        <ul class="moj-filter-tags">
+          <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> BD8</a></li>
+          <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> BF600</a></li>
+        </ul>
+      </div>
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Status</h3>
+      <ul class="moj-filter-tags">
+        <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> Carers Allowance</a></li>
+      </ul>
+    </div>
+    <div class="moj-filter__options govuk-!-margin-bottom-5">
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Document type
+            </legend>
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="type" name="type" type="checkbox" value="1" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="type">
+                  BD8 (18)
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="2" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="type-2">
+                  BF600 (5)
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="type-3" name="type" type="checkbox" value="3">
+                <label class="govuk-label govuk-checkboxes__label" for="type-3">
+                  CA4140 (2)
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            Benefit type
+          </legend>
+          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete" checked>
+              <label class="govuk-label govuk-checkboxes__label" for="status">
+                Carers allowance (2)
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="status-2" name="status" type="checkbox" value="incomplete">
+              <label class="govuk-label govuk-checkboxes__label" for="status-2">
+                Personal Independence Payment (PIP) (5)
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="status-3" name="status" type="checkbox" value="inprogress">
+              <label class="govuk-label govuk-checkboxes__label" for="status-3">
+                Employment Support Allowance (ESA) (3)
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-button-group">
+      <button type="submit" class="govuk-button" data-module="govuk-button" data-test-id="submit-button">
+        Apply filter
+      </button>
+      <a class="govuk-link" href="#">Reset filter</a>
     </div>
 
-    
+    </div>
+  </div>
+</div>
 
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "View documents"
+  }) }}
+
+  {{ mojButtonMenu({
+      button: {
+        text: "Alternative actions",
+        classes: "govuk-button--secondary"
+      },
+      items: [
+        {
+          text: "Close documents"
+        },
+        {
+          text: "Manage metadata"
+        },
+        {
+          text: "Apply hold"
+        },
+        {
+          text: "Remove hold"
+        },
+        {
+          text: "Request rescan"
+        },
+        {
+          text: "Bulk update"
+        },
+        {
+          text: "Download"
+        },
+        {
+          text: "Create copy"
+        }
+      ]
+    }) }}
+
+
+  </div>
+
+<div class="govuk-!-margin-top-4"></div>
+    
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
 
     {% set html %}
       <div class="govuk-form-group">
@@ -266,9 +404,6 @@
               },
               {
                 text: "Not harmful"
-              },
-              {
-                text: "Social fund"
               }
             ],
             [
@@ -336,13 +471,22 @@
           ]
         }) }}
 
-        {{ govukButton({
-          text: "Continue",
-          href: "what-next"
-        }) }}
-    
+
+      <a class="govuk-link" href="search-results">Alternate search results</a>
+    </div>
   </div>
 </div>
-</div>
+
+<script>
+  const filterButton = document.querySelector("#toggle-filter");
+  const filterDisplay = document.querySelector("#toggle-display");
+
+  filterButton.addEventListener("click", (event) => {
+    filterDisplay.hidden = filterDisplay.hidden === true ? false : true;
+
+    filterButton.innerHTML = filterDisplay.hidden === true ? "Show filters" : "Hide filters";
+  });
+</script>
 
 {% endblock %}
+
