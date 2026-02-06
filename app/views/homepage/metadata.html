@@ -1,0 +1,661 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Content page template –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="records" class="dwp-horizontal-navigation__link" aria-current="true">Records</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="reports" class="dwp-horizontal-navigation__link">Reports</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="hr-records" class="dwp-horizontal-navigation__link">HR Records</a>
+            </li>    
+            
+            <li class="dwp-horizontal-navigation__item">
+            <a id="microfiche" href="microfiche" class="dwp-horizontal-navigation__link">Microfiche</a>
+            </li> 
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="document-upload" class="dwp-horizontal-navigation__link">Document Upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{% endblock %} {% block content %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+<div class="govuk-width-container">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+    <h1 class="govuk-heading-l">Metadata</h1>
+
+      <h2 class="govuk-heading-m">Customer details</h2>
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "National Insurance Number"
+            },
+            value: {
+              text: "CA000001A"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "National Insurance Number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "5 January 1978"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Date of birth"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "First name"
+            },
+            value: {
+              text: "Leah"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "First name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Last name"
+            },
+            value: {
+              text: "Smith"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Last name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Postcode"
+            },
+            value: {
+              text: "W1A 1AA"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Postcode"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Customer Reference Number"
+            },
+            value: {
+              text: "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Customer Reference Number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Claim reference"
+            },
+            value: {
+              text: "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Claim reference"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Document details</h2>
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Business area"
+            },
+            value: {
+              text: "Jobcentre Plus"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Business area"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Benefit type"
+            },
+            value: {
+              text: "Social Fund"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Benefit type"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Document type"
+            },
+            value: {
+              text: ""
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Document type"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Document classification"
+            },
+            value: {
+              text: "Supporting"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Document classification"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Harmful indicator"
+            },
+            value: {
+              text: "Not harmful"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Harmful indicator"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Document status"
+            },
+            value: {
+              text: "Open"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Document status"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Hold details</h2>
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Inhibit automatic closure"
+            },
+            value: {
+              text: "Yes"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Inhibit automatic closure"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Overpayment hold"
+            },
+            value: {
+              text: "No"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Overpayment hold"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Overpayment hold date"
+            },
+            value: {
+              text: ""
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Overpayment hold date"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "General hold"
+            },
+            value: {
+              text: "No"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "General hold"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "General hold date"
+            },
+            value: {
+              text: ""
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "General hold date"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "On hold reason"
+            },
+            value: {
+              text: ""
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "On hold reason"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Reference document details</h2>
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Line of business case ID"
+            },
+            value: {
+              text: ""
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Line of business case ID"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Office postcode"
+            },
+            value: {
+              text: ""
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Office postcode"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Link data"
+            },
+            value: {
+              text: ""
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Overpayment hold"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Document ID"
+            },
+            value: {
+              text: "xxxxnnnnxxxx"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Document ID"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Scan details</h2>
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Receipt date"
+            },
+            value: {
+              text: "4 October 2025"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Receipt date"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Scan date"
+            },
+            value: {
+              text: "4 October 2025"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Scan date"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Index date"
+            },
+            value: {
+              text: "1 October 2025"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Index date"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Issue date"
+            },
+            value: {
+              text: ""
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Issue date"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Scan envelope ID"
+            },
+            value: {
+              text: "xxxx"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Scan envelope ID"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Scan batch ID"
+            },
+            value: {
+              text: "xxxx"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Scan batch ID"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Scan centre ID"
+            },
+            value: {
+              text: "xxxx"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Scan centre ID"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Scan operator ID"
+            },
+            value: {
+              text: "xxxx"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Scan operator ID"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Index operator ID"
+            },
+            value: {
+              text: "xxxx"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Index operator ID"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Number of pages"
+            },
+            value: {
+              text: "3"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Number of pages"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Save changes
+        </button>
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Cancel
+        </button>
+      </div>
+
+    
+  </div>
+</div>
+</div>
+
+{% endblock %}
