@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Content page template –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="records" class="dwp-horizontal-navigation__link" aria-current="true">Records</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="reports" class="dwp-horizontal-navigation__link">Reports</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="hr-records" class="dwp-horizontal-navigation__link">HR Records</a>
+            </li>    
+            
+            <li class="dwp-horizontal-navigation__item">
+            <a id="microfiche" href="microfiche" class="dwp-horizontal-navigation__link">Microfiche</a>
+            </li>      
+                  
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="document-upload" class="dwp-horizontal-navigation__link">Document Upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+  {% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/form-handler" method="post" novalidate>
+        {{ govukInput({
+          label: {
+            text: "Update National Insurance Number",
+            isPageHeading: true,
+            classes: "govuk-label--l"
+          },
+          hint: {
+            text: "for example, ‘QQ 12 34 56 C’"
+          },
+          classes: "govuk-input--width-10",
+          id: "national-insurance-number",
+          name: "national-insurance-number",
+          autocomplete: "national-insurance-number"
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+  {% endblock %}
