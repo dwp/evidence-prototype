@@ -493,6 +493,8 @@
 
   filterButton.addEventListener("click", (event) => {
     filterDisplay.hidden = filterDisplay.hidden === true ? false : true;
+
+    filterButton.innerHTML = filterDisplay.hidden === true ? "Show filters" : "Hide filters";
   });
 </script>
 
