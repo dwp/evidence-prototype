@@ -37,6 +37,7 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/details/macro.njk" import govukDetails %}
 
 <div class="govuk-width-container">
 <div class="govuk-grid-row">
@@ -44,6 +45,38 @@
 
 
     <h1 class="govuk-heading-l">Advanced search</h1>
+
+
+
+{{ govukDetails({
+  summaryText: "Search options",
+  html: '<p class="govuk-body">You can search by:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>National Insurance number</li>
+  <li>National Insurance number and Line of Business (LOB) case ID</li>
+  <li>National Insurance number and report date range</li>
+  <li>First name and Last name</li>
+  <li>First name, Last name and Date of birth</li>
+  <li>First name, Last name and Document type</li>
+  <li>First name, Last name and report date range</li>
+  <li>First name, Last name, Document type and report date range</li>
+  <li>Last name and Date of birth</li>
+  <li>Last name and Document type</li>
+  <li>Last name and Scan batch ID</li>
+  <li>Last name, Document type and report date range</li>
+  <li>Last name, Scan batch ID and report date range</li>
+  <li>Claim Reference Number (CRN)</li>
+  <li>Claim reference</li>
+  <li>Claim reference and report date range</li>
+  <li>Scan envelope ID</li>
+  <li>Scan batch ID</li>
+  <li>Scan batch ID and report date range</li>
+  <li>Line of Business (LOB) case ID</li>
+  <li>Line of Business (LOB) case ID and report date range</li>
+  <li>Line of Business (LOB) case ID and Claim reference</li>
+</ul>'
+}) }}
+
 
     {{ govukInput({
       label: {
@@ -111,7 +144,7 @@
 
     {{ govukInput({
       label: {
-        text: "Customer Reference Number",
+        text: "Customer Reference number (CRN)",
         classes: "govuk-label--m"
       },
       classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
@@ -122,7 +155,7 @@
 
     {{ govukInput({
       label: {
-        text: "Claim Reference",
+        text: "Claim reference",
         classes: "govuk-label--m"
       },
       classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
@@ -166,7 +199,7 @@
 
     {{ govukInput({
       label: {
-        text: "Line of business case ID",
+        text: "Line of Business (LOB) case ID",
         classes: "govuk-label--m"
       },
       classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
@@ -180,7 +213,7 @@
 
         <div class="govuk-grid-row">
           <label class="govuk-label govuk-label--m govuk-!-padding-left-3" for="sort-code">
-            What date was the report generated?
+            When was the report generated?
           </label>
           <div class="govuk-grid-column-one-half">
 
