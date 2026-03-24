@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %} {% block pageTitle %} Content page template –
+{% extends "layouts/main.html" %} {% block pageTitle %} Search microfiches –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
 %}
 
@@ -27,7 +27,18 @@
 
 <div class="govuk-!-padding-bottom-4"></div>
 
-{% endblock %} {% block content %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+
+{% endblock %} 
+
+
+
+{% block content %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -39,7 +50,7 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-    <h1 class="govuk-heading-l">View and manage a microfiche</h1>
+    <h1 class="govuk-heading-l">Search microfiches</h1>
 
     {{ govukSelect({
       id: "year",

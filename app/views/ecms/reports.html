@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %} {% block pageTitle %} Content page template –
+{% extends "layouts/main.html" %} {% block pageTitle %} Report search –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
 %}
 
@@ -38,7 +38,7 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-    <h1 class="govuk-heading-l">View and manage a report</h1>
+    <h1 class="govuk-heading-l">Report search</h1>
 
     {{ govukInput({
       label: {
@@ -61,9 +61,7 @@
         classes: "govuk-label--m"
       },
       classes: "govuk-input--extra-letter-spacing",
-      hint: {
-        text: "Do we have any doc type hint text needed in here?"
-      },
+      
       id: "document-type",
       name: "documentType",
       inputmode: "numeric",
@@ -75,7 +73,7 @@
 
         <div class="govuk-grid-row">
           <label class="govuk-label govuk-label--m govuk-!-padding-left-3" for="sort-code">
-            What date was the report generated?
+            When was the report generated?
           </label>
           <div class="govuk-grid-column-one-half">
 

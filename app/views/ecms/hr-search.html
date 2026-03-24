@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %} {% block pageTitle %} Content page template –
+{% extends "layouts/main.html" %} {% block pageTitle %} HR records search –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
 %}
 
@@ -36,7 +36,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">Search HR records</h1>
+    <h1 class="govuk-heading-l">HR records search</h1>
 
     <p class="govuk-body">Search ECMS using one of the options below to view and manage HR records.</p>
 
@@ -46,7 +46,7 @@
           name: "HowToSearch",
           fieldset: {
             legend: {
-              text: "How do you want to search for a record?",
+              text: "How do you want to search for a HR record?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--m"
             }
@@ -54,11 +54,11 @@
           items: [
             {
               value: "M-store",
-              text: "M-store search"
+              text: "M-store"
             },
             {
               value: "microfiche",
-              text: "Microfiche search"
+              text: "Microfiche"
             }
           ]
         }) }}
