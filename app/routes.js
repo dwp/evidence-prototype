@@ -18,3 +18,11 @@ const router = govukPrototypeKit.requests.setupRouter()
 //         res.redirect("/homepage/navigation"); 
 //     }
 // })
+
+
+///////////////////////
+//   Version 1.0.   //
+//////////////////////
+
+// This moves 'ecms-v1' routing to 'ecms-v1' directory
+require('./views/ecms-v1/_routes')(router)
