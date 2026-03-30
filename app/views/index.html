@@ -5,24 +5,82 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-
-  <div class="govuk-grid-row">
+       <div
+      class="govuk-grid-column-one-quarter govuk-!-padding-0 govuk-!-margin-right-4"
+      style="border-top: 4px solid #1d71b8; float: right;">
+      <h3 class="govuk-heading-s govuk-!-margin-top-2">
+        Manage prototype
+      </h3>
+      <ul class="govuk-list govuk-!-font-size-16">
+        <li>
+          <a href="/manage-prototype">Start page</a>
+        </li>
+      </ul>
+    </div>
+  <div class="govuk-grid-column-two-thirds">
     <div class="govuk-width-container">
-      <h1 class="govuk-heading-l">
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">
         Enterprise Content Management System (ECMS)
       </h1>
+       <span class="govuk-tag govuk-!-margin-bottom-4">Prototype</span>
     </div>
-  </div>
+  
 
   <div class="govuk-width-container">
-    <p>What is evidence explanation here.</p>
+    <p>ECMS (Enterprise Content Management Service) is the department’s strategic solution for storing and managing content related to a citizen’s interaction with DWP. It supports the entry, validation, storage, retrieval, and deletion of evidence such as forms, medical documents, and letters, while complying with DWP policy and GDPR. Documents are received through the Mail Opening Unit (MOU), manual uploads via the DRS Portal, and digital applications.</p>
+    <p>This prototype represents the new ECMS User Interface, which will replace the legacy DRS Portal.</p>
   </div>
 
   <div class="govuk-inset-text">
     ECMS is part of the wider group of components that forms Customer Communications and Media Services (CCAMS). The other components are Notifications and Preferences.
   </div>
 
+
+    <!-- USER RESEARCH JOURNEYS -->
+
   <div class="govuk-width-container">
+
+    <div class="govuk-!-padding-bottom-4"></div>
+
+    <h2 class="govuk-heading-m">
+      User research journeys
+    </h2>
+
+    <div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
+      <div class="govuk-!-padding-bottom-2"></div>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header app-custom-class">Journey</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Date</th>
+            <th scope="col" class="govuk-table__header app-custom-class">User</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+          </tr>
+        </thead>
+
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Coming soon</th>
+            <td class="govuk-table__cell">tbc</td>
+            <td class="govuk-table__cell">Agent</td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--purple">
+                In progress
+              </strong>
+            </td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">View</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="govuk-!-padding-bottom-6"></div>
+
+
+    <!-- DEVELOPER SCREENS -->
+    <div class="govuk-width-container">
 
     <div class="govuk-!-padding-bottom-4"></div>
 
@@ -36,79 +94,52 @@
       <table class="govuk-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header app-custom-class">Name</th>
-            <th scope="col" class="govuk-table__header app-custom-class">Date</th>
-            <th scope="col" class="govuk-table__header app-custom-class">User</th>
-            <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Section</th>
             <th scope="col" class="govuk-table__header app-custom-class">Action</th>
           </tr>
         </thead>
 
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Homepage</th>
-            <td class="govuk-table__cell">January 2026</td>
-            <td class="govuk-table__cell">Agent</td>
-            <td class="govuk-table__cell">
-              <strong class="govuk-tag govuk-tag--purple">
-                In progress
-              </strong>
-            </td>
-            <td class="govuk-table__cell"><a href="ecms-v1/homepage-menu.html" class="govuk-link">View</a></td>
+            <th scope="row" class="govuk-table__header">Document search (Homepage)</th>
+
+            <td class="govuk-table__cell"><a href="iteration-menu/homepage-menu.html" class="govuk-link">View</a></td>
           </tr>
         </tbody>
 
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Search result page</th>
-            <td class="govuk-table__cell">January 2026</td>
-            <td class="govuk-table__cell">Agent</td>
-            <td class="govuk-table__cell">
-              <strong class="govuk-tag govuk-tag--purple">
-                In progress
-              </strong>
-            </td>
-            <td class="govuk-table__cell"><a href="ecms-v1/search-menu.html" class="govuk-link">View</a></td>
+            <th scope="row" class="govuk-table__header">Report search</th>
+
+            <td class="govuk-table__cell"><a href="iteration-menu/reports-menu.html" class="govuk-link">View</a></td>
           </tr>
         </tbody>
 
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Full width filter</th>
-            <td class="govuk-table__cell">January 2026</td>
-            <td class="govuk-table__cell">Agent</td>
-            <td class="govuk-table__cell">
-              <strong class="govuk-tag govuk-tag--purple">
-                In progress
-              </strong>
-            </td>
-            <td class="govuk-table__cell"><a href="ecms-v1/search-results.html" class="govuk-link">View</a></td>
+            <th scope="row" class="govuk-table__header">HR search</th>
+
+            <td class="govuk-table__cell"><a href="iteration-menu/hr-menu.html" class="govuk-link">View</a></td>
           </tr>
         </tbody>
 
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Search results</th>
+            <td class="govuk-table__cell"><a href="iteration-menu/search-menu.html" class="govuk-link">View</a></td>
+          </tr>
+        </tbody>
          <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Metadata change pattern</th>
-            <td class="govuk-table__cell">January 2026</td>
-            <td class="govuk-table__cell">Agent</td>
-            <td class="govuk-table__cell">
-              <strong class="govuk-tag govuk-tag--purple">
-                In progress
-              </strong>
-            <td class="govuk-table__cell"><a href="evidence/menu.html" class="govuk-link">View</a></td>
+            <th scope="row" class="govuk-table__header">Update metadata</th>
+            <td class="govuk-table__cell"><a href="iteration-menu/metadata-menu.html" class="govuk-link">View</a></td>
           </tr>
         </tbody>
 
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Add another piece of evidence</th>
-            <td class="govuk-table__cell">January 2026</td>
-            <td class="govuk-table__cell">Agent</td>
-            <td class="govuk-table__cell">
-              <strong class="govuk-tag govuk-tag--grey">
-                Not yet started
-              </strong>
-            <td class="govuk-table__cell"><a href="evidence/menu.html" class="govuk-link">View</a></td>
+            <th scope="row" class="govuk-table__header">Evidence upload</th>
+            <td class="govuk-table__cell"><a href="iteration-menu/upload-menu.html" class="govuk-link">View</a></td>
           </tr>
         </tbody>
       </table>
@@ -121,7 +152,6 @@
 
 
     <div class="govuk-!-padding-bottom-2"></div>
-
-  </div>
+ </div>
 
   {% endblock %}

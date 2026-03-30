@@ -1,29 +1,5 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    {% from "govuk/components/select/macro.njk" import govukSelect %}
-
-{{ govukSelect({
-  id: "sort",
-  name: "sort",
-  label: {
-    text: "Sort by"
-  },
-  items: [
-    {
-      value: "date",
-      text: "Date most recent",
-      selected: true
-    },
-    {
-      value: "lob-ascending",
-      text: "LOB case ID ascending"
-    },
-    {
-      value: "lob-descending",
-      text: "LOB case ID descending"
-    }
-  ]
-}) }}
 
     {% set html %}
       <div class="govuk-form-group">
@@ -40,7 +16,7 @@
 
       {{  govukTable({
         attributes: {
-    "id": "search-results"
+    "data-module": "moj-sortable-table"
   },
           firstCellIsHeader: true,
           classes: "govuk-table--small-text-until-tablet",
@@ -49,10 +25,18 @@
               text: "Select"
             },
             {
-              text: "Date received or issued"
+              text: "Date received or issued",
+              attributes: {
+                "aria-sort": "descending"
+              },
+              format: "numeric"
             },
             {
-              text: "LOB case ID"
+              text: "LOB case ID",
+              attributes: {
+                "aria-sort": "none"
+              },
+              format: "numeric"
             },
             {
               text: "NI number"
@@ -88,197 +72,17 @@
                 html: html
               },
               {
-                text: "12 Feb 2025"
+                text: "11 Feb 2025",
+                attributes: {
+               "data-sort-value": "11022025"
+               }
               },
               {
-                text: "001"
-              },
-              {
-                text: "QQ123456C"
-              },
-              {
-                text: "1589"
-              },
-              {
-                text: "AA123"
-              },
-              {
-                text: "Leah Smith"
-              },
-              {
-                text: "SF300"
-              },
-              {
-                text: "Open"
-              },
-              {
-                text: "Supporting"
-              },
-              {
-                text: "Not harmful"
-              },
-              {
-                text: "Social fund"
-              }
-            ],
-            [
-              {
-                html: html
-              },{
-                text: "12 Feb 2025"
-              },
-              {
-                text: "001"
-              },
-              {
-                text: "QQ123456C"
-              },
-              {
-                text: "1589"
-              },
-              {
-                text: "AA123"
-              },
-              {
-                text: "Leah Smith"
-              },
-              {
-                text: "SF200"
-              },
-              {
-                text: "Open"
-              },
-              {
-                text: "Supporting"
-              },
-              {
-                text: "Not harmful"
-              },
-              {
-                text: "Social fund"
-              }
-            ],
-            [
-              {
-                html: html
-              },{
-                text: "12 Feb 2025"
-              },
-              {
-                text: "001"
-              },
-              {
-                text: "QQ123456C"
-              },
-              {
-                text: "1589"
-              },
-              {
-                text: "AA123"
-              },
-              {
-                text: "Leah Smith"
-              },
-              {
-                text: "On hold"
-              },
-              {
-                text: "Ephemeral"
-              },
-              {
-                text: "Supporting"
-              },
-              {
-                text: "Not harmful"
-              },
-              {
-                text: "Social fund"
-              }
-            ],
-            [
-              {
-                html: html
-              },{
-                text: "11 Feb 2025"
-              },
-              {
-                text: "001"
-              },
-              {
-                text: "QQ123456C"
-              },
-              {
-                text: "1589"
-              },
-              {
-                text: "AA123"
-              },
-              {
-                text: "Leah Smith"
-              },
-              {
-                text: "On hold"
-              },
-              {
-                text: "Ephemeral"
-              },
-              {
-                text: "Supporting"
-              },
-              {
-                text: "Not harmful"
-              },
-              {
-                text: "Social fund"
-              }
-            ],
-            [
-              {
-                html: html
-              },
-              {
-                text: "11 Feb 2025"
-              },
-              {
-                text: "001"
-              },
-              {
-                text: "QQ123456C"
-              },
-              {
-                text: "1589"
-              },
-              {
-                text: "AA123"
-              },
-              {
-                text: "Leah Smith"
-              },
-              {
-                text: "Open"
-              },
-              {
-                text: "Ephemeral"
-              },
-              {
-                text: "Supporting"
-              },
-              {
-                text: "Not harmful"
-              },
-              {
-                text: "Social fund"
-              }
-            ],
-            [
-              {
-                html: html
-              },
-              {
-                text: "11 Feb 2025"
-              },
-              {
-                text: "001"
+                text: "001",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "001"
+                }
               },
               {
                 text: "QQ123456C"
@@ -312,10 +116,17 @@
               {
                 html: html
               },{
-                text: "11 Feb 2025"
+                text: "11 Feb 2025",
+                attributes: {
+               "data-sort-value": "11022025"
+               }
               },
               {
-                text: "001"
+                text: "001",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "001"
+                }
               },
               {
                 text: "QQ123456C"
@@ -349,10 +160,17 @@
               {
                 html: html
               },{
-                text: "11 Feb 2025"
+                text: "11 Feb 2025",
+                attributes: {
+               "data-sort-value": "11022025"
+               }
               },
               {
-                text: "001"
+                text: "001",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "001"
+                }
               },
               {
                 text: "QQ123456C"
@@ -386,10 +204,17 @@
               {
                 html: html
               },{
-                text: "11 Feb 2025"
+                text: "11 Feb 2025",
+                attributes: {
+               "data-sort-value": "11022025"
+               }
               },
               {
-                text: "001"
+                text: "001",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "001"
+                }
               },
               {
                 text: "QQ123456C"
@@ -424,10 +249,17 @@
                 html: html
               },
               {
-                text: "11 Feb 2025"
+                text: "11 Feb 2025",
+                attributes: {
+               "data-sort-value": "11022025"
+               }
               },
               {
-                text: "001"
+                text: "001",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "001"
+                }
               },
               {
                 text: "QQ123456C"
@@ -462,10 +294,17 @@
                 html: html
               },
               {
-                text: "11 Feb 2025"
+                text: "11 Feb 2025",
+                attributes: {
+               "data-sort-value": "11022025"
+               }
               },
               {
-                text: "001"
+                text: "001",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "001"
+                }
               },
               {
                 text: "QQ123456C"
@@ -499,10 +338,17 @@
               {
                 html: html
               },{
-                text: "11 Feb 2025"
+                text: "11 Feb 2025",
+                attributes: {
+               "data-sort-value": "11022025"
+               }
               },
               {
-                text: "001"
+                text: "001",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "001"
+                }
               },
               {
                 text: "QQ123456C"
@@ -536,10 +382,17 @@
               {
                 html: html
               },{
-                text: "11 Feb 2025"
+                text: "11 Feb 2025",
+                attributes: {
+               "data-sort-value": "11022025"
+               }
               },
               {
-                text: "001"
+                text: "001",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "001"
+                }
               },
               {
                 text: "QQ123456C"
@@ -573,10 +426,17 @@
               {
                 html: html
               },{
-                text: "11 Feb 2025"
+                text: "11 Feb 2025",
+                attributes: {
+               "data-sort-value": "11022025"
+               }
               },
               {
-                text: "001"
+                text: "001",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "001"
+                }
               },
               {
                 text: "QQ123456C"
@@ -611,10 +471,17 @@
                 html: html
               },
               {
-                text: "11 Feb 2025"
+                text: "11 Feb 2025",
+                attributes: {
+               "data-sort-value": "11022025"
+               }
               },
               {
-                text: "001"
+                text: "001",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "001"
+                }
               },
               {
                 text: "QQ123456C"
@@ -649,10 +516,17 @@
                 html: html
               },
               {
-                text: "11 Feb 2025"
+                text: "11 Feb 2025",
+                attributes: {
+               "data-sort-value": "11022025"
+               }
               },
               {
-                text: "002"
+                text: "001",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "001"
+                }
               },
               {
                 text: "QQ123456C"
@@ -686,10 +560,17 @@
               {
                 html: html
               },{
-                text: "11 Feb 2025"
+                text: "11 Feb 2025",
+                attributes: {
+               "data-sort-value": "11022025"
+               }
               },
               {
-                text: "002"
+                text: "001",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "001"
+                }
               },
               {
                 text: "QQ123456C"
@@ -723,10 +604,17 @@
               {
                 html: html
               },{
-                text: "11 Feb 2025"
+                text: "11 Feb 2025",
+                attributes: {
+               "data-sort-value": "11022025"
+               }
               },
               {
-                text: "002"
+                text: "001",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "001"
+                }
               },
               {
                 text: "QQ123456C"
@@ -760,10 +648,17 @@
               {
                 html: html
               },{
-                text: "11 Feb 2025"
+                text: "11 Feb 2025",
+                attributes: {
+               "data-sort-value": "11022025"
+               }
               },
               {
-                text: "003"
+                text: "001",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "001"
+                }
               },
               {
                 text: "QQ123456C"
@@ -798,10 +693,239 @@
                 html: html
               },
               {
-                text: "11 Feb 2025"
+                text: "11 Feb 2025",
+                attributes: {
+               "data-sort-value": "11022025"
+               }
               },
               {
-                text: "003"
+                text: "001",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "001"
+                }
+              },
+              {
+                text: "QQ123456C"
+              },
+              {
+                text: "1589"
+              },
+              {
+                text: "AA123"
+              },
+              {
+                text: "Leah Smith"
+              },
+              {
+                text: "Open"
+              },
+              {
+                text: "Ephemeral"
+              },
+              {
+                text: "Supporting"
+              },
+              {
+                text: "Not harmful"
+              },
+              {
+                text: "Social fund"
+              }
+            ],
+            [
+              {
+                html: html
+              },
+              {
+                text: "11 Feb 2025",
+                attributes: {
+               "data-sort-value": "11022025"
+               }
+              },
+              {
+                text: "002",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "002"
+                }
+              },
+              {
+                text: "QQ123456C"
+              },
+              {
+                text: "1589"
+              },
+              {
+                text: "AA123"
+              },
+              {
+                text: "Leah Smith"
+              },
+              {
+                text: "SF300"
+              },
+              {
+                text: "Open"
+              },
+              {
+                text: "Supporting"
+              },
+              {
+                text: "Not harmful"
+              },
+              {
+                text: "Social fund"
+              }
+            ],
+            [
+              {
+                html: html
+              },{
+                text: "11 Feb 2025",
+                attributes: {
+               "data-sort-value": "11022025"
+               }
+              },
+              {
+                text: "002",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "002"
+                }
+              },
+              {
+                text: "QQ123456C"
+              },
+              {
+                text: "1589"
+              },
+              {
+                text: "AA123"
+              },
+              {
+                text: "Leah Smith"
+              },
+              {
+                text: "SF200"
+              },
+              {
+                text: "Open"
+              },
+              {
+                text: "Supporting"
+              },
+              {
+                text: "Not harmful"
+              },
+              {
+                text: "Social fund"
+              }
+            ],
+            [
+              {
+                html: html
+              },{
+                text: "12 Feb 2025",
+                attributes: {
+               "data-sort-value": "12022025"
+               }
+              },
+              {
+                text: "002",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "002"
+                }
+              },
+              {
+                text: "QQ123456C"
+              },
+              {
+                text: "1589"
+              },
+              {
+                text: "AA123"
+              },
+              {
+                text: "Leah Smith"
+              },
+              {
+                text: "On hold"
+              },
+              {
+                text: "Ephemeral"
+              },
+              {
+                text: "Supporting"
+              },
+              {
+                text: "Not harmful"
+              },
+              {
+                text: "Social fund"
+              }
+            ],
+            [
+              {
+                html: html
+              },{
+                text: "12 Feb 2025",
+                attributes: {
+               "data-sort-value": "12022025"
+               }
+              },
+              {
+                text: "003",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "003"
+                }
+              },
+              {
+                text: "QQ123456C"
+              },
+              {
+                text: "1589"
+              },
+              {
+                text: "AA123"
+              },
+              {
+                text: "Leah Smith"
+              },
+              {
+                text: "On hold"
+              },
+              {
+                text: "Ephemeral"
+              },
+              {
+                text: "Supporting"
+              },
+              {
+                text: "Not harmful"
+              },
+              {
+                text: "Social fund"
+              }
+            ],
+            [
+              {
+                html: html
+              },
+              {
+                text: "12 Feb 2025",
+                attributes: {
+               "data-sort-value": "12022025"
+               }
+              },
+              {
+                text: "003",
+                format: "numeric",
+                attributes: {
+                  "data-sort-value": "003"
+                }
               },
               {
                 text: "QQ123456C"
@@ -854,45 +978,3 @@
     }
   ]
 }) }}
-
-
-
-<script>
-  document.getElementById("sort").addEventListener("change", function () {
-    const value = this.value;
-    const tbody = document.querySelector("#search-results tbody");
-    const rows = Array.from(tbody.querySelectorAll("tr"));
-
-    // --- Column indexes based on your table ---
-    const DATE_COL = 1;         // "12 Feb 2025"
-    const LOB_COL = 2;          // "001"
-
-    // --- Helper: parse date "12 Feb 2025" reliably ---
-    const getDate = row => {
-      const text = row.children[DATE_COL].innerText.trim();
-      return new Date(text); // JS correctly parses "12 Feb 2025"
-    };
-
-    // --- Helper: get numeric LOB value (turn "001" → 1) ---
-    const getLOB = row => {
-      return Number(row.children[LOB_COL].innerText.trim());
-    };
-
-    // --- Sorting logic ---
-    if (value === "date") {
-      rows.sort((a, b) => getDate(b) - getDate(a)); // newest first
-    }
-
-    if (value === "lob-ascending") {
-      rows.sort((a, b) => getLOB(a) - getLOB(b)); // 1 → 100
-    }
-
-    if (value === "lob-descending") {
-      rows.sort((a, b) => getLOB(b) - getLOB(a)); // 100 → 1
-    }
-
-    // --- Re-render table rows ---
-    rows.forEach(row => tbody.appendChild(row));
-  });
-</script>
-

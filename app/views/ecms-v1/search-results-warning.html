@@ -47,8 +47,18 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">Search results</h1>
+     <!-- WARNING TEXT -->
+      <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    The National Insurance number doesn't exist in CIS. <br> Refer to an authorised user or specialist team to amend the National Insurance number for the matching documents.
+  </strong>
+</div>
 
     <p class="govuk-body">Showing <strong>1</strong> to <strong>20</strong> of <strong>42</strong> records</p>
+
+    <!-- FITLER -->
 
       {{ govukButton({
           text: "Show filter",
@@ -62,7 +72,7 @@
       </div>
 
 
-  <div id="toggle-display" class="moj-filter" data-module="moj-filter">
+  <div id="toggle-display" class="moj-filter" data-module="moj-filter" hidden>
   <div class="moj-filter__header">
     <div class="moj-filter__header-title">
       <h2 class="govuk-heading-m">Filter</h2>
@@ -92,27 +102,31 @@
     <div class="moj-filter__options govuk-!-margin-bottom-5">
       <div class="govuk-grid-column-one-third">
         <div class="govuk-form-group">
-          <label class="govuk-label govuk-label--m" for="sort">
-            Document type
-          </label>
-          <select class="govuk-select" id="sort" name="sort">
-            <option value="published" selected>BF600 (5)</option>
-            <option value="updated">BF8 (18)</option>
-            <option value="views">CIS500 (8)</option>
-            <option value="comments">CA4140 (4)</option>
-            <option value="published">BF600 (5)</option>
-            <option value="updated">BF8 (18)</option>
-            <option value="views">CIS500 (8)</option>
-            <option value="comments">CA4140 (4)</option>
-            <option value="published">BF600 (5)</option>
-            <option value="updated">BF8 (18)</option>
-            <option value="views">CIS500 (8)</option>
-            <option value="comments">CA4140 (4)</option>
-            <option value="published">BF600 (5)</option>
-            <option value="updated">BF8 (18)</option>
-            <option value="views">CIS500 (8)</option>
-            <option value="comments">CA4140 (4)</option>
-          </select>
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Document type
+            </legend>
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="type" name="type" type="checkbox" value="1" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="type">
+                  BD8 (18)
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="2" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="type-2">
+                  BF600 (5)
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="type-3" name="type" type="checkbox" value="3">
+                <label class="govuk-label govuk-checkboxes__label" for="type-3">
+                  CA4140 (2)
+                </label>
+              </div>
+            </div>
+          </fieldset>
         </div>
       </div>
 
@@ -197,11 +211,11 @@
 
 
   </div>
-
 <div class="govuk-!-margin-top-4"></div>
-    
+
 <!-- TABLE -->
 {% include "ecms-v1/includes/table-20results.html" %}
+    
 
     </div>
   </div>

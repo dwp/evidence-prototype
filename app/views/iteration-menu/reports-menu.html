@@ -1,0 +1,135 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-m">Designs for developers</span>
+        Iterations: Report search
+      </h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-!-padding-bottom-4"></div>
+  
+  <!-- LATEST ITERATION -->
+  <h2 class="govuk-heading-m">
+    Latest iteration
+    </h2>
+
+ <div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
+  <div class="govuk-!-padding-bottom-2"></div>
+
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Version</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Report search</th>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">V1.0</p>
+      </td>
+      <td class="govuk-table__cell">
+       <!-- <p class="govuk-body">Some description shere</p> --> 
+        <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Changes
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <ul class="govuk-list govuk-list--bullet">
+  <li>Content change H1</li>
+  <li>Content change for label Document type</li>
+</ul>
+  </div>
+</details>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">30 March 2026</p>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--green">
+          Ready
+    </strong>
+    </td>
+    <td class="govuk-table__cell"><a href="/ecms-v1/reports.html" class="govuk-link">View</a></td>
+    </tr>
+  </tbody>
+</table>
+
+
+</div>
+  <!-- PREVIOUS ITERATIONS -->
+ <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">
+      Previous Iterations    
+    </h2>
+
+
+    <table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Version</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+    </tr>
+  </thead>
+  
+  
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Placeholder</th>
+            <td class="govuk-table__cell">
+        <p class="govuk-body">Vx.x</p>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">Placeholder</p>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">Date</p>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--grey">
+          Status
+    </strong>
+    </td>
+    <td class="govuk-table__cell"><a href="#" class="govuk-link">View</a></td>
+    </tr>
+  </tbody>
+  
+</table>
+ </div>
+
+ 
+
+
+
+{% endblock %}
