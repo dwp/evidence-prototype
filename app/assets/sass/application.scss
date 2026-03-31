@@ -12,3 +12,5 @@
 .moj-filter__tag::after {
     background-image: url(/public/images/icon-tag-remove-cross.svg);
 }
+
+@import "node_modules/accessible-autocomplete/dist/accessible-autocomplete.min.css";

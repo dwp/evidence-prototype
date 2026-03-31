@@ -40,7 +40,7 @@
 
     <p class="govuk-body">Search ECMS using one of the options below to view and manage HR records.</p>
 
-  
+   <form action="hr-search" method="post">
 
      {{ govukRadios({
           name: "HowToSearch",
@@ -53,7 +53,7 @@
           },
           items: [
             {
-              value: "M-store",
+              value: "m-store",
               text: "M-store"
             },
             {
@@ -67,7 +67,7 @@
           text: "Continue"
         }) }}
     
-    
+    </form>
   </div>
 </div>
 </div>
