@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Iterations: Search results – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -55,6 +55,7 @@
       <td class="govuk-table__cell">
         <p class="govuk-body">Search results with primary button for view documents and secondary actions in a drop-down (MOJ pattern)</p>
         <p class="govuk-body">Sort select for default date and LOB case ID</p>
+        <p class="govuk-body">Filter with max number of checkboxes</p>
           <details class="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
@@ -63,6 +64,8 @@
           </summary>
           <div class="govuk-details__text">
             <ul class="govuk-list govuk-list--bullet">
+          <li>NEW: Full width layout for search result table</li>
+          <li>NEW: Checkboxes for filter added, with maximum of 8 checkboxes</li>
           <li>Select added for sorting table</li>
           <li>Content change for Date received or issued</li>
           <li>Content change for LOB case ID</li>
@@ -72,52 +75,17 @@
         </details>
       </td>
       <td class="govuk-table__cell">
-        <p class="govuk-body">30 March 2026</p>
+        <p class="govuk-body">9 April 2026</p>
       </td>
       <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--purple" style="white-space: nowrap">
-          In progress
+        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+          Ready
     </strong>
     </td>
     <td class="govuk-table__cell"><a href="/ecms-v1/search-results-v3.html" class="govuk-link">View</a></td>
     </tr>
   </tbody>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Action button <br> + Sortable table head</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0 B</p>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">Search results with primary button for view documents and secondary actions in a drop down (MOJ pattern)</p>
-        <p class="govuk-body">Sortable table header by date and LOB case ID (MOJ pattern)</p>
-                  <details class="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              Changes
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-            <ul class="govuk-list govuk-list--bullet">
-          <li>Sortable table header added for sorting table</li>
-          <li>Content change for Date received or issued</li>
-          <li>Content change for LOB case ID</li>
-          <li>Content change for date format in table rows</li>
-        </ul>
-          </div>
-        </details>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">30 March 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--purple" style="white-space: nowrap">
-          In progress
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/search-results-v2.html" class="govuk-link">View</a></td>
-    </tr>
-  </tbody>
+  
    <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">Warning text</th>
@@ -143,7 +111,7 @@
         <p class="govuk-body">30 March 2026</p>
       </td>
       <td class="govuk-table__cell">
-        <strong class="govuk-tag" style="white-space: nowrap">
+       <strong class="govuk-tag" style="white-space: nowrap">
           In review
     </strong>
     </td>
@@ -158,9 +126,22 @@
       </td>
       <td class="govuk-table__cell">
         <p class="govuk-body">Search results with filter using select for Document type and checkboxes for Benefit line</p>
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Changes
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <ul class="govuk-list govuk-list--bullet">
+          <li>NEW: Drop-down for filter example when it exceeds 8 filter items</li>
+          <li>NEW: Checkboxes for filter expanded to maximum of 8 checkboxes</li>
+        </ul>
+          </div>
+        </details>
       </td>
       <td class="govuk-table__cell">
-        <p class="govuk-body">30 March 2026</p>
+        <p class="govuk-body">9 April 2026</p>
       </td>
       <td class="govuk-table__cell">
         <strong class="govuk-tag" style="white-space: nowrap">
@@ -218,6 +199,41 @@
     <td class="govuk-table__cell"><a href="/ecms-v1/search-results-long-filter.html" class="govuk-link">View</a></td>
     </tr>
     <!-- ROW 2 -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Action button <br> + Sortable table head</th>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">V1.0 B</p>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">Search results with primary button for view documents and secondary actions in a drop down (MOJ pattern)</p>
+        <p class="govuk-body">Sortable table header by date and LOB case ID (MOJ pattern)</p>
+                  <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Changes
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <ul class="govuk-list govuk-list--bullet">
+          <li>Sortable table header added for sorting table</li>
+          <li>Content change for Date received or issued</li>
+          <li>Content change for LOB case ID</li>
+          <li>Content change for date format in table rows</li>
+        </ul>
+          </div>
+        </details>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">30 March 2026</p>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--red" style="white-space: nowrap">
+          Rejected
+    </strong>
+    </td>
+    <td class="govuk-table__cell"><a href="/ecms-v1/search-results-v2.html" class="govuk-link">View</a></td>
+    </tr>
+    <!-- ROW 3 -->
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">Action button</th>
             <td class="govuk-table__cell">

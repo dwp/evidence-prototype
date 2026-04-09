@@ -50,6 +50,8 @@
 
     <p class="govuk-body">Showing <strong>1</strong> to <strong>20</strong> of <strong>42</strong> records</p>
 
+    <!-- FITLER -->
+
       {{ govukButton({
           text: "Show filter",
           classes: "govuk-button--secondary govuk-!-margin-right-2",
@@ -62,7 +64,7 @@
       </div>
 
 
-  <div id="toggle-display" class="moj-filter" data-module="moj-filter">
+  <div id="toggle-display" class="moj-filter" data-module="moj-filter" hidden>
   <div class="moj-filter__header">
     <div class="moj-filter__header-title">
       <h2 class="govuk-heading-m">Filter</h2>
@@ -96,22 +98,16 @@
             Document type
           </label>
           <select class="govuk-select" id="sort" name="sort">
-            <option value="published" selected>BF600 (5)</option>
-            <option value="updated">BF8 (18)</option>
-            <option value="views">CIS500 (8)</option>
+            <option value="published" selected>ANSoD  (5)</option>
+            <option value="updated">BD8 (18)</option>
+            <option value="views">BF600 (8)</option>
             <option value="comments">CA4140 (4)</option>
-            <option value="published">BF600 (5)</option>
-            <option value="updated">BF8 (18)</option>
-            <option value="views">CIS500 (8)</option>
-            <option value="comments">CA4140 (4)</option>
-            <option value="published">BF600 (5)</option>
-            <option value="updated">BF8 (18)</option>
-            <option value="views">CIS500 (8)</option>
-            <option value="comments">CA4140 (4)</option>
-            <option value="published">BF600 (5)</option>
-            <option value="updated">BF8 (18)</option>
-            <option value="views">CIS500 (8)</option>
-            <option value="comments">CA4140 (4)</option>
+            <option value="published">CIS500 (8) (5)</option>
+            <option value="updated">Email body(18)</option>
+            <option value="views">ESA50a (8)</option>
+            <option value="comments">MatB1 (4)</option>
+            <option value="published">VO Cover letter (5)</option>
+            <option value="updated">White mail unstructured</option>
           </select>
         </div>
       </div>
@@ -122,24 +118,57 @@
             Benefit type
           </legend>
           <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete" checked>
-              <label class="govuk-label govuk-checkboxes__label" for="status">
-                Carers Allowance (2)
+                        <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="status-1" name="status" type="checkbox" value="incomplete">
+              <label class="govuk-label govuk-checkboxes__label" for="status-1">
+                Alternative format (3)
               </label>
             </div>
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="status-2" name="status" type="checkbox" value="incomplete">
+              <input class="govuk-checkboxes__input" id="status-2" name="status" type="checkbox" value="complete" checked>
               <label class="govuk-label govuk-checkboxes__label" for="status-2">
-                Personal Independence Payment (PIP) (5)
+                Carers Allowance (2)
               </label>
             </div>
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="status-3" name="status" type="checkbox" value="inprogress">
               <label class="govuk-label govuk-checkboxes__label" for="status-3">
+                Debt (1)
+              </label>
+            </div>
+             <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="status-4" name="status" type="checkbox" value="complete">
+              <label class="govuk-label govuk-checkboxes__label" for="status-4">
                 Employment Support Allowance (ESA) (3)
               </label>
             </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="status-5" name="status" type="checkbox" value="incomplete">
+              <label class="govuk-label govuk-checkboxes__label" for="status-5">
+                Performance measurement (4)
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="status-6" name="status" type="checkbox" value="inprogress">
+              <label class="govuk-label govuk-checkboxes__label" for="status-6">
+                Personal Independence Payment (PIP) (5)
+              </label>
+            </div>
+             <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="status-7" name="status" type="checkbox" value="complete">
+              <label class="govuk-label govuk-checkboxes__label" for="status-7">
+                State Pension (3)
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="status-8" name="status" type="checkbox" value="incomplete">
+              <label class="govuk-label govuk-checkboxes__label" for="status-8">
+                Sure Start maternity grant (3)
+              </label>
+            </div>
+
           </div>
         </fieldset>
       </div>

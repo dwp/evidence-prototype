@@ -1,1 +1,0 @@
-<script src="/public/javascripts/accessible-autocomplete.min.js"></script>
