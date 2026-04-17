@@ -164,16 +164,25 @@
       spellcheck: false
     }) }}
 
-    {{ govukInput({
-      label: {
-        text: "Document type",
-        classes: "govuk-label--m"
-      },
-      classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
-      id: "document-type",
-      name: "documentType",
-      spellcheck: false
-    }) }}
+       <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="document-type">
+          Document type
+        </label>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <div class="typeahead">
+              <input
+                id="document-type"
+                name="documentType"
+                class="govuk-input"
+                type="text"
+                autocomplete="off"
+              />
+              <ul id="document-type-listbox" class="typeahead-menu" hidden></ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
     {{ govukInput({
       label: {
@@ -261,4 +270,86 @@
 </div>
 </div>
 
+<script>
+  (function () {
+    const documentTypes = [
+      "Test Document 1",
+      "Test Document 2",
+      "Test Document 3",
+      "Decision letter",
+      "Supporting document",
+    ];
+
+    const input = document.getElementById("document-type");
+    const listbox = document.getElementById("document-type-listbox");
+    let activeIndex = -1;
+
+    function closeMenu() {
+      listbox.hidden = true;
+      activeIndex = -1;
+    }
+
+    function openMenu() {
+      listbox.hidden = false;
+    }
+
+    function renderOptions(options) {
+      listbox.innerHTML = "";
+      activeIndex = -1;
+
+      options.forEach((text) => {
+        const li = document.createElement("li");
+        li.textContent = text;
+
+        li.addEventListener("mousedown", () => {
+          input.value = text;
+          closeMenu();
+        });
+
+        listbox.appendChild(li);
+      });
+
+      options.length ? openMenu() : closeMenu();
+    }
+
+    input.addEventListener("input", () => {
+      const query = input.value.toLowerCase();
+      if (!query) return closeMenu();
+
+      renderOptions(
+        documentTypes.filter((d) => d.toLowerCase().includes(query)),
+      );
+    });
+
+    input.addEventListener("keydown", (e) => {
+      const options = listbox.querySelectorAll("li");
+      if (!options.length) return;
+
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        activeIndex = (activeIndex + 1) % options.length;
+      }
+
+      if (e.key === "ArrowUp") {
+        e.preventDefault();
+        activeIndex = (activeIndex - 1 + options.length) % options.length;
+      }
+
+      if (e.key === "Enter" && activeIndex >= 0) {
+        e.preventDefault();
+        input.value = options[activeIndex].textContent;
+        closeMenu();
+      }
+
+      if (e.key === "Escape") closeMenu();
+
+      options.forEach((el, i) =>
+        el.classList.toggle("active", i === activeIndex),
+      );
+    });
+  })();
+</script>
+ 
 {% endblock %}
+
+
