@@ -1,0 +1,189 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} What benefit type is this upload for? –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
+
+{% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="../reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="../hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="documentUpload" href="upload-start" class="dwp-horizontal-navigation__link" aria-current="true">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %} 
+
+{% block content %}
+ {% from "govuk/components/radios/macro.njk" import govukRadios %}
+ {% from "govuk/components/select/macro.njk" import govukSelect %}
+ {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+ <form class="form" action="upload-document-details" method="post">
+    
+    {% if data['benefitType'] == 'fraud' %}
+    
+      <h1 class="govuk-heading-l">
+        What benefit type is this upload for?
+      </h1>
+      {{ govukInsetText({
+        html: '<p class="govuk-body">Fraud</p>'
+      }) }}
+       
+ {% elif data['benefitType'] == 'nissa' %}
+        {{ govukSelect({
+          id: "sort",
+          name: "uploadBenefitType",
+          label: {
+            text: "What benefit type is this upload for?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          },
+          items: [
+            {
+              value: "NISSA Attendance Allowance Unit",
+              text: "NISSA Attendance Allowance Unit"
+            },
+            {
+              value: "NISSA BB",
+              text: "NISSA BB"
+            },
+            {
+              value: "NISSA BSP",
+              text: "NISSA BSP"
+            },
+            {
+              value: "NISSA Budgeting Loans",
+              text: "NISSA Budgeting Loans"
+            },
+            {
+              value: "NISSA Carers Allowance",
+              text: "NISSA Carers Allowance"
+            },
+            {
+              value: "NISSA CRS",
+              text: "NISSA CRS"
+            },
+            {
+              value: "NISSA Disability Living Allowance",
+              text: "NISSA Disability Living Allowance"
+            },
+            {
+              value: "NISSA ESA",
+              text: "NISSA ESA"
+            },
+            {
+              value: "NISSA Funeral Payments",
+              text: "NISSA Funeral Payments"
+            },
+            {
+              value: "NISSA IIDB",
+              text: "NISSA IIDB"
+            },
+            {
+              value: "NISSA INC New",
+              text: "NISSA INC New"
+            },
+            {
+              value: "NISSA JSA New",
+              text: "NISSA JSA New"
+            },
+            {
+              value: "NISSA MA",
+              text: "NISSA MA"
+            },
+            {
+              value: "NISSA NINO Allocation",
+              text: "NISSA NINO Allocation"
+            },
+            {
+              value: "NISSA Pension Credit",
+              text: "NISSA Pension Credit"
+            },
+            {
+              value: "NISSA PIP",
+              text: "NISSA PIP"
+            },
+            {
+              value: "NISSA SIS",
+              text: "NISSA SIS"
+            },
+            {
+              value: "NISSA SSMG",
+              text: "NISSA SSMG"
+            },
+            {
+              value: "NISSA State Pension",
+              text: "NISSA State Pension"
+            },
+            {
+              value: "NISSA UCs",
+              text: "NISSA UC"
+            }
+          ]
+        }) }}
+
+{% else %}
+ {{ govukRadios({
+          name: "uploadBenefitType",
+          fieldset: {
+            legend: {
+              text: "What benefit type is this upload for?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Budgeting Loans",
+              text: "Budgeting Loans"
+            },
+            {
+              value: "Sure Start Maternity Grant",
+              text: "Sure Start Maternity Grant"
+            },
+            {
+              value: "Funeral Payment",
+              text: "Funeral Payment"
+            }
+          ]
+        }) }}
+
+       
+{% endif %}
+
+      {{ govukButton({
+      text: "Continue",
+    href: "upload-document-details"
+    }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

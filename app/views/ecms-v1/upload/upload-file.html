@@ -1,6 +1,8 @@
-{% extends "layouts/main.html" %} {% block pageTitle %} Document upload –
-{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
-%}
+{% extends "layouts/main.html" %} 
+{% block pageTitle %} Select the file you want to upload –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
+
+{% block beforeContent%}
 
   <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
         <ul class="dwp-horizontal-navigation__list">
@@ -30,21 +32,20 @@
 {% endblock %} 
 
 {% block content %}
-{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 <div class="govuk-width-container">
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">Document upload</h1>
+    <h1 class="govuk-heading-l">Select the file you want to upload</h1>
 
    <p class="govuk-body">Some explanation text around uploading documents to ECMS, such as it has to be for the same customer and document details such as the benefit type and classification have to be the same for all documents uploaded at the same time.</p>
 
     <div class="govuk-button-group">
       {{ govukButton({
         text: "Continue",
-        href: "upload-customer-details"
+        href: "upload-check-answers"
       }) }}
     </div>
     
