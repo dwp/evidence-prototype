@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %} {% block pageTitle %} Customer details for this upload –
+{% extends "layouts/main.html" %} {% block pageTitle %} Document upload –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
 %}
 
@@ -26,10 +26,6 @@
     </nav>
 
 <div class="govuk-!-padding-bottom-4"></div>
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
 
 {% endblock %} 
 
@@ -42,7 +38,8 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-9">Customer details for this upload</h1>
+      <h1 class="govuk-heading-l">Document upload</h1>
+      <p class="govuk-body govuk-!-margin-bottom-9">Some explanation text around uploading documents to ECMS that it has to be for the same customer for all documents uploaded at the same time.</p>
 
       <form action="/form-handler" method="post" novalidate>
       <h2 class="govuk-heading-l">Enter an idenfitifcation reference for this upload</h2>
