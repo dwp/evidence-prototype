@@ -46,21 +46,25 @@
         Check the details for your document upload 
       </h1>
 
+      <h2 class="govuk-heading-l">
+        Customer details
+      </h2>
+
       {{ govukSummaryList({
         rows: [
           {
             key: {
-              text: "Question 1"
+              text: "National Insurance number"
             },
             value: {
-              text: "Answer 1"
+              text: "QQ123456C"
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "Question 1"
+                  visuallyHiddenText: "National Insurance number"
                 }
               ]
             }
@@ -68,17 +72,18 @@
           ,
           {
             key: {
-              text: "Question 2"
+              text: "Customer Reference number (CRN)"
             },
             value: {
-              text: "Answer 2"
+              text: "Not provided",
+              classes: "govuk-caption-m"
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "Question 2"
+                  visuallyHiddenText: "Customer Reference number"
                 }
               ]
             }
@@ -86,17 +91,321 @@
           ,
           {
             key: {
-              text: "Question 3"
+              text: "Claim reference"
             },
             value: {
-              text: "Answer 3"
+              text: "Not provided",
+              classes: "govuk-caption-m"
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "Question 3"
+                  visuallyHiddenText: "Claim reference"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "First name"
+            },
+            value: {
+              text: "Jane"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "first name"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Last name"
+            },
+            value: {
+              text: "Doe"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "last name"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "Not provided",
+              classes: "govuk-caption-m"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Date of birth"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Postcode"
+            },
+            value: {
+              text: "Not provided",
+              classes: "govuk-caption-m"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Postcode"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+       <h2 class="govuk-heading-l">
+        Benefit type
+      </h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Business unit"
+            },
+            value: {
+              text: "Social Fund"
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Benefit type"
+            },
+            value: {
+              text: "Sure Start Maternity Grant"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Benefit type"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+ <h2 class="govuk-heading-l">
+        Document details
+      </h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Classification"
+            },
+            value: {
+              text: "Supporting"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Classification"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Harmful indicator"
+            },
+            value: {
+              text: "Not harmful"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Harmful indicator"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Issue date"
+            },
+            value: {
+              text: "Not provided",
+              classes: "govuk-caption-m"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Issue date"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Line of Business (LOB) case ID"
+            },
+            value: {
+              text: "Not provided",
+              classes: "govuk-caption-m"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Line of Business case ID"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Link data"
+            },
+            value: {
+              text: "Not provided",
+              classes: "govuk-caption-m"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Link data"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l">
+        Uploaded files
+      </h2>
+      <h3 class="govuk-heading-m">First uploaded file</h3>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "File"
+            },
+            value: {
+              text: "jd-file37_a.pdf"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "File"
+                },
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "file"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Document type"
+            },
+            value: {
+              text: "MatB1"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Document type"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+       <h3 class="govuk-heading-m">Second uploaded file</h3>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "File"
+            },
+            value: {
+              text: "jd-file2.pdf"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "File"
+                },
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "file"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Document type"
+            },
+            value: {
+              text: "CIS500"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Document type"
                 }
               ]
             }
@@ -105,8 +414,10 @@
       }) }}
 
 
+      
 
-      <form action="/confirmation" method="post" novalidate>
+
+<form action="/confirmation" method="post" novalidate>
 
 <div class="govuk-button-group">
     {{ govukButton({
@@ -124,3 +435,5 @@
     </div>
   </div>
 {% endblock %}
+
+
