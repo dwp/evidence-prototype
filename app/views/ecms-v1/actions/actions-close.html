@@ -1,0 +1,123 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Close documents – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="../reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="../hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="../upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+{% endblock %} 
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+     <h1 class="govuk-heading-l">
+        Close documents
+      </h1>
+
+      <p>Check that the documents listed below are the documents you want to close.</p>
+
+       <form action="/form-handler" method="post" novalidate>
+
+  <table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Documents selected for closure</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Date received or issued</th>
+      <th scope="col" class="govuk-table__header">National Insurance number</th>
+      <th scope="col" class="govuk-table__header">Claim reference</th>
+      <th scope="col" class="govuk-table__header">Last name</th>
+      <th scope="col" class="govuk-table__header">First name</th>
+      <th scope="col" class="govuk-table__header">Document type</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">4 Oct 2011 </th>
+      <td class="govuk-table__cell">QQ123456C</td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell">Doe</td>
+      <td class="govuk-table__cell">Jane</td>
+      <td class="govuk-table__cell">SF300</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">21 Aug 2011</th>
+      <td class="govuk-table__cell">QQ123456C</td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell">Doe</td>
+      <td class="govuk-table__cell">Jane</td>
+      <td class="govuk-table__cell">Supporting document</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">21 Aug 2011</th>
+      <td class="govuk-table__cell">QQ123456C</td>
+      <td class="govuk-table__cell">AAA123</td>
+      <td class="govuk-table__cell">Doe</td>
+      <td class="govuk-table__cell">Jane</td>
+       <td class="govuk-table__cell">CIS500</td>
+    </tr>
+  </tbody>
+</table>
+
+
+ {% if data['role'] == 'fraud' %}
+
+
+  {{ govukDateInput({
+          id: "closure-date",
+          namePrefix: "closure-date",
+          fieldset: {
+            legend: {
+              text: "Enter the date you want the documents to close on ",
+              classes: "govuk-fieldset__legend--m",
+              value: data['Closure date']
+            }
+          },
+          hint: {
+            text: "For example, 31 3 1980"
+          }
+        }) }}
+
+ {% endif %}
+
+<div class="govuk-button-group">
+  {{ govukButton({
+        text: "Close documents",
+        href: "actions-close-confirmation"
+  }) }}
+
+  <a class="govuk-link" href="../search-results-v3">Cancel</a>
+
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

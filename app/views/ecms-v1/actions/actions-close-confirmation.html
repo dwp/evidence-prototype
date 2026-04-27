@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Document upload complete – {{ serviceName }} – GOV.UK Prototype Kit
+  Documents updated to closed – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent
@@ -11,8 +11,8 @@
         <ul class="dwp-horizontal-navigation__list">
         
         
-            <li class="dwp-horizontal-navigation__item">
-            <a id="records" href="../records" class="dwp-horizontal-navigation__link">Document search</a>
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
             </li> 
 
             <li class="dwp-horizontal-navigation__item">
@@ -23,8 +23,8 @@
             <a id="HR-Records" href="../hr-search" class="dwp-horizontal-navigation__link">HR search</a>
             </li>
         
-            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
-            <a id="documentUpload" href="upload-customer-details" class="dwp-horizontal-navigation__link" aria-current="true">Document upload</a>
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="../upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
             </li> 
         
         </ul>
@@ -39,7 +39,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       {{ govukPanel({
-        titleText: "Document upload complete",
+        titleText: "Documents updated to closed",
         html: ""
       }) }}
 
@@ -48,8 +48,9 @@
       </h2>
 
       <p>
-       It may take up to 15 minutes until the documents can be searched for in ECMS.
+       It may take up to one minute for the changes to show in ECMS.
       </p>
+      <p>If the documents do not display as closed  when you return to the search result, run the search again.</p>
 
       <p> 
         <a href="../records">
