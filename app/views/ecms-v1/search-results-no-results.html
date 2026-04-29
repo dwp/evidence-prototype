@@ -48,8 +48,18 @@
 
     <h1 class="govuk-heading-l">Search results</h1>
 
+     {% if data['no-results'] == 'no-match' %}
+
     <p class="govuk-body"><strong>Your search did not match any documents.</strong></p>
     <div class="govuk-!-padding-bottom-4"></div>
+
+   {% elif data['no-results'] == 'special-record' %}
+
+    <p class="govuk-body"><strong>Only an authorised user can access this information.</strong></p>
+    <p class="govuk-body">Try different search criteria.</p>
+    <div class="govuk-!-padding-bottom-4"></div>
+
+ {% endif %}
 
         {{ govukButton({
       text: "Return to search menu",
