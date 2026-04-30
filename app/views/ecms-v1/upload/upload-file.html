@@ -28,6 +28,11 @@
     </nav>
 
 <div class="govuk-!-padding-bottom-4"></div>
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
 
 {% endblock %} 
 
@@ -45,10 +50,18 @@
           id: "file-upload-1",
           name: "fileUpload1",
           label: {
-            text: "Upload a file"
+            text: "Upload a file",
+          classes: "govuk-label--m"
+          },
+          hint: {
+            html: '<ul><li>You can upload up to 10 files</li>
+              <li> Each file must be smaller than 10MB </li>
+              <li> You can upload documents in the format of DOC, DOCX, PDF, PPT, PPTX, XLS or XLSX</li></ul>
+            '
           },
           javascript: true
         }) }}
+
 
             <div class="govuk-form-group">
         <label class="govuk-label govuk-label--m" for="document-type">

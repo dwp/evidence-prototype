@@ -319,6 +319,9 @@
       <h2 class="govuk-heading-l">
         Uploaded files
       </h2>
+
+      {# ALTERANTIVE summary list for uploaded files
+
       <h3 class="govuk-heading-m">First uploaded file</h3>
 
       {{ govukSummaryList({
@@ -413,6 +416,81 @@
         ]
       }) }}
 
+  #}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "jd-file2.pdf"
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Delete file"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Document type"
+      },
+      value: {
+        html: "MatB1"
+      },
+      actions: {
+        items: [
+          {
+            href: "upload-file",
+            text: "Change",
+            visuallyHiddenText: "document-type"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "jd-file37_a.pdf"
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Delete file"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Document type"
+      },
+      value: {
+        html: "CIS500"
+      },
+      actions: {
+        items: [
+          {
+            href: "upload-file",
+            text: "Change",
+            visuallyHiddenText: "document-type"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+
+
 
       
 
@@ -422,7 +500,8 @@
 <div class="govuk-button-group">
     {{ govukButton({
     text: "Add another file",
-    classes: "govuk-button--secondary"
+    classes: "govuk-button--secondary",
+        href: "upload-file"
   }) }}
   {{ govukButton({
     text: "Upload",
