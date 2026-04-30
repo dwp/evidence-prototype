@@ -87,7 +87,7 @@
 </table>
 
 
- {% if data['role'] == 'fraud' %}
+ {% if data['closure-date'] == 'true' %}
 
 
   {{ govukDateInput({
@@ -95,13 +95,13 @@
           namePrefix: "closure-date",
           fieldset: {
             legend: {
-              text: "Enter the date you want the documents to close on ",
+              text: "Enter the date you want the documents to close on (optional) ",
               classes: "govuk-fieldset__legend--m",
               value: data['Closure date']
             }
           },
           hint: {
-            text: "For example, 31 3 2026"
+            text: "If you don't enter a date the document will be closed today"
           }
         }) }}
 

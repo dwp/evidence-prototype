@@ -37,12 +37,27 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+ {% if data['closure-date'] == 'true' %}
+       {{ govukPanel({
+        titleText: "Documents scheduled to close",
+        html: "The documents will be closed on 25 December 2026"
+      }) }}
 
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+
+      <p>
+       The documents remain open until their scheduled closure date.
+      </p>
+
+
+ {% else %}
       {{ govukPanel({
         titleText: "Documents updated to closed",
         html: ""
       }) }}
-
+ 
       <h2 class="govuk-heading-m">
         What happens next
       </h2>
@@ -51,10 +66,10 @@
        It may take up to one minute for the changes to show in ECMS.
       </p>
       <p>If the documents do not display as closed  when you return to the search result, run the search again.</p>
-
+{% endif %}
       <p> 
-        <a href="../records">
-          Return to homepage
+        <a href="../search-results-v3">
+          Return to search results
         </a>
       </p>
 
