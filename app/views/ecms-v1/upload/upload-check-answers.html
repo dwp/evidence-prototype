@@ -12,7 +12,7 @@
         
         
             <li class="dwp-horizontal-navigation__item">
-            <a id="records" href="../records" class="dwp-horizontal-navigation__link">Document search</a>
+            <a id="records" href="upload-interruption" class="dwp-horizontal-navigation__link">Document search</a>
             </li> 
 
             <li class="dwp-horizontal-navigation__item">
@@ -418,6 +418,7 @@
 
   #}
 
+{% if data['single-upload'] == 'true' %}
 {{ govukSummaryList({
   card: {
     title: {
@@ -426,7 +427,43 @@
     actions: {
       items: [
         {
-          href: "#",
+          href: "upload-file",
+          text: "Replace file"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Document type"
+      },
+      value: {
+        html: "MatB1"
+      },
+      actions: {
+        items: [
+          {
+            href: "upload-file",
+            text: "Change",
+            visuallyHiddenText: "document-type"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+{% else %}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "jd-file2.pdf"
+    },
+    actions: {
+      items: [
+        {
+          href: "upload-file",
           text: "Delete file"
         }
       ]
@@ -462,7 +499,7 @@
     actions: {
       items: [
         {
-          href: "#",
+          href: "upload-file",
           text: "Delete file"
         }
       ]
@@ -490,14 +527,23 @@
 }) }}
 
 
-
+{% endif %}
 
       
 
 
 <form action="/confirmation" method="post" novalidate>
 
+{% if data['single-upload'] == 'true' %}
+
+  {{ govukButton({
+    text: "Upload",
+        href: "upload-confirmation"
+  }) }}
+
+{% else %}
 <div class="govuk-button-group">
+
     {{ govukButton({
     text: "Add another file",
     classes: "govuk-button--secondary",
@@ -508,7 +554,7 @@
         href: "upload-confirmation"
   }) }}
 </div>
-
+{% endif %}
       </form>
 
     </div>

@@ -1,0 +1,37 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Are you sure you want to leave this page? –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{% endblock %} 
+
+{% block content %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+<div class="govuk-width-container">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Are you sure you want to leave this page?</h1>
+
+   <p class="govuk-body">Leaving this page will cancel the document upload.</p>
+   <p class="govuk-body">You changes will not be saved.</p>
+   <p class="govuk-body">If you want to continue with the document upload you can go back.</p>
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Yes, I want to leave",
+    href: "../records"
+  }) }}
+
+  <a class="govuk-link" href="javascript:window.history.back()">Go back to document upload</a>
+</div>
+    
+  </div>
+</div>
+</div>
+
+{% endblock %}
