@@ -1,0 +1,154 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Request a rescan – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="../reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="../hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="../upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+{% endblock %} 
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+     <h1 class="govuk-heading-l">
+        Request a rescan
+      </h1>
+
+      <p>You are requesting a rescan of the document listed below.</p>
+      <p>[Placeholder text - more information about requesting a rescan and SLA.]</p>
+
+       <form action="/form-handler" method="post" novalidate>
+
+  <table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Documents selected for rescan</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Date received or issued</th>
+      <th scope="col" class="govuk-table__header">National Insurance number</th>
+      <th scope="col" class="govuk-table__header">Claim reference</th>
+      <th scope="col" class="govuk-table__header">Last name</th>
+      <th scope="col" class="govuk-table__header">First name</th>
+      <th scope="col" class="govuk-table__header">Document type</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">14 Feb 2025 </th>
+      <td class="govuk-table__cell">QQ123456C</td>
+      <td class="govuk-table__cell">AA123</td>
+      <td class="govuk-table__cell">Doe</td>
+      <td class="govuk-table__cell">Jane</td>
+      <td class="govuk-table__cell">BD8</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">12 Feb 2025</th>
+      <td class="govuk-table__cell">QQ123456C</td>
+      <td class="govuk-table__cell">No data</td>
+      <td class="govuk-table__cell">Doe</td>
+      <td class="govuk-table__cell">Jane</td>
+      <td class="govuk-table__cell">BD8</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">12 Feb 2026</th>
+      <td class="govuk-table__cell">QQ123456C</td>
+      <td class="govuk-table__cell">No data</td>
+      <td class="govuk-table__cell">Doe</td>
+      <td class="govuk-table__cell">Jane</td>
+       <td class="govuk-table__cell">CIS500</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="govuk-!-padding-bottom-4"></div>
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "rescanReason",
+  fieldset: {
+    legend: {
+      text: "Why are you requesting this rescan?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "Illegible document",
+      text: "Illegible document"
+    },
+    {
+      value: "Document contains image from multiple documents",
+      text: "Document contains image from multiple documents"
+    },
+    {
+      value: "Document is missing pages",
+      text: "Document is missing pages"
+    },
+    {
+      value: "Missing information on document",
+      text: "Missing information on documentd"
+    },
+    {
+      value: "Document is not for business unit using ECMS",
+      text: "Document is not for business unit using ECMS"
+    }
+  ]
+}) }}
+
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukTextarea({
+  name: "rescanLinkData",
+  id: "rescan-link-data",
+  label: {
+    text: "Link data (optional)",
+    classes: "govuk-label--m",
+    isPageHeading: false
+  }
+}) }}
+
+
+
+<div class="govuk-button-group">
+  {{ govukButton({
+        text: "Request rescan",
+        href: "actions-rescan-confirmation"
+  }) }}
+
+  <a class="govuk-link" href="../search-results-v3">Cancel</a>
+
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
