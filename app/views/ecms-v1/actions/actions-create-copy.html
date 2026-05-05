@@ -1,0 +1,399 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Copy documents – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="../reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="../hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="../upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+{% endblock %} 
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+     <h1 class="govuk-heading-l">
+        Copy documents
+      </h1>
+
+      <p>Check that the documents listed below are the documents you want copy.</p>
+      <p>[Placeholder text about what copying documents does: Takes a document from its current file plan and adds a copy if it to a different file plan.
+Leaves the original document in its current file plan, it's not moved just a copy created.]</p>
+
+       <form action="/form-handler" method="post" novalidate>
+
+  <table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Documents selected to copy</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Date received or issued</th>
+      <th scope="col" class="govuk-table__header">National Insurance number</th>
+      <th scope="col" class="govuk-table__header">Claim reference</th>
+      <th scope="col" class="govuk-table__header">Last name</th>
+      <th scope="col" class="govuk-table__header">First name</th>
+      <th scope="col" class="govuk-table__header">Document type</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">14 Feb 2025 </th>
+      <td class="govuk-table__cell">QQ123456C</td>
+      <td class="govuk-table__cell">AA123</td>
+      <td class="govuk-table__cell">Doe</td>
+      <td class="govuk-table__cell">Jane</td>
+      <td class="govuk-table__cell">BD8</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">12 Feb 2025</th>
+      <td class="govuk-table__cell">QQ123456C</td>
+      <td class="govuk-table__cell">No data</td>
+      <td class="govuk-table__cell">Doe</td>
+      <td class="govuk-table__cell">Jane</td>
+      <td class="govuk-table__cell">BD8</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">12 Feb 2026</th>
+      <td class="govuk-table__cell">QQ123456C</td>
+      <td class="govuk-table__cell">No data</td>
+      <td class="govuk-table__cell">Doe</td>
+      <td class="govuk-table__cell">Jane</td>
+       <td class="govuk-table__cell">CIS500</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="govuk-!-padding-bottom-4"></div>
+{{ govukSelect({
+          id: "sort",
+          name: "uploadBenefitType",
+          label: {
+            text: "What benefit type is this upload for?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          },
+          items: [
+          {
+              value: "Access to Work",
+              text: "Access to Work"
+            },
+            {
+              value: "Alternative Format",
+              text: "Alternative Format"
+            },
+            {
+              value: "Attendance Allowance unit",
+              text: "Attendance Allowance unit"
+            },
+            {
+              value: "B2OL",
+              text: "B2OL"
+            },
+            {
+              value: "Bereavement benefit",
+              text: "Bereavement benefit"
+            },
+            {
+              value: "Bereavement Support Payment",
+              text: "Bereavement Support Payment"
+            },
+            {
+              value: "Budgeting Loans",
+              text: "Budgeting Loans"
+            },
+            {
+              value: "Carer's Allowance",
+              text: "Carer's Allowance"
+            },
+            {
+              value: "Carer's Credit",
+              text: "Carer's Credit"
+            },
+            {
+              value: "CFEMS",
+              text: "CFEMS"
+            },
+            {
+              value: "Compensation Recovery unit",
+              text: "Compensation Recovery unit"
+            },
+            {
+              value: "Debt",
+              text: "Debt"
+            },
+            
+            {
+              value: "Disability Living Allowance 65",
+              text: "Disability Living Allowance 65"
+            },
+            {
+              value: "Disability Living Allowance Adult",
+              text: "Disability Living Allowance Adult"
+            },
+            {
+              value: "Disability Living Allowanc Child",
+              text: "Disability Living Allowance Child"
+            },
+            {
+              value: "Employment and Support Allowance (ESA)",
+              text: "Employment and Support Allowance (ESA)"
+            },
+            {
+              value: "Fraud",
+              text: "Fraud"
+            },
+            {
+              value: "Funeral Payments",
+              text: "Funderal Payments"
+            },
+            {
+              value: "Future Pensions Centre",
+              text: "Future Pensions Centre"
+            },
+            {
+              value: "Human resources",
+              text: "Human resources"
+            },
+            {
+              value: "Integrated Loan Scheme (ILS), Eligible Loan Deduction Scheme (ELDS)",
+              text: "Integrated Loan Scheme (ILS), Eligible Loan Deduction Scheme (ELDS)"
+            },
+            {
+              value: "Industrial Injuries Disablement Benefit",
+              text: "Industrial Injuries Disablement Benefit"
+            },
+            {
+              value: "International Pension Centre BB",
+              text: "International Pension Centre BB"
+            },
+            {
+              value: "International Pension Centre BSP",
+              text: "International Pension Centre BSP"
+            },
+            {
+              value: "International Pension Centre ESA",
+              text: "International Pension Centre ESA"
+            },
+            {
+              value: "International Pension Centre IB",
+              text: "International Pension Centre IB"
+            },
+            {
+              value: "International Pension Centre IIDB",
+              text: "International Pension Centre IIDB"
+            },
+            {
+              value: "International Pension Centre JSA",
+              text: "International Pension Centre JSA"
+            },
+            {
+              value: "International Pension Centre MA",
+              text: "International Pension Centre MA"
+            },
+            {
+              value: "International Pension Centre PC",
+              text: "International Pension Centre PC"
+            },
+            {
+              value: "International Pension Centre SP",
+              text: "International Pension Centre SP"
+            },
+            {
+              value: "International Pension Centre WFP",
+              text: "International Pension Centre WFP"
+            },
+            {
+              value: "Income Support (IS)",
+              text: "Income Support (IS)"
+            },
+            {
+              value: "Jobseeker's Allowance (JSA)",
+              text: "Jobseeker's Allownace (JSA)"
+            },
+            {
+              value: "Maternity Allowance",
+              text: "Maternity Allowance"
+            },
+            {
+              value: "New Style Jobseeker's Allowance",
+              text: "New Style Jobjseeker's Allowance"
+            },
+            {
+              value: "National Insurance Delivery Centre",
+              text: "National Insurance Delivery Centre"
+            },
+            {
+              value: "NISSA Attendance Allowance Unit",
+              text: "NISSA Attendance Allowance Unit"
+            },
+            {
+              value: "NISSA BB",
+              text: "NISSA BB"
+            },
+            {
+              value: "NISSA BSP",
+              text: "NISSA BSP"
+            },
+            {
+              value: "NISSA Budgeting Loans",
+              text: "NISSA Budgeting Loans"
+            },
+            {
+              value: "NISSA Carers Allowance",
+              text: "NISSA Carers Allowance"
+            },
+            {
+              value: "NISSA CRS",
+              text: "NISSA CRS"
+            },
+            {
+              value: "NISSA Disability Living Allowance",
+              text: "NISSA Disability Living Allowance"
+            },
+            {
+              value: "NISSA ESA",
+              text: "NISSA ESA"
+            },
+            {
+              value: "NISSA Funeral Payments",
+              text: "NISSA Funeral Payments"
+            },
+            {
+              value: "NISSA IIDB",
+              text: "NISSA IIDB"
+            },
+            {
+              value: "NISSA INC New",
+              text: "NISSA INC New"
+            },
+            {
+              value: "NISSA JSA New",
+              text: "NISSA JSA New"
+            },
+            {
+              value: "NISSA MA",
+              text: "NISSA MA"
+            },
+            {
+              value: "NISSA NINO Allocation",
+              text: "NISSA NINO Allocation"
+            },
+            {
+              value: "NISSA Pension Credit",
+              text: "NISSA Pension Credit"
+            },
+            {
+              value: "NISSA PIP",
+              text: "NISSA PIP"
+            },
+            {
+              value: "NISSA SIS",
+              text: "NISSA SIS"
+            },
+            {
+              value: "NISSA SSMG",
+              text: "NISSA SSMG"
+            },
+            {
+              value: "NISSA State Pension",
+              text: "NISSA State Pension"
+            },
+            {
+              value: "NISSA UC",
+              text: "NISSA UC"
+            },
+            {
+              value: "Notification Online (NOL)",
+              text: "Notification Online (NOL)"
+            },
+            {
+              value: "Payment Services",
+              text: "Payment Services"
+            },
+            {
+              value: "Pension Credit",
+              text: "Pension Credit"
+            },
+            {
+              value: "Performance Measurement",
+              text: "Performance Measurement"
+            },
+            {
+              value: "Personal Independence Payment (PIP)",
+              text: "Personal Independence Payment (PIP)"
+            },
+            {
+              value: "Right of Access Request",
+              text: "Right of Access Request"
+            },
+            {
+              value: "Severe Disablement Allowance (SDA), Incapacity Benefit (IB)",
+              text: "Severe Disablement Allowance (SDA), Incapacity Benefit (IB)"
+            },
+            {
+              value: "Serious & Organised Crime",
+              text: "Serious and Organised Crime"
+            },
+            {
+              value: "State Pension",
+              text: "State Pension"
+            },
+            {
+              value: "Support for Mortgage Interest",
+              text: "Support for Mortgage Interest"
+            },
+            {
+              value: "SureStart Maternity Grant",
+              text: "SureStart Maternity Grant"
+            },
+            {
+              value: "Universal Credit",
+              text: "Universal Credit"
+            }
+          ]
+        }) }}
+
+
+
+
+
+<div class="govuk-button-group">
+  {{ govukButton({
+        text: "Create copy",
+        href: "actions-create-copy-confirmation"
+  }) }}
+
+  <a class="govuk-link" href="../search-results-v3">Cancel</a>
+
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
