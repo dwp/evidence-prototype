@@ -37,6 +37,7 @@ module.exports = function (router) {
     res.render('ecms-v1/hr-records');
   });
 
+
  // add next route here
 
 

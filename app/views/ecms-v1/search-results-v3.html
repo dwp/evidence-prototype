@@ -281,9 +281,14 @@
   </div>
 <div class="govuk-!-margin-top-4"></div>
 
-<!-- TABLE -->
+{% if data['user-group'] == 'download' %}
+<!-- TABLE 50 results-->
+{% include "ecms-v1/includes/table-50results.html" %}
+{% else %}
+
+<!-- TABLE 20 results-->
 {% include "ecms-v1/includes/table-20results.html" %}
-    
+{% endif %}  
 
     </div>
   </div>

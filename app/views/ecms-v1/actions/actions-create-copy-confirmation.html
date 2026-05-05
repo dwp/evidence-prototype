@@ -38,10 +38,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-       {{ govukPanel({
-        titleText: "Copy created",
-        html: "A copy of the selected documents has been added to [benefit type]"
-      }) }}
+{% set copyBenefitType = data['copyBenefitType']  %}
+{% set copyBenefitType = "A copy of the selected documents has been added to " + copyBenefitType %}
+{{ govukPanel({
+    titleText: "Copy created",
+    html: copyBenefitType
+    }) }}
 
       <h2 class="govuk-heading-m">
         What happens next

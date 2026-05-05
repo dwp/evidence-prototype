@@ -46,7 +46,7 @@
       <p>[Placeholder text about what copying documents does: Takes a document from its current file plan and adds a copy if it to a different file plan.
 Leaves the original document in its current file plan, it's not moved just a copy created.]</p>
 
-       <form action="/form-handler" method="post" novalidate>
+       <form action="actions-create-copy-confirmation" method="post" novalidate>
 
   <table class="govuk-table">
   <caption class="govuk-table__caption govuk-table__caption--m">Documents selected to copy</caption>
@@ -90,15 +90,21 @@ Leaves the original document in its current file plan, it's not moved just a cop
 
 
 <div class="govuk-!-padding-bottom-4"></div>
+
+ {% if data['copy-option'] == 'option1' %} {# Select list for benefit type #}
 {{ govukSelect({
-          id: "sort",
-          name: "uploadBenefitType",
+          id: "copyBenefitType",
+          name: "copyBenefitType",
           label: {
-            text: "What benefit type is this upload for?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
+            text: "What benefit type do you want to copy the documents to?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
           },
           items: [
+          {
+              value: "",
+              text: "Select a benefit type"
+            },
           {
               value: "Access to Work",
               text: "Access to Work"
@@ -379,14 +385,725 @@ Leaves the original document in its current file plan, it's not moved just a cop
           ]
         }) }}
 
+{% elif data['copy-option'] == 'option2' %} {# Autosuggest / typeahead list #}
+            <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="benefit-type">
+          What benefit type do you want to copy the documents to?
+        </label>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <div class="typeahead">
+              <input
+                id="benefit-type"
+                name="copyBenefitType"
+                class="govuk-input"
+                type="text"
+                autocomplete="off"
+              />
+              <ul id="benefit-type-listbox" class="typeahead-menu" hidden></ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
+
+{% elif data['copy-option'] == 'option3' %} {# Select for business unit, select for benefit type #}
+
+{{ govukSelect({
+          id: "copyBusinessUnit",
+          name: "copyBusinessUnit",
+          label: {
+            text: "What is the business unit you want to copy the documents to?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          },
+          items: [
+          {
+              value: "",
+              text: "Select a business unit"
+            },
+            {
+              value: "alternative-format",
+              text: "Alternative format"
+            },
+            {
+              value: "attendance-allowance-unit",
+              text: "Attendance Allowance unit"
+            },
+            {
+              value: "bereavement-benefit",
+              text: "Bereavement benefit"
+            },
+            {
+              value: "bereavement-support-payment",
+              text: "Bearvement Support Payment"
+            },
+            {
+              value: "carers-allowance",
+              text: "Carer's Allowance"
+            },
+            {
+              value: "cfems",
+              text: "CFEMS"
+            },
+            {
+              value: "compensation-recovery-unit",
+              text: "Compensation Recovery Unit"
+            },
+            {
+              value: "debt-management",
+              text: "Debt management"
+            },
+            {
+              value: "disability-living-allowance-65",
+              text: "Disability Living Allowance 65"
+            },
+            {
+              value: "disability-living-allowance-adult",
+              text: "Disability Living Allowance Adult"
+            },
+            {
+              value: "disability-living-allowance-child",
+              text: "Disability Living Allowance Child"
+            },
+            {
+              value: "fraud",
+              text: "Fraud"
+            },
+            {
+              value: "future-pensions-centre",
+              text: "Future Pensions Centre"
+            },
+            {
+              value: "health",
+              text: "Health"
+            },
+            {
+              value: "human-resources",
+              text: "Human resources"
+            },
+            {
+              value: "industrial-injuries-disablement-benefit",
+              text: "Industrial Injuries Disablement Benefit"
+            },
+            {
+              value: "maternity-allowance",
+              text: "Maternity Allowance"
+            },
+            {
+              value: "new-style-jobseekers-allowance",
+              text: "New Style Jobseeker's Allowance (JSA)"
+            },
+            {
+              value: "newcastle-pension-centre",
+              text: "Newcastle Pension Centre"
+            },
+            {
+              value: "national-insurance-delivery-centre",
+              text: "National Insurance delivery centre"
+            },
+            {
+              value: "nissa",
+              text: "NISSA"
+            },
+            {
+              value: "notifications-online",
+              text: "Notifications online (NOL)"
+            },
+            {
+              value: "payment-services",
+              text: "Payment Services"
+            },
+            {
+              value: "performance-measurement",
+              text: "Performance measurement"
+            },
+            {
+              value: "personal-independence-payment",
+              text: "Personal Independence Payment (PIP)"
+            },
+            {
+              value: "reports",
+              text: "Reports"
+            },
+            {
+              value: "right-of-access-request",
+              text: "Right of Access Request"
+            },
+            {
+              value: "severe-disablement-allowance-incapacity-benefit",
+              text: "Severe Disablement Allowance (SDA), Incapacity Benefit (IB)"
+            },
+            {
+              value: "serious-and-organised-crime",
+              text: "Serious and Organised crime"
+            },
+            {
+              value: "social-fund",
+              text: "Social fund"
+            },
+            {
+              value: "the-pension-service",
+              text: "The Pension Service"
+            },
+            {
+              value: "universal-credit",
+              text: "Universal Credit"
+            },
+            {
+              value: "working-age-benefits",
+              text: "Working Age benefits"
+            }
+          ]
+        }) }}
+
+{#
+        {{ govukSelect({
+          id: "copyBenefitType",
+          name: "copyBenefitType",
+          label: {
+            text: "What benefit type do you want to copy the documents to?",
+            classes: "govuk-fieldset__legend--m"
+          },
+          items: [
+            {
+              value: "",
+              text: "Select a benefit type"
+            },
+            {
+              value: "Attendance Allowance unit",
+              text: "Attendance Allowance unit",
+              attributes: {
+                "data-business-unit": "attendance-allowance-unit"
+              }
+            },
+            {
+              value: "International Pension Centre BB",
+              text: "International Pension Centre BB",
+              attributes: {
+                "data-business-unit": "newcastle-pension-centre"
+              }
+            },
+            {
+              value: "International Pension Centre BSP",
+              text: "International Pension Centre BSP",
+              attributes: {
+                "data-business-unit": "newcastle-pension-centre"
+              }
+            }
+          ]
+        }) }}
+
+        #}
+
+        {{ govukSelect({
+          id: "copyBenefitType",
+          name: "copyBenefitType",
+          label: {
+            text: "What benefit type do you want to copy the documents to?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          },
+          items: [
+          {
+              value: "",
+              text: "Select a benefit type"
+            },
+          {
+              value: "Access to Work",
+              text: "Access to Work",
+              attributes: {
+                "data-business-unit": "health"
+              }
+            },
+            {
+              value: "Alternative Format",
+              text: "Alternative Format",
+              attributes: {
+                "data-business-unit": "alternative-format"
+              }
+            },
+            {
+              value: "Attendance Allowance unit",
+              text: "Attendance Allowance unit",
+              attributes: {
+                "data-business-unit": "attendance-allowance-unit"
+              }
+            },
+            {
+              value: "B2OL",
+              text: "B2OL",
+              attributes: {
+                "data-business-unit": "reports"
+              }
+            },
+            {
+              value: "Bereavement benefit",
+              text: "Bereavement benefit",
+              attributes: {
+                "data-business-unit": "bereavement-benefit"
+              }
+            },
+            {
+              value: "Bereavement Support Payment",
+              text: "Bereavement Support Payment",
+              attributes: {
+                "data-business-unit": "bereavement-support-payment"
+              }
+            },
+            {
+              value: "Budgeting Loans",
+              text: "Budgeting Loans",
+              attributes: {
+                "data-business-unit": "social-fund"
+              }
+            },
+            {
+              value: "Carer's Allowance",
+              text: "Carer's Allowance",
+              attributes: {
+                "data-business-unit": "carers-allowance"
+              }
+            },
+            {
+              value: "Carer's Credit",
+              text: "Carer's Credit",
+              attributes: {
+                "data-business-unit": "carers-allowance"
+              }
+            },
+            {
+              value: "CFEMS",
+              text: "CFEMS",
+              attributes: {
+                "data-business-unit": "cfems"
+              }
+            },
+            {
+              value: "Compensation Recovery unit",
+              text: "Compensation Recovery unit",
+              attributes: {
+                "data-business-unit": "compensation-recovery-unit"
+              }
+            },
+            {
+              value: "Debt",
+              text: "Debt",
+              attributes: {
+                "data-business-unit": "debt-management"
+              }
+            },
+            
+            {
+              value: "Disability Living Allowance 65",
+              text: "Disability Living Allowance 65",
+              attributes: {
+                "data-business-unit": "disability-living-allowance-65"
+              }
+            },
+            {
+              value: "Disability Living Allowance Adult",
+              text: "Disability Living Allowance Adult",
+              attributes: {
+                "data-business-unit": "disability-living-allowance-adult"
+              }
+            },
+            {
+              value: "Disability Living Allowanc Child",
+              text: "Disability Living Allowance Child",
+              attributes: {
+                "data-business-unit": "disability-living-allowance-child"
+              }
+            },
+            {
+              value: "Employment and Support Allowance (ESA)",
+              text: "Employment and Support Allowance (ESA)",
+              attributes: {
+                "data-business-unit": "working-age-benefits"
+              }
+            },
+            {
+              value: "Fraud",
+              text: "Fraud",
+              attributes: {
+                "data-business-unit": "fraud"
+              }
+            },
+            {
+              value: "Funeral Payments",
+              text: "Funderal Payments",
+              attributes: {
+                "data-business-unit": "social-fund"
+              }
+            },
+            {
+              value: "Future Pensions Centre",
+              text: "Future Pensions Centre",
+              attributes: {
+                "data-business-unit": "future-pensions-centre"
+              }
+            },
+            {
+              value: "Human resources",
+              text: "Human resources",
+              attributes: {
+                "data-business-unit": "human-resources"
+              }
+            },
+            {
+              value: "Integrated Loan Scheme (ILS), Eligible Loan Deduction Scheme (ELDS)",
+              text: "Integrated Loan Scheme (ILS), Eligible Loan Deduction Scheme (ELDS)",
+              attributes: {
+                "data-business-unit": "debt-management"
+              }
+            },
+            {
+              value: "Industrial Injuries Disablement Benefit",
+              text: "Industrial Injuries Disablement Benefit",
+              attributes: {
+                "data-business-unit": "industrial-injuries-disablement-benefit"
+              }
+            },
+            {
+              value: "International Pension Centre BB",
+              text: "International Pension Centre BB" ,
+              attributes: {
+                "data-business-unit": "newcastle-pension-centre"
+              }
+            },
+            {
+              value: "International Pension Centre BSP",
+              text: "International Pension Centre BSP",
+              attributes: {
+                "data-business-unit": "newcastle-pension-centre"
+              }
+            },
+            {
+              value: "International Pension Centre ESA",
+              text: "International Pension Centre ESA",
+              attributes: {
+                "data-business-unit": "newcastle-pension-centre"
+              }
+            },
+            {
+              value: "International Pension Centre IB",
+              text: "International Pension Centre IB",
+              attributes: {
+                "data-business-unit": "newcastle-pension-centre"
+              }
+            },
+            {
+              value: "International Pension Centre IIDB",
+              text: "International Pension Centre IIDB",
+              attributes: {
+                "data-business-unit": "newcastle-pension-centre"
+              }
+            },
+            {
+              value: "International Pension Centre JSA",
+              text: "International Pension Centre JSA",
+              attributes: {
+                "data-business-unit": "newcastle-pension-centre"
+              }
+            },
+            {
+              value: "International Pension Centre MA",
+              text: "International Pension Centre MA",
+              attributes: {
+                "data-business-unit": "newcastle-pension-centre"
+              }
+            },
+            {
+              value: "International Pension Centre PC",
+              text: "International Pension Centre PC",
+              attributes: {
+                "data-business-unit": "newcastle-pension-centre"
+              }
+            },
+            {
+              value: "International Pension Centre SP",
+              text: "International Pension Centre SP",
+              attributes: {
+                "data-business-unit": "newcastle-pension-centre"
+              }
+            },
+            {
+              value: "International Pension Centre WFP",
+              text: "International Pension Centre WFP",
+              attributes: {
+                "data-business-unit": "newcastle-pension-centre"
+              }
+            },
+            {
+              value: "Income Support (IS)",
+              text: "Income Support (IS)",
+              attributes: {
+                "data-business-unit": "working-age-benefits"
+              }
+            },
+            {
+              value: "Jobseeker's Allowance (JSA)",
+              text: "Jobseeker's Allownace (JSA)",
+              attributes: {
+                "data-business-unit": "working-age-benefits"
+              }
+            },
+            {
+              value: "Maternity Allowance",
+              text: "Maternity Allowance",
+              attributes: {
+                "data-business-unit": "maternity-allowance"
+              }
+            },
+            {
+              value: "New Style Jobseeker's Allowance",
+              text: "New Style Jobjseeker's Allowance",
+              attributes: {
+                "data-business-unit": "new-style-jobseekers-allowance"
+              }
+            },
+            {
+              value: "National Insurance Delivery Centre",
+              text: "National Insurance Delivery Centre",
+              attributes: {
+                "data-business-unit": "national-insurance-delivery-centre"
+              }
+            },
+            {
+              value: "NISSA Attendance Allowance Unit",
+              text: "NISSA Attendance Allowance Unit",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "NISSA BB",
+              text: "NISSA BB",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "NISSA BSP",
+              text: "NISSA BSP",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "NISSA Budgeting Loans",
+              text: "NISSA Budgeting Loans",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "NISSA Carers Allowance",
+              text: "NISSA Carers Allowance",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "NISSA CRS",
+              text: "NISSA CRS",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "NISSA Disability Living Allowance",
+              text: "NISSA Disability Living Allowance",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "NISSA ESA",
+              text: "NISSA ESA",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "NISSA Funeral Payments",
+              text: "NISSA Funeral Payments",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "NISSA IIDB",
+              text: "NISSA IIDB",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "NISSA INC New",
+              text: "NISSA INC New",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "NISSA JSA New",
+              text: "NISSA JSA New",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "NISSA MA",
+              text: "NISSA MA",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "NISSA NINO Allocation",
+              text: "NISSA NINO Allocation",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "NISSA Pension Credit",
+              text: "NISSA Pension Credit",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "NISSA PIP",
+              text: "NISSA PIP",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "NISSA SIS",
+              text: "NISSA SIS",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "NISSA SSMG",
+              text: "NISSA SSMG",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "NISSA State Pension",
+              text: "NISSA State Pension",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "NISSA UC",
+              text: "NISSA UC",
+              attributes: {
+                "data-business-unit": "nissa"
+              }
+            },
+            {
+              value: "Notification Online (NOL)",
+              text: "Notification Online (NOL)",
+              attributes: {
+                "data-business-unit": "notifications-online"
+              }
+            },
+            {
+              value: "Payment Services",
+              text: "Payment Services",
+              attributes: {
+                "data-business-unit": "payment-services"
+              }
+            },
+            {
+              value: "Pension Credit",
+              text: "Pension Credit",
+              attributes: {
+                "data-business-unit": "the-pensions-service"
+              }
+            },
+            {
+              value: "Performance Measurement",
+              text: "Performance Measurement",
+              attributes: {
+                "data-business-unit": "performance-measurement"
+              }
+            },
+            {
+              value: "Personal Independence Payment (PIP)",
+              text: "Personal Independence Payment (PIP)",
+              attributes: {
+                "data-business-unit": "personal-independence-payment"
+              }
+            },
+            {
+              value: "Right of Access Request",
+              text: "Right of Access Request",
+              attributes: {
+                "data-business-unit": "right-of-access-request"
+              }
+            },
+            {
+              value: "Severe Disablement Allowance (SDA), Incapacity Benefit (IB)",
+              text: "Severe Disablement Allowance (SDA), Incapacity Benefit (IB)",
+              attributes: {
+                "data-business-unit": "severe-disablement-allowance-incapacity-benefit"
+              }
+            },
+            {
+              value: "Serious & Organised Crime",
+              text: "Serious and Organised Crime",
+              attributes: {
+                "data-business-unit": "serious-and-organised-crime"
+              }
+            },
+            {
+              value: "State Pension",
+              text: "State Pension",
+              attributes: {
+                "data-business-unit": "the-pension-service"
+              }
+            },
+            {
+              value: "Support for Mortgage Interest",
+              text: "Support for Mortgage Interest",
+              attributes: {
+                "data-business-unit": "debt-management"
+              }
+            },
+            {
+              value: "SureStart Maternity Grant",
+              text: "SureStart Maternity Grant",
+              attributes: {
+                "data-business-unit": "social-fund"
+              }
+            },
+            {
+              value: "Universal Credit",
+              text: "Universal Credit",
+              attributes: {
+                "data-business-unit": "universal-credit"
+              }
+            }
+          ]
+        }) }}
+
+
+{% endif %}
 
 
 
 <div class="govuk-button-group">
   {{ govukButton({
-        text: "Create copy",
-        href: "actions-create-copy-confirmation"
+        text: "Create copy"
   }) }}
 
   <a class="govuk-link" href="../search-results-v3">Cancel</a>
@@ -395,5 +1112,153 @@ Leaves the original document in its current file plan, it's not moved just a cop
       </form>
     </div>
   </div>
+
+
+  <script>
+  (function () {
+    const benefitTypes = [
+            "Access to Work",
+            "Alternative Format",
+            "Attendance Allowance unit",
+            "B2OL",
+            "Bereavement benefit",
+            "Bereavement Support Payment",
+            "Budgeting Loans",
+            "Carer's Allowance",
+            "Carer's Credit",
+            "CFEMS",
+            "Compensation Recovery unit",
+            "Debt",
+            "Disability Living Allowance 65",
+            "Disability Living Allowance Adult",
+            "Disability Living Allowanc Child",
+            "Employment and Support Allowance (ESA)",
+            "Fraud",
+            "Funeral Payments",
+            "Future Pensions Centre",
+            "Human resources",
+            "Integrated Loan Scheme (ILS), Eligible Loan Deduction Scheme (ELDS)",
+            "Industrial Injuries Disablement Benefit",
+            "International Pension Centre BB",
+            "International Pension Centre BSP",
+            "International Pension Centre ESA",
+            "International Pension Centre IB",
+            "International Pension Centre IIDB",
+            "International Pension Centre JSA",
+            "International Pension Centre MA",
+            "International Pension Centre PC",
+            "International Pension Centre SP",
+            "International Pension Centre WFP",
+            "Income Support (IS)",
+            "Jobseeker's Allowance (JSA)",
+            "Maternity Allowance",
+            "New Style Jobseeker's Allowance",
+            "National Insurance Delivery Centre",
+            "NISSA Attendance Allowance Unit",
+            "NISSA BB",
+            "NISSA BSP",
+            "NISSA Budgeting Loans",
+            "NISSA Carers Allowance",
+            "NISSA CRS",
+            "NISSA Disability Living Allowance",
+            "NISSA ESA",
+            "NISSA Funeral Payments",
+            "NISSA IIDB",
+            "NISSA INC New",
+            "NISSA JSA New",
+            "NISSA MA",
+            "NISSA NINO Allocation",
+            "NISSA Pension Credit",
+            "NISSA PIP",
+            "NISSA SIS",
+            "NISSA SSMG",
+            "NISSA State Pension",
+            "NISSA UC",
+            "Notification Online (NOL)",
+            "Payment Services",
+            "Pension Credit",
+            "Performance Measurement",
+            "Personal Independence Payment (PIP)",
+            "Right of Access Request",
+            "Severe Disablement Allowance (SDA), Incapacity Benefit (IB)",
+            "Serious & Organised Crime",
+            "State Pension",
+            "Support for Mortgage Interest",
+            "SureStart Maternity Grant",
+            "Universal Credit",
+    ];
+
+
+  
+
+    const input = document.getElementById("benefit-type");
+    const listbox = document.getElementById("benefit-type-listbox");
+    let activeIndex = -1;
+
+    function closeMenu() {
+      listbox.hidden = true;
+      activeIndex = -1;
+    }
+
+    function openMenu() {
+      listbox.hidden = false;
+    }
+
+    function renderOptions(options) {
+      listbox.innerHTML = "";
+      activeIndex = -1;
+
+      options.forEach((text) => {
+        const li = document.createElement("li");
+        li.textContent = text;
+
+        li.addEventListener("mousedown", () => {
+          input.value = text;
+          closeMenu();
+        });
+
+        listbox.appendChild(li);
+      });
+
+      options.length ? openMenu() : closeMenu();
+    }
+
+    input.addEventListener("input", () => {
+      const query = input.value.toLowerCase();
+      if (!query) return closeMenu();
+
+      renderOptions(
+        benefitTypes.filter((d) => d.toLowerCase().includes(query)),
+      );
+    });
+
+    input.addEventListener("keydown", (e) => {
+      const options = listbox.querySelectorAll("li");
+      if (!options.length) return;
+
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        activeIndex = (activeIndex + 1) % options.length;
+      }
+
+      if (e.key === "ArrowUp") {
+        e.preventDefault();
+        activeIndex = (activeIndex - 1 + options.length) % options.length;
+      }
+
+      if (e.key === "Enter" && activeIndex >= 0) {
+        e.preventDefault();
+        input.value = options[activeIndex].textContent;
+        closeMenu();
+      }
+
+      if (e.key === "Escape") closeMenu();
+
+      options.forEach((el, i) =>
+        el.classList.toggle("active", i === activeIndex),
+      );
+    });
+  })();
+</script>
 
 {% endblock %}
