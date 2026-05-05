@@ -50,6 +50,7 @@
 
     <p class="govuk-body">Showing <strong>1</strong> to <strong>20</strong> of <strong>42</strong> records</p>
 
+
     <!-- FITLER -->
 
       {{ govukButton({
@@ -229,8 +230,13 @@
   <!-- ACTION BUTTONS -->
 
 <div class="govuk-button-group">
-  {{ govukButton({
-    text: "View documents"
+        {{ govukButton({
+    text: "View documents",
+          href: "/public/files/Test_document.pdf",
+          attributes: {
+            target: "_blank",
+            rel: "noopener noreferrer"
+          }
   }) }}
 
   {{ mojButtonMenu({
@@ -260,7 +266,9 @@
           text: "Bulk update"
         },
         {
-          text: "Download"
+          text: "Download",
+          href: "/public/files/Test_document.pdf",
+          attributes: {download: ""}
         },
         {
           text: "Create copy",
