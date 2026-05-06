@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Request a rescan – {{ serviceName }} – GOV.UK Prototype Kit
+  Put documents on hold – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent
@@ -39,16 +39,18 @@
     <div class="govuk-grid-column-two-thirds">
 
      <h1 class="govuk-heading-l">
-        Request a rescan
+        Put documents on hold
       </h1>
 
-      <p>You are requesting a rescan of the document listed below.</p>
-      <p>[Placeholder text - more information about requesting a rescan: must be inbound (i.e. scanned mail, not uploaded or outbound), must be in the status of open, must not already have a rescan in progress.]</p>
+      
+      <p>[Placeholder text - more information about hold: documents must be open, not already on hold or closed. Documents stay on hold until hold is removed.]</p>
+      <p>Check that the documents listed below are the documents you want to put on hold.</p>
+      
+      <form action="actions-apply-hold-confirmation" method="post" novalidate>
 
-       <form action="/form-handler" method="post" novalidate>
 
   <table class="govuk-table">
-  <caption class="govuk-table__caption govuk-table__caption--m">Documents selected for rescan</caption>
+  <caption class="govuk-table__caption govuk-table__caption--m">Documents selected to put on hold</caption>
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Date received or issued</th>
@@ -90,58 +92,126 @@
 
 <div class="govuk-!-padding-bottom-4"></div>
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
+ {% if data['user-group'] == 'overpayment-hold-user' %}
 
 {{ govukRadios({
-  name: "rescanReason",
+  name: "holdReason",
   fieldset: {
     legend: {
-      text: "Why are you requesting this rescan?",
+      text: "Why are you putting the selected documents on hold?",
       isPageHeading: false,
       classes: "govuk-fieldset__legend--m"
     }
   },
   items: [
     {
-      value: "Illegible document",
-      text: "Illegible document"
+      value: "Appeals",
+      text: "Appeals"
     },
     {
-      value: "Document contains image from multiple documents",
-      text: "Document contains image from multiple documents"
+      value: "CRU",
+      text: "CRU"
     },
     {
-      value: "Missing pages on document",
-      text: "Missing pages on document"
+      value: "Debt",
+      text: "Debt"
     },
     {
-      value: "Missing information on document",
-      text: "Missing information on document"
+      value: "G11 case (FPC)",
+      text: "G11 case (FPC)"
     },
     {
-      value: "Document is not for business unit using ECMS",
-      text: "Document is not for business unit using ECMS"
+      value: "Judicial review",
+      text: "Judicial review"
+    },
+    {
+      value: "MP case",
+      text: "MP case"
+    },
+    {
+      value: "Ombudsman case",
+      text: "Ombudsman case"
+    },
+         {
+      value: "Overpayment",
+      text: "Overpayment"
+    },
+    {
+      value: "Pension Service Appeals Team (IPC)",
+      text: "Pension Service Appeals Team (IPC)"
+    },
+    {
+      value: "Special payments",
+      text: "Special payments"
+    },
+    {
+      value: "Other",
+      text: "Other"
     }
   ]
 }) }}
 
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
-
-{{ govukTextarea({
-  name: "rescanLinkData",
-  id: "rescan-link-data",
-  label: {
-    text: "Link data (optional)",
-    classes: "govuk-label--m",
-    isPageHeading: false
-  }
+ {% else %}
+ {{ govukRadios({
+  id: "holdReason",
+  name: "holdReason",
+  fieldset: {
+    legend: {
+      text: "Why are you putting the selected documents on hold?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "Appeals",
+      text: "Appeals"
+    },
+    {
+      value: "CRU",
+      text: "CRU"
+    },
+    {
+      value: "Debt",
+      text: "Debt"
+    },
+    {
+      value: "G11 case (FPC)",
+      text: "G11 case (FPC)"
+    },
+    {
+      value: "Judicial review",
+      text: "Judicial review"
+    },
+    {
+      value: "MP case",
+      text: "MP case"
+    },
+    {
+      value: "Ombudsman case",
+      text: "Ombudsman case"
+    },
+    {
+      value: "Pension Service Appeals Team (IPC)",
+      text: "Pension Service Appeals Team (IPC)"
+    },
+    {
+      value: "Special payments",
+      text: "Special payments"
+    },
+    {
+      value: "Other",
+      text: "Other"
+    }
+  ]
 }) }}
 
+  {% endif %}
 
 
 <div class="govuk-button-group">
   {{ govukButton({
-        text: "Request rescan",
-        href: "actions-rescan-confirmation"
+        text: "Put on hold"
   }) }}
 
   <a class="govuk-link" href="../search-results-v3">Cancel</a>
