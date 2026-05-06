@@ -22,19 +22,19 @@ document.addEventListener('DOMContentLoaded', function () {
     options.forEach(option => {
       const unit = option.dataset.businessUnit
 
-      // ✅ No business unit selected → show EVERYTHING
+      // No business unit selected → show EVERYTHING
       if (selectedUnit === '') {
         option.hidden = false
         return
       }
 
-      // ✅ Options without a business unit should remain visible
+      // Options without a business unit should remain visible
       if (!unit) {
         option.hidden = false
         return
       }
 
-      // ✅ Show matching options only
+      // Show matching options only
       option.hidden = unit !== selectedUnit
     })
   }
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     benefitSelect.value = ''
   })
 
-  // ✅ Run once on page load (important!)
+  // Run once on page load (important!)
   updateBenefitOptions()
 })
 
