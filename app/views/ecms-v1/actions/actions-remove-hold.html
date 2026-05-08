@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Put documents on hold – {{ serviceName }} – GOV.UK Prototype Kit
+  Remove documents from hold – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent
@@ -39,14 +39,26 @@
     <div class="govuk-grid-column-two-thirds">
 
      <h1 class="govuk-heading-l">
-        Put documents on hold
+        Remove documents from hold
       </h1>
 
+ {% from "govuk/components/radios/macro.njk" import govukRadios %}
+ {% if data['user-group'] == 'overpayment-hold-user' %}
+
+
+ {% else %}
+ {{ govukWarningText({
+  text: "One or more selected documents have an overpayment hold and hold status cannot be removed.",
+  iconFallbackText: "Warning"
+}) }}
+
+  {% endif %}
+
       
-      <p>[Placeholder text - more information about hold: documents must be open, not already on hold or closed. Documents stay on hold until hold is removed.]</p>
-      <p>Check that the documents listed below are the documents you want to put on hold.</p>
+      <p>[Placeholder text - more information about removing hold: Puts a document back to status 'closed' counting down to its deletion.]</p>
+      <p>Check that the documents listed below are the documents you want to remove from on hold.</p>
       
-      <form action="actions-apply-hold-confirmation" method="post" novalidate>
+      <form action="actions-remove-hold-confirmation" method="post" novalidate>
 
 
   <table class="govuk-table">
@@ -59,6 +71,7 @@
       <th scope="col" class="govuk-table__header">Name</th>
       <th scope="col" class="govuk-table__header">Document type</th>
       <th scope="col" class="govuk-table__header">Status</th>
+      <th scope="col" class="govuk-table__header">Hold reason</th>
     </tr>
   </thead>
   <tbody class="govuk-table__body">
@@ -68,7 +81,8 @@
       <td class="govuk-table__cell">AA123</td>
       <td class="govuk-table__cell">Jane Doe</td>
       <td class="govuk-table__cell">BD8</td>
-      <td class="govuk-table__cell">Open</td>
+      <td class="govuk-table__cell">On hold</td>
+      <td class="govuk-table__cell">General hold</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">12 Feb 2025</th>
@@ -76,142 +90,28 @@
       <td class="govuk-table__cell">No data</td>
       <td class="govuk-table__cell">Jane Doe</td>
       <td class="govuk-table__cell">BD8</td>
-      <td class="govuk-table__cell">Open</td>
+            <td class="govuk-table__cell">On hold</td>
+      <td class="govuk-table__cell">Overpayment hold</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">12 Feb 2026</th>
       <td class="govuk-table__cell">QQ123456C</td>
       <td class="govuk-table__cell">No data</td>
       <td class="govuk-table__cell">Jane Doe</td>
-      <td class="govuk-table__cell">CIS500</td>
-       <td class="govuk-table__cell">Open</td>
+       <td class="govuk-table__cell">CIS500</td>
+      <td class="govuk-table__cell">On hold</td>
+      <td class="govuk-table__cell">General hold</td>
     </tr>
   </tbody>
 </table>
 
 
 <div class="govuk-!-padding-bottom-4"></div>
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
- {% if data['user-group'] == 'overpayment-hold-user' %}
-
-{{ govukRadios({
-  name: "holdReason",
-  fieldset: {
-    legend: {
-      text: "Why are you putting the selected documents on hold?",
-      isPageHeading: false,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  items: [
-    {
-      value: "Appeals",
-      text: "Appeals"
-    },
-    {
-      value: "CRU",
-      text: "CRU"
-    },
-    {
-      value: "Debt",
-      text: "Debt"
-    },
-    {
-      value: "G11 case (FPC)",
-      text: "G11 case (FPC)"
-    },
-    {
-      value: "Judicial review",
-      text: "Judicial review"
-    },
-    {
-      value: "MP case",
-      text: "MP case"
-    },
-    {
-      value: "Ombudsman case",
-      text: "Ombudsman case"
-    },
-         {
-      value: "Overpayment",
-      text: "Overpayment"
-    },
-    {
-      value: "Pension Service Appeals Team (IPC)",
-      text: "Pension Service Appeals Team (IPC)"
-    },
-    {
-      value: "Special payments",
-      text: "Special payments"
-    },
-    {
-      value: "Other",
-      text: "Other"
-    }
-  ]
-}) }}
-
- {% else %}
- {{ govukRadios({
-  id: "holdReason",
-  name: "holdReason",
-  fieldset: {
-    legend: {
-      text: "Why are you putting the selected documents on hold?",
-      isPageHeading: false,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  items: [
-    {
-      value: "Appeals",
-      text: "Appeals"
-    },
-    {
-      value: "CRU",
-      text: "CRU"
-    },
-    {
-      value: "Debt",
-      text: "Debt"
-    },
-    {
-      value: "G11 case (FPC)",
-      text: "G11 case (FPC)"
-    },
-    {
-      value: "Judicial review",
-      text: "Judicial review"
-    },
-    {
-      value: "MP case",
-      text: "MP case"
-    },
-    {
-      value: "Ombudsman case",
-      text: "Ombudsman case"
-    },
-    {
-      value: "Pension Service Appeals Team (IPC)",
-      text: "Pension Service Appeals Team (IPC)"
-    },
-    {
-      value: "Special payments",
-      text: "Special payments"
-    },
-    {
-      value: "Other",
-      text: "Other"
-    }
-  ]
-}) }}
-
-  {% endif %}
 
 
 <div class="govuk-button-group">
   {{ govukButton({
-        text: "Put on hold"
+        text: "Remove from hold"
   }) }}
 
   <a class="govuk-link" href="../search-results-v3">Cancel</a>
