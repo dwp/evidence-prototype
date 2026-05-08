@@ -44,13 +44,23 @@
         Request a rescan
       </h1>
 
+{% if data['doc-status'] in ['closed', 'on-hold'] %}
+  {{ govukWarningText({
+    text: "One or more selected documents are not open and cannot be re‑scanned",
+    iconFallbackText: "Warning"
+  }) }}
+{% endif %}
+
+
+
       <p>You are requesting a rescan of the document listed below.</p>
       <p>[Placeholder text - more information about requesting a rescan: must be inbound (i.e. scanned mail, not uploaded or outbound), must be in the status of open, must not already have a rescan in progress.]</p>
 
        <form action="/form-handler" method="post" novalidate>
  
         <table class="govuk-table">
-  <caption class="govuk-table__caption govuk-table__caption--m">Documents selected to put on hold</caption>
+  <caption class="govuk-table__caption govuk-table__caption--m">
+Documents selected for rescan</caption>
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Date received or issued</th>
@@ -63,7 +73,7 @@
   </thead>
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">14 Feb 2025 </th>
+      <td class="govuk-table__cell">14 Feb 2026 </th>
       <td class="govuk-table__cell">QQ123456C</td>
       <td class="govuk-table__cell">AA123</td>
       <td class="govuk-table__cell">Jane Doe</td>
@@ -71,7 +81,7 @@
       <td class="govuk-table__cell">Open</td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">12 Feb 2025</th>
+      <td class="govuk-table__cell">12 Feb 2026</th>
       <td class="govuk-table__cell">QQ123456C</td>
       <td class="govuk-table__cell">No data</td>
       <td class="govuk-table__cell">Jane Doe</td>
@@ -84,7 +94,11 @@
       <td class="govuk-table__cell">No data</td>
       <td class="govuk-table__cell">Jane Doe</td>
       <td class="govuk-table__cell">CIS500</td>
+      {% if data['doc-status'] in ['closed', 'on-hold'] %}
+      <td class="govuk-table__cell">Closed</td>
+      {% else %}
        <td class="govuk-table__cell">Open</td>
+       {% endif %}
     </tr>
   </tbody>
 </table>
