@@ -1,5 +1,5 @@
 {% extends "layouts/main.html" %} 
-{% block pageTitle %} Select the file you want to upload –
+{% block pageTitle %} Select a file to upload –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
 
 {% block beforeContent%}
@@ -44,19 +44,20 @@
 <div class="govuk-width-container">
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Select the file you want to upload</h1>
+    <h1 class="govuk-heading-l">Select a file to upload</h1>
     <form action="/form-handler" method="post" novalidate>
  {% if data['single-upload'] == 'true' %}
         {{ govukFileUpload({
           id: "file-upload-1",
           name: "fileUpload1",
           label: {
-            text: "Upload a file",
+            text: "How to upload a file",
           classes: "govuk-label--m"
           },
           hint: {
-            html: '<ul><li> The file must be smaller than 10MB </li>
-              <li> You can upload documents in the format of DOC, DOCX, PDF, PPT, PPTX, XLS or XLSX</li></ul>
+            html: '<p class="govuk-body">Each file must be:</p> 
+            <ul class="govuk-body"><li> smaller than 10MB </li>
+              <li> in the following formats DOC, DOCX, PDF, PPT, PPTX, XLS or XLSX</li></ul>
             '
           },
           javascript: true
@@ -66,13 +67,14 @@
           id: "file-upload-1",
           name: "fileUpload1",
           label: {
-            text: "Upload a file",
+            text: "How to upload a file",
           classes: "govuk-label--m"
           },
           hint: {
-            html: '<ul><li>You can upload up to 10 files</li>
-              <li> Each file must be smaller than 10MB </li>
-              <li> You can upload documents in the format of DOC, DOCX, PDF, PPT, PPTX, XLS or XLSX</li></ul>
+            html: '<p class="govuk-body">You can upload up to 10 files.</p> <p class="govuk-body">Each file must be:</p>
+            <ul class="govuk-body">
+              <li> smaller than 10MB </li>
+              <li>in the following formats DOC, DOCX, PDF, PPT, PPTX, XLS or XLSX</li></ul>
             '
           },
           javascript: true
@@ -82,7 +84,7 @@
 
             <div class="govuk-form-group">
         <label class="govuk-label govuk-label--m" for="document-type">
-          What type of document is this file?
+          What type of document are you uploading?
         </label>
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds">

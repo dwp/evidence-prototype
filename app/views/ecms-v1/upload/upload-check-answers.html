@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Check the details for your document upload – {{ serviceName }} – GOV.UK Prototype Kit
+  Review the document details – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent
@@ -43,9 +43,10 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-xl">
-        Check the details for your document upload 
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
+        Review the document details 
       </h1>
+      <p class="govuk-body govuk-!-margin-bottom-7">Check that all the document details are correct before you upload.</p>
 
       <h2 class="govuk-heading-l">
         Customer details
@@ -226,7 +227,7 @@
         rows: [
           {
             key: {
-              text: "Classification"
+              text: "Document classification"
             },
             value: {
               text: "Supporting"

@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  On hold – {{ serviceName }} – GOV.UK Prototype Kit
+  Document hold confirmed – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent
@@ -41,9 +41,9 @@
     <div class="govuk-grid-column-two-thirds">
 
 {% set holdReason = data['holdReason']  %}
-{% set holdReason = "The documents have been successfully put on hold because of " + holdReason %}
+{% set holdReason = "Hold reason: " + holdReason %}
 {{ govukPanel({
-    titleText: "On hold",
+    titleText: "Document hold confirmed",
     html: holdReason
     }) }}
 
@@ -52,7 +52,7 @@
       </h2>
 
       <p>
-       [Placeholder for that if the selected documents were in the status of closed, they have been updated to the status of on hold. And the user can now see this on the search results and metadata.]
+       Closed documents are now on hold. Documents that are open or already on hold are unchanged.
       </p>
 
       <p> 

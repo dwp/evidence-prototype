@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %} {% block pageTitle %} Document details for this upload –
+{% extends "layouts/main.html" %} {% block pageTitle %} Enter document details –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
 %}
 
@@ -45,8 +45,8 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Document details for this upload</h1>
-      <p class="govuk-body govuk-!-margin-bottom-9">Some explanation text around uploading documents to ECMS,that document details such as classification have to be the same for all documents uploaded at the same time.</p>
+      <h1 class="govuk-heading-l">Enter document details</h1>
+      <p class="govuk-body govuk-!-margin-bottom-9">These details must be the same for all documents in this upload.</p>
 
       <form action="/form-handler" method="post" novalidate>
  
@@ -88,7 +88,7 @@
             }
           },
           hint: {
-            text: "This could be information that harm the customer if disclosed to them"
+            text: "This is information that could harm the customer if disclosed to them."
           },
           items: [
             {
@@ -120,7 +120,7 @@
           namePrefix: "upload-issue-date",
           fieldset: {
             legend: {
-              text: "Issue date (optional)",
+              text: "Document issue date (optional)",
               classes: "govuk-fieldset__legend--m",
               value: data['Issue date']
             }
@@ -134,6 +134,9 @@
           label: {
             text: "Line of Business (LOB) case ID (optional)",
             classes: "govuk-label--m"
+          },
+          hint: {
+            text: "[Placeholder: Identification number or text for a particular business area.]"
           },
           classes: "govuk-!-width-two-thirds",
           id: "upload-lob",
