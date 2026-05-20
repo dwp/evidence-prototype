@@ -1,0 +1,149 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Check the customer details are correct –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="../reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+           <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+            -->
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="../upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %} {% block content %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+<div class="govuk-width-container">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-l">Check the customer details are correct</h1>
+
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{# CUSTOMER DETAILS #}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Customer details"
+    },
+    actions: {
+      items: [
+        {
+          href: "metadata-customer-details",
+          text: "Edit"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "National Insurance number"
+      },
+      value: {
+              text: data['metadata-nino'] or "QQ123456C"
+            }
+    },
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+              
+text: (data['metadata-dob-day'] or "5") 
+      + " " 
+      + ((data['metadata-dob-month'] or "January")) 
+      + " " 
+      + (data['metadata-dob-year'] or "1978")
+
+            }
+    },
+
+    
+     {
+      key: {
+        text: "First name"
+      },
+      value: {
+              text: data['metadata-first-name'] or "Jane"
+            }
+    },
+      {
+      key: {
+        text: "Last name"
+      },
+      value: {
+              text: data['metadata-last-name'] or "Doe"
+            }
+    },
+      {
+      key: {
+        text: "Postcode"
+      },
+      value: {
+              text: data['metadata-post-code'] or "SW1 1AA"
+            }
+    },
+      {
+      key: {
+        text: "Customer Reference number (CRN)"
+      },
+      value: {
+              text: data['metadata-crn'] or "1589"
+            }
+    },
+      {
+      key: {
+        text: "Claim reference"
+      },
+      value: {
+              text: data['metadata-claim-ref'] or "AA123"
+            }
+    }
+  ]
+}) }}
+
+
+      <form action="metadata-confirmation-customer-details" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Update metadata"
+        }) }}
+
+      </form>
+
+
+    
+  </div>
+</div>
+</div>
+
+{% endblock %}

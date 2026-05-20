@@ -1,0 +1,157 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Update metadata for customer details –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="../reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+           <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+            -->
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="../upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{% endblock %} 
+
+{% block content %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Update metadata for customer details</h1>
+      <p class="govuk-body govuk-!-margin-bottom-9">[any placeholder guidance text here?] </p>
+
+      <form action="metadata-check-customer-details" method="post" novalidate>
+
+              {{ govukInput({
+          label: {
+            text: "National Insurance number",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "metadata-nino",
+          name: "metadata-nino",
+          value: data['metadata-nino'] or "QQ123456C"
+        }) }}
+
+         
+       
+{{ govukDateInput({
+  id: "metadata-dob",
+  namePrefix: "metadata-dob",
+  fieldset: {
+    legend: {
+      text: "Date of birth",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "For example, 31 3 1980"
+  },
+  items: [
+    {
+      classes: "govuk-input--width-2",
+      name: "day",
+      value: data['metadata-dob-day'] or "5"
+    },
+    {
+      classes: "govuk-input--width-2",
+      name: "month",
+      value: data['metadata-dob-month'] or "1"
+    },
+    {
+      classes: "govuk-input--width-4",
+      name: "year",
+      value: data['metadata-dob-year'] or "1978"
+    }
+  ]
+}) }}
+
+        
+
+        {{ govukInput({
+          label: {
+            text: "First name",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "metadata-first-name",
+          name: "metadata-first-name",
+          value: data['metadata-first-name'] or "Jane"
+        }) }}
+        
+        {{ govukInput({
+          label: {
+            text: "Last name",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "metadata-last-name",
+          name: "metadata-last-name",
+          value: data['metadata-last-name'] or "Doe"
+        }) }}
+      
+
+        {{ govukInput({
+          label: {
+            text: "Postcode",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-input--width-10",
+          id: "metadata-post-code",
+          name: "metadata-post-code",
+          value: data['metadata-post-code'] or "SW1 1AA"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Customer Reference number (CRN)",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "metadata-crn",
+          name: "metadata-crn",
+          value: data['metadata-crn'] or "1589"
+        }) }}
+       
+        {{ govukInput({
+          label: {
+            text: "Claim reference",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "metadata-claim-ref",
+          name: "metadata-claim-ref",
+          value: data['metadata-claim-ref'] or "AA123"
+        }) }}
+
+
+
+         {{ govukButton({
+        text: "Continue"
+      }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
