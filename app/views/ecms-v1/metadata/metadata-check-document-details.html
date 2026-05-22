@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %} {% block pageTitle %} Check customer details –
+{% extends "layouts/main.html" %} {% block pageTitle %} Check document details –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
 %}
 
@@ -42,7 +42,7 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-    <h1 class="govuk-heading-l">Check customer details</h1>
+    <h1 class="govuk-heading-l">Check document details</h1>
 
 
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
@@ -52,12 +52,12 @@
 {{ govukSummaryList({
   card: {
     title: {
-      text: "Customer details"
+      text: "Document details"
     },
     actions: {
       items: [
         {
-          href: "metadata-customer-details",
+          href: "metadata-document-details",
           text: "Edit"
         }
       ]
@@ -66,73 +66,60 @@
   rows: [
     {
       key: {
-        text: "National Insurance number"
+        text: "Business unit"
       },
       value: {
-              text: data['metadata-nino'] or "QQ123456C"
+              text: data['metadataBusinessUnit'] or "Working Age benefits"
             }
     },
-    {
-      key: {
-        text: "Date of birth"
-      },
-      value: {
-              
-text: (data['metadata-dob-day'] or "5") 
-      + " " 
-      + (data['metadata-dob-month'] or "January") 
-      + " " 
-      + (data['metadata-dob-year'] or "1978")
 
-            }
-    },
 
     
      {
       key: {
-        text: "First name"
+        text: "Benefit type"
       },
       value: {
-              text: data['metadata-first-name'] or "Jane"
+              text: data['metadataBenefitType'] or "Employment and Support Allowance (ESA)"
             }
     },
       {
       key: {
-        text: "Last name"
+        text: "Document type"
       },
       value: {
-              text: data['metadata-last-name'] or "Doe"
+              text: data['metadata-doc-type'] or "BD8"
             }
     },
       {
       key: {
-        text: "Postcode"
+        text: "Document classification"
       },
       value: {
-              text: data['metadata-post-code'] or "SW1 1AA"
+              text: data['metadata-classification'] or "Supporting"
             }
     },
       {
       key: {
-        text: "Customer Reference number (CRN)"
+        text: "Harmful indicator"
       },
       value: {
-              text: data['metadata-crn'] or "1589"
+              text: data['metadata-harmful-indicator'] or "Not harmful"
             }
     },
       {
       key: {
-        text: "Claim reference"
+        text: "Document status"
       },
       value: {
-              text: data['metadata-claim-ref'] or "AA123"
+              text: data['metadata-doc-status'] or "Open"
             }
     }
   ]
 }) }}
 
 
-      <form action="metadata-confirmation-customer-details" method="post" novalidate>
+      <form action="metadata-confirmation-document-details" method="post" novalidate>
 
         {{ govukButton({
           text: "Update metadata"

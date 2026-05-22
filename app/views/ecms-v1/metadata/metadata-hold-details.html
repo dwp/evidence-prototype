@@ -1,0 +1,138 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Edit hold details –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="../reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+           <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+            -->
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="../upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{% endblock %} 
+
+{% block content %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Edit hold details</h1>
+
+      <form action="metadata-check-hold-details" method="post" novalidate>
+
+
+            {{ govukRadios({
+      classes: "govuk-radios--inline",
+      name: "metadata-automatic-closure",
+      value: data['metadata-automatic-closure'],
+      fieldset: {
+        legend: {
+          text: "Inhibit automatic closure",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "[Placeholder what we mean by inhibiting automated closure]"
+      },
+      items: [
+        {
+          value: "Yes",
+          text: "Yes",
+          checked: true
+        },
+        {
+          value: "No",
+          text: "No"
+        }
+      ]
+    }) }}
+
+
+    <h2 class="govuk-heading-m">Hold details you cannot edit</h2>
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Overpayment hold"
+      },
+      value: {
+        text: "No"
+      }
+    },
+    {
+      key: {
+        text: "Overpayment hold date"
+      },
+      value: {
+        text: "There is no overpayment hold"
+      }
+    },
+    {
+      key: {
+        text: "General hold"
+      },
+       value: {
+        text: "No"
+      }
+    },
+    {
+      key: {
+        text: "Gerneral hold reason"
+      },
+       value: {
+        text: "There is no general hold"
+      }
+    },
+    {
+      key: {
+        text: "On hold reason"
+      },
+       value: {
+        text: "The document is not on hold"
+      }
+    }
+  ]
+}) }}
+
+
+
+
+
+
+      <div class="govuk-button-group">
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+  <a class="govuk-link" href="metadata?metadata-automatic-closure">Cancel</a>
+</div>
+
+      </form>
+
+      
+    </div>
+  </div>
+{% endblock %}

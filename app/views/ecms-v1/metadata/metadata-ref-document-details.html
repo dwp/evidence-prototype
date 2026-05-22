@@ -1,0 +1,120 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Edit reference document details –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="../reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+           <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+            -->
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="../upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{% endblock %} 
+
+{% block content %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Edit reference document details</h1>
+
+      <form action="metadata-check-ref-document-details" method="post" novalidate>
+
+  {{ govukInput({
+          label: {
+            text: "Line of Business (LOB) case ID",
+            classes: "govuk-label--m"
+          },
+           hint: {
+            text: "This is a reference number issued by some business units. If you don’t have this, leave it blank."
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "metadata-lob-case-id",
+          name: "metadata-lob-case-id",
+          value: data['metadata-lob-case-id'] or "004"
+        }) }}
+
+
+          {{ govukInput({
+    label: {
+      text: "Office postcode",
+            classes: "govuk-label--m"
+         },
+           hint: {
+            text: "[Explaination of which office we mean.]"
+          },
+          classes: "govuk-input--width-10",
+          id: "metadata-office-postcode",
+          name: "metadata-office-postcode",
+        value: data['metadata-office-postcode'] or "SW2 1AA",
+          autocomplete: "postal-code"
+        }) }}
+
+              {{ govukTextarea({
+        name: "metadata-link-data",
+        id: "metadata-link-data",
+        label: {
+          text: "Link data",
+          classes: "govuk-label--m",
+          isPageHeading: false
+        },
+        value: data['metadata-link-data']
+      }) }}
+
+<div class="govuk-!-padding-bottom-4"></div>
+    <h2 class="govuk-heading-m">Reference document details you cannot edit</h2>
+{{ govukSummaryList({
+  classes: "govuk-summary-list--no-border",
+  rows: [
+    {
+      key: {
+        text: "Document ID"
+      },
+      value: {
+        text: "(ba8efda4-d2e0-414f-9ab2-949e29f76336)"
+      }
+    }
+  ]
+}) }}
+
+
+
+
+
+
+      <div class="govuk-button-group">
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+  <a class="govuk-link" href="metadata?metadata-lob-case-id&metadata-office-postcode&metadata-link-data">Cancel</a>
+</div>
+
+      </form>
+
+      
+    </div>
+  </div>
+{% endblock %}

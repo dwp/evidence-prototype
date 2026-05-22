@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %} {% block pageTitle %} Update metadata for customer details –
+{% extends "layouts/main.html" %} {% block pageTitle %} Edit customer details –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
 %}
 
@@ -38,8 +38,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Update metadata for customer details</h1>
-      <p class="govuk-body govuk-!-margin-bottom-9">[any placeholder guidance text here?] </p>
+      <h1 class="govuk-heading-l">Edit customer details</h1>
 
       <form action="metadata-check-customer-details" method="post" novalidate>
 
@@ -147,11 +146,17 @@
 
 
 
-         {{ govukButton({
-        text: "Continue"
-      }) }}
+      <div class="govuk-button-group">
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+  <a class="govuk-link" href="metadata">Cancel</a>
+</div>
 
       </form>
+
+      
     </div>
   </div>
 {% endblock %}

@@ -38,6 +38,24 @@ module.exports = function (router) {
   });
 
 
+// default settings for metadata business unit and benefit type
+  router.get('/ecms-v1/metadata/metadata-document-details', function (req, res) {
+
+    if (!req.session.data.metadataBusinessUnit) {
+      req.session.data.metadataBusinessUnit = 'working-age-benefits'
+    }
+
+    if (!req.session.data.metadataBenefitType) {
+      req.session.data.metadataBenefitType = 'Employment and Support Allowance (ESA)'
+    }
+
+    res.render('ecms-v1/metadata/metadata-document-details')
+  })
+
+
+
+
+
  // add next route here
 
 

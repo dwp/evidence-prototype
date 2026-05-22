@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %} {% block pageTitle %} Check customer details –
+{% extends "layouts/main.html" %} {% block pageTitle %} Check hold details –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
 %}
 
@@ -42,22 +42,22 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-    <h1 class="govuk-heading-l">Check customer details</h1>
+    <h1 class="govuk-heading-l">Check hold details</h1>
 
 
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
-{# CUSTOMER DETAILS #}
+{# Document details #}
 
 {{ govukSummaryList({
   card: {
     title: {
-      text: "Customer details"
+      text: "Hold details"
     },
     actions: {
       items: [
         {
-          href: "metadata-customer-details",
+          href: "metadata-hold-details",
           text: "Edit"
         }
       ]
@@ -66,73 +66,17 @@
   rows: [
     {
       key: {
-        text: "National Insurance number"
+        text: "Inhibit automatic closure"
       },
       value: {
-              text: data['metadata-nino'] or "QQ123456C"
-            }
-    },
-    {
-      key: {
-        text: "Date of birth"
-      },
-      value: {
-              
-text: (data['metadata-dob-day'] or "5") 
-      + " " 
-      + (data['metadata-dob-month'] or "January") 
-      + " " 
-      + (data['metadata-dob-year'] or "1978")
-
-            }
-    },
-
-    
-     {
-      key: {
-        text: "First name"
-      },
-      value: {
-              text: data['metadata-first-name'] or "Jane"
-            }
-    },
-      {
-      key: {
-        text: "Last name"
-      },
-      value: {
-              text: data['metadata-last-name'] or "Doe"
-            }
-    },
-      {
-      key: {
-        text: "Postcode"
-      },
-      value: {
-              text: data['metadata-post-code'] or "SW1 1AA"
-            }
-    },
-      {
-      key: {
-        text: "Customer Reference number (CRN)"
-      },
-      value: {
-              text: data['metadata-crn'] or "1589"
-            }
-    },
-      {
-      key: {
-        text: "Claim reference"
-      },
-      value: {
-              text: data['metadata-claim-ref'] or "AA123"
+              text: data['metadata-automatic-closure'] or "Yes"
             }
     }
   ]
 }) }}
 
 
-      <form action="metadata-confirmation-customer-details" method="post" novalidate>
+      <form action="metadata-confirmation-hold-details" method="post" novalidate>
 
         {{ govukButton({
           text: "Update metadata"

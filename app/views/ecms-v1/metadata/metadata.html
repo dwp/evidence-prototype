@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %} {% block pageTitle %} Metadata –
+{% extends "layouts/main.html" %} {% block pageTitle %} Manage metadata –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
 %}
 
@@ -42,7 +42,8 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-    <h1 class="govuk-heading-l">Metadata</h1>
+    <h1 class="govuk-heading-l">Manage metadata</h1>
+    <p class="govuk-body govuk-!-margin-bottom-7">[any guidance text here?] </p>
 
 
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
@@ -58,7 +59,7 @@
       items: [
         {
           href: "metadata-customer-details",
-          text: "Update"
+          text: "Edit"
         }
       ]
     }
@@ -77,7 +78,13 @@
         text: "Date of birth"
       },
       value: {
-              text: data['metadata-dob'] or "5 January 1978"
+              
+text: (data['metadata-dob-day'] or "5") 
+      + " " 
+      + (data['metadata-dob-month'] or "January") 
+      + " " 
+      + (data['metadata-dob-year'] or "1978")
+
             }
     },
      {
@@ -133,8 +140,8 @@
     actions: {
       items: [
         {
-          href: "#",
-          text: "Update"
+          href: "metadata-document-details",
+          text: "Edit"
         }
       ]
     }
@@ -145,7 +152,7 @@
         text: "Business unit"
       },
       value: {
-              text: data['metadata-bu'] or "Working Age benefits"
+              text: data['metadataBusinessUnit'] or "Working Age benefits"
             }
     },
     {
@@ -153,7 +160,7 @@
         text: "Benefit type"
       },
       value: {
-              text: data['metadata-benefit-type'] or "ESA"
+              text: data['metadataBenefitType'] or "Employment and Support Allowance (ESA)"
             }
     },
     {
@@ -201,8 +208,8 @@
     actions: {
       items: [
         {
-          href: "#",
-          text: "Update"
+          href: "metadata-hold-details",
+          text: "Edit"
         }
       ]
     }
@@ -269,8 +276,8 @@
     actions: {
       items: [
         {
-          href: "#",
-          text: "Update"
+          href: "metadata-ref-document-details",
+          text: "Edit"
         }
       ]
     }
@@ -403,14 +410,12 @@
   ]
 }) }}
 
-      <form action="../search-results-v3" method="post" novalidate>
 
-        {{ govukButton({
-          text: "Update metadata"
-        }) }}
-
-      </form>
-
+      <p> 
+        <a href="../search-results-v3">
+          Return to search results
+        </a>
+      </p>
 
     
   </div>

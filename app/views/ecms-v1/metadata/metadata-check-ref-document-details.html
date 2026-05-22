@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %} {% block pageTitle %} Check customer details –
+{% extends "layouts/main.html" %} {% block pageTitle %} Check reference document details –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
 %}
 
@@ -42,97 +42,57 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-    <h1 class="govuk-heading-l">Check customer details</h1>
+    <h1 class="govuk-heading-l">Check reference document details</h1>
 
 
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
-{# CUSTOMER DETAILS #}
+{# Document details #}
 
 {{ govukSummaryList({
   card: {
     title: {
-      text: "Customer details"
+      text: "Reference document details"
     },
     actions: {
       items: [
         {
-          href: "metadata-customer-details",
+          href: "metadata-ref-document-details",
           text: "Edit"
         }
       ]
     }
   },
   rows: [
-    {
+   {
       key: {
-        text: "National Insurance number"
+        text: "Line of Business (LOB) case ID"
       },
       value: {
-              text: data['metadata-nino'] or "QQ123456C"
+              text: data['metadata-lob-case-id'] or "004"
             }
     },
     {
       key: {
-        text: "Date of birth"
+        text: "Office postcode"
       },
       value: {
-              
-text: (data['metadata-dob-day'] or "5") 
-      + " " 
-      + (data['metadata-dob-month'] or "January") 
-      + " " 
-      + (data['metadata-dob-year'] or "1978")
-
+              text: data['metadata-office-postcode'] or "SW2 1AA"
             }
     },
-
-    
-     {
+    {
       key: {
-        text: "First name"
+        text: "Link data"
       },
       value: {
-              text: data['metadata-first-name'] or "Jane"
-            }
-    },
-      {
-      key: {
-        text: "Last name"
-      },
-      value: {
-              text: data['metadata-last-name'] or "Doe"
-            }
-    },
-      {
-      key: {
-        text: "Postcode"
-      },
-      value: {
-              text: data['metadata-post-code'] or "SW1 1AA"
-            }
-    },
-      {
-      key: {
-        text: "Customer Reference number (CRN)"
-      },
-      value: {
-              text: data['metadata-crn'] or "1589"
-            }
-    },
-      {
-      key: {
-        text: "Claim reference"
-      },
-      value: {
-              text: data['metadata-claim-ref'] or "AA123"
+              text: ddata['metadata-link-data'] or "Not provided"
             }
     }
   ]
 }) }}
 
 
-      <form action="metadata-confirmation-customer-details" method="post" novalidate>
+      <form action="metadata-confirmation-ref-document-details" method="post" novalidate>
 
         {{ govukButton({
           text: "Update metadata"
