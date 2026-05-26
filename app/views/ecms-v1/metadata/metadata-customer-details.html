@@ -40,7 +40,8 @@
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">Edit customer details</h1>
 
-      <form action="metadata-check-customer-details" method="post" novalidate>
+      <form action="metadata" method="post" novalidate>
+      <!-- Alternative link going to indiviual check answers page <form action="metadata-check-customer-details" method="post" novalidate> -->
 
               {{ govukInput({
           label: {
@@ -76,7 +77,7 @@
     {
       classes: "govuk-input--width-2",
       name: "month",
-      value: data['metadata-dob-month'] or "1"
+      value: data['metadata-dob-month'] or "January"
     },
     {
       classes: "govuk-input--width-4",
@@ -151,7 +152,7 @@
     text: "Continue"
   }) }}
 
-  <a class="govuk-link" href="metadata">Cancel</a>
+  <a class="govuk-link" href="metadata?metadata-nino&metadata-dob&metadata-first-name&metadata-last-name&metadata-post-code&metadata-crn&metadata-claim-ref&edit-metadata">Cancel</a>
 </div>
 
       </form>

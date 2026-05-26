@@ -39,8 +39,9 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">Edit document details</h1>
-{#<pre>{{ data | dump }}</pre>#}
-      <form action="metadata-check-document-details" method="post" novalidate>
+
+      <form action="metadata" method="post" novalidate>
+
 
               {{ govukSelect({
           id: "metadataBusinessUnit",
@@ -808,7 +809,7 @@
     text: "Continue"
   }) }}
 
-  <a class="govuk-link" href="metadata?metadataBusinessUnit&metadataBenefitType&metadata-doc-type&metadata-classification&metadata-harmful-indicator">Cancel</a>
+  <a class="govuk-link" href="metadata?metadataBusinessUnit&metadataBenefitType&metadata-doc-type&metadata-classification&metadata-harmful-indicator&edit-metadata">Cancel</a>
 </div>
 
       </form>

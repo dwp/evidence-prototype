@@ -42,8 +42,17 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-    <h1 class="govuk-heading-l">Manage metadata</h1>
-    <p class="govuk-body govuk-!-margin-bottom-7">[any guidance text here?] </p>
+
+     {% if data['edit-metadata'] == 'true' %}
+
+
+    <h1 class="govuk-heading-l">Review metadata</h1>
+    <p class="govuk-body govuk-!-margin-bottom-7">Check all the details are correct or make any additional edits before you update.</p>
+    
+
+  {% else %}
+<h1 class="govuk-heading-l">Manage metadata</h1>
+  {% endif %}
 
 
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
@@ -58,7 +67,7 @@
     actions: {
       items: [
         {
-          href: "metadata-customer-details",
+          href: "metadata-customer-details?edit-metadata=true",
           text: "Edit"
         }
       ]
@@ -140,7 +149,7 @@ text: (data['metadata-dob-day'] or "5")
     actions: {
       items: [
         {
-          href: "metadata-document-details",
+          href: "metadata-document-details?edit-metadata=true",
           text: "Edit"
         }
       ]
@@ -208,7 +217,7 @@ text: (data['metadata-dob-day'] or "5")
     actions: {
       items: [
         {
-          href: "metadata-hold-details",
+          href: "metadata-hold-details?edit-metadata=true",
           text: "Edit"
         }
       ]
@@ -276,7 +285,7 @@ text: (data['metadata-dob-day'] or "5")
     actions: {
       items: [
         {
-          href: "metadata-ref-document-details",
+          href: "metadata-ref-document-details?edit-metadata=true",
           text: "Edit"
         }
       ]
@@ -410,13 +419,30 @@ text: (data['metadata-dob-day'] or "5")
   ]
 }) }}
 
+ {% if data['edit-metadata'] == 'true' %}
+
+ <div class="govuk-button-group">
+      <form action="metadata-confirmation" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Update metadata"
+        }) }}
+
+    
+          <a class="govuk-link" href="metadata?edit-metadata">Cancel and return to search results</a>
+</div>
+  </form>
+      
+
+
+  {% else %}
 
       <p> 
-        <a href="../search-results-v3">
+        <a href="../search-results-v3?edit-metadata">
           Return to search results
         </a>
       </p>
-
+  {% endif %}
     
   </div>
 </div>

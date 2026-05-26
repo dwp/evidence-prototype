@@ -28,7 +28,7 @@ module.exports = function (router) {
     }
   });
 
-  // Route links for the two pages (GET)
+  // Route links HR records
   router.get('/ecms-v1/microfiche', function (req, res) {
     res.render('ecms-v1/microfiche');
   });
