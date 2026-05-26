@@ -1,0 +1,446 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Bulk update metadata –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="../reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+           <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+            -->
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="../upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{% endblock %} 
+
+{% block content %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full-width">
+      <h1 class="govuk-heading-l">Bulk update metadata</h1>
+
+      <form action="bulk-metadata-check-details" method="post" novalidate>
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Documents selected for bulk update</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Date received or issued</th>
+      <th scope="col" class="govuk-table__header">NI number</th>
+      <th scope="col" class="govuk-table__header">CRN</th>
+      <th scope="col" class="govuk-table__header">Claim reference</th>
+      <th scope="col" class="govuk-table__header">Name</th>
+      <th scope="col" class="govuk-table__header">Date of birth</th>
+      <th scope="col" class="govuk-table__header">LOB case ID</th>
+      <th scope="col" class="govuk-table__header">Benefit type</th>
+      <th scope="col" class="govuk-table__header">Document type</th>
+      <th scope="col" class="govuk-table__header">Office postcode</th>
+      <th scope="col" class="govuk-table__header">Classification</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">14 Feb 2026 </th>
+      <td class="govuk-table__cell">QQ123456C</td>
+      <td class="govuk-table__cell">AA123</td>
+      <td class="govuk-table__cell">No data</td>
+      <td class="govuk-table__cell">Jane Doe</td>
+      <td class="govuk-table__cell">5 Jan 1978</td>
+      <td class="govuk-table__cell">004</td>
+      <td class="govuk-table__cell">ESA</td>
+      <td class="govuk-table__cell">BD8</td>
+      <td class="govuk-table__cell">SW2 1AA</td>
+      <td class="govuk-table__cell">Supporting</td>
+      
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">12 Feb 2026</th>
+      <td class="govuk-table__cell">QQ123456C</td>
+      <td class="govuk-table__cell">No data</td>
+      <td class="govuk-table__cell">No data</td>
+      <td class="govuk-table__cell">Jane Doe</td>
+      <td class="govuk-table__cell">5 Jan 1978</td>
+      <td class="govuk-table__cell">004</td>
+      <td class="govuk-table__cell">ESA</td>
+      <td class="govuk-table__cell">BD8</td>
+      <td class="govuk-table__cell">SW2 1AA</td>
+      <td class="govuk-table__cell">Supporting</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">12 Feb 2026</th>
+      <td class="govuk-table__cell">QQ123456C</td>
+      <td class="govuk-table__cell">No data</td>
+      <td class="govuk-table__cell">No data</td>
+      <td class="govuk-table__cell">Jane Doe</td>
+      <td class="govuk-table__cell">5 Jan 1978</td>
+      <td class="govuk-table__cell">004</td>
+       <td class="govuk-table__cell">State Pension</td>
+       <td class="govuk-table__cell">ANSoD</td>
+       <td class="govuk-table__cell">SW2 1AA</td>
+       <td class="govuk-table__cell">Supporting</td>
+    </tr>
+  </tbody>
+</table>
+      <div class="govuk-grid-column-two-thirds">      
+
+     <h2 class="govuk-heading-l">Edit metadata for selected documents</h2>
+
+      <p>You only need to edit the fields that you need to update. </p>  
+
+        {{ govukInput({
+          label: {
+            text: "National Insurance number (optional)",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "bulk-nino",
+          name: "bulk-nino",
+          value: data['bulk-nino']
+        }) }}
+
+         {{ govukInput({
+          label: {
+            text: "Customer Reference number (CRN) (optional)",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "bulk-crn",
+          name: "bulk-crn",
+          value: data['bulk-crn']
+        }) }}
+       
+        {{ govukInput({
+          label: {
+            text: "Claim reference (optional)",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "bulk-claim-ref",
+          name: "bulk-claim-ref",
+          value: data['bulk-claim-ref']
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "First name (optional)",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "bulk-first-name",
+          name: "bulk-first-name",
+          value: data['bulk-first-name']
+        }) }}
+        
+        {{ govukInput({
+          label: {
+            text: "Last name (optional)",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "bulk-last-name",
+          name: "bulk-last-name",
+          value: data['bulk-last-name']
+        }) }}
+      
+        {{ govukDateInput({
+          id: "bulk-dob",
+          namePrefix: "bulk-dob",
+          fieldset: {
+            legend: {
+              text: "Date of birth (optional)",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "For example, 31 3 1980"
+          },
+          items: [
+            {
+              classes: "govuk-input--width-2",
+              name: "day",
+              value: data['bulk-dob-day']
+            },
+            {
+              classes: "govuk-input--width-2",
+              name: "month",
+              value: data['bulk-dob-month']
+            },
+            {
+              classes: "govuk-input--width-4",
+              name: "year",
+              value: data['bulk-dob-year']
+            }
+          ]
+        }) }}
+
+        {{ govukRadios({
+            name: "bulk-classification",
+            value: data['bulk-classification'],
+            fieldset: {
+              legend: {
+                text: "Document classification (optional)",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "Supporting",
+                text: "Supporting",
+                hint: {
+                  text: "For example [placeholder]"
+                }
+              },
+              {
+                value: "Ephemeral",
+                text: "Ephemeral",
+                hint: {
+                  text: "For example [placeholder]"
+                }
+              }
+            ]
+          }) }}
+
+
+           {{ govukInput({
+          label: {
+            text: "Line of Business (LOB) case ID (optional)",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "bulk-lob-case-id",
+          name: "bulk-lob-case-id",
+          value: data['bulk-lob-case-id']
+        }) }}
+
+        <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="benefit-type">
+          Benefit type (optional)
+        </label>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <div class="typeahead">
+              <input
+                id="benefit-type"
+                name="copyBenefitType"
+                class="govuk-input"
+                type="text"
+                autocomplete="off"
+              />
+              <ul id="benefit-type-listbox" class="typeahead-menu" hidden></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+          {{ govukInput({
+    label: {
+      text: "Office postcode (optional)",
+            classes: "govuk-label--m"
+         },
+          classes: "govuk-input--width-10",
+          id: "bulk-office-postcode",
+          name: "bulk-office-postcode",
+        value: data['bulk-office-postcode'],
+          autocomplete: "postal-code"
+        }) }}
+
+              {{ govukTextarea({
+        name: "bulk-link-data",
+        id: "bulk-link-data",
+        label: {
+          text: "Link data (optional)",
+          classes: "govuk-label--m",
+          isPageHeading: false
+        },
+        value: data['bulk-link-data']
+      }) }}
+
+      
+
+
+
+      <div class="govuk-button-group">
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+  <a class="govuk-link" href="">Cancel</a>
+</div>
+
+      </form>
+</div>
+      
+    </div>
+  </div>
+
+<script>
+  (function () {
+    const benefitTypes = [
+            "Access to Work",
+            "Alternative Format",
+            "Attendance Allowance unit",
+            "B2OL",
+            "Bereavement benefit",
+            "Bereavement Support Payment",
+            "Budgeting Loans",
+            "Carer's Allowance",
+            "Carer's Credit",
+            "CFEMS",
+            "Compensation Recovery unit",
+            "Debt",
+            "Disability Living Allowance 65",
+            "Disability Living Allowance Adult",
+            "Disability Living Allowanc Child",
+            "Employment and Support Allowance (ESA)",
+            "Fraud",
+            "Funeral Payments",
+            "Future Pensions Centre",
+            "Human resources",
+            "Integrated Loan Scheme (ILS), Eligible Loan Deduction Scheme (ELDS)",
+            "Industrial Injuries Disablement Benefit",
+            "International Pension Centre BB",
+            "International Pension Centre BSP",
+            "International Pension Centre ESA",
+            "International Pension Centre IB",
+            "International Pension Centre IIDB",
+            "International Pension Centre JSA",
+            "International Pension Centre MA",
+            "International Pension Centre PC",
+            "International Pension Centre SP",
+            "International Pension Centre WFP",
+            "Income Support (IS)",
+            "Jobseeker's Allowance (JSA)",
+            "Maternity Allowance",
+            "New Style Jobseeker's Allowance",
+            "National Insurance Delivery Centre",
+            "NISSA Attendance Allowance Unit",
+            "NISSA BB",
+            "NISSA BSP",
+            "NISSA Budgeting Loans",
+            "NISSA Carers Allowance",
+            "NISSA CRS",
+            "NISSA Disability Living Allowance",
+            "NISSA ESA",
+            "NISSA Funeral Payments",
+            "NISSA IIDB",
+            "NISSA INC New",
+            "NISSA JSA New",
+            "NISSA MA",
+            "NISSA NINO Allocation",
+            "NISSA Pension Credit",
+            "NISSA PIP",
+            "NISSA SIS",
+            "NISSA SSMG",
+            "NISSA State Pension",
+            "NISSA UC",
+            "Notification Online (NOL)",
+            "Payment Services",
+            "Pension Credit",
+            "Performance Measurement",
+            "Personal Independence Payment (PIP)",
+            "Right of Access Request",
+            "Severe Disablement Allowance (SDA), Incapacity Benefit (IB)",
+            "Serious & Organised Crime",
+            "State Pension",
+            "Support for Mortgage Interest",
+            "SureStart Maternity Grant",
+            "Universal Credit",
+    ];
+
+
+  
+
+    const input = document.getElementById("benefit-type");
+    const listbox = document.getElementById("benefit-type-listbox");
+    let activeIndex = -1;
+
+    function closeMenu() {
+      listbox.hidden = true;
+      activeIndex = -1;
+    }
+
+    function openMenu() {
+      listbox.hidden = false;
+    }
+
+    function renderOptions(options) {
+      listbox.innerHTML = "";
+      activeIndex = -1;
+
+      options.forEach((text) => {
+        const li = document.createElement("li");
+        li.textContent = text;
+
+        li.addEventListener("mousedown", () => {
+          input.value = text;
+          closeMenu();
+        });
+
+        listbox.appendChild(li);
+      });
+
+      options.length ? openMenu() : closeMenu();
+    }
+
+    input.addEventListener("input", () => {
+      const query = input.value.toLowerCase();
+      if (!query) return closeMenu();
+
+      renderOptions(
+        benefitTypes.filter((d) => d.toLowerCase().includes(query)),
+      );
+    });
+
+    input.addEventListener("keydown", (e) => {
+      const options = listbox.querySelectorAll("li");
+      if (!options.length) return;
+
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        activeIndex = (activeIndex + 1) % options.length;
+      }
+
+      if (e.key === "ArrowUp") {
+        e.preventDefault();
+        activeIndex = (activeIndex - 1 + options.length) % options.length;
+      }
+
+      if (e.key === "Enter" && activeIndex >= 0) {
+        e.preventDefault();
+        input.value = options[activeIndex].textContent;
+        closeMenu();
+      }
+
+      if (e.key === "Escape") closeMenu();
+
+      options.forEach((el, i) =>
+        el.classList.toggle("active", i === activeIndex),
+      );
+    });
+  })();
+</script>
+ 
+{% endblock %}
