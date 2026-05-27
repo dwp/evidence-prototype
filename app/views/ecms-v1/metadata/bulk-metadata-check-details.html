@@ -1,0 +1,184 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Review metadata –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="../reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+           <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+            -->
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="../upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %} {% block content %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+<div class="govuk-width-container">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-l">Review metadata</h1>
+    <p class="govuk-body">Check the details are correct before you update. This will update all of the documents you have selected.</p>
+
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      New metadata details
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="bulk-metadata">Edit<span class="govuk-visually-hidden"> (New metadata details)</span></a>
+      </li>
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      {% if data['bulk-nino'] %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          National Insurance number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['bulk-nino'] }}
+        </dd>
+      </div>
+      {% endif %}
+       {% if data['bulk-crn'] %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Customer Reference number (CRN)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['bulk-crn'] }}
+        </dd>
+      </div>
+      {% endif %}
+       {% if data['bulk-claim-ref'] %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Claim reference
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['bulk-claim-ref'] }}
+        </dd>
+      </div>
+      {% endif %}
+      {% if data['bulk-first-name'] %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          First name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['bulk-first-name'] }}
+        </dd>
+      </div>
+      {% endif %}
+      {% if data['bulk-last-name'] %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Last name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['bulk-last-name'] }}
+        </dd>
+      </div>
+      {% endif %}
+      {% if data['bulk-dob-day'] and data['bulk-dob-month'] and data['bulk-dob-year'] %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date of birth
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['bulk-dob-day'] }} {{ data['bulk-dob-month'] }} {{ data['bulk-dob-year'] }}
+        </dd>
+      </div>
+      {% endif %}
+      {% if data['bulk-classification'] %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Document classification
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['bulk-classification'] }}
+        </dd>
+      </div>
+      {% endif %}
+       {% if data['bulkBenefitType'] %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Benefit type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['bulkBenefitType'] }}
+        </dd>
+      </div>
+      {% endif %}
+     {% if data['bulk-office-postcode'] %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Office postcode
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['bulk-office-postcode'] }}
+        </dd>
+      </div>
+      {% endif %}
+      {% if data['bulk-link-data'] %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Link data
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['bulk-link-data'] }}
+        </dd>
+      </div>
+      {% endif %}
+    </dl>
+  </div>
+</div>
+
+      <form action="bulk-metadata-confirmation" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Update metadata"
+        }) }}
+
+      </form>
+
+
+
+
+    
+  </div>
+</div>
+</div>
+
+{% endblock %}
