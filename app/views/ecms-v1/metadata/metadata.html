@@ -26,11 +26,14 @@
     </nav>
 
 <div class="govuk-!-padding-bottom-4"></div>
+  {% if data['edit-metadata'] == 'true' %}
+  {% else %}
 
 {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
 }) }}
+  {% endif %}
 
 {% endblock %} {% block content %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
@@ -207,7 +210,9 @@ text: (data['metadata-dob-day'] or "5")
   ]
 }) }}
 
-{# HOLD DETAILS DETAILS #}
+  {% if data['metadata-doc-status'] == 'On hold' %}
+
+  {# HOLD DETAILS DETAILS - HOLD #}
 
 {{ govukSummaryList({
   card: {
@@ -229,7 +234,78 @@ text: (data['metadata-dob-day'] or "5")
         text: "Inhibit automatic closure"
       },
       value: {
-              text: data['metadata-automatic-closure'] or "Yes"
+              text: data['metadata-automatic-closure'] or "No"
+            }
+    },
+    {
+      key: {
+        text: "Overpayment hold"
+      },
+      value: {
+              text: data['metadata-overpayment-hold'] or "No"
+            }
+    },
+    {
+      key: {
+        text: "Overpayment hold date"
+      },
+      value: {
+              text: data['metadata-overpayment-hold-date'] or "Not applicable"
+            }
+    },
+    {
+      key: {
+        text: "General hold"
+      },
+      value: {
+              text: data['metadata-general-hold'] or "Yes"
+            }
+    },
+    {
+      key: {
+        text: "General hold date"
+      },
+      value: {
+              text: data['metadata-general-hold-date'] or "25 May 2026"
+            }
+    },
+    {
+      key: {
+        text: "General hold reason"
+      },
+      value: {
+              text: data['metadata-hold-reason'] or "Appeals"
+            }
+    }
+  ]
+}) }}
+
+
+  {% else %}
+
+{# HOLD DETAILS DETAILS -  NO HOLD #}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Hold details"
+    },
+    actions: {
+      items: [
+        {
+          href: "metadata-hold-details?edit-metadata=true",
+          text: "Edit"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Inhibit automatic closure"
+      },
+      value: {
+              text: data['metadata-automatic-closure'] or "No"
             }
     },
     {
@@ -266,7 +342,7 @@ text: (data['metadata-dob-day'] or "5")
     },
     {
       key: {
-        text: "On hold reason"
+        text: "General hold reason"
       },
       value: {
               text: data['metadata-hold-reason'] or "Not applicable"
@@ -274,6 +350,8 @@ text: (data['metadata-dob-day'] or "5")
     }
   ]
 }) }}
+
+ {% endif %}
 
 {# REFERENCE DOCUMENT DETAILS #}
 

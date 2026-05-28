@@ -44,9 +44,9 @@
         Copy documents
       </h1>
 
-      <p>Check that the documents listed below are the documents you want copy.</p>
-      <p>[Placeholder text about what copying documents does: Takes a document from its current file plan and adds a copy if it to a different file plan.
-Leaves the original document in its current file plan, it's not moved just a copy created.]</p>
+      <p>Check that the documents listed below are the ones you want to copy.</p>
+      <p>This will create a copy of each document and add it to a different file plan. The original documents will stay in their current file plan and will not be moved.</p>
+
 
        <form action="actions-create-copy-confirmation" method="post" novalidate>
 
@@ -98,7 +98,7 @@ Leaves the original document in its current file plan, it's not moved just a cop
           id: "copyBenefitType",
           name: "copyBenefitType",
           label: {
-            text: "What benefit type do you want to copy the documents to?",
+            text: "Select a benefit type",
             isPageHeading: false,
             classes: "govuk-fieldset__legend--m"
           },
@@ -390,7 +390,7 @@ Leaves the original document in its current file plan, it's not moved just a cop
 {% elif data['copy-option'] == 'option2' %} {# Autosuggest / typeahead list #}
             <div class="govuk-form-group">
         <label class="govuk-label govuk-label--m" for="benefit-type">
-          What benefit type do you want to copy the documents to?
+          Select a benefit type
         </label>
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds">
@@ -415,7 +415,7 @@ Leaves the original document in its current file plan, it's not moved just a cop
           id: "copyBusinessUnit",
           name: "copyBusinessUnit",
           label: {
-            text: "What is the business unit you want to copy the documents to?",
+            text: "Select a business unit",
             isPageHeading: false,
             classes: "govuk-fieldset__legend--m"
           },
@@ -564,7 +564,7 @@ Leaves the original document in its current file plan, it's not moved just a cop
           id: "copyBenefitType",
           name: "copyBenefitType",
           label: {
-            text: "What benefit type do you want to copy the documents to?",
+            text: "Select a benefit type",
             classes: "govuk-fieldset__legend--m"
           },
           items: [
@@ -602,7 +602,7 @@ Leaves the original document in its current file plan, it's not moved just a cop
           id: "copyBenefitType",
           name: "copyBenefitType",
           label: {
-            text: "What benefit type do you want to copy the documents to?",
+            text: "Select a benefit type",
             isPageHeading: false,
             classes: "govuk-fieldset__legend--m"
           },

@@ -54,7 +54,7 @@
 
  {% else %}
       {{ govukPanel({
-        titleText: "Documents updated to closed",
+        titleText: "Documents closed",
         html: ""
       }) }}
  
@@ -63,9 +63,9 @@
       </h2>
 
       <p>
-       It may take up to one minute for the changes to show in ECMS.
+       It may take up to one minute for the changes to show in the search results.
       </p>
-      <p>If the documents do not display as closed  when you return to the search result, run the search again.</p>
+      {#<p>If the documents do not display as closed  when you return to the search result, run the search again.</p>#}
 {% endif %}
       <p> 
         <a href="../search-results-v3">

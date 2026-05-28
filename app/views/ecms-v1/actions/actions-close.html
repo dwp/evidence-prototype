@@ -97,13 +97,13 @@
           namePrefix: "closure-date",
           fieldset: {
             legend: {
-              text: "Enter the date you want the documents to close on (optional) ",
+              text: "Enter document closure date (optional)",
               classes: "govuk-fieldset__legend--m",
               value: data['Closure date']
             }
           },
           hint: {
-            text: "If you don't enter a date the document will be closed today"
+            html: "<p class='govuk-hint'>If you don't enter a date, the documents will be closed today</p> <p class='govuk-hint'>For example, 27 3 2026 </p>"
           }
         }) }}
 

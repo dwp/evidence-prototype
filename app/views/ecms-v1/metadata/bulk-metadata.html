@@ -56,7 +56,7 @@
       <th scope="col" class="govuk-table__header">Benefit type</th>
       <th scope="col" class="govuk-table__header">Document type</th>
       <th scope="col" class="govuk-table__header">Office postcode</th>
-      <th scope="col" class="govuk-table__header">Classification</th>
+      <th scope="col" class="govuk-table__header">Class</th>
     </tr>
   </thead>
   <tbody class="govuk-table__body">
@@ -105,14 +105,20 @@
       <div class="govuk-grid-column-two-thirds">      
 
      <h2 class="govuk-heading-l">Edit metadata for selected documents</h2>
+     {{ govukWarningText({
+      text: "Only complete the fields that require updates. Leave any fields blank if no update is needed.",
+      iconFallbackText: "Warning"
+    }) }}
 
-      <p>You only need to edit the fields that you need to update. </p>  
 
         {{ govukInput({
           label: {
             text: "National Insurance number (optional)",
             classes: "govuk-label--m"
           },
+           hint: {
+          text: "For example, ‘QQ123456C’"
+        },
           classes: "govuk-!-width-two-thirds",
           id: "bulk-nino",
           name: "bulk-nino",
@@ -209,18 +215,32 @@
                 value: "Supporting",
                 text: "Supporting",
                 hint: {
-                  text: "For example [placeholder]"
+                  html: "<p class='govuk-hint'>Documents or information that influence benefit case decisions. These may be needed for appeals, fraud investigations, or payment assessments </p>"
                 }
               },
               {
                 value: "Ephemeral",
                 text: "Ephemeral",
                 hint: {
-                  text: "For example [placeholder]"
+                  html: "<p class='govuk-hint'>General documents that do not impact a claim. These are not stored as supporting evidence</p>
+                        <p class='govuk-hint'>For example, enquiries, templates, or cover sheets </p>"
                 }
+              },
+              {
+                value: "Untraceable",
+                text: "Untraceable"
               }
             ]
           }) }}
+
+                  {#Hint text code for Untraceable radio - ADD BACK IN WHEN CONTENT READY
+        ,
+              hint: {
+                  html: "<p class='govuk-hint'>[Placeholder]</p>
+                        <p class='govuk-hint'>[Placeholder]</p>"
+                }
+                
+          #}
 
 
            {{ govukInput({

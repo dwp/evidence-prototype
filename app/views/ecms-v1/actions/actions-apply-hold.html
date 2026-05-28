@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Put documents on hold – {{ serviceName }} – GOV.UK Prototype Kit
+  Apply hold – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent
@@ -39,7 +39,7 @@
     <div class="govuk-grid-column-two-thirds">
 
      <h1 class="govuk-heading-l">
-        Put documents on hold
+        Apply hold
       </h1>
 
       {% if data['doc-status'] in ['open', 'on-hold'] %}
@@ -48,9 +48,11 @@
     iconFallbackText: "Warning"
   }) }}
 {% endif %}
+      <p>Check that the documents below are the ones you want to put on hold. </p>
+      <p>You can only apply a hold to documents that are closed. The hold will remain in place until it is removed. </p>
       
-      <p>[Placeholder text - more information about hold: documents must be open, not already on hold or closed. Documents stay on hold until hold is removed.]</p>
-      <p>Check that the documents listed below are the documents you want to put on hold.</p>
+      
+  
       
       <form action="actions-apply-hold-confirmation" method="post" novalidate>
 
@@ -109,7 +111,7 @@
   name: "holdReason",
   fieldset: {
     legend: {
-      text: "Why are you putting the selected documents on hold?",
+      text: "Select a hold reason",
       isPageHeading: false,
       classes: "govuk-fieldset__legend--m"
     }
@@ -120,8 +122,8 @@
       text: "Appeals"
     },
     {
-      value: "CRU",
-      text: "CRU"
+      value: "Compensation Recovery Unit (CRU)",
+      text: "Compensation Recovery Unit (CRU)"
     },
     {
       value: "Debt",
@@ -168,7 +170,7 @@
   name: "holdReason",
   fieldset: {
     legend: {
-      text: "Why are you putting the selected documents on hold?",
+      text: "Select a hold reason",
       isPageHeading: false,
       classes: "govuk-fieldset__legend--m"
     }
@@ -179,8 +181,8 @@
       text: "Appeals"
     },
     {
-      value: "CRU",
-      text: "CRU"
+      value: "Compensation Recovery Unit (CRU)",
+      text: "Compensation Recovery Unit (CRU)"
     },
     {
       value: "Debt",
@@ -222,7 +224,7 @@
 
 <div class="govuk-button-group">
   {{ govukButton({
-        text: "Put on hold"
+        text: "Apply hold"
   }) }}
 
   <a class="govuk-link" href="../search-results-v3">Cancel</a>

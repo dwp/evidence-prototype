@@ -55,23 +55,26 @@
         }
       },
       hint: {
-        text: "[Placeholder what we mean by inhibiting automated closure]"
+        text: "This stops open documents from automatically closing"
       },
       items: [
         {
           value: "Yes",
-          text: "Yes",
-          checked: true
+          text: "Yes"
         },
         {
           value: "No",
-          text: "No"
+          text: "No",
+          checked: true
         }
       ]
     }) }}
 
 
-    <h2 class="govuk-heading-m">Hold details you cannot edit</h2>
+    <h2 class="govuk-heading-m">Hold details you can't edit</h2>
+
+ {% if data['metadata-doc-status'] == 'On hold' %}
+ {# HOLD DETAILS DETAILS - HOLD #}  
 {{ govukSummaryList({
   rows: [
     {
@@ -87,7 +90,54 @@
         text: "Overpayment hold date"
       },
       value: {
-        text: "There is no overpayment hold"
+        text: "Not applicable"
+      }
+    },
+    {
+      key: {
+        text: "General hold"
+      },
+       value: {
+        text: "Yes"
+      }
+    },
+    {
+      key: {
+        text: "General hold date"
+      },
+       value: {
+        text: "25 May 2026"
+      }
+    },
+    {
+      key: {
+        text: "General hold reason"
+      },
+       value: {
+        text: "Appeals"
+      }
+    }
+  ]
+}) }}
+
+{% else%}
+{# HOLD DETAILS DETAILS - OPEN #}   
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Overpayment hold"
+      },
+      value: {
+        text: "No"
+      }
+    },
+    {
+      key: {
+        text: "Overpayment hold date"
+      },
+      value: {
+        text: "Not applicable"
       }
     },
     {
@@ -100,23 +150,24 @@
     },
     {
       key: {
-        text: "Gerneral hold reason"
+        text: "General hold date"
       },
        value: {
-        text: "There is no general hold"
+        text: "Not applicable"
       }
     },
     {
       key: {
-        text: "On hold reason"
+        text: "General hold reason"
       },
        value: {
-        text: "The document is not on hold"
+        text: "Not applicable"
       }
     }
   ]
 }) }}
 
+{% endif%}
 
 
 

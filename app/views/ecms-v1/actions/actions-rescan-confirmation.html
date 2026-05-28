@@ -39,17 +39,23 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-       {{ govukPanel({
-        titleText: "Rescan requested",
-        html: "[Placeholder text?]"
-      }) }}
+
+
+      {% set rescanReason = data['rescanReason']  %}
+      {% set rescanReason = "Rescan reason: " + rescanReason %}
+      {{ govukPanel({
+          titleText: "Rescan requested",
+          html: rescanReason
+          }) }}
+
+
 
       <h2 class="govuk-heading-m">
         What happens next
       </h2>
 
       <p>
-       [Placeholder for how long rescan process takes, if/how user gets notified.]
+       Not all systems send an automatic response to rescan requests. Check the document in ECMS to see if it has been updated. Rescan requests can take up to 5 days.
       </p>
 
       <p> 

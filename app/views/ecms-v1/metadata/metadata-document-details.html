@@ -40,8 +40,35 @@
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">Edit document details</h1>
 
-      <form action="metadata" method="post" novalidate>
+      <form action="metadata-document-details" method="post" novalidate>
 
+      {# /// OPTION WITH AUTOSELECT FOR BENEFIT TYPE ///#}
+                  <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="benefit-type">
+          Benefit type
+        </label>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <div class="typeahead">
+              <input
+                id="benefit-type"
+                name="metadataBenefitType"
+                class="govuk-input"
+                type="text"
+                 {% if data['metadataBenefitType'] %}
+                  value= "{{ data['metadataBenefitType'] }}"
+                 {% else %}
+                value="Employment and Support Allowance (ESA)"
+                {% endif %}
+                autocomplete="off"
+              />
+              <ul id="benefit-type-listbox" class="typeahead-menu" hidden></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+{# /// OPTION WITH 2 SELECT BOXES FOR BUSINESS UNIT AND BENEFIT TYPE ///
 
               {{ govukSelect({
           id: "metadataBusinessUnit",
@@ -697,6 +724,7 @@
             }
           ]
         }) }}
+        #}
 
         <div class="govuk-form-group">
         <label class="govuk-label govuk-label--m" for="metadata-doc-type">
@@ -734,19 +762,32 @@
               value: "Supporting",
               text: "Supporting",
               hint: {
-                text: "For example [placeholder]"
-              },
+                  html: "<p class='govuk-hint'>Documents or information that influence benefit case decisions. These may be needed for appeals, fraud investigations, or payment assessments </p>"
+                },
               checked: true
             },
             {
               value: "Ephemeral",
               text: "Ephemeral",
               hint: {
-                text: "For example [placeholder]"
-              }
+                  html: "<p class='govuk-hint'>General documents that do not impact a claim. These are not stored as supporting evidence.</p>
+                        <p class='govuk-hint'>For example, enquiries, templates, or cover sheets </p>"
+                }
+            },
+            {
+              value: "Untraceable",
+              text: "Untraceable"
             }
           ]
         }) }}
+        {#Hint text code for Untraceable radio - ADD BACK IN WHEN CONTENT READY
+        ,
+              hint: {
+                  html: "<p class='govuk-hint'>[Placeholder]</p>
+                        <p class='govuk-hint'>[Placeholder]</p>"
+                }
+                
+          #}
 
         {{ govukRadios({
           name: "metadata-harmful-indicator",
@@ -765,17 +806,11 @@
             {
               value: "Not harmful",
               text: "Not harmful",
-              hint: {
-                text: "For example [placeholder]"
-              },
               checked: true
             },
             {
               value: "Potentially harmful",
-              text: "Potentially harmful",
-              hint: {
-                text: "For example [placeholder]"
-              }
+              text: "Potentially harmful"
             },
             {
               value: "Harmful",
@@ -786,8 +821,16 @@
             }
           ]
         }) }}
+
+      {#Hint text code for Harmfull indicator radios - ADD BACK IN WHEN CONTENT READY
+        ,
+              hint: {
+                text: "For example [placeholder]"
+              }
+                
+          #}
 <div class="govuk-!-padding-bottom-4"></div>
-<h2 class="govuk-heading-m">Document details you cannot edit</h2>
+<h2 class="govuk-heading-m">Document details you can't edit</h2>
 {{ govukSummaryList({
   classes: "govuk-summary-list--no-border",
   rows: [
@@ -817,8 +860,155 @@
       
     </div>
   </div>
+  {# SCRIPT FOR AUTOSUGGEST FOR BENEFIT TYPE#}
+  <script>
+  (function () {
+    const benefitTypes = [
+            "Access to Work",
+            "Alternative Format",
+            "Attendance Allowance unit",
+            "B2OL",
+            "Bereavement benefit",
+            "Bereavement Support Payment",
+            "Budgeting Loans",
+            "Carer's Allowance",
+            "Carer's Credit",
+            "CFEMS",
+            "Compensation Recovery unit",
+            "Debt",
+            "Disability Living Allowance 65",
+            "Disability Living Allowance Adult",
+            "Disability Living Allowanc Child",
+            "Employment and Support Allowance (ESA)",
+            "Fraud",
+            "Funeral Payments",
+            "Future Pensions Centre",
+            "Human resources",
+            "Integrated Loan Scheme (ILS), Eligible Loan Deduction Scheme (ELDS)",
+            "Industrial Injuries Disablement Benefit",
+            "International Pension Centre BB",
+            "International Pension Centre BSP",
+            "International Pension Centre ESA",
+            "International Pension Centre IB",
+            "International Pension Centre IIDB",
+            "International Pension Centre JSA",
+            "International Pension Centre MA",
+            "International Pension Centre PC",
+            "International Pension Centre SP",
+            "International Pension Centre WFP",
+            "Income Support (IS)",
+            "Jobseeker's Allowance (JSA)",
+            "Maternity Allowance",
+            "New Style Jobseeker's Allowance",
+            "National Insurance Delivery Centre",
+            "NISSA Attendance Allowance Unit",
+            "NISSA BB",
+            "NISSA BSP",
+            "NISSA Budgeting Loans",
+            "NISSA Carers Allowance",
+            "NISSA CRS",
+            "NISSA Disability Living Allowance",
+            "NISSA ESA",
+            "NISSA Funeral Payments",
+            "NISSA IIDB",
+            "NISSA INC New",
+            "NISSA JSA New",
+            "NISSA MA",
+            "NISSA NINO Allocation",
+            "NISSA Pension Credit",
+            "NISSA PIP",
+            "NISSA SIS",
+            "NISSA SSMG",
+            "NISSA State Pension",
+            "NISSA UC",
+            "Notification Online (NOL)",
+            "Payment Services",
+            "Pension Credit",
+            "Performance Measurement",
+            "Personal Independence Payment (PIP)",
+            "Right of Access Request",
+            "Severe Disablement Allowance (SDA), Incapacity Benefit (IB)",
+            "Serious & Organised Crime",
+            "State Pension",
+            "Support for Mortgage Interest",
+            "SureStart Maternity Grant",
+            "Universal Credit",
+    ];
 
 
+  
+
+    const input = document.getElementById("benefit-type");
+    const listbox = document.getElementById("benefit-type-listbox");
+    let activeIndex = -1;
+
+    function closeMenu() {
+      listbox.hidden = true;
+      activeIndex = -1;
+    }
+
+    function openMenu() {
+      listbox.hidden = false;
+    }
+
+    function renderOptions(options) {
+      listbox.innerHTML = "";
+      activeIndex = -1;
+
+      options.forEach((text) => {
+        const li = document.createElement("li");
+        li.textContent = text;
+
+        li.addEventListener("mousedown", () => {
+          input.value = text;
+          closeMenu();
+        });
+
+        listbox.appendChild(li);
+      });
+
+      options.length ? openMenu() : closeMenu();
+    }
+
+    input.addEventListener("input", () => {
+      const query = input.value.toLowerCase();
+      if (!query) return closeMenu();
+
+      renderOptions(
+        benefitTypes.filter((d) => d.toLowerCase().includes(query)),
+      );
+    });
+
+    input.addEventListener("keydown", (e) => {
+      const options = listbox.querySelectorAll("li");
+      if (!options.length) return;
+
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        activeIndex = (activeIndex + 1) % options.length;
+      }
+
+      if (e.key === "ArrowUp") {
+        e.preventDefault();
+        activeIndex = (activeIndex - 1 + options.length) % options.length;
+      }
+
+      if (e.key === "Enter" && activeIndex >= 0) {
+        e.preventDefault();
+        input.value = options[activeIndex].textContent;
+        closeMenu();
+      }
+
+      if (e.key === "Escape") closeMenu();
+
+      options.forEach((el, i) =>
+        el.classList.toggle("active", i === activeIndex),
+      );
+    });
+  })();
+</script>
+
+{# SCRIPT FOR AUTOSUGGEST DOCUMENT TYPES#}
   <script>
   (function () {
     const documentTypes = [

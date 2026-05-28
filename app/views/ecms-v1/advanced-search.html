@@ -56,25 +56,25 @@
 <ul class="govuk-list govuk-list--bullet">
   <li>National Insurance number</li>
   <li>National Insurance number and Line of Business (LOB) case ID</li>
-  <li>National Insurance number and report date range</li>
+  <li>National Insurance number and date range</li>
   <li>First name and Last name</li>
   <li>First name, Last name and Date of birth</li>
   <li>First name, Last name and Document type</li>
-  <li>First name, Last name and report date range</li>
-  <li>First name, Last name, Document type and report date range</li>
+  <li>First name, Last name and date range</li>
+  <li>First name, Last name, Document type and date range</li>
   <li>Last name and Date of birth</li>
   <li>Last name and Document type</li>
   <li>Last name and Scan batch ID</li>
-  <li>Last name, Document type and report date range</li>
-  <li>Last name, Scan batch ID and report date range</li>
+  <li>Last name, Document type and date range</li>
+  <li>Last name, Scan batch ID and date range</li>
   <li>Customer Reference number (CRN)</li>
   <li>Claim reference</li>
-  <li>Claim reference and report date range</li>
+  <li>Claim reference and date range</li>
   <li>Scan envelope ID</li>
   <li>Scan batch ID</li>
-  <li>Scan batch ID and report date range</li>
+  <li>Scan batch ID and date range</li>
   <li>Line of Business (LOB) case ID</li>
-  <li>Line of Business (LOB) case ID and report date range</li>
+  <li>Line of Business (LOB) case ID and date range</li>
   <li>Line of Business (LOB) case ID and Claim reference</li>
 </ul>'
 }) }}
@@ -85,6 +85,10 @@
         text: "National Insurance number",
         classes: "govuk-label--m"
       },
+      
+        hint: {
+          text: "For example, ‘QQ123456C’"
+        },
       classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
       id: "nino",
       name: "nino",
@@ -125,6 +129,10 @@
           classes: "govuk-fieldset__legend--m"
         }
       },
+      hint: {
+                  text: "For example, 27 3 2007"
+                },
+      
       items: [
         {
           name: "day",
@@ -224,7 +232,7 @@
 
         <div class="govuk-grid-row">
           <label class="govuk-label govuk-label--m govuk-!-padding-left-3" for="sort-code">
-            When was the report generated?
+            Date range
           </label>
           <div class="govuk-grid-column-one-half">
 

@@ -53,6 +53,89 @@ module.exports = function (router) {
   })
 
 
+// Mapping benefit type to business unit for Manage metadata
+
+router.post('/ecms-v1/metadata/metadata-document-details', function (req, res) {
+  const benefitType = req.session.data['metadataBenefitType'];
+
+  const mapping = {
+   
+  "Access to Work": "Health",
+  "Alternative Format": "Alternative format",
+  "Attendance Allowance unit": "Attendance Allowance Unit",
+  "B2OL": "Reports",
+  "Bereavement benefit": "Bereavement benefit",
+  "Bereavement Support Payment": "Bereavement Support Payment",
+  "Budgeting Loans": "Social Fund",
+  "Carer's Allowance": "Carer's Allowance",
+  "Carer's Credit": "Care'r's Allowance",
+  "CFEMS": "Cfems",
+  "Compensation Recovery unit": "Compensation Recovery Unit",
+  "Debt": "Debt Management",
+  "Disability Living Allowance 65": "Disability Living Allowance 65",
+  "Disability Living Allowance Adult": "Disability Living Allowance Adult",
+  "Disability Living Allowance Child": "Disability Living Allowance Child",
+  "Employment and Support Allowance (ESA)": "Working Age Benefits",
+  "Fraud": "Fraud",
+  "Funeral Payments": "Social Fund",
+  "Future Pensions Centre": "Future Pensions Centre",
+  "Human resources": "Human resources",
+  "Integrated Loan Scheme (ILS), Eligible Loan Deduction Scheme (ELDS)": "Debt management",
+  "Industrial Injuries Disablement Benefit": "Industrial Injuries Disablement Benefit",
+  "International Pension Centre BB": "Newcastle Pension Centre",
+  "International Pension Centre BSP": "Newcastle Pension Centre",
+  "International Pension Centre ESA": "Newcastle Pension Centre",
+  "International Pension Centre IB": "Newcastle Pension Centre",
+  "International Pension Centre IIDB": "Newcastle Pension Centre",
+  "International Pension Centre JSA": "Newcastle Pension Centre",
+  "International Pension Centre MA": "Newcastle Pension Centre",
+  "International Pension Centre PC": "Newcastle Pension Centre",
+  "International Pension Centre SP": "Newcastle Pension Centre",
+  "International Pension Centre WFP": "Newcastle Pension Centre",
+  "Income Support (IS)": "Working Age Benefits",
+  "Jobseeker's Allowance (JSA)": "Working Age Benefits",
+  "Maternity Allowance": "Maternity Allowance",
+  "New Style Jobseeker's Allowance": "New Style Jobseeker's Allowance",
+  "National Insurance Delivery Centre": "National Insurance Delivery Centre",
+  "NISSA Attendance Allowance Unit": "NISSA",
+  "NISSA BB": "NISSA",
+  "NISSA BSP": "NISSA",
+  "NISSA Budgeting Loans": "NISSA",
+  "NISSA Carers Allowance": "NISSA",
+  "NISSA CRS": "NISSA",
+  "NISSA Disability Living Allowance": "NISSA",
+  "NISSA ESA": "NISSA",
+  "NISSA Funeral Payments": "NISSA",
+  "NISSA IIDB": "NISSA",
+  "NISSA INC New": "NISSA",
+  "NISSA JSA New": "NISSA",
+  "NISSA MA": "NISSA",
+  "NISSA NINO Allocation": "NISSA",
+  "NISSA Pension Credit": "NISSA",
+  "NISSA PIP": "NISSA",
+  "NISSA SIS": "NISSA",
+  "NISSA SSMG": "NISSA",
+  "NISSA State Pension": "NISSA",
+  "NISSA UC": "NISSA",
+  "Notification Online (NOL)": "Notifications Online",
+  "Payment Services": "Payment Services",
+  "Pension Credit": "The Pension Service",
+  "Performance Measurement": "Performance Measurement",
+  "Personal Independence Payment (PIP)": "Personal Independence Payment (PIP)",
+  "Right of Access Request": "Right Of Access Request",
+  "Severe Disablement Allowance (SDA), Incapacity Benefit (IB)": "Severe Disablement Allowance (SDA), Incapacity Benefit (IB)",
+  "Serious and Organised Crime": "Serious And Organised Crime",
+  "State Pension": "The Pension Service",
+  "Support for Mortgage Interest": "Debt Management",
+  "SureStart Maternity Grant": "Social Fund",
+  "Universal Credit": "Universal Credit"
+
+  };
+
+  req.session.data['metadataBusinessUnit'] = mapping[benefitType];
+
+  res.redirect('/ecms-v1/metadata/metadata');
+});
 
 
 

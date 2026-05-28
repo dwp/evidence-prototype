@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Remove documents from hold – {{ serviceName }} – GOV.UK Prototype Kit
+  Remove hold – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent
@@ -39,24 +39,15 @@
     <div class="govuk-grid-column-two-thirds">
 
      <h1 class="govuk-heading-l">
-        Remove documents from hold
+        Remove hold
       </h1>
 
  {% from "govuk/components/radios/macro.njk" import govukRadios %}
- {% if data['user-group'] == 'overpayment-hold-user' %}
 
 
- {% else %}
- {{ govukWarningText({
-  text: "One or more selected documents have an overpayment hold and hold status cannot be removed.",
-  iconFallbackText: "Warning"
-}) }}
-
-  {% endif %}
-
-      
-      <p>[Placeholder text - more information about removing hold: Puts a document back to status 'closed' counting down to its deletion.]</p>
-      <p>Check that the documents listed below are the documents you want to remove from on hold.</p>
+      <p>Check that the documents listed are the ones you want to remove from hold. </p>
+        <p>Removing a document hold will mark the document as closed. This means it will be scheduled to be deleted.</p>
+        <p>If a document has more than one hold applied, you can remove each hold separately. For example, you can remove an overpayment hold without removing a general hold.</p>
       
       <form action="actions-remove-hold-confirmation" method="post" novalidate>
 
@@ -100,7 +91,7 @@
       <td class="govuk-table__cell">Jane Doe</td>
        <td class="govuk-table__cell">CIS500</td>
       <td class="govuk-table__cell">On hold</td>
-      <td class="govuk-table__cell">General hold</td>
+      <td class="govuk-table__cell">Multiple holds</td>
     </tr>
   </tbody>
 </table>
@@ -108,10 +99,31 @@
 
 <div class="govuk-!-padding-bottom-4"></div>
 
+{{ govukRadios({
+  name: "remove-hold-type",
+  fieldset: {
+    legend: {
+      text: "Which hold type do you want to remove?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "General hold",
+      text: "General hold"
+    },
+    {
+      value: "Overpayment hold",
+      text: "Overpayment hold"
+    }
+  ]
+}) }}
+
 
 <div class="govuk-button-group">
   {{ govukButton({
-        text: "Remove from hold"
+        text: "Remove hold"
   }) }}
 
   <a class="govuk-link" href="../search-results-v3">Cancel</a>

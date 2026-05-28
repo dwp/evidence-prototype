@@ -41,7 +41,7 @@
     <div class="govuk-grid-column-two-thirds">
 
 {% set copyBenefitType = data['copyBenefitType']  %}
-{% set copyBenefitType = "A copy of the selected documents has been added to " + copyBenefitType %}
+{% set copyBenefitType = "Document copied to: " + copyBenefitType %}
 {{ govukPanel({
     titleText: "Copy created",
     html: copyBenefitType
@@ -52,7 +52,7 @@
       </h2>
 
       <p>
-       [Placeholder for that the copied documents have been added to the file plan of the benefit type selected.]
+       The copied documents have been added to the file plan of the selected benefit type.
       </p>
 
       <p> 
