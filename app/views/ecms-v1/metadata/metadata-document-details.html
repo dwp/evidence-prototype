@@ -800,7 +800,7 @@
             }
           },
           hint: {
-            text: "This is information that could harm the customer if disclosed to them."
+            text: "Harmful information is medical information that should not be shared with a customer or their representative if it could harm their health"
           },
           items: [
             {
@@ -814,21 +814,11 @@
             },
             {
               value: "Harmful",
-              text: "Harmful",
-              hint: {
-                text: "For example information about a terminal illness"
-              }
+              text: "Harmful"
             }
           ]
         }) }}
 
-      {#Hint text code for Harmfull indicator radios - ADD BACK IN WHEN CONTENT READY
-        ,
-              hint: {
-                text: "For example [placeholder]"
-              }
-                
-          #}
 <div class="govuk-!-padding-bottom-4"></div>
 <h2 class="govuk-heading-m">Document details you can't edit</h2>
 {{ govukSummaryList({
