@@ -49,8 +49,8 @@
      {% if data['edit-metadata'] == 'true' %}
 
 
-    <h1 class="govuk-heading-l">Review metadata</h1>
-    <p class="govuk-body govuk-!-margin-bottom-7">Check all the details are correct or make any additional edits before you update.</p>
+    <h1 class="govuk-heading-l">Check your details</h1>
+    <p class="govuk-body govuk-!-margin-bottom-7">Make sure the updated details are correct before you continue.</p>
     
 
   {% else %}
@@ -91,12 +91,11 @@
       },
       value: {
               
-text: (data['metadata-dob-day'] or "5") 
-      + " " 
-      + (data['metadata-dob-month'] or "January") 
-      + " " 
-      + (data['metadata-dob-year'] or "1978")
-
+      html: formatDate (
+        data['metadata-dob-day'],
+        data['metadata-dob-month'],
+        data['metadata-dob-year'])
+        if data['metadata-dob-day'] else '5 January 1978'
             }
     },
      {
@@ -125,7 +124,7 @@ text: (data['metadata-dob-day'] or "5")
     },
       {
       key: {
-        text: "Customer Reference number (CRN)"
+        text: "Customer reference number (CRN)"
       },
       value: {
               text: data['metadata-crn'] or "1589"
@@ -372,7 +371,7 @@ text: (data['metadata-dob-day'] or "5")
   rows: [
     {
       key: {
-        text: "Line of Business (LOB) case ID"
+        text: "Line of business (LOB) case ID"
       },
       value: {
               text: data['metadata-lob-case-id'] or "004"

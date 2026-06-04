@@ -74,7 +74,7 @@
        {% if data['bulk-crn'] %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Customer Reference number (CRN)
+          Customer reference number (CRN)
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['bulk-crn'] }}
@@ -117,7 +117,7 @@
           Date of birth
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['bulk-dob-day'] }} {{ data['bulk-dob-month'] }} {{ data['bulk-dob-year'] }}
+          {{ formatDate(data['bulk-dob-day'], data['bulk-dob-month'], data['bulk-dob-year']) }}
         </dd>
       </div>
       {% endif %}
@@ -131,7 +131,19 @@
         </dd>
       </div>
       {% endif %}
-       {% if data['bulkBenefitType'] %}
+     
+      {% if data['bulk-lob-case-id'] %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Line of business (LOB) case ID
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['bulk-lob-case-id'] }}
+        </dd>
+      </div>
+      {% endif %}
+      
+      {% if data['bulkBenefitType'] %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Benefit type

@@ -127,7 +127,7 @@
 
          {{ govukInput({
           label: {
-            text: "Customer Reference number (CRN) (optional)",
+            text: "Customer reference number (CRN) (optional)",
             classes: "govuk-label--m"
           },
           classes: "govuk-!-width-two-thirds",
@@ -228,24 +228,17 @@
               },
               {
                 value: "Untraceable",
-                text: "Untraceable"
+                text: "Untraceable",
+                hint: {
+                  html: "<p class='govuk-hint'>A document where a reference number or National Insurance number can't be found</p>"
+                }
               }
             ]
           }) }}
 
-                  {#Hint text code for Untraceable radio - ADD BACK IN WHEN CONTENT READY
-        ,
-              hint: {
-                  html: "<p class='govuk-hint'>[Placeholder]</p>
-                        <p class='govuk-hint'>[Placeholder]</p>"
-                }
-                
-          #}
-
-
            {{ govukInput({
           label: {
-            text: "Line of Business (LOB) case ID (optional)",
+            text: "Line of business (LOB) case ID (optional)",
             classes: "govuk-label--m"
           },
           classes: "govuk-!-width-two-thirds",
