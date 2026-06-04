@@ -48,7 +48,7 @@
       <h1 class="govuk-heading-l">Enter document details</h1>
       <p class="govuk-body govuk-!-margin-bottom-9">These details must be the same for all documents in this upload.</p>
 
-      <form action="/form-handler" method="post" novalidate>
+      <form action="upload-file" method="post" novalidate>
  
 
               {{ govukRadios({
@@ -114,7 +114,7 @@
             legend: {
               text: "Document issue date (optional)",
               classes: "govuk-fieldset__legend--m",
-              value: data['Issue date']
+              value: data['upload-issue-date']
             }
           },
           hint: {
@@ -124,7 +124,7 @@
 
         {{ govukInput({
           label: {
-            text: "Line of Business (LOB) case ID (optional)",
+            text: "Line of business (LOB) case ID (optional)",
             classes: "govuk-label--m"
           },
           hint: {
@@ -133,11 +133,11 @@
           classes: "govuk-!-width-two-thirds",
           id: "upload-lob",
           name: "upload-lob",
-          value: data['Line of Business (LOB) case ID']
+          value: data['upload-lob']
         }) }}
 
               {{ govukTextarea({
-        name: "uploadLinkData",
+        name: "upload-link-data",
         id: "upload-link-data",
         label: {
           text: "Link data (optional)",
@@ -148,8 +148,7 @@
       }) }}
 
          {{ govukButton({
-        text: "Continue",
-        href: "upload-file"
+        text: "Continue"
       }) }}
 
       </form>

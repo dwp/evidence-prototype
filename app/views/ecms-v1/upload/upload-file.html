@@ -44,20 +44,21 @@
 <div class="govuk-width-container">
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Select a file to upload</h1>
-    <form action="/form-handler" method="post" novalidate>
- {% if data['single-upload'] == 'true' %}
+    <form action="upload-check-answers" method="post" novalidate>
+ {% if data['upload-role'] == 'single' %}
         {{ govukFileUpload({
           id: "file-upload-1",
           name: "fileUpload1",
-          label: {
-            text: "How to upload a file",
-          classes: "govuk-label--m"
+         label: {
+         text: "Select a file to upload",
+         classes: "govuk-label--l",
+         isPageHeading: true
           },
+
           hint: {
             html: '<p class="govuk-body">Each file must be:</p> 
             <ul class="govuk-body"><li> smaller than 10MB </li>
-              <li> in the following formats DOC, DOCX, PDF, PPT, PPTX, XLS or XLSX</li></ul>
+              <li> in the following formats doc, dox, pdf, ppt, pptx, xls or xlsx</li></ul>
             '
           },
           javascript: true
@@ -67,14 +68,15 @@
           id: "file-upload-1",
           name: "fileUpload1",
           label: {
-            text: "How to upload a file",
-          classes: "govuk-label--m"
+         text: "Select a file to upload",
+         classes: "govuk-label--l",
+         isPageHeading: true
           },
           hint: {
             html: '<p class="govuk-body">You can upload up to 10 files.</p> <p class="govuk-body">Each file must be:</p>
             <ul class="govuk-body">
               <li> smaller than 10MB </li>
-              <li>in the following formats DOC, DOCX, PDF, PPT, PPTX, XLS or XLSX</li></ul>
+              <li>in the following formats doc, dox, pdf, ppt, pptx, xls or xlsx</li></ul>
             '
           },
           javascript: true
@@ -103,8 +105,7 @@
       </div>
 
                  {{ govukButton({
-        text: "Continue",
-        href: "upload-check-answers"
+        text: "Continue"
       }) }}
     
       </form>

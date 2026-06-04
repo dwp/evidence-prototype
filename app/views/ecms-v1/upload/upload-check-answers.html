@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Review the document details – {{ serviceName }} – GOV.UK Prototype Kit
+  Review upload details – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent
@@ -44,11 +44,194 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
-        Review the document details 
+        Review upload details 
       </h1>
-      <p class="govuk-body govuk-!-margin-bottom-7">Check that all the document details are correct before you upload.</p>
+      <p class="govuk-body govuk-!-margin-bottom-7">Check the details are correct before you upload.</p>
 
-      <h2 class="govuk-heading-l">
+{# CUSTOMER DETAILS #}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Customer details"
+    },
+    actions: {
+      items: [
+        {
+          href: "upload-customer-details",
+          text: "Edit"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "National Insurance number"
+      },
+      value: {
+              html: data['upload-nino'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+      {
+      key: {
+        text: "Customer reference number (CRN)"
+      },
+      value: {
+              html: data['upload-crn'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+      {
+      key: {
+        text: "Claim reference"
+      },
+      value: {
+              html: data['upload-claimref'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+    {
+      key: {
+        text: "First name"
+      },
+      value: {
+              html: data['upload-first-name'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+      {
+      key: {
+        text: "Last name"
+      },
+      value: {
+              html: data['upload-last-name'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+    
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+              
+      html: formatDate (
+        data['upload-dob-day'],
+        data['upload-dob-month'],
+        data['upload-dob-year'])
+        if data['upload-dob-day'] else '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+      {
+      key: {
+        text: "Postcode"
+      },
+      value: {
+              html: data['upload-postcode'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    }
+  ]
+}) }}
+
+{# BENEFIT TYPE #}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Benefit type"
+    },
+    actions: {
+      items: [
+        {
+          href: "upload-benefit-type",
+          text: "Edit"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Business unit"
+      },
+      value: {
+              text: data['uploadBusinessUnit'] or "Working Age benefits"
+            }
+    },
+    {
+      key: {
+        text: "Benefit type"
+      },
+      value: {
+              text: data['uploadBenefitType'] or "Employment and Support Allowance (ESA)"
+            }
+    }
+  ]
+}) }}
+
+{# DOCUMENT DETAILS #}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Document details"
+    },
+    actions: {
+      items: [
+        {
+          href: "upload-document-details",
+          text: "Edit"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Document classification"
+      },
+      value: {
+              text: data['uploadClassification'] or "Supporting"
+            }
+    },
+    {
+      key: {
+        text: "Harmful indicator"
+      },
+      value: {
+              text: data['uploadHarmful'] or "Not harmful"
+            }
+    },
+   {
+      key: {
+        text: "Issue date"
+      },
+      value: {
+              
+      html: formatDate (
+        data['upload-issue-date-day'],
+        data['upload-issue-date-month'],
+        data['upload-issue-date-year'])
+        if data['upload-issue-date-day'] else '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+    {
+      key: {
+        text: "Line of business (LOB) case ID"
+      },
+      value: {
+              html: data['upload-lob'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+    {
+      key: {
+        text: "Link data"
+      },
+      value: {
+              html: data['upload-link-data'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    }
+  ]
+}) }}
+
+   {#   <h2 class="govuk-heading-l">
         Customer details
       </h2>
 
@@ -218,6 +401,7 @@
           }
         ]
       }) }}
+      
 
  <h2 class="govuk-heading-l">
         Document details
@@ -317,6 +501,7 @@
           }
         ]
       }) }}
+      #}
 
       <h2 class="govuk-heading-l">
         Uploaded files
@@ -420,7 +605,7 @@
 
   #}
 
-{% if data['single-upload'] == 'true' %}
+{% if data['upload-role'] == 'single' or data['upload-role'] == 'multi-single-file'  %}
 {{ govukSummaryList({
   card: {
     title: {
@@ -536,13 +721,26 @@
 
 <form action="/confirmation" method="post" novalidate>
 
-{% if data['single-upload'] == 'true' %}
+{% if data['upload-role'] == 'single'%}
 
   {{ govukButton({
     text: "Upload",
         href: "upload-confirmation"
   }) }}
 
+{% elif data['upload-role'] == 'multi-single-file' %}
+<div class="govuk-button-group">
+
+    {{ govukButton({
+    text: "Add another file",
+    classes: "govuk-button--secondary",
+        href: "upload-file"
+  }) }}
+  {{ govukButton({
+    text: "Upload",
+        href: "upload-confirmation"
+  }) }}
+</div>
 {% else %}
 <div class="govuk-button-group">
 
