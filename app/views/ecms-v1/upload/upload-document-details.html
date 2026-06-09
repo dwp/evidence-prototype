@@ -26,12 +26,14 @@
         
         </ul>
     </nav>
-
+{% if data['edit-cya'] == 'true'%}
+{% else%}
 <div class="govuk-!-padding-bottom-4"></div>
 {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
 }) }}
+{% endif%}
 
 {% endblock %} 
 
@@ -48,11 +50,17 @@
       <h1 class="govuk-heading-l">Enter document details</h1>
       <p class="govuk-body govuk-!-margin-bottom-9">These details must be the same for all documents in this upload.</p>
 
-      <form action="upload-file" method="post" novalidate>
+{% if data['edit-cya'] == 'true'%}
+<form action="upload-check-answers" method="post" novalidate>
+{% else%}
+<form action="upload-file" method="post" novalidate>
+{% endif%}
+      
  
 
               {{ govukRadios({
           name: "uploadClassification",
+          value: data['uploadClassification'],
           fieldset: {
             legend: {
               text: "What is the document classification for this upload?",
@@ -81,6 +89,7 @@
 
         {{ govukRadios({
           name: "uploadHarmful",
+          value: data['uploadHarmful'],
           fieldset: {
             legend: {
               text: "What is the harmful indicator for this upload?",
@@ -113,14 +122,42 @@
           fieldset: {
             legend: {
               text: "Document issue date (optional)",
-              classes: "govuk-fieldset__legend--m",
-              value: data['upload-issue-date']
+              classes: "govuk-fieldset__legend--m"
             }
           },
           hint: {
             text: "For example, 31 3 2026"
-          }
+          },
+           items: [
+                {
+                name: 'day',
+                value: data['upload-issue-date-day'],
+                classes: 'govuk-input--width-2',
+                label: 'Day'
+                },
+                {
+                name: 'month',
+                value: data['upload-issue-date-month'],
+                classes: 'govuk-input--width-2',
+                label: 'Month'
+                },
+                {
+                name: 'year',
+                value: data['upload-issue-date-year'],
+                classes: 'govuk-input--width-4',
+                label: 'Year'
+                }
+            ]
+
         }) }}
+
+
+
+
+
+
+
+        
 
         {{ govukInput({
           label: {

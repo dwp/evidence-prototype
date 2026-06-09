@@ -37,6 +37,36 @@ module.exports = function (router) {
     res.render('ecms-v1/hr-records');
   });
 
+// reset the "Document upload" data back to defaults when end is got at confirmation screen
+router.get('/upload-end', function (req, res) {
+  let data = req.session.data;
+
+
+  delete data['upload-nino'];
+  delete data['upload-crn'];
+  delete data['upload-claimref'];
+  delete data['upload-first-name'];
+  delete data['upload-last-name'];
+  delete data['upload-dob-day'];
+  delete data['upload-dob-month'];
+  delete data['upload-dob-year'];
+  delete data['upload-postcode'];
+  delete data['uploadBusinessUnit'];
+  delete data['uploadBenefitType'];
+  delete data['uploadClassification'];
+  delete data['uploadHarmful'];
+  delete data['upload-issue-date-day'];
+  delete data['upload-issue-date-month'];
+  delete data['upload-issue-date-year'];
+  delete data['upload-lob'];
+  delete data['upload-link-data'];
+  delete data['documentType'];
+
+  
+  res.redirect('/ecms-v1/records');
+});
+
+
 
 // default settings for metadata business unit and benefit type
   router.get('/ecms-v1/metadata/metadata-document-details', function (req, res) {

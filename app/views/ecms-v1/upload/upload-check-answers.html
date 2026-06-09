@@ -58,7 +58,7 @@
     actions: {
       items: [
         {
-          href: "upload-customer-details",
+          href: "upload-customer-details?edit-cya=true",
           text: "Edit"
         }
       ]
@@ -140,7 +140,7 @@
     actions: {
       items: [
         {
-          href: "upload-benefit-type",
+          href: "upload-benefit-type?edit-cya=true",
           text: "Edit"
         }
       ]
@@ -176,7 +176,7 @@
     actions: {
       items: [
         {
-          href: "upload-document-details",
+          href: "upload-document-details?edit-cya=true",
           text: "Edit"
         }
       ]
@@ -631,7 +631,7 @@
       actions: {
         items: [
           {
-            href: "upload-file",
+            href: "upload-file?edit-cya=true",
             text: "Edit",
             visuallyHiddenText: "document-type"
           }
@@ -645,7 +645,8 @@
 {{ govukSummaryList({
   card: {
     title: {
-      text: "jd-file2.pdf"
+      text: "jd-file2.pdf",
+      value: data['fileUpload1'] or 'jd-file2.pdf'
     },
     actions: {
       items: [
@@ -667,7 +668,7 @@
       actions: {
         items: [
           {
-            href: "upload-file",
+            href: "upload-file?edit-cya=true",
             text: "Edit",
             visuallyHiddenText: "document-type"
           }
@@ -686,7 +687,7 @@
     actions: {
       items: [
         {
-          href: "upload-file",
+          href: "upload-file?edit-cya=true",
           text: "Delete file"
         }
       ]
@@ -703,7 +704,7 @@
       actions: {
         items: [
           {
-            href: "upload-file",
+            href: "upload-file?edit-cya=true",
             text: "Edit",
             visuallyHiddenText: "document-type"
           }
@@ -725,7 +726,7 @@
 
   {{ govukButton({
     text: "Confirm upload",
-        href: "upload-confirmation"
+        href: "upload-confirmation?edit-cya"
   }) }}
 
 {% elif data['upload-role'] == 'multi-single-file' %}
@@ -738,7 +739,7 @@
   }) }}
   {{ govukButton({
     text: "Confirm upload",
-        href: "upload-confirmation"
+        href: "upload-confirmation?edit-cya"
   }) }}
 </div>
 {% else %}
@@ -751,7 +752,7 @@
   }) }}
   {{ govukButton({
     text: "Confirm upload",
-        href: "upload-confirmation"
+        href: "upload-confirmation?edit-cya"
   }) }}
 </div>
 {% endif %}

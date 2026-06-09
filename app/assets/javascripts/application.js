@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 
-  // For /ecms-v1/metadata/metadata-document-dtails.html : conditional filter for second select box
+  // For /ecms-v1/metadata/metadata-document-details.html : conditional filter for second select box
 document.addEventListener('DOMContentLoaded', function () {
   const businessUnit = document.getElementById('metadataBusinessUnit')
   const benefitSelect = document.getElementById('metadataBenefitType')

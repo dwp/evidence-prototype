@@ -43,7 +43,12 @@
       <h1 class="govuk-heading-xl">Document upload</h1>
       <p class="govuk-body govuk-!-margin-bottom-9">Make sure that all the documents you upload are for the same customer. </p>
 
-      <form action="upload-benefit-type" method="post" novalidate>
+{% if data['edit-cya'] == 'true'%}
+<form action="upload-check-answers" method="post" novalidate>
+{% else%}
+<form action="upload-benefit-type" method="post" novalidate>
+{% endif%}
+      
       <h2 class="govuk-heading-l">Enter an identification reference</h2>
       <p class="govuk-body govuk-!-margin-bottom-6">
         You must include either a National Insurance number, a customer reference number (CRN) or a claim reference.
@@ -113,20 +118,42 @@
           value: data['upload-last-name']
         }) }}
        
-        {{ govukDateInput({
+
+         {{ govukDateInput({
           id: "upload-dob",
           namePrefix: "upload-dob",
           fieldset: {
             legend: {
               text: "Date of birth (optional)",
-              classes: "govuk-fieldset__legend--m",
-              value: data['upload-dob']
+              classes: "govuk-fieldset__legend--m"
             }
           },
           hint: {
             text: "For example, 31 3 1980"
-          }
+          },
+           items: [
+                {
+                name: 'day',
+                value: data['upload-dob-day'],
+                classes: 'govuk-input--width-2',
+                label: 'Day'
+                },
+                {
+                name: 'month',
+                value: data['upload-dob-month'],
+                classes: 'govuk-input--width-2',
+                label: 'Month'
+                },
+                {
+                name: 'year',
+                value: data['upload-dob-year'],
+                classes: 'govuk-input--width-4',
+                label: 'Year'
+                }
+            ]
+
         }) }}
+
 
         {{ govukInput({
           label: {
