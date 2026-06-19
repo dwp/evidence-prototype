@@ -87,12 +87,19 @@
           ]
         }) }}
 
+      <hr class="govuk-section-break govuk-section-break--l govuk-!-margin-top-9 govuk-section-break--visible">
+
+       <h2 class="govuk-heading-l">Enter additional document details</h2>
+       <p class="govuk-body govuk-!-margin-bottom-6">
+        These document details are optional.
+      </p>
+
         {{ govukRadios({
           name: "uploadHarmful",
           value: data['uploadHarmful'],
           fieldset: {
             legend: {
-              text: "What is the harmful indicator for this upload?",
+              text: "What is the harmful indicator for this upload? (optional)",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
@@ -153,19 +160,13 @@
 
 
 
-
-
-
-
-        
-
         {{ govukInput({
           label: {
             text: "Line of business (LOB) case ID (optional)",
             classes: "govuk-label--m"
           },
           hint: {
-            text: "This is a reference number issued by some business units. If you don’t have this, leave it blank."
+            text: "This is a reference number issued by some business units. If you don’t have this, leave it blank"
           },
           classes: "govuk-!-width-two-thirds",
           id: "upload-lob",
