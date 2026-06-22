@@ -58,6 +58,9 @@
       <th scope="col" class="govuk-table__header">Name</th>
       <th scope="col" class="govuk-table__header">Document type</th>
       <th scope="col" class="govuk-table__header">Status</th>
+{% if data['closure-date'] == 'true' %}
+      <th scope="col" class="govuk-table__header" style="white-space: nowrap">Closure date</th>
+{% endif %}
     </tr>
   </thead>
   <tbody class="govuk-table__body">
@@ -68,6 +71,9 @@
       <td class="govuk-table__cell">Jane Doe</td>
       <td class="govuk-table__cell">BD8</td>
       <td class="govuk-table__cell">Open</td>
+      {% if data['closure-date'] == 'true' %}
+      <td class="govuk-table__cell">Date not set</td>
+{% endif %}
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">12 Feb 2025</th>
@@ -76,6 +82,9 @@
       <td class="govuk-table__cell">Jane Doe</td>
       <td class="govuk-table__cell">BD8</td>
       <td class="govuk-table__cell">Open</td>
+      {% if data['closure-date'] == 'true' %}
+      <td class="govuk-table__cell">Date not set</td>
+{% endif %}
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">12 Feb 2026</th>
@@ -83,7 +92,10 @@
       <td class="govuk-table__cell">No data</td>
       <td class="govuk-table__cell">Jane Doe</td>
       <td class="govuk-table__cell">CIS500</td>
-       <td class="govuk-table__cell">Open</td>
+       <td class="govuk-table__cell">Closed</td>
+       {% if data['closure-date'] == 'true' %}
+       <td class="govuk-table__cell">3 Oct 2028</td>
+{% endif %}
     </tr>
   </tbody>
 </table>

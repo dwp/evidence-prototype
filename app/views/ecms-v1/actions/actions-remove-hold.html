@@ -47,16 +47,21 @@
 
       <p>Check that the documents listed are the ones you want to remove from hold. </p>
         <p>Removing a document hold will mark the document as closed. This means it will be scheduled to be deleted.</p>
-        <p>If a document has more than one hold applied, you can remove each hold separately. For example, you can remove an overpayment hold without removing a general hold.</p>
-      
-      <form action="actions-remove-hold-confirmation" method="post" novalidate>
+        
 
+        <div class="govuk-!-padding-bottom-4"></div>
+      
+{% if data['user-group'] == 'overpayment-hold-user' %}
+      <form action="actions-remove-hold-confirmation" method="post" novalidate>
+{% else %}
+<form action="actions-remove-hold-confirmation?remove-hold-type=general-hold" method="post" novalidate>
+{% endif %}
 
   <table class="govuk-table">
   <caption class="govuk-table__caption govuk-table__caption--m">Documents selected to remove from hold</caption>
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Date received or issued</th>
+      <th scope="col" class="govuk-table__header " >Date received or issued</th>
       <th scope="col" class="govuk-table__header">National Insurance number</th>
       <th scope="col" class="govuk-table__header">Claim reference</th>
       <th scope="col" class="govuk-table__header">Name</th>
@@ -85,19 +90,21 @@
       <td class="govuk-table__cell">Overpayment hold</td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">12 Feb 2026</th>
+      <td class="govuk-table__cell" style="white-space: nowrap">12 Feb 2026</th>
       <td class="govuk-table__cell">QQ123456C</td>
       <td class="govuk-table__cell">No data</td>
       <td class="govuk-table__cell">Jane Doe</td>
        <td class="govuk-table__cell">CIS500</td>
-      <td class="govuk-table__cell">On hold</td>
-      <td class="govuk-table__cell">Multiple holds</td>
+      <td class="govuk-table__cell" style="white-space: nowrap">On hold</td>
+      <td class="govuk-table__cell" style="white-space: nowrap">General hold, <br> Overpayment hold</td>
     </tr>
   </tbody>
 </table>
 
 
 <div class="govuk-!-padding-bottom-4"></div>
+
+ {% if data['user-group'] == 'overpayment-hold-user' %}
 
 {{ govukRadios({
   name: "remove-hold-type",
@@ -110,21 +117,30 @@
   },
   items: [
     {
-      value: "General hold",
+      value: "general-hold",
       text: "General hold"
     },
     {
-      value: "Overpayment hold",
+      value: "overpayment-hold",
       text: "Overpayment hold"
     }
   ]
 }) }}
+ {% endif %}
 
 
 <div class="govuk-button-group">
+
+ {% if data['user-group'] == 'overpayment-hold-user' %}
   {{ govukButton({
         text: "Remove hold"
   }) }}
+
+   {% else %}
+  {{ govukButton({
+    text: "Remove general hold"
+  }) }}
+   {% endif %}
 
   <a class="govuk-link" href="../search-results-v3">Cancel</a>
 

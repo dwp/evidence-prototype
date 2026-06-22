@@ -85,7 +85,7 @@
         <p class="govuk-body">V1.0</p>
       </td>
       <td class="govuk-table__cell">
-       <p class="govuk-body">Screen for documents selected for closure and setting closure date</p>
+       <p class="govuk-body">Screen for documents selected for closure including closure date in table; and setting closure date</p>
         
         <details class="govuk-details">
   <summary class="govuk-details__summary">
@@ -95,6 +95,7 @@
   </summary>
   <div class="govuk-details__text">
     <ul class="govuk-list govuk-list--bullet">
+      <li><strong>22 Jun 2026:</strong> Closure date column added to table of selected documents</li>
       <li><strong>28 May 2026:</strong> Content change for closure date label and hint text added</li>
       <li><strong>30 Apr 2026:</strong> Closure date changed to optional with updated hint text</li>
       <li><strong>27 Apr 2026:</strong> published</li>
@@ -103,7 +104,7 @@
 </details> 
       </td>
       <td class="govuk-table__cell">
-        <p class="govuk-body">28 May 2026</p>
+        <p class="govuk-body">22 June 2026</p>
       </td>
       <td class="govuk-table__cell">
         <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
@@ -632,101 +633,132 @@
     </tr>
   </thead>
   <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Remove hold with warning text</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-       <p class="govuk-body">Screen for documents selected to remove hold with warning text for overpayment hold</p>
-       <!-- 
-        <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-  <li><strong>23 Apr 2026:</strong> published</li>
-</ul>
-  </div>
-</details>  --> 
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">8 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--purple" style="white-space: nowrap">
-          In progress
-    </strong>
+  
+   <tr class="govuk-table__row">
+    <th scope="row" class="govuk-table__header">Remove hold: General</th>
+    <td class="govuk-table__cell">
+      <p class="govuk-body">V1.0</p>
+    </td>
+    <td class="govuk-table__cell">
+      <p class="govuk-body">No radios to select which hold type to remove </p>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Changes
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <ul class="govuk-list govuk-list--bullet">
+            <li><strong>22 Jun 2026:</strong> published</li>
+          </ul>
+        </div>
+      </details>
+    </td>
+    <td class="govuk-table__cell">
+      <p class="govuk-body">22 June 2026</p>
+    </td>
+    <td class="govuk-table__cell">
+      <strong class="govuk-tag govuk-tag--blue" style="white-space: nowrap">
+        In review
+      </strong>
     </td>
     <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-remove-hold?user-group" class="govuk-link">View</a></td>
     </tr>
 
-        <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Remove hold without warning text</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-       <p class="govuk-body">Screen for documents selected to remove hold for 'Overpayment hold users' and no warning text</p>
-       <!-- 
-        <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-  <li><strong>23 Apr 2026:</strong> published</li>
-</ul>
-  </div>
-</details>  --> 
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">8 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--purple" style="white-space: nowrap">
-          In progress
-    </strong>
+   <tr class="govuk-table__row">
+    <th scope="row" class="govuk-table__header">Remove hold: Overpayment</th>
+    <td class="govuk-table__cell">
+      <p class="govuk-body">V1.0</p>
+    </td>
+    <td class="govuk-table__cell">
+      <p class="govuk-body">Radios to select which hold type to remove </p>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Changes
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <ul class="govuk-list govuk-list--bullet">
+            <li><strong>8 May 2026:</strong> published</li>
+          </ul>
+        </div>
+      </details>
+    </td>
+    <td class="govuk-table__cell">
+      <p class="govuk-body">8 May 2026</p>
+    </td>
+    <td class="govuk-table__cell">
+      <strong class="govuk-tag govuk-tag--blue" style="white-space: nowrap">
+        In review
+      </strong>
     </td>
     <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-remove-hold?user-group=overpayment-hold-user" class="govuk-link">View</a></td>
     </tr>
     
      <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Confirmation screen</th>
+      <th scope="row" class="govuk-table__header">Confirmation: General hold </th>
       <td class="govuk-table__cell">
         <p class="govuk-body">V1.0</p>
       </td>
       <td class="govuk-table__cell">
-       <p class="govuk-body">Confirmation for hold removed</p>
-       <!--
+       <p class="govuk-body">Confirmation for general hold removed</p>
+
         <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-      <li><strong>30 Apr 2026:</strong> Link changed to return to search results</li>
-  <li><strong>27 Apr 2026:</strong> published</li>
-</ul>
-  </div>
-</details> -->
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Changes
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <ul class="govuk-list govuk-list--bullet">
+        <li><strong>22 Jun 2026:</strong> Content tailored to general hold type removed</li>
+        <li><strong>8 May 2026:</strong> published</li>
+      </ul>
+        </div>
+      </details>
       </td>
       <td class="govuk-table__cell">
-        <p class="govuk-body">8 May 2026</p>
+        <p class="govuk-body">22 June 2026</p>
       </td>
       <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--purple" style="white-space: nowrap">
-          In progress
+        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+          Ready
     </strong>
     </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-remove-hold-confirmation" class="govuk-link">View</a></td>
+    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-remove-hold-confirmation?remove-hold-type=general-hold" class="govuk-link">View</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Confirmation: Overpayment hold </th>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">V1.0</p>
+      </td>
+      <td class="govuk-table__cell">
+       <p class="govuk-body">Confirmation for overpayment hold removed</p>
+
+        <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Changes
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <ul class="govuk-list govuk-list--bullet">
+        <li><strong>22 Jun 2026:</strong> Content tailored to overpayment hold type removed</li>
+        <li><strong>8 May 2026:</strong> published</li>
+      </ul>
+        </div>
+      </details>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">22 June 2026</p>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+          Ready
+    </strong>
+    </td>
+    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-remove-hold-confirmation?remove-hold-type=overpayment-hold" class="govuk-link">View</a></td>
     </tr>
 
   </tbody>
@@ -734,7 +766,7 @@
 </div>
 
 
-  <!-- PREVIOUS ITERATIONS 
+  <!-- PREVIOUS ITERATIONS -->
  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
     <h2 class="govuk-heading-m">
@@ -757,27 +789,28 @@
   
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Placeholder</th>
-            <td class="govuk-table__cell">
-        <p class="govuk-body">Vx.x</p>
+      <th scope="row" class="govuk-table__header">Remove hold with warning text</th>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">V1.0</p>
       </td>
       <td class="govuk-table__cell">
-        <p class="govuk-body">Placeholder</p>
+       <p class="govuk-body">Screen for documents selected to remove hold with warning text for overpayment hold</p>
+
       </td>
       <td class="govuk-table__cell">
-        <p class="govuk-body">Date</p>
+        <p class="govuk-body">8 May 2026</p>
       </td>
       <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--grey">
-          Status
+        <strong class="govuk-tag govuk-tag--red" style="white-space: nowrap">
+          Rejected
     </strong>
     </td>
-    <td class="govuk-table__cell"><a href="#" class="govuk-link">View</a></td>
+    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-remove-hold?user-group" class="govuk-link">View</a></td>
     </tr>
   </tbody>
   
 </table>
--->
+
  </div>
 
  

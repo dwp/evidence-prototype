@@ -40,9 +40,10 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+{% if data['remove-hold-type'] == 'overpayment-hold' %}
 {{ govukPanel({
-    titleText: "Hold removed",
-    html: "The documents are now set to closed"
+    titleText: "Overpayment hold removed",
+    html: ""
     }) }}
 
       <h2 class="govuk-heading-m">
@@ -50,8 +51,29 @@
       </h2>
 
       <p>
-       The updates will now show in manage metadata. Documents that are open or already closed are unchanged.
+       The overpayment hold documents have been scheduled to close.
       </p>
+      <p>
+       Open or closed documents will remain unchanged. Any general holds will also remain unchanged.
+      </p>
+
+{% elif data['remove-hold-type'] == 'general-hold' %}
+{{ govukPanel({
+    titleText: "General hold removed",
+    html: ""
+    }) }}
+
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+
+      <p>
+       The general hold documents have been scheduled to close.
+      </p>
+      <p>
+      Open or closed documents will remain unchanged. Any overpayment holds will also remain unchanged. 
+      </p>
+{% endif %}
 
       <p> 
         <a href="../search-results-v3">
