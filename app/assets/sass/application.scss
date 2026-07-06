@@ -67,3 +67,61 @@
   border-bottom: none;
 }
  
+//CSS for search result cards
+.search-results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: results;
+}
+
+.search-result {
+  display: grid;
+  grid-template-columns: 20px 40px 1fr;
+  column-gap: govuk-spacing(3);
+  align-items: start;
+  counter-increment: results;
+}
+
+.search-result__number,
+.search-result__checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+}
+
+.search-result__number {
+  font-weight: bold;
+}
+
+
+
+.search-result__number::before {
+  content: counter(results);
+}
+
+.search-result-card {
+  border: 1px solid #b1b4b6;
+  padding: govuk-spacing(4);
+  background: #ffffff;
+}
+
+.search-result-card:hover {
+  border-color: #505a5f;
+}
+
+.search-result-card__summary .govuk-summary-list__row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.search-result-card__summary .govuk-summary-list__key {
+  width: 30%;
+}
+.search-result-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
