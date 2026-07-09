@@ -7,20 +7,19 @@
         
         
             <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
-            <a id="records" href="records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
             </li> 
 
             <li class="dwp-horizontal-navigation__item">
-            <a id="reports" href="reports" class="dwp-horizontal-navigation__link">Report search</a>
+            <a id="reports" href="../reports" class="dwp-horizontal-navigation__link">Report search</a>
             </li> 
-        <!--
+          {#
             <li class="dwp-horizontal-navigation__item">
             <a id="HR-Records" href="../hr-search" class="dwp-horizontal-navigation__link">HR search</a>
             </li>
-        -->
-        
+        #}
             <li class="dwp-horizontal-navigation__item">
-            <a id="documentUpload" href="upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            <a id="documentUpload" href="../upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
             </li> 
         
         </ul>
@@ -31,7 +30,7 @@
 
 {{ govukBackLink({
   text: "Back",
-  href: "javascript:window.history.back()"
+  href: "records"
 }) }}
 
 {% endblock %} {% block content %}
@@ -49,7 +48,17 @@
 
     <h1 class="govuk-heading-l">Search results</h1>
 
-    <p class="govuk-body">Showing <strong>1</strong> to <strong>20</strong> of <strong>42</strong> records</p>
+    {% if data['user-group'] == 'download' %}
+<!-- TABLE 50 results-->
+ <p class="govuk-body">Showing <strong>1</strong> to <strong>50</strong> of <strong>102</strong> records</p>
+{% else %}
+
+<!-- TABLE 20 results-->
+ <p class="govuk-body">Showing <strong>1</strong> to <strong>20</strong> of <strong>42</strong> records</p>
+{% endif %}  
+
+  
+
 
     <!-- FITLER -->
 
@@ -58,11 +67,10 @@
           classes: "govuk-button--secondary govuk-!-margin-right-2",
           id: "toggle-filter" 
         }) }}
+        
 
-       
-
-        </div>
-      </div>
+  </div>
+</div>
 
 
   <div id="toggle-display" class="moj-filter" data-module="moj-filter" hidden>
@@ -95,21 +103,64 @@
     <div class="moj-filter__options govuk-!-margin-bottom-5">
       <div class="govuk-grid-column-one-third">
         <div class="govuk-form-group">
-          <label class="govuk-label govuk-label--m" for="sort">
-            Document type
-          </label>
-          <select class="govuk-select" id="sort" name="sort">
-            <option value="published" selected>ANSoD  (5)</option>
-            <option value="updated">BD8 (18)</option>
-            <option value="views">BF600 (8)</option>
-            <option value="comments">CA4140 (4)</option>
-            <option value="published">CIS500 (8) (5)</option>
-            <option value="updated">Email body(18)</option>
-            <option value="views">ESA50a (8)</option>
-            <option value="comments">MatB1 (4)</option>
-            <option value="published">VO Cover letter (5)</option>
-            <option value="updated">White mail unstructured</option>
-          </select>
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Document type
+            </legend>
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="type" name="type" type="checkbox" value="1">
+                <label class="govuk-label govuk-checkboxes__label" for="type">
+                  ANSoD (18)
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="2" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="type-2">
+                  BD8 (18)
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="type-3" name="type" type="checkbox" value="3" checked>
+                <label class="govuk-label govuk-checkboxes__label" for="type-3">
+                  BF600 (5)
+                </label>
+              </div>
+              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="type-4" name="type" type="checkbox" value="4">
+                <label class="govuk-label govuk-checkboxes__label" for="type-4">
+                  CA4140 (2)
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="type-5" name="type" type="checkbox" value="5">
+                <label class="govuk-label govuk-checkboxes__label" for="type-5">
+                  CIS500 (5)
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="type-6" name="type" type="checkbox" value="6">
+                <label class="govuk-label govuk-checkboxes__label" for="type-6">
+                  MatB1 (2)
+                </label>
+              </div>
+              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="type-7" name="type" type="checkbox" value="7">
+                <label class="govuk-label govuk-checkboxes__label" for="type-7">
+                  VO Cover letter (5)
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="type-8" name="type" type="checkbox" value="8">
+                <label class="govuk-label govuk-checkboxes__label" for="type-8">
+                  White mail unstructured (25)
+                </label>
+              </div>
+     
+            </div>
+          </fieldset>
         </div>
       </div>
 
@@ -166,7 +217,7 @@
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="status-8" name="status" type="checkbox" value="incomplete">
               <label class="govuk-label govuk-checkboxes__label" for="status-8">
-                Sure Start maternity grant (3)
+                Sure Start Maternity Grant (3)
               </label>
             </div>
 
@@ -188,8 +239,13 @@
   <!-- ACTION BUTTONS -->
 
 <div class="govuk-button-group">
-  {{ govukButton({
-    text: "View documents"
+        {{ govukButton({
+    text: "View documents",
+          href: "/public/files/Test_document.pdf",
+          attributes: {
+            target: "_blank",
+            rel: "noopener noreferrer"
+          }
   }) }}
 
   {{ mojButtonMenu({
@@ -199,39 +255,53 @@
       },
       items: [
         {
-          text: "Close documents"
+          text: "Close documents",
+          href: "../actions/actions-close"
         },
         {
-          text: "Manage metadata"
+          text: "Manage metadata",
+          href: "../metadata/metadata"
         },
         {
-          text: "Put on hold"
+          text: "Apply hold",
+          href: "../actions/actions-apply-hold"
         },
         {
-          text: "Remove hold"
+          text: "Remove hold",
+          href: "../actions/actions-remove-hold"
         },
         {
-          text: "Request rescan"
+          text: "Request rescan",
+          href: "../actions/actions-rescan"
         },
         {
-          text: "Bulk update"
+          text: "Bulk update",
+          href: "../metadata/bulk-metadata"
         },
         {
-          text: "Download"
+          text: "Download",
+          href: "/public/files/Test_document.pdf",
+          attributes: {download: ""}
         },
         {
-          text: "Create copy"
+          text: "Create copy",
+          href: "../actions/actions-create-copy?copy-option=option3"
         }
       ]
     }) }}
 
 
   </div>
-
 <div class="govuk-!-margin-top-4"></div>
-    
-<!-- TABLE -->
-{% include "ecms-v1/includes/cards-20results.html" %}
+
+{% if data['user-group'] == 'download' %}
+<!-- TABLE 50 results-->
+{% include "ecms-v1/includes/table-50results.html" %}
+{% else %}
+
+<!-- TABLE 20 results-->
+{% include "ecms-v1/includes/table-20results-overflow.html" %}
+{% endif %}  
 
     </div>
   </div>

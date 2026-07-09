@@ -49,11 +49,11 @@
     <h1 class="govuk-heading-l">Search results</h1>
 
     {% if data['user-group'] == 'download' %}
-<!-- TABLE 50 results-->
+<!-- CARDS 50 results-->
  <p class="govuk-body">Showing <strong>1</strong> to <strong>50</strong> of <strong>102</strong> records</p>
 {% else %}
 
-<!-- TABLE 20 results-->
+<!-- CARDS 20 results-->
  <p class="govuk-body">Showing <strong>1</strong> to <strong>20</strong> of <strong>42</strong> records</p>
 {% endif %}  
 
@@ -295,12 +295,12 @@
 <div class="govuk-!-margin-top-4"></div>
 
 {% if data['user-group'] == 'download' %}
-<!-- TABLE 50 results-->
-{% include "ecms-v1/includes/table-50results.html" %}
+<!-- CARDS 50 results-->
+{% include "ecms-v1/includes/cards-50results.html" %}
 {% else %}
 
-<!-- TABLE 20 results-->
-{% include "ecms-v1/includes/table-20results.html" %}
+<!-- CARDS 20 results-->
+{% include "ecms-v1/includes/cards-20results.html" %}
 {% endif %}  
 
     </div>

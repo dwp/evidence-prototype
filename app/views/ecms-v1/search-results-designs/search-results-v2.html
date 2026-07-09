@@ -7,19 +7,19 @@
         
         
             <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
-            <a id="records" href="records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
             </li> 
 
             <li class="dwp-horizontal-navigation__item">
-            <a id="reports" href="reports" class="dwp-horizontal-navigation__link">Report search</a>
+            <a id="reports" href="../reports" class="dwp-horizontal-navigation__link">Report search</a>
             </li> 
-          {#
+
             <li class="dwp-horizontal-navigation__item">
-            <a id="HR-Records" href="hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            <a id="HR-Records" href="../hr-search" class="dwp-horizontal-navigation__link">HR search</a>
             </li>
-        #}
+        
             <li class="dwp-horizontal-navigation__item">
-            <a id="documentUpload" href="upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            <a id="documentUpload" href="../upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
             </li> 
         
         </ul>
@@ -30,10 +30,12 @@
 
 {{ govukBackLink({
   text: "Back",
-  href: "records"
+  href: "javascript:window.history.back()"
 }) }}
 
-{% endblock %} {% block content %}
+{% endblock %} 
+
+{% block content %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
@@ -48,17 +50,7 @@
 
     <h1 class="govuk-heading-l">Search results</h1>
 
-    {% if data['user-group'] == 'download' %}
-<!-- TABLE 50 results-->
- <p class="govuk-body">Showing <strong>1</strong> to <strong>50</strong> of <strong>102</strong> records</p>
-{% else %}
-
-<!-- TABLE 20 results-->
- <p class="govuk-body">Showing <strong>1</strong> to <strong>20</strong> of <strong>42</strong> records</p>
-{% endif %}  
-
-  
-
+    <p class="govuk-body">Showing <strong>1</strong> to <strong>20</strong> of <strong>42</strong> records</p>
 
     <!-- FITLER -->
 
@@ -67,10 +59,11 @@
           classes: "govuk-button--secondary govuk-!-margin-right-2",
           id: "toggle-filter" 
         }) }}
-        
 
-  </div>
-</div>
+       
+
+        </div>
+      </div>
 
 
   <div id="toggle-display" class="moj-filter" data-module="moj-filter" hidden>
@@ -109,56 +102,23 @@
             </legend>
             <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type" name="type" type="checkbox" value="1">
+                <input class="govuk-checkboxes__input" id="type" name="type" type="checkbox" value="1" checked>
                 <label class="govuk-label govuk-checkboxes__label" for="type">
-                  ANSoD (18)
+                  BD8 (18)
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="2" checked>
                 <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  BD8 (18)
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-3" name="type" type="checkbox" value="3" checked>
-                <label class="govuk-label govuk-checkboxes__label" for="type-3">
                   BF600 (5)
                 </label>
               </div>
-              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-4" name="type" type="checkbox" value="4">
-                <label class="govuk-label govuk-checkboxes__label" for="type-4">
+                <input class="govuk-checkboxes__input" id="type-3" name="type" type="checkbox" value="3">
+                <label class="govuk-label govuk-checkboxes__label" for="type-3">
                   CA4140 (2)
                 </label>
               </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-5" name="type" type="checkbox" value="5">
-                <label class="govuk-label govuk-checkboxes__label" for="type-5">
-                  CIS500 (5)
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-6" name="type" type="checkbox" value="6">
-                <label class="govuk-label govuk-checkboxes__label" for="type-6">
-                  MatB1 (2)
-                </label>
-              </div>
-              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-7" name="type" type="checkbox" value="7">
-                <label class="govuk-label govuk-checkboxes__label" for="type-7">
-                  VO Cover letter (5)
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-8" name="type" type="checkbox" value="8">
-                <label class="govuk-label govuk-checkboxes__label" for="type-8">
-                  White mail unstructured (25)
-                </label>
-              </div>
-     
             </div>
           </fieldset>
         </div>
@@ -217,7 +177,7 @@
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="status-8" name="status" type="checkbox" value="incomplete">
               <label class="govuk-label govuk-checkboxes__label" for="status-8">
-                Sure Start Maternity Grant (3)
+                Sure Start maternity grant (3)
               </label>
             </div>
 
@@ -239,13 +199,8 @@
   <!-- ACTION BUTTONS -->
 
 <div class="govuk-button-group">
-        {{ govukButton({
-    text: "View documents",
-          href: "/public/files/Test_document.pdf",
-          attributes: {
-            target: "_blank",
-            rel: "noopener noreferrer"
-          }
+  {{ govukButton({
+    text: "View documents"
   }) }}
 
   {{ mojButtonMenu({
@@ -255,37 +210,28 @@
       },
       items: [
         {
-          text: "Close documents",
-          href: "actions/actions-close"
+          text: "Close documents"
         },
         {
-          text: "Manage metadata",
-          href: "metadata/metadata"
+          text: "Manage metadata"
         },
         {
-          text: "Apply hold",
-          href: "actions/actions-apply-hold"
+          text: "Apply hold"
         },
         {
-          text: "Remove hold",
-          href: "actions/actions-remove-hold"
+          text: "Remove hold"
         },
         {
-          text: "Request rescan",
-          href: "actions/actions-rescan"
+          text: "Request rescan"
         },
         {
-          text: "Bulk update",
-          href: "metadata/bulk-metadata"
+          text: "Bulk update"
         },
         {
-          text: "Download",
-          href: "/public/files/Test_document.pdf",
-          attributes: {download: ""}
+          text: "Download"
         },
         {
-          text: "Create copy",
-          href: "actions/actions-create-copy?copy-option=option3"
+          text: "Create copy"
         }
       ]
     }) }}
@@ -294,14 +240,9 @@
   </div>
 <div class="govuk-!-margin-top-4"></div>
 
-{% if data['user-group'] == 'download' %}
-<!-- TABLE 50 results-->
-{% include "ecms-v1/includes/table-50results.html" %}
-{% else %}
-
-<!-- TABLE 20 results-->
-{% include "ecms-v1/includes/table-20results-overflow.html" %}
-{% endif %}  
+<!-- TABLE -->
+{% include "ecms-v1/includes/table-20results-sort.html" %}
+    
 
     </div>
   </div>

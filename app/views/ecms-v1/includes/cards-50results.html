@@ -1,0 +1,3576 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{{ govukSelect({
+  id: "sort",
+  name: "sort",
+  label: {
+    text: "Sort by"
+  },
+  items: [
+    {
+      value: "date",
+      text: "Date most recent",
+      selected: true
+    },
+    {
+      value: "lob-ascending",
+      text: "LOB case ID ascending"
+    },
+    {
+      value: "lob-descending",
+      text: "LOB case ID descending"
+    }
+  ]
+}) }}
+
+<!-- SEARCH RESULTS CARDS-->
+
+<ol class="search-results govuk-list govuk-list--number">
+    <!-- CARD 1-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-1" name="selectedDocuments" type="checkbox" value="doc-001">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-1">
+                    <span class="govuk-visually-hidden">
+                        Select result 1, PIP.3023 Residence & Presence, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">International Pension Centre ESA</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "Customer reference number (CRN)"
+            },
+            value: {
+                text: "CRU000011231231231221231213252152"
+            }
+            },
+            {
+            key: {
+                text: "Claim reference"
+            },
+            value: {
+                text: "1-NNNNNNNNNN"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 2-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-2" name="selectedDocuments" type="checkbox" value="doc-002">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-2">
+                    <span class="govuk-visually-hidden">
+                        Select result 2, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 3-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-3" name="selectedDocuments" type="checkbox" value="doc-003">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-3">
+                    <span class="govuk-visually-hidden">
+                        Select result 3, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 4-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-4 name="selectedDocuments" type="checkbox" value="doc-004">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-4">
+                    <span class="govuk-visually-hidden">
+                        Select result 4, PIP.3023 Residence & Presence, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">International Pension Centre ESA</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "Customer reference number (CRN)"
+            },
+            value: {
+                text: "CRU000011231231231221231213252152"
+            }
+            },
+            {
+            key: {
+                text: "Claim reference"
+            },
+            value: {
+                text: "1-NNNNNNNNNN"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 5 -->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-5" name="selectedDocuments" type="checkbox" value="doc-005">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-5">
+                    <span class="govuk-visually-hidden">
+                        Select result 5, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 6-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-6" name="selectedDocuments" type="checkbox" value="doc-006">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-6">
+                    <span class="govuk-visually-hidden">
+                        Select result 6, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 7-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-7" name="selectedDocuments" type="checkbox" value="doc-007">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-7">
+                    <span class="govuk-visually-hidden">
+                        Select result 7, PIP.3023 Residence & Presence, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">International Pension Centre ESA</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "Customer reference number (CRN)"
+            },
+            value: {
+                text: "CRU000011231231231221231213252152"
+            }
+            },
+            {
+            key: {
+                text: "Claim reference"
+            },
+            value: {
+                text: "1-NNNNNNNNNN"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 8-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-8" name="selectedDocuments" type="checkbox" value="doc-008">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-8">
+                    <span class="govuk-visually-hidden">
+                        Select result 8, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 9-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-9" name="selectedDocuments" type="checkbox" value="doc-009">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-9">
+                    <span class="govuk-visually-hidden">
+                        Select result 9, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 10-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-10" name="selectedDocuments" type="checkbox" value="doc-010">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-10">
+                    <span class="govuk-visually-hidden">
+                        Select result 10, PIP.3023 Residence & Presence, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">International Pension Centre ESA</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "Customer reference number (CRN)"
+            },
+            value: {
+                text: "CRU000011231231231221231213252152"
+            }
+            },
+            {
+            key: {
+                text: "Claim reference"
+            },
+            value: {
+                text: "1-NNNNNNNNNN"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 11-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-11" name="selectedDocuments" type="checkbox" value="doc-011">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-11">
+                    <span class="govuk-visually-hidden">
+                        Select result 11, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 12-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-12" name="selectedDocuments" type="checkbox" value="doc-012">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-12">
+                    <span class="govuk-visually-hidden">
+                        Select result 12, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 13-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-13" name="selectedDocuments" type="checkbox" value="doc-013">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-13">
+                    <span class="govuk-visually-hidden">
+                        Select result 13, PIP.3023 Residence & Presence, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">International Pension Centre ESA</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "Customer reference number (CRN)"
+            },
+            value: {
+                text: "CRU000011231231231221231213252152"
+            }
+            },
+            {
+            key: {
+                text: "Claim reference"
+            },
+            value: {
+                text: "1-NNNNNNNNNN"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 14-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-14" name="selectedDocuments" type="checkbox" value="doc-014">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-14">
+                    <span class="govuk-visually-hidden">
+                        Select result 14, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 15-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-15" name="selectedDocuments" type="checkbox" value="doc-015">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-15">
+                    <span class="govuk-visually-hidden">
+                        Select result 15, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 16 -->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-16" name="selectedDocuments" type="checkbox" value="doc-016">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-16">
+                    <span class="govuk-visually-hidden">
+                        Select result 16, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 17-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-17" name="selectedDocuments" type="checkbox" value="doc-017">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-17">
+                    <span class="govuk-visually-hidden">
+                        Select result 17, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 18-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-18" name="selectedDocuments" type="checkbox" value="doc-018">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-18">
+                    <span class="govuk-visually-hidden">
+                        Select result 18, PIP.3023 Residence & Presence, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">International Pension Centre ESA</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "Customer reference number (CRN)"
+            },
+            value: {
+                text: "CRU000011231231231221231213252152"
+            }
+            },
+            {
+            key: {
+                text: "Claim reference"
+            },
+            value: {
+                text: "1-NNNNNNNNNN"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 19-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-19" name="selectedDocuments" type="checkbox" value="doc-019">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-19">
+                    <span class="govuk-visually-hidden">
+                        Select result 19, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 20-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-20" name="selectedDocuments" type="checkbox" value="doc-020">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-20">
+                    <span class="govuk-visually-hidden">
+                        Select result 20, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 21-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-21" name="selectedDocuments" type="checkbox" value="doc-021">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-21">
+                    <span class="govuk-visually-hidden">
+                        Select result 21, PIP.3023 Residence & Presence, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">International Pension Centre ESA</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "Customer reference number (CRN)"
+            },
+            value: {
+                text: "CRU000011231231231221231213252152"
+            }
+            },
+            {
+            key: {
+                text: "Claim reference"
+            },
+            value: {
+                text: "1-NNNNNNNNNN"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 22-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-22" name="selectedDocuments" type="checkbox" value="doc-022">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-22">
+                    <span class="govuk-visually-hidden">
+                        Select result 22, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 23-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-23" name="selectedDocuments" type="checkbox" value="doc-023">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-23">
+                    <span class="govuk-visually-hidden">
+                        Select result 23, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 24-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-24 name="selectedDocuments" type="checkbox" value="doc-024">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-24">
+                    <span class="govuk-visually-hidden">
+                        Select result 24, PIP.3023 Residence & Presence, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">International Pension Centre ESA</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "Customer reference number (CRN)"
+            },
+            value: {
+                text: "CRU000011231231231221231213252152"
+            }
+            },
+            {
+            key: {
+                text: "Claim reference"
+            },
+            value: {
+                text: "1-NNNNNNNNNN"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 25 -->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-25" name="selectedDocuments" type="checkbox" value="doc-025">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-25">
+                    <span class="govuk-visually-hidden">
+                        Select result 25, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 26-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-26" name="selectedDocuments" type="checkbox" value="doc-026">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-26">
+                    <span class="govuk-visually-hidden">
+                        Select result 26, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 27-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-27" name="selectedDocuments" type="checkbox" value="doc-027">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-27">
+                    <span class="govuk-visually-hidden">
+                        Select result 27, PIP.3023 Residence & Presence, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">International Pension Centre ESA</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "Customer reference number (CRN)"
+            },
+            value: {
+                text: "CRU000011231231231221231213252152"
+            }
+            },
+            {
+            key: {
+                text: "Claim reference"
+            },
+            value: {
+                text: "1-NNNNNNNNNN"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 28-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-28" name="selectedDocuments" type="checkbox" value="doc-028">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-28">
+                    <span class="govuk-visually-hidden">
+                        Select result 28, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 29-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-29" name="selectedDocuments" type="checkbox" value="doc-029">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-29">
+                    <span class="govuk-visually-hidden">
+                        Select result 29, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 30-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-30" name="selectedDocuments" type="checkbox" value="doc-030">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-30">
+                    <span class="govuk-visually-hidden">
+                        Select result 30, PIP.3023 Residence & Presence, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">International Pension Centre ESA</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "Customer reference number (CRN)"
+            },
+            value: {
+                text: "CRU000011231231231221231213252152"
+            }
+            },
+            {
+            key: {
+                text: "Claim reference"
+            },
+            value: {
+                text: "1-NNNNNNNNNN"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 31-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-31" name="selectedDocuments" type="checkbox" value="doc-031">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-31">
+                    <span class="govuk-visually-hidden">
+                        Select result 31, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 32-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-32" name="selectedDocuments" type="checkbox" value="doc-032">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-32">
+                    <span class="govuk-visually-hidden">
+                        Select result 32, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 33-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-33" name="selectedDocuments" type="checkbox" value="doc-033">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-33">
+                    <span class="govuk-visually-hidden">
+                        Select result 33, PIP.3023 Residence & Presence, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">International Pension Centre ESA</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "Customer reference number (CRN)"
+            },
+            value: {
+                text: "CRU000011231231231221231213252152"
+            }
+            },
+            {
+            key: {
+                text: "Claim reference"
+            },
+            value: {
+                text: "1-NNNNNNNNNN"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 34-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-34" name="selectedDocuments" type="checkbox" value="doc-034">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-34">
+                    <span class="govuk-visually-hidden">
+                        Select result 34, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 35-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-35" name="selectedDocuments" type="checkbox" value="doc-035">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-35">
+                    <span class="govuk-visually-hidden">
+                        Select result 35, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 36 -->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-36" name="selectedDocuments" type="checkbox" value="doc-036">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-36">
+                    <span class="govuk-visually-hidden">
+                        Select result 36, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 37-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-37" name="selectedDocuments" type="checkbox" value="doc-037">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-37">
+                    <span class="govuk-visually-hidden">
+                        Select result 37, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 38-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-38" name="selectedDocuments" type="checkbox" value="doc-038">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-38">
+                    <span class="govuk-visually-hidden">
+                        Select result 38, PIP.3023 Residence & Presence, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">International Pension Centre ESA</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "Customer reference number (CRN)"
+            },
+            value: {
+                text: "CRU000011231231231221231213252152"
+            }
+            },
+            {
+            key: {
+                text: "Claim reference"
+            },
+            value: {
+                text: "1-NNNNNNNNNN"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 39-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-39" name="selectedDocuments" type="checkbox" value="doc-039">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-39">
+                    <span class="govuk-visually-hidden">
+                        Select result 39, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 40-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-40" name="selectedDocuments" type="checkbox" value="doc-040">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-40">
+                    <span class="govuk-visually-hidden">
+                        Select result 40, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 41-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-41" name="selectedDocuments" type="checkbox" value="doc-041">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-41">
+                    <span class="govuk-visually-hidden">
+                        Select result 41, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 42-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-42" name="selectedDocuments" type="checkbox" value="doc-042">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-42">
+                    <span class="govuk-visually-hidden">
+                        Select result 42, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 43-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-43" name="selectedDocuments" type="checkbox" value="doc-043">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-43">
+                    <span class="govuk-visually-hidden">
+                        Select result 43, PIP.3023 Residence & Presence, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">International Pension Centre ESA</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "Customer reference number (CRN)"
+            },
+            value: {
+                text: "CRU000011231231231221231213252152"
+            }
+            },
+            {
+            key: {
+                text: "Claim reference"
+            },
+            value: {
+                text: "1-NNNNNNNNNN"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 44-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-44" name="selectedDocuments" type="checkbox" value="doc-044">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-44">
+                    <span class="govuk-visually-hidden">
+                        Select result 44, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 45-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-45" name="selectedDocuments" type="checkbox" value="doc-045">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-45">
+                    <span class="govuk-visually-hidden">
+                        Select result 45, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 46 -->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-46" name="selectedDocuments" type="checkbox" value="doc-046">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-46">
+                    <span class="govuk-visually-hidden">
+                        Select result 46, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 47-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-47" name="selectedDocuments" type="checkbox" value="doc-047">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-47">
+                    <span class="govuk-visually-hidden">
+                        Select result 47, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 48-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-48" name="selectedDocuments" type="checkbox" value="doc-048">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-8">
+                    <span class="govuk-visually-hidden">
+                        Select result 48, PIP.3023 Residence & Presence, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">International Pension Centre ESA</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "Customer reference number (CRN)"
+            },
+            value: {
+                text: "CRU000011231231231221231213252152"
+            }
+            },
+            {
+            key: {
+                text: "Claim reference"
+            },
+            value: {
+                text: "1-NNNNNNNNNN"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 49-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-49" name="selectedDocuments" type="checkbox" value="doc-049">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-49">
+                    <span class="govuk-visually-hidden">
+                        Select result 49, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 50-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-50" name="selectedDocuments" type="checkbox" value="doc-050">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-50">
+                    <span class="govuk-visually-hidden">
+                        Select result 50, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+</ol>
+
+   
+<!-- PAGINATION-->
+       {{ govukPagination({
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 2,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}
+
+
+
+<script>
+  document.getElementById("sort").addEventListener("change", function () {
+    const value = this.value;
+    const tbody = document.querySelector("#search-results tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+
+    // --- Column indexes based on your table ---
+    const DATE_COL = 1;         // "12 Feb 2025"
+    const LOB_COL = 2;          // "001"
+
+    // --- Helper: parse date "12 Feb 2025" reliably ---
+    const getDate = row => {
+      const text = row.children[DATE_COL].innerText.trim();
+      return new Date(text); // JS correctly parses "12 Feb 2025"
+    };
+
+    // --- Helper: get numeric LOB value (turn "001" → 1) ---
+    const getLOB = row => {
+      return Number(row.children[LOB_COL].innerText.trim());
+    };
+
+    // --- Sorting logic ---
+    if (value === "date") {
+      rows.sort((a, b) => getDate(b) - getDate(a)); // newest first
+    }
+
+    if (value === "lob-ascending") {
+      rows.sort((a, b) => getLOB(a) - getLOB(b)); // 1 → 100
+    }
+
+    if (value === "lob-descending") {
+      rows.sort((a, b) => getLOB(b) - getLOB(a)); // 100 → 1
+    }
+
+    // --- Re-render table rows ---
+    rows.forEach(row => tbody.appendChild(row));
+  });
+</script>
+

@@ -1,295 +1,29 @@
-{% extends "layouts/main.html" %} {% block pageTitle %} Search results –
-{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
-%}
-
-  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
-        <ul class="dwp-horizontal-navigation__list">
-        
-        
-            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
-            <a id="records" href="records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
-            </li> 
-
-            <li class="dwp-horizontal-navigation__item">
-            <a id="reports" href="../reports" class="dwp-horizontal-navigation__link">Report search</a>
-            </li> 
-          {#
-            <li class="dwp-horizontal-navigation__item">
-            <a id="HR-Records" href="hr-search" class="dwp-horizontal-navigation__link">HR search</a>
-            </li>
-        #}
-            <li class="dwp-horizontal-navigation__item">
-            <a id="documentUpload" href="upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
-            </li> 
-        
-        </ul>
-    </nav>
-
-
-<div class="govuk-!-padding-bottom-4"></div>
-
-{{ govukBackLink({
-  text: "Back",
-  href: "records"
-}) }}
-
-{% endblock %} {% block content %}
-{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/table/macro.njk" import govukTable %}
-{% from "govuk/components/pagination/macro.njk" import govukPagination %}
-{%- from "moj/components/filter/macro.njk" import mojFilter -%}
-{%- from "moj/components/button-menu/macro.njk" import mojButtonMenu -%}
-
-
-<div class="govuk-width-container">
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
+    {% from "govuk/components/select/macro.njk" import govukSelect %}
 
-    <h1 class="govuk-heading-l">Search results</h1>
-
-    {% if data['user-group'] == 'download' %}
-<!-- TABLE 50 results-->
- <p class="govuk-body">Showing <strong>1</strong> to <strong>50</strong> of <strong>102</strong> records</p>
-{% else %}
-
-<!-- TABLE 20 results-->
- <p class="govuk-body">Showing <strong>1</strong> to <strong>20</strong> of <strong>42</strong> records</p>
-{% endif %}  
-
-
-<!-- ACTION BUTTONS -->
-
-<div class="govuk-button-group">
-        {{ govukButton({
-    text: "View documents",
-          href: "/public/files/Test_document.pdf",
-          attributes: {
-            target: "_blank",
-            rel: "noopener noreferrer"
-          }
-  }) }}
-
-  {{ mojButtonMenu({
-      button: {
-        text: "Alternative actions",
-        classes: "govuk-button--secondary"
-      },
-      items: [
-        {
-          text: "Close documents",
-          href: "actions/actions-close"
-        },
-        {
-          text: "Manage metadata",
-          href: "metadata/metadata"
-        },
-        {
-          text: "Apply hold",
-          href: "actions/actions-apply-hold"
-        },
-        {
-          text: "Remove hold",
-          href: "actions/actions-remove-hold"
-        },
-        {
-          text: "Request rescan",
-          href: "actions/actions-rescan"
-        },
-        {
-          text: "Bulk update",
-          href: "metadata/bulk-metadata"
-        },
-        {
-          text: "Download",
-          href: "/public/files/Test_document.pdf",
-          attributes: {download: ""}
-        },
-        {
-          text: "Create copy",
-          href: "actions/actions-create-copy?copy-option=option3"
-        }
-      ]
-    }) }}
-  </div>
-
-  <!-- FITLER -->
-
-{{ govukButton({
-    text: "Show filter",
-    classes: "govuk-button--secondary govuk-!-margin-right-2",
-    id: "toggle-filter" 
+{{ govukSelect({
+  id: "sort",
+  name: "sort",
+  label: {
+    text: "Sort by"
+  },
+  items: [
+    {
+      value: "date",
+      text: "Date most recent",
+      selected: true
+    },
+    {
+      value: "lob-ascending",
+      text: "LOB case ID ascending"
+    },
+    {
+      value: "lob-descending",
+      text: "LOB case ID descending"
+    }
+  ]
 }) }}
-
-
-  </div>
-</div>
-
-
-  <div id="toggle-display" class="moj-filter" data-module="moj-filter" hidden>
-  <div class="moj-filter__header">
-    <div class="moj-filter__header-title">
-      <h2 class="govuk-heading-m">Filter</h2>
-    </div>
-    <div class="moj-filter__header-action">
-    </div>
-  </div>
-  <div class="moj-filter__content">
-    <div class="moj-filter__selected">
-      <div class="moj-filter__selected-heading">
-        <div class="moj-filter__heading-title">
-          <h2 class="govuk-heading-m">Selected filters</h2>
-        </div>
-      </div>
-      <div class="govuk-grid-column-one-third">
-        <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Document type</h3>
-        <ul class="moj-filter-tags">
-          <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> BD8</a></li>
-          <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> BF600</a></li>
-        </ul>
-      </div>
-      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Status</h3>
-      <ul class="moj-filter-tags">
-        <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> Carers Allowance</a></li>
-      </ul>
-    </div>
-    <div class="moj-filter__options govuk-!-margin-bottom-5">
-      <div class="govuk-grid-column-one-third">
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              Document type
-            </legend>
-            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type" name="type" type="checkbox" value="1">
-                <label class="govuk-label govuk-checkboxes__label" for="type">
-                  ANSoD (18)
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="2" checked>
-                <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                  BD8 (18)
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-3" name="type" type="checkbox" value="3" checked>
-                <label class="govuk-label govuk-checkboxes__label" for="type-3">
-                  BF600 (5)
-                </label>
-              </div>
-              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-4" name="type" type="checkbox" value="4">
-                <label class="govuk-label govuk-checkboxes__label" for="type-4">
-                  CA4140 (2)
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-5" name="type" type="checkbox" value="5">
-                <label class="govuk-label govuk-checkboxes__label" for="type-5">
-                  CIS500 (5)
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-6" name="type" type="checkbox" value="6">
-                <label class="govuk-label govuk-checkboxes__label" for="type-6">
-                  MatB1 (2)
-                </label>
-              </div>
-              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-7" name="type" type="checkbox" value="7">
-                <label class="govuk-label govuk-checkboxes__label" for="type-7">
-                  VO Cover letter (5)
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="type-8" name="type" type="checkbox" value="8">
-                <label class="govuk-label govuk-checkboxes__label" for="type-8">
-                  White mail unstructured (25)
-                </label>
-              </div>
-     
-            </div>
-          </fieldset>
-        </div>
-      </div>
-
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            Benefit type
-          </legend>
-          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                        <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="status-1" name="status" type="checkbox" value="incomplete">
-              <label class="govuk-label govuk-checkboxes__label" for="status-1">
-                Alternative format (3)
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="status-2" name="status" type="checkbox" value="complete" checked>
-              <label class="govuk-label govuk-checkboxes__label" for="status-2">
-                Carers Allowance (2)
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="status-3" name="status" type="checkbox" value="inprogress">
-              <label class="govuk-label govuk-checkboxes__label" for="status-3">
-                Debt (1)
-              </label>
-            </div>
-             <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="status-4" name="status" type="checkbox" value="complete">
-              <label class="govuk-label govuk-checkboxes__label" for="status-4">
-                Employment Support Allowance (ESA) (3)
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="status-5" name="status" type="checkbox" value="incomplete">
-              <label class="govuk-label govuk-checkboxes__label" for="status-5">
-                Performance measurement (4)
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="status-6" name="status" type="checkbox" value="inprogress">
-              <label class="govuk-label govuk-checkboxes__label" for="status-6">
-                Personal Independence Payment (PIP) (5)
-              </label>
-            </div>
-             <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="status-7" name="status" type="checkbox" value="complete">
-              <label class="govuk-label govuk-checkboxes__label" for="status-7">
-                State Pension (3)
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="status-8" name="status" type="checkbox" value="incomplete">
-              <label class="govuk-label govuk-checkboxes__label" for="status-8">
-                Sure Start Maternity Grant (3)
-              </label>
-            </div>
-
-          </div>
-        </fieldset>
-      </div>
-
-      <div class="govuk-button-group">
-      <button type="submit" class="govuk-button" data-module="govuk-button" data-test-id="submit-button">
-        Apply filter
-      </button>
-      <a class="govuk-link" href="#">Reset filter</a>
-    </div>
-
-    </div>
-  </div>
-</div>
-<div class="govuk-!-margin-top-4"></div>
-
 
 <!-- SEARCH RESULTS CARDS-->
 
@@ -324,7 +58,7 @@
                 text: "National Insurance number"
             },
             value: {
-                text: "QQ 123456 Cs"
+                text: "QQ 123456 C"
             }
             },
             {
@@ -408,7 +142,7 @@
                 text: "National Insurance number"
             },
             value: {
-                text: "QQ 123456 Cs"
+                text: "QQ 123456 C"
             }
             },
             {
@@ -476,7 +210,7 @@
                 text: "National Insurance number"
             },
             value: {
-                text: "QQ 123456 Cs"
+                text: "QQ 123456 C"
             }
             },
             {
@@ -536,7 +270,7 @@
                 text: "National Insurance number"
             },
             value: {
-                text: "QQ 123456 Cs"
+                text: "QQ 123456 C"
             }
             },
             {
@@ -620,7 +354,7 @@
                 text: "National Insurance number"
             },
             value: {
-                text: "QQ 123456 Cs"
+                text: "QQ 123456 C"
             }
             },
             {
@@ -688,7 +422,7 @@
                 text: "National Insurance number"
             },
             value: {
-                text: "QQ 123456 Cs"
+                text: "QQ 123456 C"
             }
             },
             {
@@ -748,7 +482,7 @@
                 text: "National Insurance number"
             },
             value: {
-                text: "QQ 123456 Cs"
+                text: "QQ 123456 C"
             }
             },
             {
@@ -832,7 +566,7 @@
                 text: "National Insurance number"
             },
             value: {
-                text: "QQ 123456 Cs"
+                text: "QQ 123456 C"
             }
             },
             {
@@ -900,7 +634,7 @@
                 text: "National Insurance number"
             },
             value: {
-                text: "QQ 123456 Cs"
+                text: "QQ 123456 C"
             }
             },
             {
@@ -960,7 +694,7 @@
                 text: "National Insurance number"
             },
             value: {
-                text: "QQ 123456 Cs"
+                text: "QQ 123456 C"
             }
             },
             {
@@ -1044,7 +778,7 @@
                 text: "National Insurance number"
             },
             value: {
-                text: "QQ 123456 Cs"
+                text: "QQ 123456 C"
             }
             },
             {
@@ -1112,7 +846,7 @@
                 text: "National Insurance number"
             },
             value: {
-                text: "QQ 123456 Cs"
+                text: "QQ 123456 C"
             }
             },
             {
@@ -1172,7 +906,7 @@
                 text: "National Insurance number"
             },
             value: {
-                text: "QQ 123456 Cs"
+                text: "QQ 123456 C"
             }
             },
             {
@@ -1256,7 +990,7 @@
                 text: "National Insurance number"
             },
             value: {
-                text: "QQ 123456 Cs"
+                text: "QQ 123456 C"
             }
             },
             {
@@ -1324,7 +1058,347 @@
                 text: "National Insurance number"
             },
             value: {
-                text: "QQ 123456 Cs"
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 16 -->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-16" name="selectedDocuments" type="checkbox" value="doc-016">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-16">
+                    <span class="govuk-visually-hidden">
+                        Select result 16, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 17-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-17" name="selectedDocuments" type="checkbox" value="doc-017">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-17">
+                    <span class="govuk-visually-hidden">
+                        Select result 17, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 18-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-18" name="selectedDocuments" type="checkbox" value="doc-018">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-18">
+                    <span class="govuk-visually-hidden">
+                        Select result 18, PIP.3023 Residence & Presence, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">International Pension Centre ESA</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "Customer reference number (CRN)"
+            },
+            value: {
+                text: "CRU000011231231231221231213252152"
+            }
+            },
+            {
+            key: {
+                text: "Claim reference"
+            },
+            value: {
+                text: "1-NNNNNNNNNN"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 19-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-19" name="selectedDocuments" type="checkbox" value="doc-019">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-19">
+                    <span class="govuk-visually-hidden">
+                        Select result 19, Whitemail unstructurede, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">Whitemail unstructured</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Alexander Benedict Montgomery-Wilkins"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 20-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-20" name="selectedDocuments" type="checkbox" value="doc-020">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-20">
+                    <span class="govuk-visually-hidden">
+                        Select result 20, ESA50a, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">ESA50a</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Employment and Support Allowance (ESA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
             }
             },
             {
@@ -1356,24 +1430,67 @@
     </li>
 </ol>
 
+<!-- PAGINATION-->
 
-    
-        
+       {{ govukPagination({
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 2,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}
 
-    </div>
-  </div>
-</div>
+
 
 <script>
-  const filterButton = document.querySelector("#toggle-filter");
-  const filterDisplay = document.querySelector("#toggle-display");
+  document.getElementById("sort").addEventListener("change", function () {
+    const value = this.value;
+    const tbody = document.querySelector("#search-results tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
 
-  filterButton.addEventListener("click", (event) => {
-    filterDisplay.hidden = filterDisplay.hidden === true ? false : true;
+    // --- Column indexes based on your table ---
+    const DATE_COL = 1;         // "12 Feb 2025"
+    const LOB_COL = 2;          // "001"
 
-    filterButton.innerHTML = filterDisplay.hidden === true ? "Show filters" : "Hide filters";
+    // --- Helper: parse date "12 Feb 2025" reliably ---
+    const getDate = row => {
+      const text = row.children[DATE_COL].innerText.trim();
+      return new Date(text); // JS correctly parses "12 Feb 2025"
+    };
+
+    // --- Helper: get numeric LOB value (turn "001" → 1) ---
+    const getLOB = row => {
+      return Number(row.children[LOB_COL].innerText.trim());
+    };
+
+    // --- Sorting logic ---
+    if (value === "date") {
+      rows.sort((a, b) => getDate(b) - getDate(a)); // newest first
+    }
+
+    if (value === "lob-ascending") {
+      rows.sort((a, b) => getLOB(a) - getLOB(b)); // 1 → 100
+    }
+
+    if (value === "lob-descending") {
+      rows.sort((a, b) => getLOB(b) - getLOB(a)); // 100 → 1
+    }
+
+    // --- Re-render table rows ---
+    rows.forEach(row => tbody.appendChild(row));
   });
 </script>
-
-{% endblock %}
 
