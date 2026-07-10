@@ -1,0 +1,1050 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% from "govuk/components/select/macro.njk" import govukSelect %}
+<!--
+{{ govukSelect({
+  id: "sort",
+  name: "sort",
+  label: {
+    text: "Sort by"
+  },
+  items: [
+    {
+      value: "date",
+      text: "Date most recent",
+      selected: true
+    },
+    {
+      value: "lob-ascending",
+      text: "LOB case ID ascending"
+    },
+    {
+      value: "lob-descending",
+      text: "LOB case ID descending"
+    }
+  ]
+}) }}
+-->
+<!-- SEARCH RESULTS CARDS-->
+
+<ol class="search-results govuk-list govuk-list--number">
+    <!-- CARD 1-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>      
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-1" name="selectedDocuments" type="checkbox" value="doc-001">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-1">
+                    <span class="govuk-visually-hidden">
+                        Select result 1, JA70150, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA70150</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        
+        </div>
+        </div>
+    </li>
+     <!-- CARD 2-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>       
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-2" name="selectedDocuments" type="checkbox" value="doc-002">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-2">
+                    <span class="govuk-visually-hidden">
+                        Select result 2, JA72233, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA72233</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 3-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-3" name="selectedDocuments" type="checkbox" value="doc-003">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-3">
+                    <span class="govuk-visually-hidden">
+                        Select result 3, JA72852, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA72852</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+           {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 4-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>      
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-4" name="selectedDocuments" type="checkbox" value="doc-004">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-4">
+                    <span class="govuk-visually-hidden">
+                        Select result 4, JA70150, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA70150</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        
+        </div>
+        </div>
+    </li>
+     <!-- CARD 5-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>       
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-5" name="selectedDocuments" type="checkbox" value="doc-005">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-5">
+                    <span class="govuk-visually-hidden">
+                        Select result 5, JA72233, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA72233</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 6-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-6" name="selectedDocuments" type="checkbox" value="doc-006">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-6">
+                    <span class="govuk-visually-hidden">
+                        Select result 6, JA72852, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA72852</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+           {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 7-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>      
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-7" name="selectedDocuments" type="checkbox" value="doc-007">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-7">
+                    <span class="govuk-visually-hidden">
+                        Select result 7, JA70150, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA70150</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        
+        </div>
+        </div>
+    </li>
+     <!-- CARD 8-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>       
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-8" name="selectedDocuments" type="checkbox" value="doc-008">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-8">
+                    <span class="govuk-visually-hidden">
+                        Select result 8, JA72233, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA72233</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 9-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-9" name="selectedDocuments" type="checkbox" value="doc-009">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-9">
+                    <span class="govuk-visually-hidden">
+                        Select result 9, JA72852, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA72852</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+           {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 10-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>      
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-10" name="selectedDocuments" type="checkbox" value="doc-010">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-1">
+                    <span class="govuk-visually-hidden">
+                        Select result 10, JA70150, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA70150</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        
+        </div>
+        </div>
+    </li>
+     <!-- CARD 11-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>       
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-11" name="selectedDocuments" type="checkbox" value="doc-011">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-11">
+                    <span class="govuk-visually-hidden">
+                        Select result 11, JA72233, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA72233</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 12-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-12" name="selectedDocuments" type="checkbox" value="doc-012">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-12">
+                    <span class="govuk-visually-hidden">
+                        Select result 12, JA72852, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA72852</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+           {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 13-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>      
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-13" name="selectedDocuments" type="checkbox" value="doc-013">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-13">
+                    <span class="govuk-visually-hidden">
+                        Select result 13, JA70150, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA70150</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        
+        </div>
+        </div>
+    </li>
+     <!-- CARD 14-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>       
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-14" name="selectedDocuments" type="checkbox" value="doc-014">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-14">
+                    <span class="govuk-visually-hidden">
+                        Select result 14, JA72233, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA72233</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 15-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-15" name="selectedDocuments" type="checkbox" value="doc-015">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-15">
+                    <span class="govuk-visually-hidden">
+                        Select result 3, JA72852, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA72852</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+           {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 16-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>      
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-16" name="selectedDocuments" type="checkbox" value="doc-016">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-16">
+                    <span class="govuk-visually-hidden">
+                        Select result 16, JA70150, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA70150</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        
+        </div>
+        </div>
+    </li>
+     <!-- CARD 17-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>       
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-17" name="selectedDocuments" type="checkbox" value="doc-017">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-17">
+                    <span class="govuk-visually-hidden">
+                        Select result 17, JA72233, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA72233</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 18-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-18" name="selectedDocuments" type="checkbox" value="doc-018">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-18">
+                    <span class="govuk-visually-hidden">
+                        Select result 18, JA72852, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA72852</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+           {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+    <!-- CARD 19-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>      
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-19" name="selectedDocuments" type="checkbox" value="doc-019">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-19">
+                    <span class="govuk-visually-hidden">
+                        Select result 19, JA70150, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA70150</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Closed",
+          classes: "govuk-tag"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        
+        </div>
+        </div>
+    </li>
+     <!-- CARD 20-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>       
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-20" name="selectedDocuments" type="checkbox" value="doc-020">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-20">
+                    <span class="govuk-visually-hidden">
+                        Select result 20, JA72233, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">6 July 2026</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="#" class="govuk-link">JA72233</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Jobseeker's Allowance (JSA)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "Office ID"
+            },
+            value: {
+                text: "11223"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 3-->   
+</ol>
+
+<!-- PAGINATION-->
+
+       {{ govukPagination({
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 2,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}
+
+
+
+<script>
+  document.getElementById("sort").addEventListener("change", function () {
+    const value = this.value;
+    const tbody = document.querySelector("#search-results tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+
+    // --- Column indexes based on your table ---
+    const DATE_COL = 1;         // "12 Feb 2025"
+    const LOB_COL = 2;          // "001"
+
+    // --- Helper: parse date "12 Feb 2025" reliably ---
+    const getDate = row => {
+      const text = row.children[DATE_COL].innerText.trim();
+      return new Date(text); // JS correctly parses "12 Feb 2025"
+    };
+
+    // --- Helper: get numeric LOB value (turn "001" → 1) ---
+    const getLOB = row => {
+      return Number(row.children[LOB_COL].innerText.trim());
+    };
+
+    // --- Sorting logic ---
+    if (value === "date") {
+      rows.sort((a, b) => getDate(b) - getDate(a)); // newest first
+    }
+
+    if (value === "lob-ascending") {
+      rows.sort((a, b) => getLOB(a) - getLOB(b)); // 1 → 100
+    }
+
+    if (value === "lob-descending") {
+      rows.sort((a, b) => getLOB(b) - getLOB(a)); // 100 → 1
+    }
+
+    // --- Re-render table rows ---
+    rows.forEach(row => tbody.appendChild(row));
+  });
+</script>
+

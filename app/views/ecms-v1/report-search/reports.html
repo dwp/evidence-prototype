@@ -1,0 +1,235 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Report search –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="reports" href="reports" class="dwp-horizontal-navigation__link" aria-current="true">Report search</a>
+            </li> 
+
+        <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="../hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+        -->
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{% endblock %} {% block content %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+<div class="govuk-width-container">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-l">Report search</h1>
+
+    <!--SEARCH COMBOS -  guidance not needed as all combinations allowed
+
+    {{ govukDetails({
+        summaryText: "Accepted search combinations",
+        html: '<p class="govuk-body">You can search by:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Office ID</li>
+                <li>Document Type</li>
+                <li>Date</li>
+                <li>Office ID and document type</li>
+                <li>Office ID and date</li>
+                <li>Document type and date</li>
+                <li>Office ID, document type & date</li>
+              </ul>'
+      }) }}
+      -->
+
+    {{ govukInput({
+      label: {
+        text: "Office ID",
+        classes: "govuk-label--m"
+      },
+      classes: "govuk-input--width-5 govuk-input--extra-letter-spacing",
+      hint: {
+        text: "For example, 12345"
+      },
+      id: "office-ID",
+      name: "officeID",
+      autocomplete: "office",
+      spellcheck: false
+    }) }}
+
+     <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="document-type">
+          Document type
+        </label>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <div class="typeahead">
+              <input
+                id="document-type"
+                name="documentType"
+                class="govuk-input"
+                type="text"
+                autocomplete="off"
+              />
+              <ul id="document-type-listbox" class="typeahead-menu" hidden></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="govuk-width-container">
+
+        <div class="govuk-grid-row">
+          <label class="govuk-label govuk-label--m govuk-!-padding-left-3" for="report-date">
+            Date range
+          </label>
+          <div class="govuk-grid-column-one-half">
+
+            {{ govukDateInput({
+              id: "from",
+              namePrefix: "from",
+              fieldset: {
+                legend: {
+                  text: "From:"
+                }
+              },
+              hint: {
+                text: "For example, 27 3 2025"
+              }
+            }) }}
+
+          </div>
+          <div class="govuk-grid-column-one-half">
+
+              {{ govukDateInput({
+                id: "To",
+                namePrefix: "To",
+                fieldset: {
+                  legend: {
+                    text: "To:"
+                  }
+                },
+                hint: {
+                  text: "For example, 27 3 2025"
+                }
+              }) }}
+          </div>
+      </div>
+    </div>
+
+    {{ govukButton({
+      text: "Search",
+        href: "search-results-reports"
+    }) }}
+    
+  </div>
+</div>
+</div>
+
+<script>
+  (function () {
+    const documentTypes = [
+      "JA70150",
+      "JA72233",
+      "JA72234",
+      "JA72235",
+      "JA72237",
+      "JA72852",
+      "RIS10209",
+      "RIS20204",
+      "RIS60207",
+      "Test Document 1",
+      "Test Document 2",
+      "Test Document 3",
+    ];
+
+
+    const input = document.getElementById("document-type");
+    const listbox = document.getElementById("document-type-listbox");
+    let activeIndex = -1;
+
+    function closeMenu() {
+      listbox.hidden = true;
+      activeIndex = -1;
+    }
+
+    function openMenu() {
+      listbox.hidden = false;
+    }
+
+    function renderOptions(options) {
+      listbox.innerHTML = "";
+      activeIndex = -1;
+
+      options.forEach((text) => {
+        const li = document.createElement("li");
+        li.textContent = text;
+
+        li.addEventListener("mousedown", () => {
+          input.value = text;
+          closeMenu();
+        });
+
+        listbox.appendChild(li);
+      });
+
+      options.length ? openMenu() : closeMenu();
+    }
+
+    input.addEventListener("input", () => {
+      const query = input.value.toLowerCase();
+      if (!query) return closeMenu();
+
+      renderOptions(
+        documentTypes.filter((d) => d.toLowerCase().includes(query)),
+      );
+    });
+
+    input.addEventListener("keydown", (e) => {
+      const options = listbox.querySelectorAll("li");
+      if (!options.length) return;
+
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        activeIndex = (activeIndex + 1) % options.length;
+      }
+
+      if (e.key === "ArrowUp") {
+        e.preventDefault();
+        activeIndex = (activeIndex - 1 + options.length) % options.length;
+      }
+
+      if (e.key === "Enter" && activeIndex >= 0) {
+        e.preventDefault();
+        input.value = options[activeIndex].textContent;
+        closeMenu();
+      }
+
+      if (e.key === "Escape") closeMenu();
+
+      options.forEach((el, i) =>
+        el.classList.toggle("active", i === activeIndex),
+      );
+    });
+  })();
+</script>
+
+{% endblock %}
