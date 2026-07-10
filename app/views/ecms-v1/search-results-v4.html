@@ -13,11 +13,11 @@
             <li class="dwp-horizontal-navigation__item">
             <a id="reports" href="reports" class="dwp-horizontal-navigation__link">Report search</a>
             </li> 
-          {#
+
             <li class="dwp-horizontal-navigation__item">
             <a id="HR-Records" href="hr-search" class="dwp-horizontal-navigation__link">HR search</a>
             </li>
-        #}
+        
             <li class="dwp-horizontal-navigation__item">
             <a id="documentUpload" href="upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
             </li> 
@@ -30,190 +30,25 @@
 
 {{ govukBackLink({
   text: "Back",
-  href: "records"
+  href: "javascript:window.history.back()"
 }) }}
 
-{% endblock %} {% block content %}
-{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/table/macro.njk" import govukTable %}
-{% from "govuk/components/pagination/macro.njk" import govukPagination %}
-{%- from "moj/components/filter/macro.njk" import mojFilter -%}
-{%- from "moj/components/button-menu/macro.njk" import mojButtonMenu -%}
+{% endblock %} 
 
-
+{% block content %}
 <div class="govuk-width-container">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full-width">
-      <h1 class="govuk-heading-l">Search results</h1>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-3">Search results</h1>
       {% if data['user-group'] == 'download' %}
       <!-- CARDS 50 results-->
-      <p class="govuk-body">Showing <strong>1</strong> to <strong>50</strong> of <strong>102</strong> records</p>
+      <p class="govuk-body govuk-!-margin-bottom-7">Showing <strong>1</strong> to <strong>50</strong> of <strong>102</strong> records</p>
       {% else %}
       <!-- CARDS 20 results-->
-      <p class="govuk-body">Showing <strong>1</strong> to <strong>20</strong> of <strong>42</strong> records</p>
+      <p class="govuk-body govuk-!-margin-bottom-7">Showing <strong>1</strong> to <strong>20</strong> of <strong>42</strong> records</p>
       {% endif %}  
-      <!-- FITLER -->
-      {{ govukButton({
-          text: "Show filter",
-          classes: "govuk-button--secondary govuk-!-margin-right-2",
-          id: "toggle-filter" 
-        }) }}
-      <div id="toggle-display" class="moj-filter" data-module="moj-filter" hidden>
-        <div class="moj-filter__header">
-          <div class="moj-filter__header-title">
-            <h2 class="govuk-heading-m">Filter</h2>
-          </div><!--filter header title-->
-          <div class="moj-filter__header-action">
-          </div><!--filter header action-->
-        </div><!--filter header title-->
-        <div class="moj-filter__content">
-          <div class="moj-filter__selected">
-            <div class="moj-filter__selected-heading">
-              <div class="moj-filter__heading-title">
-                <h2 class="govuk-heading-m">Selected filters</h2>
-              </div><!--moj-filter__heading-title-->
-            </div><!--moj-filter__selected-heading-->      
-            <div class="govuk-grid-column-one-third">
-              <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Document type</h3>
-              <ul class="moj-filter-tags">
-                <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> BD8</a></li>
-                <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> BF600</a></li>
-              </ul>
-            </div><!--govuk-grid-column-one-third-->
-            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Status</h3>
-            <ul class="moj-filter-tags">
-              <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> Carers Allowance</a></li>
-            </ul>
-          </div><!--moj-filter__selected-->
-          <div class="moj-filter__options govuk-!-margin-bottom-5">
-            <div class="govuk-grid-column-one-third">
-              <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset">
-                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                    Document type
-                  </legend>
-                  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="type" name="type" type="checkbox" value="1">
-                      <label class="govuk-label govuk-checkboxes__label" for="type">
-                        ANSoD (18)
-                      </label>
-                    </div><!--govuk-checkboxes__item-->
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="2" checked>
-                      <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                        BD8 (18)
-                      </label>
-                    </div><!--govuk-checkboxes__item-->
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="type-3" name="type" type="checkbox" value="3" checked>
-                      <label class="govuk-label govuk-checkboxes__label" for="type-3">
-                        BF600 (5)
-                      </label>
-                    </div><!--govuk-checkboxes__item-->
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="type-4" name="type" type="checkbox" value="4">
-                      <label class="govuk-label govuk-checkboxes__label" for="type-4">
-                        CA4140 (2)
-                      </label>
-                    </div><!--govuk-checkboxes__item-->
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="type-5" name="type" type="checkbox" value="5">
-                      <label class="govuk-label govuk-checkboxes__label" for="type-5">
-                        CIS500 (5)
-                      </label>
-                    </div><!--govuk-checkboxes__item-->
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="type-6" name="type" type="checkbox" value="6">
-                      <label class="govuk-label govuk-checkboxes__label" for="type-6">
-                        MatB1 (2)
-                      </label>
-                    </div><!--govuk-checkboxes__item-->
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="type-7" name="type" type="checkbox" value="7">
-                      <label class="govuk-label govuk-checkboxes__label" for="type-7">
-                        VO Cover letter (5)
-                      </label>
-                    </div><!--govuk-checkboxes__item-->
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="type-8" name="type" type="checkbox" value="8">
-                      <label class="govuk-label govuk-checkboxes__label" for="type-8">
-                        White mail unstructured (25)
-                      </label>
-                    </div><!--govuk-checkboxes__item-->
-                  </div><!--govuk-checkboxes-small-->
-                </fieldset>
-              </div><!--govuk-form-group-->
-            </div><!--govuk-grid-column-one-third-->
-            <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                  Benefit type
-                </legend>
-                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="status-1" name="status" type="checkbox" value="incomplete">
-                    <label class="govuk-label govuk-checkboxes__label" for="status-1">
-                      Alternative format (3)
-                    </label>
-                  </div><!--govuk-checkboxes__item-->
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="status-2" name="status" type="checkbox" value="complete" checked>
-                    <label class="govuk-label govuk-checkboxes__label" for="status-2">
-                      Carers Allowance (2)
-                    </label>
-                  </div><!--govuk-checkboxes__item-->
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="status-3" name="status" type="checkbox" value="inprogress">
-                    <label class="govuk-label govuk-checkboxes__label" for="status-3">
-                      Debt (1)
-                    </label>
-                  </div><!--govuk-checkboxes__item-->
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="status-4" name="status" type="checkbox" value="complete">
-                    <label class="govuk-label govuk-checkboxes__label" for="status-4">
-                      Employment Support Allowance (ESA) (3)
-                    </label>
-                  </div><!--govuk-checkboxes__item-->
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="status-5" name="status" type="checkbox" value="incomplete">
-                    <label class="govuk-label govuk-checkboxes__label" for="status-5">
-                      Performance measurement (4)
-                    </label>
-                  </div><!--govuk-checkboxes__item-->
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="status-6" name="status" type="checkbox" value="inprogress">
-                    <label class="govuk-label govuk-checkboxes__label" for="status-6">
-                      Personal Independence Payment (PIP) (5)
-                    </label>
-                  </div><!--govuk-checkboxes__item-->
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="status-7" name="status" type="checkbox" value="complete">
-                    <label class="govuk-label govuk-checkboxes__label" for="status-7">
-                      State Pension (3)
-                    </label>
-                  </div><!--govuk-checkboxes__item-->
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="status-8" name="status" type="checkbox" value="incomplete">
-                    <label class="govuk-label govuk-checkboxes__label" for="status-8">
-                      Sure Start Maternity Grant (3)
-                    </label>
-                  </div><!--govuk-checkboxes__item-->
-                </div><!--govuk-checkboxes-small-->
-              </fieldset>
-            </div><!--govuk-form-group-->
-            <div class="govuk-button-group">
-              <button type="submit" class="govuk-button" data-module="govuk-button" data-test-id="submit-button">
-                Apply filter
-              </button>
-              <a class="govuk-link" href="#">Reset filter</a>
-            </div><!--govuk-button-group-->
-          </div><!--moj-filter__options govuk-!-margin-bottom-5-->
-        </div><!--moj-filter__content-->
-      </div><!--id="toggle-display" class="moj-filter" data-module="moj-filter" hidden-->
-      <!-- ACTION BUTTONS -->
-      <div class="govuk-button-group">
+       <!-- ACTION BUTTONS -->
+      <div class="govuk-button-group govuk-!-margin-bottom-0">
         {{ govukButton({
             text: "View documents",
             href: "/public/files/Test_document.pdf",
@@ -264,18 +99,194 @@
             ]
           }) }}
       </div><!--action button group-->
-      <div class="govuk-!-margin-top-4"></div>
-      {% if data['user-group'] == 'download' %}
-      <!-- CARDS 50 results-->
-      {% include "ecms-v1/includes/cards-50results.html" %}
-      {% else %}
-      <!-- CARDS 20 results-->
-      {% include "ecms-v1/includes/cards-20results.html" %}
-      {% endif %}  
-   </div><!--govuk-grid-column-full-width-->
-  </div><!--grid row-->
-</div><!--govuk-width-container-->
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-quarter">
+                <p></p>
+            </div> <!--govuk-grid-column-one-quarter-->
+             <div class="govuk-grid-column-three-quarters"></div>
+          </div> <!--govuk-grid-column-one-quarter"-->
+          <div class="govuk-button-group" style="align-items: flex-end;">
+        <!-- FITLER BUTTON-->
+        {{ govukButton({
+            text: "Show filter",
+            classes: "govuk-button--secondary govuk-!-margin-right-4",
+            id: "toggle-filter" 
+        }) }}
+        <!-- SORT SELECT-->
+        {{ govukSelect({
+        id: "sort",
+        name: "sort",
+        classes: "",
+        formGroup: {
+            classes: "govuk-!-margin-bottom-3"
+        },
 
+        label: {
+            text: "Sort by"
+        },
+        items: [
+            {
+            value: "date",
+            text: "Date most recent",
+            selected: true
+            },
+            {
+            value: "lob-ascending",
+            text: "LOB case ID ascending"
+            },
+            {
+            value: "lob-descending",
+            text: "LOB case ID descending"
+            }
+        ]
+        }) }}
+        </div><!--govuk-button-group -->
+        <!-- MOJ Filter -->
+        <div class="moj-filter-layout">
+            <div class="moj-filter-layout__filter">
+                <div id="toggle-display" class="moj-filter" data-module="moj-filter" hidden>
+                    <div class="moj-filter__header">
+                        <div class="moj-filter__header-title">
+                            <h2 class="govuk-heading-m">Filter</h2>
+                        </div> <!--moj-filter__header-title-->
+                        <div class="moj-filter__header-action"></div>
+                    </div><!-- moj-filter__header-->
+                    <div class="moj-filter__content">
+                        <div class="moj-filter__selected">
+                            <div class="moj-filter__selected-heading">
+                                <div class="moj-filter__heading-title">
+                                    <h2 class="govuk-heading-m">Selected filters</h2>
+                                </div><!--"moj-filter__heading-title-->
+                                <div class="moj-filter__heading-action">
+                                    <p><a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a></p>
+                                </div><!--moj-filter__heading-action"-->
+                            </div><!--moj-filter__selected-heading-->
+                            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Document type</h3>
+                            <ul class="moj-filter-tags">
+                                <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> ESA50a</a></li>
+                                <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022</a></li>
+                                <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> Whitemail unstructured</a></li>
+                            </ul>
+                            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Benefit type</h3>
+                            <ul class="moj-filter-tags">
+                                <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> Employment and Support Allowance (ESA)</a></li>
+                                <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> International Pension Centre ESA</a></li>
+                                
+                            </ul>
+                        </div><!--moj-filter__selected-->
+                        <div class="moj-filter__options">
+                            <form action="#" method="post" novalidate>
+                                <!-- Filter DOCUMENT TYPE -->
+                                <div class="govuk-form-group">
+                                    <fieldset class="govuk-fieldset">
+                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                            Document type
+                                        </legend>
+                                            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="BF600" name="BF600"
+                                                type="checkbox" value="BF600">
+                                            <label class="govuk-label govuk-checkboxes__label" for="BF600">
+                                                BF600
+                                            </label>
+                                        </div><!--"govuk-checkboxes__item-->
+                                        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="CIS500" name="CIS500"
+                                                    type="checkbox" value="CIS500">
+                                                <label class="govuk-label govuk-checkboxes__label" for="CIS500">
+                                                    CIS500
+                                                </label>
+                                            </div><!--"govuk-checkboxes__item-->
+                                            <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="ESA50a" name="ESA50a"
+                                                type="checkbox" value="ESA50a" checked>
+                                            <label class="govuk-label govuk-checkboxes__label" for="ESA50a">
+                                                ESA50a
+                                            </label>
+                                        </div><!--"govuk-checkboxes__item-->
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="PIP" name="PIP" type="checkbox"
+                                                value="PIP" checked>
+                                            <label class="govuk-label govuk-checkboxes__label" for="PIP">
+                                                PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022
+                                            </label>
+                                        </div><!--"govuk-checkboxes__item-->
+                                         <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="VO-Cover-letter" name="VO-Cover-letter" type="checkbox"
+                                                value="VO-Cover-letter">
+                                            <label class="govuk-label govuk-checkboxes__label" for="VO-Cover-letter">
+                                                VO Cover letter
+                                            </label>
+                                        </div><!--"govuk-checkboxes__item-->
+                                         <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="Whitemail" name="Whitemail " type="checkbox"
+                                                value="Whitemail" checked>
+                                            <label class="govuk-label govuk-checkboxes__label" for="Whitemail">
+                                                Whitemail unstructured
+                                            </label>
+                                        </div><!--"govuk-checkboxes__item-->
+                                    </div><!--govuk-checkboxes govuk-checkboxes-small-->
+                                    </fieldset>
+                                </div><!--govuk-form-group-->
+                                <!-- Filter BENEFIT TYPE -->
+                                <div class="govuk-form-group">
+                                    <fieldset class="govuk-fieldset">
+                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                            Benefit type
+                                        </legend>
+                                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                            <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="ESA" name="ESA"
+                                                type="checkbox" value="ESA" checked>
+                                            <label class="govuk-label govuk-checkboxes__label" for="ESA">
+                                                Employment and Support Allowance (ESA)
+                                            </label>
+                                        </div><!--"govuk-checkboxes__item-->
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="pension-ESA" name="pension-ESA" type="checkbox"
+                                                value="pension-ESA" checked>
+                                            <label class="govuk-label govuk-checkboxes__label" for="pension-ESA">
+                                                International Pension Centre ESA
+                                            </label>
+                                        </div><!--"govuk-checkboxes__item-->
+                                         <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="state-pension" name="state-pension" type="checkbox"
+                                                value="pstate-pension">
+                                            <label class="govuk-label govuk-checkboxes__label" for="state-pensionA">
+                                                State Pension
+                                            </label>
+                                        </div><!--"govuk-checkboxes__item-->
+                                    </div><!--govuk-checkboxes govuk-checkboxes-small-->
+                                    </fieldset>
+                                </div><!--govuk-form-group-->
+                                <div class="govuk-button-group">
+                                    <button type="submit" class="govuk-button" data-module="govuk-button">
+                                    Apply filters
+                                    </button>
+                                    <a class="govuk-link" href="#">Clear filters</a>
+                                </div><!--govuk-button-group-->
+                            </form>
+                        </div><!--moj-filter__options-->
+                    </div><!--moj-filter__content-->
+                </div><!--moj-filter-->
+            </div><!--moj-filter-layout__filter-->
+            <!--SEARCH RESULTS-->
+            <div class="moj-filter-layout__content">
+                   {% if data['user-group'] == 'download' %}
+                    <!-- CARDS 50 results-->
+                    {% include "ecms-v1/includes/cards-50results.html" %}
+                    {% else %}
+                    <!-- CARDS 20 results-->
+                    {% include "ecms-v1/includes/cards-20results.html" %}
+                    {% endif %}  
+            </div><!--moj-filter-layout__content-->
+        </div><!--moj-filter-layout-->
+    </div><!--govuk-grid-column-full-width-->
+  </div><!--grid row-->
+</div><!--govuk-width-container-->   
+    
+    
 <script>
   const filterButton = document.querySelector("#toggle-filter");
   const filterDisplay = document.querySelector("#toggle-display");
@@ -283,9 +294,7 @@
   filterButton.addEventListener("click", (event) => {
     filterDisplay.hidden = filterDisplay.hidden === true ? false : true;
 
-    filterButton.innerHTML = filterDisplay.hidden === true ? "Show filters" : "Hide filters";
+    filterButton.innerHTML = filterDisplay.hidden === true ? "Show filter" : "Hide filter";
   });
-</script>
-
+</script>    
 {% endblock %}
-
