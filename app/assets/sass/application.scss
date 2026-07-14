@@ -15,6 +15,12 @@
 
 @import "node_modules/accessible-autocomplete/dist/accessible-autocomplete.min.css";
 
+// CSS for confirmation panel in red - aka rejection panel
+.govuk-panel--rejection {
+  background-color: govuk-colour("red");
+}
+
+
 // CSS for type-ahead
 .typeahead {
   display: block;

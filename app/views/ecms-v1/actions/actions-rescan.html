@@ -37,139 +37,134 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-     <h1 class="govuk-heading-l">
-        Request a rescan
-      </h1>
+    <h1 class="govuk-heading-l">
+      Request a rescan
+    </h1>
 
-{% if data['doc-status'] in ['closed', 'on-hold'] %}
-  {{ govukWarningText({
-    text: "One or more selected documents are not open and cannot be re‑scanned",
-    iconFallbackText: "Warning"
-  }) }}
-{% endif %}
+    {% if data['doc-status'] in ['closed', 'on-hold'] %}
+      {{ govukWarningText({
+        text: "One or more selected documents are not open and cannot be re‑scanned",
+        iconFallbackText: "Warning"
+      }) }}
+    {% endif %}
 
-
-
-      <p>Check the documents you want to rescan.</p>
-      <p class="govuk-body">You can only request documents that: </p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>are open</li>
-            <li>sent in by post</li>
-            <li>not already being rescanned</li>
-          </ul>
+    <p>Check the document you want to rescan.</p>
+    <p class="govuk-body">You can only rescan a document that: </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>is open</li>
+      <li>sent in by post</li>
+      <li>not already being rescanned</li>
+    </ul>
       
+    {% if data['rescan-link-data'] == 'none' %}
+    <form action="actions-rescan-rejection" method="post" novalidate>
+    {% else %}
+    <form action="actions-rescan-confirmation" method="post" novalidate>
+    {% endif %}
 
-       <form action="actions-rescan-confirmation" method="post" novalidate>
+      <table class="govuk-table govuk-table--small-text-until-tablet">
+        <caption class="govuk-table__caption govuk-table__caption--m">Document selected for rescan</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Date received or issued</th>
+            <th scope="col" class="govuk-table__header">National Insurance number</th>
+            <th scope="col" class="govuk-table__header">Claim reference</th>
+            <th scope="col" class="govuk-table__header">Name</th>
+            <th scope="col" class="govuk-table__header">Document type</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">12 Feb 2026</th>
+            <td class="govuk-table__cell">QQ123456C</td>
+            <td class="govuk-table__cell">No data</td>
+            <td class="govuk-table__cell">Alexander Benedict Montgomery-Wilkins</td>
+            <td class="govuk-table__cell">PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022</td>
+            {% if data['doc-status'] in ['closed', 'on-hold'] %}
+            <td class="govuk-table__cell">Closed</td>
+            {% else %}
+            <td class="govuk-table__cell">Open</td>
+            {% endif %}
+          </tr>
+        </tbody>
+      </table>
 
-        <table class="govuk-table">
-  <caption class="govuk-table__caption govuk-table__caption--m">
-Documents selected for rescan</caption>
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Date received or issued</th>
-      <th scope="col" class="govuk-table__header">National Insurance number</th>
-      <th scope="col" class="govuk-table__header">Claim reference</th>
-      <th scope="col" class="govuk-table__header">Name</th>
-      <th scope="col" class="govuk-table__header">Document type</th>
-      <th scope="col" class="govuk-table__header">Status</th>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">14 Feb 2026 </th>
-      <td class="govuk-table__cell">QQ123456C</td>
-      <td class="govuk-table__cell">AA123</td>
-      <td class="govuk-table__cell">Jane Doe</td>
-      <td class="govuk-table__cell">BD8</td>
-      <td class="govuk-table__cell">Open</td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">12 Feb 2026</th>
-      <td class="govuk-table__cell">QQ123456C</td>
-      <td class="govuk-table__cell">No data</td>
-      <td class="govuk-table__cell">Jane Doe</td>
-      <td class="govuk-table__cell">BD8</td>
-      <td class="govuk-table__cell">Open</td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">12 Feb 2026</th>
-      <td class="govuk-table__cell">QQ123456C</td>
-      <td class="govuk-table__cell">No data</td>
-      <td class="govuk-table__cell">Jane Doe</td>
-      <td class="govuk-table__cell">CIS500</td>
-      {% if data['doc-status'] in ['closed', 'on-hold'] %}
-      <td class="govuk-table__cell">Closed</td>
-      {% else %}
-       <td class="govuk-table__cell">Open</td>
-       {% endif %}
-    </tr>
-  </tbody>
-</table>
+      <div class="govuk-!-padding-bottom-4"></div>
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
+      {{ govukRadios({
+        name: "rescanReason",
+        fieldset: {
+          legend: {
+            text: "Select rescan reason",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "Illegible document",
+            text: "Illegible document"
+          },
+          {
+            value: "Document contains image from multiple documents",
+            text: "Document contains image from multiple documents"
+          },
+          {
+            value: "Missing pages on document",
+            text: "Missing pages on document"
+          },
+          {
+            value: "Missing information on document",
+            text: "Missing information on document"
+          },
+          {
+            value: "Document is not for business unit using ECMS",
+            text: "Document is not for business unit using ECMS"
+          }
+        ]
+      }) }}
+      <div class="govuk-!-padding-bottom-4"></div>
+        <!--
 
-<div class="govuk-!-padding-bottom-4"></div>
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
-{{ govukRadios({
-  name: "rescanReason",
-  fieldset: {
-    legend: {
-      text: "Select rescan reason",
-      isPageHeading: false,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  items: [
-    {
-      value: "Illegible document",
-      text: "Illegible document"
-    },
-    {
-      value: "Document contains image from multiple documents",
-      text: "Document contains image from multiple documents"
-    },
-    {
-      value: "Missing pages on document",
-      text: "Missing pages on document"
-    },
-    {
-      value: "Missing information on document",
-      text: "Missing information on document"
-    },
-    {
-      value: "Document is not for business unit using ECMS",
-      text: "Document is not for business unit using ECMS"
-    }
-  ]
-}) }}
+        {{ govukTextarea({
+          name: "rescanLinkData",
+          id: "rescan-link-data",
+          label: {
+            text: "Link data (optional)",
+            classes: "govuk-label--m",
+            isPageHeading: false
+          }
+        }) }}
 
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+        -->
+      <div class="govuk-!-padding-bottom-4">
+        <h2 class="govuk-heading-m">
+            Link data
+          </h2>
+          {% if data['rescan-link-data'] == 'none' %}
+          <p class="govuk-body">Not available</p>
+          {% else %} 
+          <p class="govuk-body">
+          <span class="govuk-!-text-break-word">2FycmllckxpbmtEYXRhX1YxOjphYmNkZWYxMjM0NTY3ODkwX1hZWjphcGlLZXk9NzQ4NTkzNzQ4NTkzJmNsaWVudElkPWQ4ZjM2YjA3LTViYTItNDhkNS04YzFlLWVkYmQ4OWY4MzQ2MSZzZXNzaW9uPWE4NzQxZmY2ZjEzMjQ1Nzk4YWJjZGVmMTIzNDU2Nzg5MCZ0aW1lc3RhbXA9MTc3MzQ5ODAzNDUyMSZzaWduYXR1cmU9N0Y4QzRBNjVCM0QxRTlGMjY4QTQ0N0Y1QjQzRUEzRDhGQjExNEY2N0U4MjAyQ0Y3QjQ5NUI0Q0QyQjY2RkM4QQ== </p>
+          </span>
+          {% endif %}
+      </div>
 
-{{ govukTextarea({
-  name: "rescanLinkData",
-  id: "rescan-link-data",
-  label: {
-    text: "Link data (optional)",
-    classes: "govuk-label--m",
-    isPageHeading: false
-  }
-}) }}
-
-
-
-<div class="govuk-button-group">
-  {{ govukButton({
-        text: "Request rescan"
-  }) }}
-
-  <a class="govuk-link" href="../search-results-v4">Cancel</a>
-
-
-      </form>
-    </div>
+      <div class="govuk-button-group">
+        {{ govukButton({
+              text: "Request rescan"
+        }) }}
+        <a class="govuk-link" href="../search-results-v4">Cancel</a>
+      </div>
+    </form>
   </div>
+</div>
 
 {% endblock %}

@@ -1,0 +1,73 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Rescan rejected – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="../reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+        <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="../hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+        -->
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="../upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+{% endblock %} 
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <div class="govuk-panel govuk-panel--confirmation govuk-panel--rejection">
+        <h1 class="govuk-panel__title">
+          Rescan rejected
+        </h1>
+        <div class="govuk-panel__body">
+        </div>
+      </div>
+
+
+      <h2 class="govuk-heading-m">
+        What you can do next
+      </h2>
+
+      <p>
+       Your rescan request could not be processed. A rescan request may be rejected if the document does not meet the conditions for rescanning.
+      </p>
+      <p>
+      Check the document details in ECMS and any available link data before trying again. 
+      </p>
+
+      <p> 
+        <a href="../search-results-v4">
+          Return to search results
+        </a>
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}
