@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Hold removed – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="reports" href="reports" class="dwp-horizontal-navigation__link" aria-current="true">Report search</a>
+            </li> 
+        <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="../hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+        -->
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="../upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+{% endblock %} 
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+{% if data['remove-hold-type'] == 'overpayment-hold' %}
+{{ govukPanel({
+    titleText: "Overpayment hold removed",
+    html: ""
+    }) }}
+
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+
+      <p>
+       The overpayment hold documents have been scheduled to close.
+      </p>
+      <p>
+       Open or closed documents will remain unchanged. Any general holds will also remain unchanged.
+      </p>
+
+{% elif data['remove-hold-type'] == 'general-hold' %}
+{{ govukPanel({
+    titleText: "General hold removed",
+    html: ""
+    }) }}
+
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+
+      <p>
+       The general hold documents have been scheduled to close.
+      </p>
+      <p>
+      Open or closed documents will remain unchanged. Any overpayment holds will also remain unchanged. 
+      </p>
+{% endif %}
+
+      <p> 
+        <a href="../search-results-v4">
+          Return to search results
+        </a>
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}

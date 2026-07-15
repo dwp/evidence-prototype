@@ -1,0 +1,169 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Apply hold – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="reports" href="reports" class="dwp-horizontal-navigation__link" aria-current="true">Report search</a>
+            </li> 
+        {#
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="../hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+        #}
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="../upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+{% endblock %} 
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+     <h1 class="govuk-heading-l">
+        Apply hold
+      </h1>
+
+      {% if data['doc-status'] in ['open', 'on-hold'] %}
+  {{ govukWarningText({
+    text: "One or more selected reports are not closed and cannot be put on hold.",
+    iconFallbackText: "Warning"
+  }) }}
+{% endif %}
+      <p>Check that the reports below are the ones you want to put on hold. </p>
+      <p>You can only apply a hold to reports that are closed. The hold will remain in place until it is removed. </p>
+      
+      
+  
+      
+      <form action="reports-apply-hold-confirmation" method="post" novalidate>
+
+
+  <table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Reports selected to put on hold</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Date received or issued</th>
+      <th scope="col" class="govuk-table__header">Office ID</th>
+      <th scope="col" class="govuk-table__header">Document type</th>
+      <th scope="col" class="govuk-table__header">Status</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">14 Feb 2026 </th>
+      <td class="govuk-table__cell">11223</td>
+      <td class="govuk-table__cell">JA70150</td>
+            {% if data['doc-status'] in ['open', 'on-hold'] %}
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Open</strong></td>
+      {% else %}
+       <td class="govuk-table__cell"><strong class="govuk-tag">Closed</strong></td>
+       {% endif %}
+    </tr>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">12 Feb 2026</th>
+      <td class="govuk-table__cell">11223</td>
+      <td class="govuk-table__cell">JA72233</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag">Closed</strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">12 Feb 2025</th>
+      <td class="govuk-table__cell">11223</td>
+      <td class="govuk-table__cell">JA72852</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag">Closed</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+{#
+<div class="govuk-!-padding-bottom-4"></div>
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+ {{ govukRadios({
+  id: "holdReason",
+  name: "holdReason",
+  fieldset: {
+    legend: {
+      text: "Select a hold reason",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "Appeals",
+      text: "Appeals"
+    },
+    {
+      value: "Compensation Recovery Unit (CRU)",
+      text: "Compensation Recovery Unit (CRU)"
+    },
+    {
+      value: "Debt",
+      text: "Debt"
+    },
+    {
+      value: "G11 case (FPC)",
+      text: "G11 case (FPC)"
+    },
+    {
+      value: "Judicial review",
+      text: "Judicial review"
+    },
+    {
+      value: "MP case",
+      text: "MP case"
+    },
+    {
+      value: "Ombudsman case",
+      text: "Ombudsman case"
+    },
+    {
+      value: "Pension Service Appeals Team (IPC)",
+      text: "Pension Service Appeals Team (IPC)"
+    },
+    {
+      value: "Special payments",
+      text: "Special payments"
+    },
+    {
+      value: "Other",
+      text: "Other"
+    }
+  ]
+}) }}
+#}
+
+
+
+<div class="govuk-button-group">
+  {{ govukButton({
+        text: "Apply hold"
+  }) }}
+
+  <a class="govuk-link" href="search-results-reports">Cancel</a>
+
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
