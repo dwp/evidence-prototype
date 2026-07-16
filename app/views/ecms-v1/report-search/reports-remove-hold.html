@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Remove hold – {{ serviceName }} – GOV.UK Prototype Kit
+  Remove hold – Report search – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent
@@ -45,58 +45,45 @@
  {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 
-      <p>Check that the documents listed are the ones you want to remove from hold. </p>
-        <p>Removing a document hold will mark the document as closed. This means it will be scheduled to be deleted.</p>
+      <p>Check that the reports listed are the ones you want to remove from hold. </p>
+        <p>Removing a report hold will mark the report as closed. This means it will be scheduled to be deleted.</p>
         
 
         <div class="govuk-!-padding-bottom-4"></div>
       
-{% if data['user-group'] == 'overpayment-hold-user' %}
-      <form action="actions-remove-hold-confirmation" method="post" novalidate>
-{% else %}
-<form action="actions-remove-hold-confirmation?remove-hold-type=general-hold" method="post" novalidate>
-{% endif %}
+
+<form action="reports-remove-hold-confirmation" method="post" novalidate>
+
 
   <table class="govuk-table">
-  <caption class="govuk-table__caption govuk-table__caption--m">Documents selected to remove from hold</caption>
+  <caption class="govuk-table__caption govuk-table__caption--m">Reports selected to remove from on hold</caption>
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header " >Date received or issued</th>
-      <th scope="col" class="govuk-table__header">National Insurance number</th>
-      <th scope="col" class="govuk-table__header">Claim reference</th>
-      <th scope="col" class="govuk-table__header">Name</th>
+      <th scope="col" class="govuk-table__header">Date received or issued</th>
+      <th scope="col" class="govuk-table__header">Office ID</th>
       <th scope="col" class="govuk-table__header">Document type</th>
       <th scope="col" class="govuk-table__header">Status</th>
-      <th scope="col" class="govuk-table__header">Hold reason</th>
     </tr>
   </thead>
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">14 Feb 2025 </th>
-      <td class="govuk-table__cell">QQ123456C</td>
-      <td class="govuk-table__cell">AA123</td>
-      <td class="govuk-table__cell">Jane Doe</td>
-      <td class="govuk-table__cell">BD8</td>
-      <td class="govuk-table__cell">On hold</td>
-      <td class="govuk-table__cell">General hold</td>
+      <td class="govuk-table__cell">14 Feb 2026 </th>
+      <td class="govuk-table__cell">11223</td>
+      <td class="govuk-table__cell">JA70150</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">On hold</strong></td>
+    </tr>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">12 Feb 2026</th>
+      <td class="govuk-table__cell">11223</td>
+      <td class="govuk-table__cell">JA72233</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">On hold</strong></td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">12 Feb 2025</th>
-      <td class="govuk-table__cell">QQ123456C</td>
-      <td class="govuk-table__cell">No data</td>
-      <td class="govuk-table__cell">Jane Doe</td>
-      <td class="govuk-table__cell">BD8</td>
-            <td class="govuk-table__cell">On hold</td>
-      <td class="govuk-table__cell">Overpayment hold</td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap">12 Feb 2026</th>
-      <td class="govuk-table__cell">QQ123456C</td>
-      <td class="govuk-table__cell">No data</td>
-      <td class="govuk-table__cell">Jane Doe</td>
-       <td class="govuk-table__cell">CIS500</td>
-      <td class="govuk-table__cell" style="white-space: nowrap">On hold</td>
-      <td class="govuk-table__cell" style="white-space: nowrap">General hold, <br> Overpayment hold</td>
+      <td class="govuk-table__cell">11223</td>
+      <td class="govuk-table__cell">JA72852</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">On hold</strong></td>
     </tr>
   </tbody>
 </table>
@@ -104,45 +91,13 @@
 
 <div class="govuk-!-padding-bottom-4"></div>
 
- {% if data['user-group'] == 'overpayment-hold-user' %}
-
-{{ govukRadios({
-  name: "remove-hold-type",
-  fieldset: {
-    legend: {
-      text: "Which hold type do you want to remove?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  items: [
-    {
-      value: "general-hold",
-      text: "General hold"
-    },
-    {
-      value: "overpayment-hold",
-      text: "Overpayment hold"
-    }
-  ]
-}) }}
- {% endif %}
-
-
 <div class="govuk-button-group">
 
- {% if data['user-group'] == 'overpayment-hold-user' %}
   {{ govukButton({
-        text: "Remove hold"
+    text: "Remove hold"
   }) }}
 
-   {% else %}
-  {{ govukButton({
-    text: "Remove general hold"
-  }) }}
-   {% endif %}
-
-  <a class="govuk-link" href="../search-results-v4">Cancel</a>
+  <a class="govuk-link" href="search-results-reports">Cancel</a>
 
 
       </form>

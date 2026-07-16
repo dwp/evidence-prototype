@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Hold removed – {{ serviceName }} – GOV.UK Prototype Kit
+  Hold removed – Report search– {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent
@@ -39,9 +39,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-{% if data['remove-hold-type'] == 'overpayment-hold' %}
 {{ govukPanel({
-    titleText: "Overpayment hold removed",
+    titleText: "Hold removed",
     html: ""
     }) }}
 
@@ -50,32 +49,11 @@
       </h2>
 
       <p>
-       The overpayment hold documents have been scheduled to close.
+       The reports have been scheduled to close. Open or closed reports will remain unchanged. 
       </p>
-      <p>
-       Open or closed documents will remain unchanged. Any general holds will also remain unchanged.
-      </p>
-
-{% elif data['remove-hold-type'] == 'general-hold' %}
-{{ govukPanel({
-    titleText: "General hold removed",
-    html: ""
-    }) }}
-
-      <h2 class="govuk-heading-m">
-        What happens next
-      </h2>
-
-      <p>
-       The general hold documents have been scheduled to close.
-      </p>
-      <p>
-      Open or closed documents will remain unchanged. Any overpayment holds will also remain unchanged. 
-      </p>
-{% endif %}
 
       <p> 
-        <a href="../search-results-v4">
+        <a href="search-results-reports">
           Return to search results
         </a>
       </p>
