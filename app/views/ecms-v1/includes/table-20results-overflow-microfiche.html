@@ -1,28 +1,3 @@
-{% extends "layouts/main.html" %} {% block pageTitle %} Search results –
-{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
-%}
-
-  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
-        <ul class="dwp-horizontal-navigation__list">
-        
-        
-            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
-            <a id="records" href="hr-search" class="dwp-horizontal-navigation__link" aria-current="true">HR search</a>
-            </li> 
-        </ul>
-    </nav>
-
-
-<div class="govuk-!-padding-bottom-4"></div>
-
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
-
-{% endblock %} 
-
-{% block content %}
 <div class="govuk-width-container">
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-full-width">
@@ -373,6 +348,3 @@
   </div><!--grid row-->
 </div><!--govuk-width-container-->   
     
-    
-    
-{% endblock %}

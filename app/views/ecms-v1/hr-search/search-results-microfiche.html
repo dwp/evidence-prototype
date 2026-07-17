@@ -1,0 +1,264 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Search results – - Microfiche - HR search –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link">Document search</a>
+            </li> 
+            -->
+            <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="../report-search/reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+             -->
+            <li class="dwp-horizontal-navigation__item  dwp-horizontal-navigation__item--selected">
+            <a id="HRPortal" href="hr-search" class="dwp-horizontal-navigation__link" aria-current="true">HR search</a>
+            </li>         
+           <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="../upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+           -->
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %} 
+
+{% block content %}
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full-width">
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-3">Search results</h1>
+      <!-- CARDS 20 results-->
+      <p class="govuk-body govuk-!-margin-bottom-7">Showing <strong>1</strong> to <strong>20</strong> of <strong>42</strong> records</p>
+       <!-- ACTION BUTTONS -->
+      <div class="govuk-button-group govuk-!-margin-bottom-0">
+        {{ govukButton({
+            text: "View Microfiches",
+            href: "/public/files/Test_document.pdf",
+            attributes: {
+            target: "_blank",
+            rel: "noopener noreferrer"
+            }
+        }) }}
+        {#
+        {{ mojButtonMenu({
+            button: {
+              text: "Alternative actions",
+              classes: "govuk-button--secondary"
+            },
+            items: [
+              {
+                text: "Apply hold",
+                href: "reports-apply-hold"
+              },
+              {
+                text: "Remove hold",
+                href: "reports-remove-hold"
+              }
+            ]
+          }) }}
+          #}   
+        </div><!--action button group-->
+        {#
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-quarter">
+                <p></p>
+            </div> <!--govuk-grid-column-one-quarter-->
+            <div class="govuk-grid-column-three-quarters"></div>
+            </div> <!--govuk-grid-column-one-quarter"-->
+            <div class="govuk-button-group" style="align-items: flex-end;">
+                    <!-- FITLER BUTTON-->
+                    {{ govukButton({
+                        text: "Show filter",
+                        classes: "govuk-button--secondary govuk-!-margin-right-4",
+                        id: "toggle-filter" 
+                    }) }}
+                    <!-- SORT SELECT-->
+                    {{ govukSelect({
+                    id: "sort",
+                    name: "sort",
+                    classes: "",
+                    formGroup: {
+                        classes: "govuk-!-margin-bottom-3"
+                    },
+
+                    label: {
+                        text: "Sort by"
+                    },
+                    items: [
+                        {
+                        value: "date",
+                        text: "Date most recent",
+                        selected: true
+                        },
+                        {
+                        value: "lob-ascending",
+                        text: "[placeholder sort 1]"
+                        },
+                        {
+                        value: "lob-descending",
+                        text: "[placeholder sort 2]"
+                        }
+                    ]
+                    }) }}
+            </div><!--govuk-button-group -->
+            <!-- MOJ Filter -->
+            <div class="moj-filter-layout">   
+                <div class="moj-filter-layout__filter">
+                    <div id="toggle-display" class="moj-filter" data-module="moj-filter" hidden>
+                        <div class="moj-filter__header">
+                            <div class="moj-filter__header-title">
+                                <h2 class="govuk-heading-m">Filter</h2>
+                            </div> <!--moj-filter__header-title-->
+                            <div class="moj-filter__header-action"></div>
+                        </div><!-- moj-filter__header-->
+                        <div class="moj-filter__content">
+                            <div class="moj-filter__selected">
+                                <div class="moj-filter__selected-heading">
+                                    <div class="moj-filter__heading-title">
+                                        <h2 class="govuk-heading-m">Selected filters</h2>
+                                    </div><!--"moj-filter__heading-title-->
+                                    <div class="moj-filter__heading-action">
+                                        <p><a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a></p>
+                                    </div><!--moj-filter__heading-action"-->
+                                </div><!--moj-filter__selected-heading-->
+                                <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Document type</h3>
+                                <ul class="moj-filter-tags">
+                                    <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> JA70150</a></li>
+                                    <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> JA72233</a></li>
+                                    <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> JA72852</a></li>
+                                </ul>
+                                <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Benefit type</h3>
+                                <ul class="moj-filter-tags">
+                                    <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> Jobseeker's Allowance (JSA)</a></li>  
+                                </ul>
+                            </div><!--moj-filter__selected-->
+                            <div class="moj-filter__options">
+                                <form action="#" method="post" novalidate>
+                                    <!-- Filter DOCUMENT TYPE -->
+                                    <div class="govuk-form-group">
+                                        <fieldset class="govuk-fieldset">
+                                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                                Document type
+                                            </legend>
+                                                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="JA70150" name="JA70150"
+                                                    type="checkbox" value="JA70150"checked>
+                                                <label class="govuk-label govuk-checkboxes__label" for="JA70150">
+                                                    JA70150
+                                                </label>
+                                            </div><!--"govuk-checkboxes__item-->
+                                            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                                <div class="govuk-checkboxes__item">
+                                                    <input class="govuk-checkboxes__input" id="JA72233" name="JA72233"
+                                                        type="checkbox" value="JA72233"checked>
+                                                    <label class="govuk-label govuk-checkboxes__label" for="JA72233">
+                                                        JA72233
+                                                    </label>
+                                                </div><!--"govuk-checkboxes__item-->
+                                                <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="JA72852" name="JA72852"
+                                                    type="checkbox" value="JA72852" checked>
+                                                <label class="govuk-label govuk-checkboxes__label" for="JA72852">
+                                                    JA72852
+                                                </label>
+                                            </div><!--"govuk-checkboxes__item-->
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="RIS10209" name="RIS10209" type="checkbox"
+                                                    value="RIS10209">
+                                                <label class="govuk-label govuk-checkboxes__label" for="RIS10209">
+                                                    RIS10209
+                                                </label>
+                                            </div><!--"govuk-checkboxes__item-->
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="RIS20204" name="RIS20204" type="checkbox"
+                                                    value="RIS20204">
+                                                <label class="govuk-label govuk-checkboxes__label" for="VRIS20204">
+                                                    RIS20204
+                                                </label>
+                                            </div><!--"govuk-checkboxes__item-->
+                                        </div><!--govuk-checkboxes govuk-checkboxes-small-->
+                                        </fieldset>
+                                    </div><!--govuk-form-group-->
+                                    <!-- Filter BENEFIT TYPE -->
+                                    <div class="govuk-form-group">
+                                        <fieldset class="govuk-fieldset">
+                                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                                Benefit type
+                                            </legend>
+                                        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                                <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="ESA" name="ESA"
+                                                    type="checkbox" value="ESA">
+                                                <label class="govuk-label govuk-checkboxes__label" for="ESA">
+                                                    Employment and Support Allowance (ESA)
+                                                </label>
+                                            </div><!--"govuk-checkboxes__item-->
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="pension-ESA" name="pension-ESA" type="checkbox"
+                                                    value="pension-ESA" checked>
+                                                <label class="govuk-label govuk-checkboxes__label" for="pension-ESA">
+                                                    Jobseeker's Allowance (JSA)
+                                                </label>
+                                            </div><!--"govuk-checkboxes__item-->
+                                        </div><!--govuk-checkboxes govuk-checkboxes-small-->
+                                        </fieldset>
+                                    </div><!--govuk-form-group-->
+                                    <div class="govuk-button-group">
+                                        <button type="submit" class="govuk-button" data-module="govuk-button">
+                                        Apply filters
+                                        </button>
+                                        <a class="govuk-link" href="#">Clear filters</a>
+                                    </div><!--govuk-button-group-->
+                                </form>
+                            </div><!--moj-filter__options-->
+                        </div><!--moj-filter__content-->
+                    </div><!--moj-filter-->
+                </div><!--moj-filter-layout__filter-->
+        </div><!--grid row-->
+        #}
+          
+        <!--SEARCH RESULTS-->
+        <div class="moj-filter-layout__content ">
+            <div class="govuk-button-group govuk-!-margin-bottom-4"></div>
+
+            {% if data['output'] == 'cards' %}
+                <!-- CARDS -->
+            {% include "ecms-v1/includes/cards-20results-microfiche.html" %}
+                {% else %}
+                <!-- TABLE-->
+            {% include "ecms-v1/includes/table-20results-overflow-microfiche.html" %}
+                {% endif %}  
+        </div><!--moj-filter-layout__content-->
+            </div><!--moj-filter-layout-->
+    </div><!--govuk-grid-column-full-width-->
+  </div><!--grid row-->
+</div><!--govuk-width-container-->   
+    
+    
+<script>
+  const filterButton = document.querySelector("#toggle-filter");
+  const filterDisplay = document.querySelector("#toggle-display");
+
+  filterButton.addEventListener("click", (event) => {
+    filterDisplay.hidden = filterDisplay.hidden === true ? false : true;
+
+    filterButton.innerHTML = filterDisplay.hidden === true ? "Show filter" : "Hide filter";
+  });
+</script>    
+{% endblock %}

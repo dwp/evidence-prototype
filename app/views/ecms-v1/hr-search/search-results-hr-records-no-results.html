@@ -1,0 +1,73 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Search results – Report search –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link">Document search</a>
+            </li> 
+            -->
+            <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="../report-search/reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+             -->
+            <li class="dwp-horizontal-navigation__item  dwp-horizontal-navigation__item--selected">
+            <a id="HRPortal" href="hr-search" class="dwp-horizontal-navigation__link" aria-current="true">HR search</a>
+            </li>         
+           <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="../upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+           -->
+        
+        </ul>
+    </nav>
+
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %} {% block content %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+{%- from "moj/components/filter/macro.njk" import mojFilter -%}
+{%- from "moj/components/button-menu/macro.njk" import mojButtonMenu -%}
+
+
+<div class="govuk-width-container">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Search results</h1>
+
+     {% if data['no-results'] == 'no-match' %}
+
+    <p class="govuk-body"><strong>Your search did not match any documents.</strong></p>
+    <div class="govuk-!-padding-bottom-4"></div>
+
+   {% elif data['no-results'] == 'special-record' %}
+
+    <p class="govuk-body"><strong>Only an authorised user can access this information.</strong></p>
+    <p class="govuk-body">Try different search criteria.</p>
+    <div class="govuk-!-padding-bottom-4"></div>
+
+ {% endif %}
+
+        {{ govukButton({
+      text: "Return to search menu",
+      href: "hr-records"
+    }) }}
+
+{% endblock %}
+

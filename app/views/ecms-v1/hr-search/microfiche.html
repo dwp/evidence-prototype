@@ -5,24 +5,26 @@
   <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
         <ul class="dwp-horizontal-navigation__list">
         
+        
             <!--
             <li class="dwp-horizontal-navigation__item">
-            <a id="records" href="records" class="dwp-horizontal-navigation__link">Document search</a>
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link">Document search</a>
             </li> 
             -->
             <!--
             <li class="dwp-horizontal-navigation__item">
-            <a id="reports" href="report-search/reports" class="dwp-horizontal-navigation__link">Report search</a>
+            <a id="reports" href="../report-search/reports" class="dwp-horizontal-navigation__link">Report search</a>
             </li> 
              -->
             <li class="dwp-horizontal-navigation__item  dwp-horizontal-navigation__item--selected">
-            <a id="HRPortal" href="hr-portal" class="dwp-horizontal-navigation__link" aria-current="true">HR search</a>
+            <a id="HRPortal" href="hr-search" class="dwp-horizontal-navigation__link" aria-current="true">HR search</a>
             </li>         
            <!--
             <li class="dwp-horizontal-navigation__item">
-            <a id="documentUpload" href="upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            <a id="documentUpload" href="../upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
             </li> 
            -->
+        
         </ul>
     </nav>
 
@@ -47,11 +49,21 @@
 {% from "govuk/components/select/macro.njk" import govukSelect %}
 
 <div class="govuk-width-container">
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-
-    <h1 class="govuk-heading-l">Search microfiches</h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+     <h1 class="govuk-heading-l">Search microfiches</h1>
+      <!--SEARCH COMBOS -->
+      {{ govukDetails({
+          summaryText: "Accepted search combinations",
+          html: '<p class="govuk-body">You can search by:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>Year and HR reference</li>
+                  <li>Year, staff number ending and HR reference</li>
+                  <li>Year, staff number ending</li>
+                  <li>Year, month and staff number ending</li>
+                  <li>Year, month, staff number ending and HR reference</li>
+                </ul>'
+        }) }}
 
     {{ govukSelect({
       id: "year",
@@ -146,12 +158,12 @@
 
       {{ govukInput({
         label: {
-          text: "Staff ending",
+          text: "Staff number ending",
           classes: "govuk-label--m"
         },
         classes: "govuk-input--width-5 govuk-input--extra-letter-spacing",
         hint: {
-        text: "Must be 4 characters long"
+        text: "Enter the last 4 digits of a staff number"
         },
         id: "staff-ending",
         name: "staffEnding",
@@ -166,7 +178,7 @@
         },
         classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
         hint: {
-        text: "Must be XX characters long"
+        text: "Is XX characters long. For example, XXXX"
         },
         id: "hr-reference",
         name: "HRreference",
@@ -175,9 +187,10 @@
       }) }}
 
 
-    {{ govukButton({
-      text: "Search"
-    }) }}
+   {{ govukButton({
+        text: "Search",
+        href: "search-results-microfiche"
+      }) }}
     
   </div>
 </div>

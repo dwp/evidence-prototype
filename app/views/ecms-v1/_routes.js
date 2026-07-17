@@ -17,24 +17,24 @@ module.exports = function (router) {
   // add all routing here
 
   // Routing for HR search (POST)
-  router.post('/ecms-v1/hr-search', function (req, res) {
+  router.post('/ecms-v1/hr-search/hr-search', function (req, res) {
 
     var choice = req.session.data['HowToSearch'];
 
     if (choice === 'microfiche') {
-      res.redirect('/ecms-v1/microfiche');
+      res.redirect('/ecms-v1/hr-search/microfiche');
     } else {
-      res.redirect('/ecms-v1/hr-records');
+      res.redirect('/ecms-v1/hr-search/hr-records');
     }
   });
 
   // Route links HR records
-  router.get('/ecms-v1/microfiche', function (req, res) {
-    res.render('ecms-v1/microfiche');
+  router.get('/ecms-v1/hr-search/microfiche', function (req, res) {
+    res.render('ecms-v1/hr-search/microfiche');
   });
 
-  router.get('/ecms-v1/hr-records', function (req, res) {
-    res.render('ecms-v1/hr-records');
+  router.get('/ecms-v1/hr-search/hr-records', function (req, res) {
+    res.render('ecms-v1/hr-search/hr-records');
   });
 
 // reset the "Document upload" data back to defaults when end is got at confirmation screen

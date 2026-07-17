@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %} {% block pageTitle %} Search M-store –
+{% extends "layouts/main.html" %} {% block pageTitle %} Search M-store – HR search -
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
 %}
 
@@ -8,20 +8,20 @@
         
             <!--
             <li class="dwp-horizontal-navigation__item">
-            <a id="records" href="records" class="dwp-horizontal-navigation__link">Document search</a>
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link">Document search</a>
             </li> 
             -->
             <!--
             <li class="dwp-horizontal-navigation__item">
-            <a id="reports" href="report-search/reports" class="dwp-horizontal-navigation__link">Report search</a>
+            <a id="reports" href="../report-search/reports" class="dwp-horizontal-navigation__link">Report search</a>
             </li> 
              -->
             <li class="dwp-horizontal-navigation__item  dwp-horizontal-navigation__item--selected">
-            <a id="HRPortal" href="hr-portal" class="dwp-horizontal-navigation__link" aria-current="true">HR search</a>
+            <a id="HRPortal" href="hr-search" class="dwp-horizontal-navigation__link" aria-current="true">HR search</a>
             </li>         
            <!--
             <li class="dwp-horizontal-navigation__item">
-            <a id="documentUpload" href="upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            <a id="documentUpload" href="../upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
             </li> 
            -->
         
@@ -49,6 +49,18 @@
 
     <h1 class="govuk-heading-l">Search M-store</h1>
 
+        <!--SEARCH COMBOS -->
+
+    {{ govukDetails({
+        summaryText: "Accepted search combinations",
+        html: '<p class="govuk-body">You can search by:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>?</li>
+                <li>?</li>
+                <li>?</li>
+              </ul>'
+      }) }}
+
     {{ govukInput({
       label: {
         text: "National Insurance number",
@@ -69,10 +81,10 @@
         text: "First name",
         classes: "govuk-label--m"
       },
-      classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
-      id: "sort-code",
-      name: "sortCode",
-      inputmode: "numeric",
+      classes: "govuk-input govuk-!-width-two-thirds govuk-input--extra-letter-spacing",
+      id: "first-name",
+      name: "FirstName",
+      inputmode: "alpha",
       spellcheck: false
     }) }}
 
@@ -81,10 +93,10 @@
         text: "Last name",
         classes: "govuk-label--m"
       },
-      classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
-      id: "sort-code",
-      name: "sortCode",
-      inputmode: "numeric",
+      classes: "govuk-input govuk-!-width-two-thirds govuk-input--extra-letter-spacing",
+      id: "last-name",
+      name: "lastName",
+      inputmode: "alpha",
       spellcheck: false
     }) }}
 
@@ -94,7 +106,7 @@
         fieldset: {
           legend: {
             text: "Date of birth",
-            isPageHeading: true,
+            isPageHeading: false,
             classes: "govuk-fieldset__legend--m"
           }
         },
@@ -116,9 +128,12 @@
       }) }}
 
 
-    {{ govukButton({
-      text: "Search"
-    }) }}
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Search",
+        href: "search-results-hr-records"
+      }) }}
+    </div>
     
   </div>
 </div>

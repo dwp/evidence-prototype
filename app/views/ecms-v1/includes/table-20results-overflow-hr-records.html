@@ -1,40 +1,16 @@
-{% extends "layouts/main.html" %} {% block pageTitle %} Search results –
-{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
-%}
-
-  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
-        <ul class="dwp-horizontal-navigation__list">
-        
-        
-            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
-            <a id="records" href="hr-search" class="dwp-horizontal-navigation__link" aria-current="true">HR search</a>
-            </li> 
-        </ul>
-    </nav>
-
-
-<div class="govuk-!-padding-bottom-4"></div>
-
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
-
-{% endblock %} 
-
-{% block content %}
 <div class="govuk-width-container">
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-full-width">
-            <div class="moj-scrollable-pane" role="region" aria-label="Microfiches search results" tabindex="0">
+            <div class="moj-scrollable-pane" role="region" aria-label="M-store search results" tabindex="0">
                 <table class="govuk-table" data-module="moj-multi-select" data-id-prefix="microfiches-">
-                    <caption class="govuk-table__caption govuk-table__caption--m">Microfiche search results</caption>
+                    <caption class="govuk-table__caption govuk-table__caption--m">M-store search results</caption>
                     <thead class="govuk-table__head">
                         <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="col">ID</th>
                         <th class="govuk-table__header" scope="col">Select</th>
-                        <th class="govuk-table__header" scope="col">Month</th>
-                        <th class="govuk-table__header" scope="col">Year</th>
+                        <th class="govuk-table__header" scope="col">National Insurance number</th>
+                        <th class="govuk-table__header" scope="col">Name</th>
+                        <th class="govuk-table__header" scope="col">Date of birth</th>
                         <th class="govuk-table__header" scope="col">Staff number ending</th>
                         <th class="govuk-table__header" scope="col">Document type</th>
                         </tr>
@@ -50,10 +26,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">BACS</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell">2</td>
@@ -65,10 +42,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">NSA36 Transfer within ES / Change in pay band</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell">3</td>
@@ -80,10 +58,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">P60</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell">4</td>
@@ -95,10 +74,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">NSA45 Extended Working Hours Allowance</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell">5</td>
@@ -110,10 +90,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">NSA59 Recruitment & Retention Allowance</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell">6</td>
@@ -125,10 +106,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">Contracts</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell">7</td>
@@ -140,10 +122,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">NSA43 Local Office Advance Recovery</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell">8</td>
@@ -155,10 +138,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">BACS</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell">9</td>
@@ -170,10 +154,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">NSA36 Transfer within ES / Change in pay band</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell">10</td>
@@ -185,10 +170,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">P60</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell">11</td>
@@ -200,10 +186,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">NSA45 Extended Working Hours Allowance</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell">12</td>
@@ -215,10 +202,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">NSA59 Recruitment & Retention Allowance</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell">13</td>
@@ -230,10 +218,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">Contracts</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell">14</td>
@@ -245,10 +234,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">NSA43 Local Office Advance Recovery</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell">15</td>
@@ -260,10 +250,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">NSA36 Transfer within ES / Change in pay band</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell">16</td>
@@ -275,10 +266,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">P60</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell">17</td>
@@ -290,10 +282,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">NSA45 Extended Working Hours Allowance</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell">18</td>
@@ -305,10 +298,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">NSA59 Recruitment & Retention Allowance</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell">19</td>
@@ -320,10 +314,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">Contracts</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         <tr class="govuk-table__row">
                         <td class="govuk-table__cell">20</td>
@@ -335,10 +330,11 @@
                             </label>
                             </div>
                         </td>
-                        <td class="govuk-table__cell">September</td>
-                        <td class="govuk-table__cell">2020</td>
-                        <td class="govuk-table__cell">6789</td>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">NSA43 Local Office Advance Recovery</a></td>
+                        <td class="govuk-table__cell">QQ 123456 C</td>
+                        <td class="govuk-table__cell">Aleaxander Benedict Montgomery-Wilkins</td>
+                        <td class="govuk-table__cell">1 Jan 1995</td>
+                        <td class="govuk-table__cell">6789</td>
                         </tr>
                         
                     </tbody>
@@ -373,6 +369,3 @@
   </div><!--grid row-->
 </div><!--govuk-width-container-->   
     
-    
-    
-{% endblock %}

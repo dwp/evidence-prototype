@@ -1,0 +1,779 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    {% from "govuk/components/select/macro.njk" import govukSelect %}
+<!-- SEARCH RESULTS CARDS-->
+
+<ol class="search-results govuk-list govuk-list--number">
+    <!-- CARD 1-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-1" name="selectedDocuments" type="checkbox" value="doc-001">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-1">
+                    <span class="govuk-visually-hidden">
+                        Select result 1, BACS, September 2020
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
+            <a href="#" class="govuk-link">BACS</a>
+        </h2>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <!-- CARD 2-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-2" name="selectedDocuments" type="checkbox" value="doc-002">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-2">
+                    <span class="govuk-visually-hidden">
+                        Select result 2, NSA36 Transfer within ES / Change in pay band, September 2020
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
+            <a href="#" class="govuk-link">NSA36 Transfer within ES / Change in pay band</a>
+        </h2>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+     <!-- CARD 3-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-3" name="selectedDocuments" type="checkbox" value="doc-003">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-3">
+                    <span class="govuk-visually-hidden">
+                        Select result 3, P60, date 6 July 2026
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="/public/files/test_document.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">P605</a>
+        </h2>
+        
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <!-- CARD 4-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>      
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-4" name="selectedDocuments" type="checkbox" value="doc-004">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-4">
+                    <span class="govuk-visually-hidden">
+                        Select result 4, NSA45 Extended Working Hours Allowance<!--, date 6 July 2026-->
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="/public/files/test_document.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">NSA45 Extended Working Hours Allowance</a>
+        </h2>
+        
+         {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+     <!-- CARD 5-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>       
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-5" name="selectedDocuments" type="checkbox" value="doc-005">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-5">
+                    <span class="govuk-visually-hidden">
+                        Select result 5, NSA59 Recruitment & Retention Allowance<!--, date 6 July 2026-->
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="/public/files/test_document.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">NSA59 Recruitment & Retention Allowance</a>
+        </h2>
+        
+         {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+     <!-- CARD 6-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-6" name="selectedDocuments" type="checkbox" value="doc-006">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-6">
+                    <span class="govuk-visually-hidden">
+                        Select result 6, Formal letter<!--, date 6 July 2026-->
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="/public/files/test_document.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">Formal letter</a>
+        </h2>
+        
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <!-- CARD 7-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>      
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-7" name="selectedDocuments" type="checkbox" value="doc-007">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-7">
+                    <span class="govuk-visually-hidden">
+                        Select result 7, Contracts<!--, date 6 July 2026-->
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="/public/files/test_document.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">Contracts</a>
+        </h2>
+        
+         {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+     <!-- CARD 8-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>       
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-8" name="selectedDocuments" type="checkbox" value="doc-008">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-8">
+                    <span class="govuk-visually-hidden">
+                        Select result 8, NSA74 Excess flexi & A/L payment<!--, date 6 July 2026-->
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="/public/files/test_document.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">NSA74 Excess flexi & A/L payment</a>
+        </h2>
+        
+         {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+     <!-- CARD 9-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-9" name="selectedDocuments" type="checkbox" value="doc-009">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-9">
+                    <span class="govuk-visually-hidden">
+                        Select result 9, P60<!--, date 6 July 2026-->
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="/public/files/test_document.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">P60</a>
+        </h2>
+        
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <!-- CARD 10-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>      
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-10" name="selectedDocuments" type="checkbox" value="doc-010">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-1">
+                    <span class="govuk-visually-hidden">
+                        Select result 10, Payslips<!--, date 6 July 2026-->
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="/public/files/test_document.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">Payslips</a>
+        </h2>
+        
+         {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+     <!-- CARD 11-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>       
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-11" name="selectedDocuments" type="checkbox" value="doc-011">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-11">
+                    <span class="govuk-visually-hidden">
+                        Select result 11, NSA43 Local Office Advance Recovery<!--, date 6 July 2026-->
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="/public/files/test_document.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">NSA43 Local Office Advance Recovery</a>
+        </h2>
+        
+         {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+     <!-- CARD 12-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-12" name="selectedDocuments" type="checkbox" value="doc-012">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-12">
+                    <span class="govuk-visually-hidden">
+                        Select result 12, Annual leave<!--, date 6 July 2026-->
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="/public/files/test_document.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">Annual leave</a>
+        </h2>
+        
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <!-- CARD 13-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>      
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-13" name="selectedDocuments" type="checkbox" value="doc-013">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-13">
+                    <span class="govuk-visually-hidden">
+                        Select result 13, BACS<!--, date 6 July 2026-->
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="/public/files/test_document.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">BACS</a>
+        </h2>
+        
+         {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+     <!-- CARD 14-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>       
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-14" name="selectedDocuments" type="checkbox" value="doc-014">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-14">
+                    <span class="govuk-visually-hidden">
+                        Select result 14, Payslips<!--, date 6 July 2026-->
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="/public/files/test_document.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">Payslips</a>
+        </h2>
+        
+         {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+     <!-- CARD 15-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-15" name="selectedDocuments" type="checkbox" value="doc-015">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-15">
+                    <span class="govuk-visually-hidden">
+                        Select result 3, NSA45 Extended Working Hours Allowance<!--, date 6 July 2026-->
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="/public/files/test_document.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">NSA45 Extended Working Hours Allowance</a>
+        </h2>
+        
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <!-- CARD 16-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>      
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-16" name="selectedDocuments" type="checkbox" value="doc-016">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-16">
+                    <span class="govuk-visually-hidden">
+                        Select result 16, Annual leave<!--, date 6 July 2026-->
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="/public/files/test_document.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">Annual leave</a>
+        </h2>
+        
+         {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+     <!-- CARD 17-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>       
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-17" name="selectedDocuments" type="checkbox" value="doc-017">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-17">
+                    <span class="govuk-visually-hidden">
+                        Select result 17, Formal letter<!--, date 6 July 2026-->
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="/public/files/test_document.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">Formal letter</a>
+        </h2>
+        
+         {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+     <!-- CARD 18-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-18" name="selectedDocuments" type="checkbox" value="doc-018">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-18">
+                    <span class="govuk-visually-hidden">
+                        Select result 18, P45<!--, date 6 July 2026-->
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="/public/files/test_document.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">P45</a>
+        </h2>
+        
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <!-- CARD 19-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>      
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-19" name="selectedDocuments" type="checkbox" value="doc-019">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-19">
+                    <span class="govuk-visually-hidden">
+                        Select result 19, Payslips <!--, date 6 July 2026-->
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="/public/files/test_document.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">Payslips</a>
+        </h2>
+        
+         {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+     <!-- CARD 20-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>       
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-20" name="selectedDocuments" type="checkbox" value="doc-020">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-20">
+                    <span class="govuk-visually-hidden">
+                        Select result 20, NSA34<!--, date 6 July 2026-->
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card-borderless">
+        <p class="govuk-body govuk-!-margin-bottom-1">September 2020</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="/public/files/test_document.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">NSA34</a>
+        </h2>
+        
+         {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-summary-list--no-border govuk-!-margin-bottom-2",
+        rows: [
+            {
+            key: {
+                text: "Staff number ending"
+            },
+            value: {
+                text: "6789"
+            }
+            }
+        ]
+        }) }}
+        </div>
+    </li>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+     <!-- CARD 3-->   
+</ol>
+
+<!-- PAGINATION-->
+
+       {{ govukPagination({
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 2,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}
+
+
