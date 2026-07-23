@@ -85,9 +85,9 @@
             <td class="govuk-table__cell">Alexander Benedict Montgomery-Wilkins</td>
             <td class="govuk-table__cell">PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022</td>
             {% if data['doc-status'] in ['closed', 'on-hold'] %}
-            <td class="govuk-table__cell">Closed</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">Closed</strong></td>
             {% else %}
-            <td class="govuk-table__cell">Open</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Open</strong></td>
             {% endif %}
           </tr>
         </tbody>
@@ -145,15 +145,33 @@
 
         -->
       <div class="govuk-!-padding-bottom-4">
-        <h2 class="govuk-heading-m">
-            Link data
-          </h2>
           {% if data['rescan-link-data'] == 'none' %}
-          <p class="govuk-body">Not available</p>
+          {{ govukTextarea({
+              name: "metadata-link-data",
+              id: "metadata-link-data",
+              label: {
+                text: "Link data",
+                classes: "govuk-label--m",
+                isPageHeading: false
+              },hint: {
+                html: 'Link Data is a long reference used to match the rescanned document to the original document. <br> If it is missing or incorrect, you can get the correct number from CamLite'
+                },
+                          value: ""
+            }) }}
           {% else %} 
-          <p class="govuk-body">
-          <span class="govuk-!-text-break-word">2FycmllckxpbmtEYXRhX1YxOjphYmNkZWYxMjM0NTY3ODkwX1hZWjphcGlLZXk9NzQ4NTkzNzQ4NTkzJmNsaWVudElkPWQ4ZjM2YjA3LTViYTItNDhkNS04YzFlLWVkYmQ4OWY4MzQ2MSZzZXNzaW9uPWE4NzQxZmY2ZjEzMjQ1Nzk4YWJjZGVmMTIzNDU2Nzg5MCZ0aW1lc3RhbXA9MTc3MzQ5ODAzNDUyMSZzaWduYXR1cmU9N0Y4QzRBNjVCM0QxRTlGMjY4QTQ0N0Y1QjQzRUEzRDhGQjExNEY2N0U4MjAyQ0Y3QjQ5NUI0Q0QyQjY2RkM4QQ== </p>
-          </span>
+          {{ govukTextarea({
+                  name: "metadata-link-data",
+                  id: "metadata-link-data",
+                  label: {
+                    text: "Link data",
+                    classes: "govuk-label--m",
+                    isPageHeading: false
+                  },
+                  hint: {
+                  html: 'Link Data is a long reference used to match the rescanned document to the original document. <br> If it is missing or incorrect, you can get the correct number from CamLite'
+                },
+                  value: "2FycmllckxpbmtEYXRhX1YxOjphYmNkZWYxMjM0NTY3ODkwX1hZWjphcGlLZXk9NzQ4NTkzNzQ4NTkzJmNsaWVudElkPWQ4ZjM2YjA3LTViYTItNDhkNS04YzFlLWVkYmQ4OWY4MzQ2MSZzZXNzaW9uPWE4NzQxZmY2ZjEzMjQ1Nzk4YWJjZGVmMTIzNDU2Nzg5MCZ0aW1lc3RhbXA9MTc3MzQ5ODAzNDUyMSZzaWduYXR1cmU9N0Y4QzRBNjVCM0QxRTlGMjY4QTQ0N0Y1QjQzRUEzRDhGQjExNEY2N0U4MjAyQ0Y3QjQ5NUI0Q0QyQjY2RkM4QQ== "
+                }) }}
           {% endif %}
       </div>
 
