@@ -76,7 +76,7 @@
       <td class="govuk-table__cell">AA123</td>
       <td class="govuk-table__cell">Jane Doe</td>
       <td class="govuk-table__cell">BD8</td>
-            {% if data['doc-status'] in ['open', 'on-hold'] %}
+      {% if data['doc-status'] in ['open', 'on-hold'] %}
       <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Open</strong></td>
       {% else %}
        <td class="govuk-table__cell"><strong class="govuk-tag">Closed</strong></td>
