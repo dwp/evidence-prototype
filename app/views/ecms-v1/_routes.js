@@ -66,6 +66,39 @@ router.get('/upload-end', function (req, res) {
   res.redirect('/ecms-v1/records');
 });
 
+// Clear the "Advanced search" fields when clicking clear search link
+router.get('/clear-advanced-search', function (req, res) {
+  let data = req.session.data;
+
+  delete data['nino'];
+  delete data['FirstName'];
+  delete data['lastName'];
+  delete data['dob'];
+  delete data['customerReference'];
+  delete data['claimReference'];
+  delete data['documentType'];
+  delete data['scanEnvelopeID'];
+  delete data['scanBatchID'];
+  delete data['lobCaseID'];
+  delete data['from'];
+  delete data['To'];
+  
+  res.redirect('/ecms-v1/advanced-search');
+});
+
+// Clear the "Report search" fields when clicking clear search link
+router.get('/clear-report-search', function (req, res) {
+  let data = req.session.data;
+
+
+  delete data['officeID'];
+  delete data['documentType'];
+  delete data['from'];
+  delete data['To'];
+  
+  res.redirect('/ecms-v1/report-search/reports');
+});
+
 
 
 // default settings for metadata business unit and benefit type

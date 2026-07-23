@@ -71,7 +71,8 @@
       id: "office-ID",
       name: "officeID",
       autocomplete: "office",
-      spellcheck: false
+      spellcheck: false,
+      value: data['officeID']
     }) }}
 
      <div class="govuk-form-group">
@@ -135,10 +136,14 @@
       </div>
     </div>
 
-    {{ govukButton({
-      text: "Search",
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Search",
         href: "search-results-reports"
-    }) }}
+      }) }}
+      <a class="govuk-link govuk-link--no-visited-state" href="/clear-report-search">Clear search</a>
+    </div>
+
     
   </div>
 </div>
