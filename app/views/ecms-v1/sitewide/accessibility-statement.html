@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Accessibility statement for Enterprise Content Management Service (ECMS) –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+
+<div class="govuk-!-padding-bottom-4"></div>
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %} 
+
+{% block content %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Accessibility statement for Enterprise Content Management Service (ECMS)</h1>
+      <p class="govuk-body">This accessibility statement applies to the Enterprise Content Management Service (ECMS).</p>
+      <h2 class="govuk-heading-m">How you should be able to use the service</h2>
+      <p class="govuk-body">[placeholder]</p>
+
+      <h2 class="govuk-heading-m">How accessible this service is</h2>
+      <p class="govuk-body">[placeholder]</p>
+
+      <h2 class="govuk-heading-m">Reporting accessibility problems with this service</h2>
+      <p class="govuk-body">[placeholder]
+
+      </p>
+      <h2 class="govuk-heading-m">Enforcement procedure</h2>
+      <p class="govuk-body">[placeholder]</p>
+
+      <h2 class="govuk-heading-m">Technical information about this service’s accessibility</h2>
+      <p class="govuk-body">[placeholder]</p>
+
+      <h2 class="govuk-heading-m">How we tested this service</h2>
+      <p class="govuk-body">[placeholder]</p>
+
+      <h2 class="govuk-heading-m">Compliance status</h2>
+      <p class="govuk-body">[placeholder]</p>
+
+      <h2 class="govuk-heading-m">Preparation of this accessibility statement</h2>
+      <p class="govuk-body">[placeholder]</p>
+    </div>
+    
+  </div>
+</div>
+
+{% endblock %}

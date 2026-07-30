@@ -1,0 +1,285 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Iterations: Document search – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-m">Designs for developers</span>
+        Iterations: Service wide screens
+      </h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-!-padding-bottom-4"></div>
+  
+  <!-- LATEST ITERATION -->
+  <h2 class="govuk-heading-m">
+    Latest iteration
+    </h2>
+
+ <div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
+  <div class="govuk-!-padding-bottom-2"></div>
+
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Version</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Accessibility statement</th>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">V1.0</p>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">Access via link in footer</p>
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Changes
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <ul class="govuk-list govuk-list--bullet">
+              <li><strong>30 Jul 2026:</strong> Published</li>
+            </ul>
+          </div>
+        </details>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">30 July 2026</p>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--purple">
+          In progress
+        </strong>
+      </td>
+      <td class="govuk-table__cell"><a href="/ecms-v1/sitewide/accessibility-statement" class="govuk-link">View</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Privacy notice</th>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">V1.0</p>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">Access via link in footer. Links out to the intranet.</p>
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Changes
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <ul class="govuk-list govuk-list--bullet">
+              <li><strong>30 Jul 2026:</strong> Published</li>
+            </ul>
+          </div>
+        </details>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">30 July 2026</p>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--blue">
+          In review
+        </strong>
+      </td>
+      <td class="govuk-table__cell"><a class="govuk-footer__link" rel="noreferrer noopener" target="_blank" href="https://intranet.dwp.gov.uk/page/dwp-employee-privacy-notice">View</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Session time-out</th>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">V1.0</p>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">Modal and sign-out screen due to inactivity</p>
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Changes
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <ul class="govuk-list govuk-list--bullet">
+              <li><strong>30 Jul 2026:</strong> Published</li>
+            </ul>
+          </div>
+        </details>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">30 July 2026</p>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--purple">
+          In progress
+        </strong>
+      </td>
+      <td class="govuk-table__cell"><a href="" class="govuk-link">View</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">404 page</th>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">V1.0</p>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">Error: Page not found</p>
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Changes
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <ul class="govuk-list govuk-list--bullet">
+              <li><strong>30 Jul 2026:</strong> Published</li>
+            </ul>
+          </div>
+        </details>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">30 July 2026</p>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--purple">
+          In progress
+        </strong>
+      </td>
+      <td class="govuk-table__cell"><a href="" class="govuk-link">View</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">500 internal server error page</th>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">V1.0</p>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">Error: There is a problem with the service</p>
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Changes
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <ul class="govuk-list govuk-list--bullet">
+              <li><strong>30 Jul 2026:</strong> Published</li>
+            </ul>
+          </div>
+        </details>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">30 July 2026</p>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--purple">
+          In progress
+        </strong>
+      </td>
+      <td class="govuk-table__cell"><a href="" class="govuk-link">View</a></td>
+    </tr>
+     <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">503 shutter page</th>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">V1.0</p>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">Error: Service unavailable</p>
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Changes
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <ul class="govuk-list govuk-list--bullet">
+              <li><strong>30 Jul 2026:</strong> Published</li>
+            </ul>
+          </div>
+        </details>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">30 July 2026</p>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--purple">
+          In progress
+        </strong>
+      </td>
+      <td class="govuk-table__cell"><a href="" class="govuk-link">View</a></td>
+    </tr>
+  </tbody>
+  
+</table>
+
+
+</div>
+  <!-- PREVIOUS ITERATIONS 
+ <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">
+      Previous Iterations    
+    </h2>
+
+
+    <table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Version</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+    </tr>
+  </thead>
+  
+<tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Radio <br> (Basic search)</th>
+            <td class="govuk-table__cell">
+        <p class="govuk-body">V1.0</p>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">Homepage with 'what do you want to do today' radio selections</p>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">30 March 2026</p>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--red">
+          Rejected
+    </strong>
+    </td>
+    <td class="govuk-table__cell"><a href="/ecms-v1/radios.html" class="govuk-link">View</a></td>
+    </tr>
+  </tbody>
+  
+</table>
+-->
+ </div>
+
+ 
+
+
+
+{% endblock %}
