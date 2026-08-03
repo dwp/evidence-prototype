@@ -9,6 +9,10 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
 
+{% block headIcons %}
+  <link rel="shortcut icon" href="{{ asset_path }}/images/favicon.ico" type="image/x-icon">
+{% endblock %}
+
 {% block header %}
 {{
     dwpHeader({
@@ -26,7 +30,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
             visuallyHiddenTitle: "About this website",
             items: [
             {
-                href: "ecms-v1/sitewide/accessibility-statement",
+                href: "/ecms-v1/sitewide/accessibility-statement",
                 text: "Accessibility statement"
             },
             {
@@ -39,7 +43,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
             },
             {
                 href: "/manage-prototype/clear-data",
-                text: "Clear data"
+                text: "Clear prototype data"
               }
             ]
         }
