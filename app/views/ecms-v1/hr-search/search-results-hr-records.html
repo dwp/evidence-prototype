@@ -237,13 +237,13 @@
         <div class="moj-filter-layout__content ">
             <div class="govuk-button-group govuk-!-margin-bottom-4"></div>
 
-            {% if data['output'] == 'cards' %}
-                <!-- CARDS -->
-            {% include "ecms-v1/includes/cards-20results-hr-records.html" %}
-                {% else %}
-                <!-- TABLE-->
+            {% if data['output'] == 'table' %}
+            <!-- TABLE-->
             {% include "ecms-v1/includes/table-20results-overflow-hr-records.html" %}
-                {% endif %}  
+            {% else %}
+            <!-- CARDS -->
+            {% include "ecms-v1/includes/cards-20results-hr-records.html" %}
+            {% endif %}  
         </div><!--moj-filter-layout__content-->
             </div><!--moj-filter-layout-->
     </div><!--govuk-grid-column-full-width-->

@@ -60,100 +60,41 @@
                   <li>Year and HR reference</li>
                   <li>Year, staff number ending and HR reference</li>
                   <li>Year, staff number ending</li>
-                  <li>Year, month and staff number ending</li>
-                  <li>Year, month, staff number ending and HR reference</li>
+                  <li>Month, year and staff number ending</li>
+                  <li>Month, year, staff number ending and HR reference</li>
                 </ul>'
         }) }}
 
-    {{ govukSelect({
-      id: "year",
-      name: "year",
-      label: {
-        text: "Year",
-        classes: "govuk-label--m"
-      },
-      items: [
-        {
-          value: "2023",
-          text: "2023"
-        },
-        {
-          value: "2024",
-          text: "2024",
-          selected: true
-        },
-        {
-          value: "2025",
-          text: "2025"
-        },
-        {
-          value: "2026",
-          text: "2026"
-        }
-      ]
-    }) }}
-
-    {{ govukRadios({
-        classes: "govuk-radios--small",
-        name: "Month",
-        fieldset: {
-          legend: {
-            text: "Month",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--m"
-          }
-        },
-        items: [
-          {
-            value: "jan",
-            text: "January"
-          },
-          {
-            value: "feb",
-            text: "February"
-          },
-          {
-            value: "mar",
-            text: "March"
-          },
-          {
-            value: "apr",
-            text: "April"
-          },
-          {
-            value: "may",
-            text: "May"
-          },
-          {
-            value: "jun",
-            text: "June"
-          },
-          {
-            value: "jul",
-            text: "July"
-          },
-          {
-            value: "aug",
-            text: "August"
-          },
-          {
-            value: "sep",
-            text: "September"
-          },
-          {
-            value: "oct",
-            text: "October"
-          },
-          {
-            value: "nov",
-            text: "November"
-          },
-          {
-            value: "dec",
-            text: "December"
-          }
-        ]
-      }) }}
+   
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="microfiche-date-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            Date
+          </legend>
+          <div id="microfiche-date-hint" class="govuk-hint">
+            For example, 3 2007
+          </div>
+          <div class="govuk-date-input" id="microfiche-date">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="microfiche-date-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="microfiche-date-month" name="microfiche-date-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="microfiche-date-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="microfiche-date-year" name="microfiche-date-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+   
 
 
       {{ govukInput({
@@ -176,10 +117,7 @@
           text: "HR reference",
           classes: "govuk-label--m"
         },
-        classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
-        hint: {
-        text: "Is XX characters long. For example, XXXX"
-        },
+        classes: "govuk-!-width-full govuk-input--extra-letter-spacing",
         id: "hr-reference",
         name: "HRreference",
         inputmode: "numeric",

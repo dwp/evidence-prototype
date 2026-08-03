@@ -55,9 +55,10 @@
         summaryText: "Accepted search combinations",
         html: '<p class="govuk-body">You can search by:</p>
               <ul class="govuk-list govuk-list--bullet">
-                <li>?</li>
-                <li>?</li>
-                <li>?</li>
+                <li>National Insurance number</li>
+                <li>First name and last name</li>
+                <li>First name, last name and date of birth</li>
+                <li>Staff number</li>
               </ul>'
       }) }}
 
@@ -70,9 +71,8 @@
       hint: {
         text: "For example, ‘QQ123456C’"
       },
-      id: "office-ID",
-      name: "officeID",
-      autocomplete: "office",
+      id: "national-insurance-number",
+      name: "nationalInsuranceNumber",
       spellcheck: false
     }) }}
 
@@ -120,10 +120,9 @@
           text: "Staff number",
           classes: "govuk-label--m"
         },
-        classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
-        id: "sort-code",
-        name: "sortCode",
-        inputmode: "numeric",
+        classes: "govuk-input--width-20",
+        id: "staff-number",
+        name: "staffNumber",
         spellcheck: false
       }) }}
 
