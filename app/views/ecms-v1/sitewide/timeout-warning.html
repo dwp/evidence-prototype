@@ -1,0 +1,388 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Advanced search –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+<nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+  <ul class="dwp-horizontal-navigation__list">
+
+
+    <li class="dwp-horizontal-navigation__item  dwp-horizontal-navigation__item--selected">
+      <a id="records" href="records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
+    </li>
+
+    <li class="dwp-horizontal-navigation__item">
+      <a id="reports" href="report-search/reports" class="dwp-horizontal-navigation__link">Report search</a>
+    </li>
+
+    <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="../hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+        -->
+
+    <li class="dwp-horizontal-navigation__item">
+      <a id="documentUpload" href="upload/upload-customer-details" class="dwp-horizontal-navigation__link">Document
+        upload</a>
+    </li>
+
+  </ul>
+</nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %} 
+{% block content %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+ {%- from  "hmrc/components/timeout-dialog/macro.njk" import hmrcTimeoutDialog -%}
+
+      {{ 
+        hmrcTimeoutDialog ({
+          timeout: 70,
+          countdown: 68,
+          title: "You will be signed out soon",
+          message: "You will be signed out if you do not continue in the next",
+          messageSuffix: "This is to protect customer information.",
+          keepAliveUrl: "/patterns/manage-a-session-timeout/examples/signedin",
+          signOutUrl: "/patterns/manage-a-session-timeout/examples/timedout-signedin",
+          timeoutUrl: "/patterns/manage-a-session-timeout/examples/timedout-signedin",
+          language: "en",
+          keepAliveButtonText: "Continue",
+          hideSignOutButton: true
+        }) 
+      }}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+      <h1 class="govuk-heading-l">Advanced search</h1>
+
+
+
+      {{ govukDetails({
+      summaryText: "Accepted search combinations",
+      html: '<p class="govuk-body">You can search by:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>National Insurance number</li>
+        <li>National Insurance number and line of business (LOB) case ID</li>
+        <li>National Insurance number and date range</li>
+        <li>First name and last name</li>
+        <li>First name, last name and date of birth</li>
+        <li>First name, last name and document type</li>
+        <li>First name, last name and date range</li>
+        <li>First name, last name, document type and date range</li>
+        <li>Last name and date of birth</li>
+        <li>Last name and document type</li>
+        <li>Last name and scan batch ID</li>
+        <li>Last name, document type and date range</li>
+        <li>Last name, scan batch ID and date range</li>
+        <li>Customer reference number (CRN)</li>
+        <li>Claim reference</li>
+        <li>Claim reference and date range</li>
+        <li>Scan envelope ID</li>
+        <li>Scan batch ID</li>
+        <li>Scan batch ID and date range</li>
+        <li>Line of business (LOB) case ID</li>
+        <li>Line of business (LOB) case ID and date range</li>
+        <li>Line of business (LOB) case ID and claim reference</li>
+      </ul>'
+      }) }}
+
+
+      {{ govukInput({
+      label: {
+      text: "National Insurance number",
+      classes: "govuk-label--m"
+      },
+
+      hint: {
+      text: "For example, ‘QQ123456C’"
+      },
+      classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
+      id: "nino",
+      name: "nino",
+      spellcheck: false
+      }) }}
+
+      {{ govukInput({
+      label: {
+      text: "First name",
+      classes: "govuk-label--m"
+      },
+      classes: "govuk-input govuk-!-width-two-thirds govuk-input--extra-letter-spacing",
+      id: "first-name",
+      name: "FirstName",
+      inputmode: "alpha",
+      spellcheck: false
+      }) }}
+
+      {{ govukInput({
+      label: {
+      text: "Last name",
+      classes: "govuk-label--m"
+      },
+      classes: "govuk-input govuk-!-width-two-thirds govuk-input--extra-letter-spacing",
+      id: "last-name",
+      name: "lastName",
+      inputmode: "alpha",
+      spellcheck: false
+      }) }}
+
+      {{ govukDateInput({
+      id: "dob",
+      namePrefix: "dob",
+      fieldset: {
+      legend: {
+      text: "Date of birth",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+      }
+      },
+      hint: {
+      text: "For example, 27 3 2007"
+      },
+
+      items: [
+      {
+      name: "day",
+      classes: "govuk-input--width-2",
+      autocomplete: "bday-day"
+      },
+      {
+      name: "month",
+      classes: "govuk-input--width-2",
+      autocomplete: "bday-month"
+      },
+      {
+      name: "year",
+      classes: "govuk-input--width-4",
+      autocomplete: "bday-year"
+      }
+      ]
+      }) }}
+
+      {{ govukInput({
+      label: {
+      text: "Customer reference number (CRN)",
+      classes: "govuk-label--m"
+      },
+      classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
+      id: "customer-reference",
+      name: "customerReference",
+      spellcheck: false
+      }) }}
+
+      {{ govukInput({
+      label: {
+      text: "Claim reference",
+      classes: "govuk-label--m"
+      },
+      classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
+      id: "claim-reference",
+      name: "claimReference",
+      spellcheck: false
+      }) }}
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="document-type">
+          Document type
+        </label>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <div class="typeahead">
+              <input id="document-type" name="documentType" class="govuk-input" type="text" autocomplete="off" />
+              <ul id="document-type-listbox" class="typeahead-menu" hidden></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{ govukInput({
+      label: {
+      text: "Scan envelope ID",
+      classes: "govuk-label--m"
+      },
+      classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
+      id: "scan-envelope-id",
+      name: "scanEnvelopeID",
+      spellcheck: false
+      }) }}
+
+      {{ govukInput({
+      label: {
+      text: "Scan batch ID",
+      classes: "govuk-label--m"
+      },
+      classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
+      id: "scan-batch-id",
+      name: "scanBatchID",
+      spellcheck: false
+      }) }}
+
+      {{ govukInput({
+      label: {
+      text: "Line of business (LOB) case ID",
+      classes: "govuk-label--m"
+      },
+      classes: "govuk-input--width-20 govuk-input--extra-letter-spacing",
+      id: "lob-case-id",
+      name: "lobCaseID",
+      spellcheck: false
+      }) }}
+
+
+      <div class="govuk-width-container">
+
+        <div class="govuk-grid-row">
+          <label class="govuk-label govuk-label--m govuk-!-padding-left-3" for="sort-code">
+            Date range
+          </label>
+          <div class="govuk-grid-column-one-half">
+
+            {{ govukDateInput({
+            id: "from",
+            namePrefix: "from",
+            fieldset: {
+            legend: {
+            text: "From:"
+            }
+            },
+            hint: {
+            text: "For example, 27 3 2007"
+            }
+            }) }}
+
+          </div>
+          <div class="govuk-grid-column-one-half">
+
+            {{ govukDateInput({
+            id: "To",
+            namePrefix: "To",
+            fieldset: {
+            legend: {
+            text: "To:"
+            }
+            },
+            hint: {
+            text: "For example, 27 3 2007"
+            }
+            }) }}
+          </div>
+        </div>
+      </div>
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+        text: "Search",
+        href: "search-results-v4"
+        }) }}
+        <a class="govuk-link govuk-link--no-visited-state" href="/clear-advanced-search">Clear search</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const documentTypes = [
+      "Test Document 1",
+      "Test Document 2",
+      "Test Document 3",
+      "Decision letter",
+      "Supporting document",
+      "ANSoD",
+      "BD8",
+      "BF600",
+      "CA4140",
+      "CIS500",
+      "Email body",
+      "ESA50a",
+      "MatB1",
+      "VO cover letter",
+      "Whitemail unstructured",
+    ];
+
+    const input = document.getElementById("document-type");
+    const listbox = document.getElementById("document-type-listbox");
+    let activeIndex = -1;
+
+    function closeMenu() {
+      listbox.hidden = true;
+      activeIndex = -1;
+    }
+
+    function openMenu() {
+      listbox.hidden = false;
+    }
+
+    function renderOptions(options) {
+      listbox.innerHTML = "";
+      activeIndex = -1;
+
+      options.forEach((text) => {
+        const li = document.createElement("li");
+        li.textContent = text;
+
+        li.addEventListener("mousedown", () => {
+          input.value = text;
+          closeMenu();
+        });
+
+        listbox.appendChild(li);
+      });
+
+      options.length ? openMenu() : closeMenu();
+    }
+
+    input.addEventListener("input", () => {
+      const query = input.value.toLowerCase();
+      if (!query) return closeMenu();
+
+      renderOptions(
+        documentTypes.filter((d) => d.toLowerCase().includes(query)),
+      );
+    });
+
+    input.addEventListener("keydown", (e) => {
+      const options = listbox.querySelectorAll("li");
+      if (!options.length) return;
+
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        activeIndex = (activeIndex + 1) % options.length;
+      }
+
+      if (e.key === "ArrowUp") {
+        e.preventDefault();
+        activeIndex = (activeIndex - 1 + options.length) % options.length;
+      }
+
+      if (e.key === "Enter" && activeIndex >= 0) {
+        e.preventDefault();
+        input.value = options[activeIndex].textContent;
+        closeMenu();
+      }
+
+      if (e.key === "Escape") closeMenu();
+
+      options.forEach((el, i) =>
+        el.classList.toggle("active", i === activeIndex),
+      );
+    });
+  })();
+</script>
+
+{% endblock %}

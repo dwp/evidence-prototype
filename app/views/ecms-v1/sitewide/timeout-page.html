@@ -1,0 +1,25 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} You have been signed out –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+
+{% endblock %}
+
+{% block content %}
+<h1 id="dialog-title" class="govuk-heading-l">
+  You have been signed out
+</h1>
+<div class="govuk-body">
+  <p>You have been signed out and any information you have not saved has been deleted because you did not do anything
+    for 20 minutes.</p>
+  <p>This is to protect customer information.</p>
+</div>
+{{ govukButton({
+      text: "Sign back in",
+      classes: "govuk-button dialog-button js-dialog-close",
+      href: "../records"
+    }) }}
+{% endblock %}
