@@ -1,308 +1,319 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Iterations: Manage metadata and bulk update – {{ serviceName }} – GOV.UK Prototype Kit
+Iterations: Manage metadata and bulk update – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        <span class="govuk-caption-m">Designs for developers</span>
-        Iterations: Manage metadata and bulk update
-      </h1>
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-m">Designs for developers</span>
+      Iterations: Manage metadata and bulk update
+    </h1>
 
-    </div>
   </div>
+</div>
 
-  <div class="govuk-!-padding-bottom-4"></div>
-  
-  <!-- LATEST ITERATION METADATA-->
-  <h2 class="govuk-heading-m">
-    Latest iteration: Manage metadata
-    </h2>
+<div class="govuk-!-padding-bottom-4"></div>
 
- <div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
+<!-- LATEST ITERATION METADATA-->
+<h2 class="govuk-heading-m">
+  Latest iteration: Manage metadata
+</h2>
+
+<div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
   <div class="govuk-!-padding-bottom-2"></div>
 
 
-<table class="govuk-table">
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Version</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Description</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Status</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Action</th>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Metadata overview 1</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-      <p class="govuk-body">Metadata landing page: Open, no edits</p>
-        <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-  <li><strong>22 May 2026:</strong> published</li>
-</ul>
-  </div>
-</details>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">22 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/metadata/metadata?edit-metadata=false&metadata-doc-status" class="govuk-link">View</a></td>
-    </tr>
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Metadata overview 2</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-      <p class="govuk-body">Metadata landing page: On hold, no edits</p>
-        <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-  <li><strong>28 May 2026:</strong> published</li>
-</ul>
-  </div>
-</details>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">28 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/metadata/metadata?edit-metadata=false&metadata-doc-status=On hold" class="govuk-link">View</a></td>
-    </tr>
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Version</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Metadata overview 1</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Metadata landing page: Open, no edits</p>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>22 May 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">22 May 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/metadata/metadata?edit-metadata=false&metadata-doc-status"
+            class="govuk-link">View</a></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Metadata overview 2</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Metadata landing page: On hold, no edits</p>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>28 May 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">28 May 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a
+            href="/ecms-v1/metadata/metadata?edit-metadata=false&metadata-doc-status=On hold"
+            class="govuk-link">View</a></td>
+      </tr>
 
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Metadata review page</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-      <p class="govuk-body">Edits made for metadata</p>
-        <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-  <li><strong>28 May 2026:</strong> published</li>
-</ul>
-  </div>
-</details>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">28 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/metadata/metadata?edit-metadata=true&metadata-doc-status" class="govuk-link">View</a></td>
-    </tr>
-    
-    
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Metadata review page</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Edits made for metadata</p>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>28 May 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">28 May 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/metadata/metadata?edit-metadata=true&metadata-doc-status"
+            class="govuk-link">View</a></td>
+      </tr>
+
+
       <!-- Metadata customer details -->
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Metadata: Customer details</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-      <p class="govuk-body">Journey for editing metadata for customer details</p>
-        <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-  <li><strong>22 May 2026:</strong> published</li>
-</ul>
-  </div>
-</details>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">22 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/metadata/metadata-customer-details.html" class="govuk-link">View</a></td>
-    </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Metadata: Customer details</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Journey for editing metadata for customer details</p>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>22 May 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">22 May 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/metadata/metadata-customer-details.html"
+            class="govuk-link">View</a></td>
+      </tr>
 
-     <!-- Metadata document details -->
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Metadata: Document details</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-      <p class="govuk-body">Journey for editing metadata for document details</p>
-        <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-      <li><strong>28 May 2026:</strong> Business unit field removed, autocomplete list added for benefit type, untraceble radio option added, content changes for hint text on classification and harmful indicator</li>
-  <li><strong>22 May 2026:</strong> published</li>
-</ul>
-  </div>
-</details>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">28 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/metadata/metadata-document-details.html" class="govuk-link">View</a></td>
-    </tr>
+      <!-- Metadata document details -->
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Metadata: Document details</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Journey for editing metadata for document details</p>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>28 May 2026:</strong> Business unit field removed, autocomplete list added for benefit type,
+                  untraceble radio option added, content changes for hint text on classification and harmful indicator
+                </li>
+                <li><strong>22 May 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">28 May 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/metadata/metadata-document-details.html"
+            class="govuk-link">View</a></td>
+      </tr>
 
-         <!-- Metadata hold details -->
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Metadata: Hold details</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-      <p class="govuk-body">Journey for editing metadata for hold details</p>
-        <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-      <li><strong>28 May 2026:</strong>Content change for automatic closure hint</li>
-  <li><strong>22 May 2026:</strong> published</li>
-</ul>
-  </div>
-</details>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">28 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/metadata/metadata-hold-details.html" class="govuk-link">View</a></td>
-    </tr>
+      <!-- Metadata hold details -->
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Metadata: Hold details</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Journey for editing metadata for hold details</p>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>28 May 2026:</strong>Content change for automatic closure hint</li>
+                <li><strong>22 May 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">28 May 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/metadata/metadata-hold-details.html" class="govuk-link">View</a>
+        </td>
+      </tr>
 
-         <!-- Metadata reference document details -->
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Metadata: Reference document details</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-      <p class="govuk-body">Journey for editing metadata for reference document details</p>
-        <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-      <li><strong>28 May 2026:</strong> Hint text added for office postcode</li>
-  <li><strong>22 May 2026:</strong> published</li>
-</ul>
-  </div>
-</details>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">28 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/metadata/metadata-ref-document-details.html" class="govuk-link">View</a></td>
-    </tr>
-     <!-- Metadata confirmation -->
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Metadata: Confirmation</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-      <p class="govuk-body">Confirmation screen for manage metadata update</p>
-        <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-  <li><strong>4 June 2026:</strong> published</li>
-</ul>
-  </div>
-</details>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">4 June 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/metadata/metadata-confirmation.html" class="govuk-link">View</a></td>
-    </tr>
-  </tbody>
-</table>
+      <!-- Metadata reference document details -->
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Metadata: Reference document details</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Journey for editing metadata for reference document details</p>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>28 May 2026:</strong> Hint text added for office postcode</li>
+                <li><strong>22 May 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">28 May 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/metadata/metadata-ref-document-details.html"
+            class="govuk-link">View</a></td>
+      </tr>
+      <!-- Metadata confirmation -->
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Metadata: Confirmation</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Confirmation screen for manage metadata update</p>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>4 June 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">4 June 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/metadata/metadata-confirmation.html" class="govuk-link">View</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
 
 </div>
@@ -311,13 +322,142 @@
 <div class="govuk-!-padding-bottom-4"></div>
 
 
- <!-- LATEST ITERATION BULK UPDATE-->
-  <h2 class="govuk-heading-m">
-    Latest iteration: Bulk update
-    </h2>
+<!-- LATEST ITERATION BULK UPDATE-->
+<h2 class="govuk-heading-m">
+  Latest iteration: Bulk update
+</h2>
 
- <div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
+<div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
   <div class="govuk-!-padding-bottom-2"></div>
+
+
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Version</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Bulk update overview</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Bulk update landing page</p>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>4 Aug 2026:</strong> MOJ scrollable pane and govuk-table--small-text-until-tablet added to table</li>
+                <li><strong>28 May 2026:</strong> Content change for hint text on classification</li>
+                <li><strong>27 May 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">4 Aug 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a
+            href="/ecms-v1/metadata/bulk-metadata?bulk-nino&bulk-last-name&bulk-classification"
+            class="govuk-link">View</a></td>
+      </tr>
+
+      <!-- Bulk update check answers -->
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Bulk update: Review</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Review page for bulk update. Example with 3 changes.</p>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>27 May 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">27 May 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a
+            href="/ecms-v1/metadata/bulk-metadata-check-details?bulk-nino=RN000001A&bulk-last-name=Smith&bulk-classification=Supporting"
+            class="govuk-link">View</a></td>
+      </tr>
+
+      <!-- Bulk update confirmation -->
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Bulk update: Confirmation</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Confirmation screen for bulk update</p>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>4 June 2026:</strong> content change</li>
+                <li><strong>27 May 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">4 June 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/metadata/bulk-metadata-confirmation.html"
+            class="govuk-link">View</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+
+{#
+<!-- PREVIOUS ITERATIONS -->
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+<h2 class="govuk-heading-m">
+  Previous Iterations
+</h2>
 
 
 <table class="govuk-table">
@@ -331,136 +471,12 @@
       <th scope="col" class="govuk-table__header app-custom-class">Action</th>
     </tr>
   </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Bulk update overview</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-      <p class="govuk-body">Bulk update landing page</p>
-        <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-
-      <li><strong>28 May 2026:</strong> Content change for hint text on classification</li>
-  <li><strong>27 May 2026:</strong> published</li>
-</ul>
-  </div>
-</details>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">28 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/metadata/bulk-metadata?bulk-nino&bulk-last-name&bulk-classification" class="govuk-link">View</a></td>
-    </tr>
-  
-         <!-- Bulk update check answers -->
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Bulk update: Review</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-      <p class="govuk-body">Review page for bulk update. Example with 3 changes.</p>
-        <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-  <li><strong>27 May 2026:</strong> published</li>
-</ul>
-  </div>
-</details>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">27 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-       <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/metadata/bulk-metadata-check-details?bulk-nino=RN000001A&bulk-last-name=Smith&bulk-classification=Supporting" class="govuk-link">View</a></td>
-    </tr>
-
-         <!-- Bulk update confirmation -->
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Bulk update: Confirmation</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-      <p class="govuk-body">Confirmation screen for bulk update</p>
-        <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-  <li><strong>4 June 2026:</strong> content change</li>
-  <li><strong>27 May 2026:</strong> published</li>
-</ul>
-  </div>
-</details>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">4 June 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/metadata/bulk-metadata-confirmation.html" class="govuk-link">View</a></td>
-    </tr>
-  </tbody>
-</table>
 
 
-</div>
-
-{#
-  <!-- PREVIOUS ITERATIONS -->
- <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-    <h2 class="govuk-heading-m">
-      Previous Iterations    
-    </h2>
-
-
-    <table class="govuk-table">
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Version</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Description</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Status</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Action</th>
-    </tr>
-  </thead>
-  
-  
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">Placeholder</th>
-            <td class="govuk-table__cell">
+      <td class="govuk-table__cell">
         <p class="govuk-body">Vx.x</p>
       </td>
       <td class="govuk-table__cell">
@@ -472,17 +488,17 @@
       <td class="govuk-table__cell">
         <strong class="govuk-tag govuk-tag--grey">
           Status
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="#" class="govuk-link">View</a></td>
+        </strong>
+      </td>
+      <td class="govuk-table__cell"><a href="#" class="govuk-link">View</a></td>
     </tr>
   </tbody>
-  
+
 </table>
 #}
- </div>
+</div>
 
- 
+
 
 
 

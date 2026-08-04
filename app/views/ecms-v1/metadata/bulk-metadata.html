@@ -36,221 +36,221 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full-width">
-      <h1 class="govuk-heading-l">Bulk update metadata</h1>
+<div class="govuk-grid-row">
+  <div class="moj-scrollable-pane" role="region" aria-label="Historic rainfall in June" tabindex="0">
+    <h1 class="govuk-heading-l">Bulk update metadata</h1>
+    <form action="bulk-metadata-check-details" method="post" novalidate>
+      <table class="govuk-table govuk-table--small-text-until-tablet">
+        <caption class="govuk-table__caption govuk-table__caption--m">Documents selected for bulk update</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Date received or issued</th>
+            <th scope="col" class="govuk-table__header">NI number</th>
+            <th scope="col" class="govuk-table__header">CRN</th>
+            <th scope="col" class="govuk-table__header">Claim reference</th>
+            <th scope="col" class="govuk-table__header">Name</th>
+            <th scope="col" class="govuk-table__header">Date of birth</th>
+            <th scope="col" class="govuk-table__header">LOB case ID</th>
+            <th scope="col" class="govuk-table__header">Benefit type</th>
+            <th scope="col" class="govuk-table__header">Document type</th>
+            <th scope="col" class="govuk-table__header">Office postcode</th>
+            <th scope="col" class="govuk-table__header">Class</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">14 Feb 2026 </th>
+            <td class="govuk-table__cell">QQ123456C</td>
+            <td class="govuk-table__cell">AA123</td>
+            <td class="govuk-table__cell">No data</td>
+            <td class="govuk-table__cell">Jane Doe</td>
+            <td class="govuk-table__cell">5 Jan 1978</td>
+            <td class="govuk-table__cell">004</td>
+            <td class="govuk-table__cell">ESA</td>
+            <td class="govuk-table__cell">BD8</td>
+            <td class="govuk-table__cell">SW2 1AA</td>
+            <td class="govuk-table__cell">Supporting</td>
+            
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">12 Feb 2026</th>
+            <td class="govuk-table__cell">QQ123456C</td>
+            <td class="govuk-table__cell">No data</td>
+            <td class="govuk-table__cell">No data</td>
+            <td class="govuk-table__cell">Jane Doe</td>
+            <td class="govuk-table__cell">5 Jan 1978</td>
+            <td class="govuk-table__cell">004</td>
+            <td class="govuk-table__cell">ESA</td>
+            <td class="govuk-table__cell">BD8</td>
+            <td class="govuk-table__cell">SW2 1AA</td>
+            <td class="govuk-table__cell">Supporting</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">12 Feb 2026</th>
+            <td class="govuk-table__cell">QQ123456C</td>
+            <td class="govuk-table__cell">No data</td>
+            <td class="govuk-table__cell">No data</td>
+            <td class="govuk-table__cell">Jane Doe</td>
+            <td class="govuk-table__cell">5 Jan 1978</td>
+            <td class="govuk-table__cell">004</td>
+            <td class="govuk-table__cell">State Pension</td>
+            <td class="govuk-table__cell">ANSoD</td>
+            <td class="govuk-table__cell">SW2 1AA</td>
+            <td class="govuk-table__cell">Supporting</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+    
+  <div class="govuk-grid-column-two-thirds">      
 
-      <form action="bulk-metadata-check-details" method="post" novalidate>
-
-<table class="govuk-table">
-  <caption class="govuk-table__caption govuk-table__caption--m">Documents selected for bulk update</caption>
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Date received or issued</th>
-      <th scope="col" class="govuk-table__header">NI number</th>
-      <th scope="col" class="govuk-table__header">CRN</th>
-      <th scope="col" class="govuk-table__header">Claim reference</th>
-      <th scope="col" class="govuk-table__header">Name</th>
-      <th scope="col" class="govuk-table__header">Date of birth</th>
-      <th scope="col" class="govuk-table__header">LOB case ID</th>
-      <th scope="col" class="govuk-table__header">Benefit type</th>
-      <th scope="col" class="govuk-table__header">Document type</th>
-      <th scope="col" class="govuk-table__header">Office postcode</th>
-      <th scope="col" class="govuk-table__header">Class</th>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">14 Feb 2026 </th>
-      <td class="govuk-table__cell">QQ123456C</td>
-      <td class="govuk-table__cell">AA123</td>
-      <td class="govuk-table__cell">No data</td>
-      <td class="govuk-table__cell">Jane Doe</td>
-      <td class="govuk-table__cell">5 Jan 1978</td>
-      <td class="govuk-table__cell">004</td>
-      <td class="govuk-table__cell">ESA</td>
-      <td class="govuk-table__cell">BD8</td>
-      <td class="govuk-table__cell">SW2 1AA</td>
-      <td class="govuk-table__cell">Supporting</td>
-      
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">12 Feb 2026</th>
-      <td class="govuk-table__cell">QQ123456C</td>
-      <td class="govuk-table__cell">No data</td>
-      <td class="govuk-table__cell">No data</td>
-      <td class="govuk-table__cell">Jane Doe</td>
-      <td class="govuk-table__cell">5 Jan 1978</td>
-      <td class="govuk-table__cell">004</td>
-      <td class="govuk-table__cell">ESA</td>
-      <td class="govuk-table__cell">BD8</td>
-      <td class="govuk-table__cell">SW2 1AA</td>
-      <td class="govuk-table__cell">Supporting</td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">12 Feb 2026</th>
-      <td class="govuk-table__cell">QQ123456C</td>
-      <td class="govuk-table__cell">No data</td>
-      <td class="govuk-table__cell">No data</td>
-      <td class="govuk-table__cell">Jane Doe</td>
-      <td class="govuk-table__cell">5 Jan 1978</td>
-      <td class="govuk-table__cell">004</td>
-       <td class="govuk-table__cell">State Pension</td>
-       <td class="govuk-table__cell">ANSoD</td>
-       <td class="govuk-table__cell">SW2 1AA</td>
-       <td class="govuk-table__cell">Supporting</td>
-    </tr>
-  </tbody>
-</table>
-      <div class="govuk-grid-column-two-thirds">      
-
-     <h2 class="govuk-heading-l">Edit metadata for selected documents</h2>
-     {{ govukWarningText({
+    <h2 class="govuk-heading-l">Edit metadata for selected documents</h2>
+    {{ govukWarningText({
       text: "Only complete the fields that require updates. Leave any fields blank if no update is needed.",
       iconFallbackText: "Warning"
-    }) }}
+      }) }}
 
 
-        {{ govukInput({
-          label: {
-            text: "National Insurance number (optional)",
-            classes: "govuk-label--m"
-          },
-           hint: {
-          text: "For example, ‘QQ123456C’"
+      {{ govukInput({
+        label: {
+          text: "National Insurance number (optional)",
+          classes: "govuk-label--m"
         },
-          classes: "govuk-!-width-two-thirds",
-          id: "bulk-nino",
-          name: "bulk-nino",
-          value: data['bulk-nino']
-        }) }}
-
-         {{ govukInput({
-          label: {
-            text: "Customer reference number (CRN) (optional)",
-            classes: "govuk-label--m"
-          },
-          classes: "govuk-!-width-two-thirds",
-          id: "bulk-crn",
-          name: "bulk-crn",
-          value: data['bulk-crn']
-        }) }}
-       
-        {{ govukInput({
-          label: {
-            text: "Claim reference (optional)",
-            classes: "govuk-label--m"
-          },
-          classes: "govuk-!-width-two-thirds",
-          id: "bulk-claim-ref",
-          name: "bulk-claim-ref",
-          value: data['bulk-claim-ref']
-        }) }}
+          hint: {
+        text: "For example, ‘QQ123456C’"
+      },
+        classes: "govuk-!-width-two-thirds",
+        id: "bulk-nino",
+        name: "bulk-nino",
+        value: data['bulk-nino']
+      }) }}
 
         {{ govukInput({
-          label: {
-            text: "First name (optional)",
-            classes: "govuk-label--m"
-          },
-          classes: "govuk-!-width-two-thirds",
-          id: "bulk-first-name",
-          name: "bulk-first-name",
-          value: data['bulk-first-name']
-        }) }}
-        
-        {{ govukInput({
-          label: {
-            text: "Last name (optional)",
-            classes: "govuk-label--m"
-          },
-          classes: "govuk-!-width-two-thirds",
-          id: "bulk-last-name",
-          name: "bulk-last-name",
-          value: data['bulk-last-name']
-        }) }}
+        label: {
+          text: "Customer reference number (CRN) (optional)",
+          classes: "govuk-label--m"
+        },
+        classes: "govuk-!-width-two-thirds",
+        id: "bulk-crn",
+        name: "bulk-crn",
+        value: data['bulk-crn']
+      }) }}
       
-        {{ govukDateInput({
-          id: "bulk-dob",
-          namePrefix: "bulk-dob",
+      {{ govukInput({
+        label: {
+          text: "Claim reference (optional)",
+          classes: "govuk-label--m"
+        },
+        classes: "govuk-!-width-two-thirds",
+        id: "bulk-claim-ref",
+        name: "bulk-claim-ref",
+        value: data['bulk-claim-ref']
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "First name (optional)",
+          classes: "govuk-label--m"
+        },
+        classes: "govuk-!-width-two-thirds",
+        id: "bulk-first-name",
+        name: "bulk-first-name",
+        value: data['bulk-first-name']
+      }) }}
+      
+      {{ govukInput({
+        label: {
+          text: "Last name (optional)",
+          classes: "govuk-label--m"
+        },
+        classes: "govuk-!-width-two-thirds",
+        id: "bulk-last-name",
+        name: "bulk-last-name",
+        value: data['bulk-last-name']
+      }) }}
+    
+      {{ govukDateInput({
+        id: "bulk-dob",
+        namePrefix: "bulk-dob",
+        fieldset: {
+          legend: {
+            text: "Date of birth (optional)",
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+          text: "For example, 31 3 1980"
+        },
+        items: [
+          {
+            classes: "govuk-input--width-2",
+            name: "day",
+            value: data['bulk-dob-day']
+          },
+          {
+            classes: "govuk-input--width-2",
+            name: "month",
+            value: data['bulk-dob-month']
+          },
+          {
+            classes: "govuk-input--width-4",
+            name: "year",
+            value: data['bulk-dob-year']
+          }
+        ]
+      }) }}
+
+      {{ govukRadios({
+          name: "bulk-classification",
+          value: data['bulk-classification'],
           fieldset: {
             legend: {
-              text: "Date of birth (optional)",
+              text: "Document classification (optional)",
+              isPageHeading: false,
               classes: "govuk-fieldset__legend--m"
             }
           },
-          hint: {
-            text: "For example, 31 3 1980"
-          },
           items: [
             {
-              classes: "govuk-input--width-2",
-              name: "day",
-              value: data['bulk-dob-day']
+              value: "Supporting",
+              text: "Supporting",
+              hint: {
+                html: "<p class='govuk-hint'>Documents or information that influence benefit case decisions. These may be needed for appeals, fraud investigations, or payment assessments </p>"
+              }
             },
             {
-              classes: "govuk-input--width-2",
-              name: "month",
-              value: data['bulk-dob-month']
+              value: "Ephemeral",
+              text: "Ephemeral",
+              hint: {
+                html: "<p class='govuk-hint'>General documents that do not impact a claim. These are not stored as supporting evidence</p>
+                      <p class='govuk-hint'>For example, enquiries, templates, or cover sheets </p>"
+              }
             },
             {
-              classes: "govuk-input--width-4",
-              name: "year",
-              value: data['bulk-dob-year']
+              value: "Untraceable",
+              text: "Untraceable",
+              hint: {
+                html: "<p class='govuk-hint'>A document where a reference number or National Insurance number can't be found</p>"
+              }
             }
           ]
         }) }}
 
-        {{ govukRadios({
-            name: "bulk-classification",
-            value: data['bulk-classification'],
-            fieldset: {
-              legend: {
-                text: "Document classification (optional)",
-                isPageHeading: false,
-                classes: "govuk-fieldset__legend--m"
-              }
-            },
-            items: [
-              {
-                value: "Supporting",
-                text: "Supporting",
-                hint: {
-                  html: "<p class='govuk-hint'>Documents or information that influence benefit case decisions. These may be needed for appeals, fraud investigations, or payment assessments </p>"
-                }
-              },
-              {
-                value: "Ephemeral",
-                text: "Ephemeral",
-                hint: {
-                  html: "<p class='govuk-hint'>General documents that do not impact a claim. These are not stored as supporting evidence</p>
-                        <p class='govuk-hint'>For example, enquiries, templates, or cover sheets </p>"
-                }
-              },
-              {
-                value: "Untraceable",
-                text: "Untraceable",
-                hint: {
-                  html: "<p class='govuk-hint'>A document where a reference number or National Insurance number can't be found</p>"
-                }
-              }
-            ]
-          }) }}
+          {{ govukInput({
+        label: {
+          text: "Line of business (LOB) case ID (optional)",
+          classes: "govuk-label--m"
+        },
+        classes: "govuk-!-width-two-thirds",
+        id: "bulk-lob-case-id",
+        name: "bulk-lob-case-id",
+        value: data['bulk-lob-case-id']
+      }) }}
 
-           {{ govukInput({
-          label: {
-            text: "Line of business (LOB) case ID (optional)",
-            classes: "govuk-label--m"
-          },
-          classes: "govuk-!-width-two-thirds",
-          id: "bulk-lob-case-id",
-          name: "bulk-lob-case-id",
-          value: data['bulk-lob-case-id']
-        }) }}
-
-        <div class="govuk-form-group">
-        <label class="govuk-label govuk-label--m" for="benefit-type">
-          Benefit type (optional)
-        </label>
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--m" for="benefit-type">
+        Benefit type (optional)
+      </label>
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds">
             <div class="typeahead">
@@ -265,50 +265,50 @@
             </div>
           </div>
         </div>
-      </div>
+    </div>
 
 
-          {{ govukInput({
-    label: {
-      text: "Office postcode (optional)",
-            classes: "govuk-label--m"
-         },
-          classes: "govuk-input--width-10",
-          id: "bulk-office-postcode",
-          name: "bulk-office-postcode",
-        value: data['bulk-office-postcode'],
-          autocomplete: "postal-code"
+        {{ govukInput({
+          label: {
+            text: "Office postcode (optional)",
+                  classes: "govuk-label--m"
+              },
+                classes: "govuk-input--width-10",
+                id: "bulk-office-postcode",
+                name: "bulk-office-postcode",
+              value: data['bulk-office-postcode'],
+                autocomplete: "postal-code"
         }) }}
 
-              {{ govukTextarea({
-        name: "bulk-link-data",
-        id: "bulk-link-data",
-        label: {
-          text: "Link data (optional)",
-          classes: "govuk-label--m",
-          isPageHeading: false
-        },
-        value: data['bulk-link-data']
+        {{ govukTextarea({
+            name: "bulk-link-data",
+            id: "bulk-link-data",
+            label: {
+              text: "Link data (optional)",
+              classes: "govuk-label--m",
+              isPageHeading: false
+            },
+            value: data['bulk-link-data']
+          }) }}
+
+    
+
+
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Continue"
       }) }}
 
-      
-
-
-
-      <div class="govuk-button-group">
-  {{ govukButton({
-    text: "Continue"
-  }) }}
-
-  <a class="govuk-link" href="../search-results-v4?bulk-nino&bulk-crn&bulk-claim-ref&bulk-first-name&bulk-last-name&bulk-dob-day&bulk-dob-month&bulk-dob-year&bulk-classification&bulk-lob-case-id&bulkBenefitType&bulk-office-postcode&bulk-link-data&edit-bulk-metadata">Cancel</a>
-</div>
-
-
-      </form>
-</div>
-      
+      <a class="govuk-link" href="../search-results-v4?bulk-nino&bulk-crn&bulk-claim-ref&bulk-first-name&bulk-last-name&bulk-dob-day&bulk-dob-month&bulk-dob-year&bulk-classification&bulk-lob-case-id&bulkBenefitType&bulk-office-postcode&bulk-link-data&edit-bulk-metadata">Cancel</a>
     </div>
+
+
+    </form>
   </div>
+    
+  
+</div>
 
 <script>
   (function () {
