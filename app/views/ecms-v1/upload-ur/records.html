@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Document search –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="../report-search/reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+        <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="../hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+        -->
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="upload-customer-details" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{% endblock %} {% block content %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+<div class="govuk-width-container">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Document search</h1>
+
+    <p class="govuk-body">Enter a National Insurance number to search ECMS for document records.</p>
+
+  
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    {{ govukInput({
+        label: {
+          text: "National Insurance number",
+          classes: "govuk-label--m",
+          isPageHeading: true
+        },
+        hint: {
+          text: "For example, ‘QQ123456C’"
+        },
+        classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
+        id: "national-insurance-number",
+        name: "nationalInsuranceNumber",
+        spellcheck: false
+      })
+    }}
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Search",
+        href: "#"
+      }) }}
+    </div>
+    
+    <p class="govuk-body"><a class="govuk-link" href="advanced-search">Advanced search</a><br /></p>
+    
+  </div>
+</div>
+</div>
+
+{% endblock %}

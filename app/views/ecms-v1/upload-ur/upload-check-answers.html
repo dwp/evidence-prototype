@@ -1,0 +1,398 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Review upload details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="records" href="upload-interruption" class="dwp-horizontal-navigation__link">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="../report-search/reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+        <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="../hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+        -->
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="documentUpload" href="upload-customer-details" class="dwp-horizontal-navigation__link" aria-current="true">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %} 
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
+        Review upload details 
+      </h1>
+      <p class="govuk-body govuk-!-margin-bottom-7">Check the details are correct before you upload.</p>
+
+{# CUSTOMER DETAILS #}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Customer details"
+    },
+    actions: {
+      items: [
+        {
+          href: "upload-customer-details?edit-cya=true",
+          text: "Edit"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "National Insurance number"
+      },
+      value: {
+              html: data['upload-nino'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+      {
+      key: {
+        text: "Customer reference number (CRN)"
+      },
+      value: {
+              html: data['upload-crn'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+      {
+      key: {
+        text: "Claim reference"
+      },
+      value: {
+              html: data['upload-claimref'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+    {
+      key: {
+        text: "First name"
+      },
+      value: {
+              html: data['upload-first-name'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+      {
+      key: {
+        text: "Last name"
+      },
+      value: {
+              html: data['upload-last-name'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+    
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+              
+      html: formatDate (
+        data['upload-dob-day'],
+        data['upload-dob-month'],
+        data['upload-dob-year'])
+        if data['upload-dob-day'] else '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+      {
+      key: {
+        text: "Postcode"
+      },
+      value: {
+              html: data['upload-postcode'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    }
+  ]
+}) }}
+
+{# BENEFIT TYPE #}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Benefit type"
+    },
+    actions: {
+      items: [
+        {
+          href: "upload-benefit-type?edit-cya=true",
+          text: "Edit"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Business unit"
+      },
+      value: {
+              text: data['uploadBusinessUnit'] or "Working Age benefits"
+            }
+    },
+    {
+      key: {
+        text: "Benefit type"
+      },
+      value: {
+              text: data['uploadBenefitType'] or "Employment and Support Allowance (ESA)"
+            }
+    }
+  ]
+}) }}
+
+{# DOCUMENT DETAILS #}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Document details"
+    },
+    actions: {
+      items: [
+        {
+          href: "upload-document-details?edit-cya=true",
+          text: "Edit"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Document classification"
+      },
+      value: {
+              text: data['uploadClassification'] or "Supporting"
+            }
+    },
+    {
+      key: {
+        text: "Harmful indicator"
+      },
+      value: {
+              html: data['uploadHarmful'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+   {
+      key: {
+        text: "Issue date"
+      },
+      value: {
+              
+      html: formatDate (
+        data['upload-issue-date-day'],
+        data['upload-issue-date-month'],
+        data['upload-issue-date-year'])
+        if data['upload-issue-date-day'] else '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+    {
+      key: {
+        text: "Line of business (LOB) case ID"
+      },
+      value: {
+              html: data['upload-lob'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+    {
+      key: {
+        text: "Link data"
+      },
+      value: {
+              html: data['upload-link-data'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    }
+  ]
+}) }}
+
+  
+      <h2 class="govuk-heading-l">
+        Uploaded files
+      </h2>
+
+      
+
+{% if data['upload-role'] == 'single' or data['upload-role'] == 'multi-single-file'  %}
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "jd-file2.pdf"
+    },
+    actions: {
+      items: [
+        {
+          href: "upload-file",
+          text: "Replace file"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Document type"
+      },
+      value: {
+        html: "MatB1"
+      },
+      actions: {
+        items: [
+          {
+            href: "upload-file?edit-cya=true",
+            text: "Edit",
+            visuallyHiddenText: "document-type"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+{% else %}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "jd-file2.pdf",
+      value: data['fileUpload1'] or 'jd-file2.pdf'
+    },
+    actions: {
+      items: [
+        {
+          href: "upload-delete-file",
+          text: "Delete file"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Document type"
+      },
+      value: {
+        html: "MatB1"
+      },
+      actions: {
+        items: [
+          {
+            href: "upload-file?edit-cya=true",
+            text: "Edit",
+            visuallyHiddenText: "document-type"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "jd-file37_a.pdf"
+    },
+    actions: {
+      items: [
+        {
+          href: "upload-delete-file",
+          text: "Delete file"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Document type"
+      },
+      value: {
+        html: "CIS500"
+      },
+      actions: {
+        items: [
+          {
+            href: "upload-file?edit-cya=true",
+            text: "Edit",
+            visuallyHiddenText: "document-type"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+
+{% endif %}
+
+      
+
+
+<form action="/confirmation" method="post" novalidate>
+
+{% if data['upload-role'] == 'single'%}
+
+  {{ govukButton({
+    text: "Confirm upload",
+        href: "upload-confirmation?edit-cya"
+  }) }}
+
+{% elif data['upload-role'] == 'multi-single-file' %}
+<div class="govuk-button-group">
+
+    {{ govukButton({
+    text: "Add another file",
+    classes: "govuk-button--secondary",
+        href: "upload-file2"
+  }) }}
+  {{ govukButton({
+    text: "Confirm upload",
+        href: "upload-confirmation?edit-cya"
+  }) }}
+</div>
+{% else %}
+<div class="govuk-button-group">
+
+    {{ govukButton({
+    text: "Add another file",
+    classes: "govuk-button--secondary",
+        href: "upload-file2"
+  }) }}
+  {{ govukButton({
+    text: "Confirm upload",
+        href: "upload-confirmation?edit-cya"
+  }) }}
+</div>
+{% endif %}
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
+
+

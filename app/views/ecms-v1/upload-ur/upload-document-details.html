@@ -1,0 +1,195 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Enter document details –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="records" href="upload-interruption" class="dwp-horizontal-navigation__link">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="../report-search/reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+
+        <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="../hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+        -->
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="documentUpload" href="upload-customer-details" class="dwp-horizontal-navigation__link" aria-current="true">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+{% if data['edit-cya'] == 'true'%}
+{% else%}
+<div class="govuk-!-padding-bottom-4"></div>
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endif%}
+
+{% endblock %} 
+
+{% block content %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Enter document details</h1>
+      <p class="govuk-body govuk-!-margin-bottom-9">These details must be the same for all documents in this upload.</p>
+
+{% if data['edit-cya'] == 'true'%}
+<form action="upload-check-answers" method="post" novalidate>
+{% else%}
+<form action="upload-file" method="post" novalidate>
+{% endif%}
+      
+ 
+
+              {{ govukRadios({
+          name: "uploadClassification",
+          value: data['uploadClassification'],
+          fieldset: {
+            legend: {
+              text: "What is the document classification for this upload?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "Supporting",
+              text: "Supporting",
+               hint: {
+                  html: "<p class='govuk-hint'>Documents or information that influence benefit case decisions. These may be needed for appeals, fraud investigations, or payment assessments </p>"
+                }
+            },
+            {
+              value: "Ephemeral",
+              text: "Ephemeral",
+              hint: {
+                  html: "<p class='govuk-hint'>General documents that do not impact a claim. These are not stored as supporting evidence.</p>
+                        <p class='govuk-hint'>For example, enquiries, templates, or cover sheets </p>"
+                }
+            }
+          ]
+        }) }}
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-!-margin-top-9 govuk-section-break--visible">
+
+       <h2 class="govuk-heading-l">Enter additional document details</h2>
+       <p class="govuk-body govuk-!-margin-bottom-6">
+        These document details are optional.
+      </p>
+
+        {{ govukRadios({
+          name: "uploadHarmful",
+          value: data['uploadHarmful'],
+          fieldset: {
+            legend: {
+              text: "What is the harmful indicator for this upload? (optional)",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Harmful information is medical information that should not be shared with a customer or their representative if it could harm their health"
+          },
+          items: [
+            {
+              value: "Not harmful",
+              text: "Not harmful"
+            },
+            {
+              value: "Potentially harmful",
+              text: "Potentially harmful"
+            },
+            {
+              value: "Harmful",
+              text: "Harmful"
+            }
+          ]
+        }) }}
+       
+        {{ govukDateInput({
+          id: "upload-issue-date",
+          namePrefix: "upload-issue-date",
+          fieldset: {
+            legend: {
+              text: "Document issue date (optional)",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "For example, 31 3 2026"
+          },
+           items: [
+                {
+                name: 'day',
+                value: data['upload-issue-date-day'],
+                classes: 'govuk-input--width-2',
+                label: 'Day'
+                },
+                {
+                name: 'month',
+                value: data['upload-issue-date-month'],
+                classes: 'govuk-input--width-2',
+                label: 'Month'
+                },
+                {
+                name: 'year',
+                value: data['upload-issue-date-year'],
+                classes: 'govuk-input--width-4',
+                label: 'Year'
+                }
+            ]
+
+        }) }}
+
+
+
+        {{ govukInput({
+          label: {
+            text: "Line of business (LOB) case ID (optional)",
+            classes: "govuk-label--m"
+          },
+          hint: {
+            text: "This is a reference number issued by some business units. If you don’t have this, leave it blank"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "upload-lob",
+          name: "upload-lob",
+          value: data['upload-lob']
+        }) }}
+
+              {{ govukTextarea({
+        name: "upload-link-data",
+        id: "upload-link-data",
+        label: {
+          text: "Link data (optional)",
+          classes: "govuk-label--m",
+          isPageHeading: false
+        },
+        value: data['upload-link-data']
+      }) }}
+
+         {{ govukButton({
+        text: "Continue"
+      }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

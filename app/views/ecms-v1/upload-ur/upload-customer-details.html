@@ -1,0 +1,177 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Document upload –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="records" href="upload-interruption" class="dwp-horizontal-navigation__link">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="../report-search/reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+
+        <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="../hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+        -->
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="documentUpload" href="upload-customer-details" class="dwp-horizontal-navigation__link" aria-current="true">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{% endblock %} 
+
+{% block content %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Document upload</h1>
+      <p class="govuk-body govuk-!-margin-bottom-9">Make sure that all the documents you upload are for the same customer. </p>
+
+{% if data['edit-cya'] == 'true'%}
+<form action="upload-check-answers" method="post" novalidate>
+{% else%}
+<form action="upload-benefit-type" method="post" novalidate>
+{% endif%}
+      
+      <h2 class="govuk-heading-l">Enter an identification reference</h2>
+      <p class="govuk-body govuk-!-margin-bottom-6">
+        You must include either a National Insurance number, a customer reference number (CRN) or a claim reference.
+      </p>
+              {{ govukInput({
+          label: {
+            text: "National Insurance number",
+            classes: "govuk-label--m"
+          },
+          hint: {
+          text: "For example, ‘QQ123456C’"
+        },
+          classes: "govuk-!-width-two-thirds",
+          id: "upload-nino",
+          name: "upload-nino",
+          value: data['upload-nino']
+        }) }}
+        
+        {{ govukInput({
+          label: {
+            text: "Customer reference number (CRN)",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "upload-crn",
+          name: "upload-crn",
+          value: data['upload-crn']
+        }) }}
+       
+        {{ govukInput({
+          label: {
+            text: "Claim reference",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "upload-claimref",
+          name: "upload-claimref",
+          value: data['upload-claimref']
+        }) }}
+
+      
+       <hr class="govuk-section-break govuk-section-break--l govuk-!-margin-top-9 govuk-section-break--visible">
+
+       <h2 class="govuk-heading-l">Enter customer details</h2>
+       <p class="govuk-body govuk-!-margin-bottom-6">
+        These customer details are optional.
+      </p>
+
+        {{ govukInput({
+          label: {
+            text: "First name (optional)",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "upload-first-name",
+          name: "upload-first-name",
+          value: data['upload-first-name']
+        }) }}
+        
+        {{ govukInput({
+          label: {
+            text: "Last name (optional)",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "upload-last-name",
+          name: "upload-last-name",
+          value: data['upload-last-name']
+        }) }}
+       
+
+         {{ govukDateInput({
+          id: "upload-dob",
+          namePrefix: "upload-dob",
+          fieldset: {
+            legend: {
+              text: "Date of birth (optional)",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "For example, 31 3 1980"
+          },
+           items: [
+                {
+                name: 'day',
+                value: data['upload-dob-day'],
+                classes: 'govuk-input--width-2',
+                label: 'Day'
+                },
+                {
+                name: 'month',
+                value: data['upload-dob-month'],
+                classes: 'govuk-input--width-2',
+                label: 'Month'
+                },
+                {
+                name: 'year',
+                value: data['upload-dob-year'],
+                classes: 'govuk-input--width-4',
+                label: 'Year'
+                }
+            ]
+
+        }) }}
+
+
+        {{ govukInput({
+          label: {
+            text: "Postcode (optional)",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-input--width-10",
+          id: "upload-postcode",
+          name: "upload-postcode",
+          value: data['upload-postcode']
+        }) }}
+
+         {{ govukButton({
+        text: "Continue"
+      }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

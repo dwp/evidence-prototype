@@ -1,0 +1,227 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Customer details for this upload –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="../report-search/reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+
+        <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="../hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+        -->
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="documentUpload" href="upload-customer-details" class="dwp-horizontal-navigation__link" aria-current="true">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %} 
+
+{% block content %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">Customer details for this upload</h1>
+            <p class="govuk-body govuk-!-margin-bottom-8">
+        You must include  at least National Insurance number, CRN or claim reference.
+      </p>
+
+      <form action="/form-handler" method="post" novalidate>
+
+{% set ninoHtml %}
+{{ govukInput({
+  id: "upload-nino",
+  name: "uploadNino",
+  spellcheck: false,
+  classes: "govuk-!-width-two-thirds",
+  label: {
+    text: "National Insurance number"
+  }
+}) }}
+{% endset -%}
+
+{% set crnHtml %}
+{{ govukInput({
+  id: "upload-crn",
+  name: "uploadCrn",
+  classes: "govuk-!-width-two-thirds",
+  label: {
+    text: "Customer reference number (CRN)"
+  }
+}) }}
+{% endset -%}
+
+{% set claimrefHtml %}
+{{ govukInput({
+  id: "upload-claimref",
+  name: "uploadClaimref",
+  classes: "govuk-!-width-two-thirds",
+  label: {
+    text: "Claim reference"
+  }
+}) }}
+{% endset -%}
+
+{{ govukRadios({
+  name: "uploadNinoradio",
+  fieldset: {
+    legend: {
+      text: "Do you have a National Insurance number for this upload?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      conditional: {
+        html: ninoHtml
+      }
+    },
+    {
+      value: "No",
+      text: "No"
+    }
+  ]
+}) }}
+
+{{ govukRadios({
+  name: "uploadCrnradio",
+  fieldset: {
+    legend: {
+      text: "Do you have a Customer reference number (CRN) for this upload?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      conditional: {
+        html: crnHtml
+      }
+    },
+    {
+      value: "No",
+      text: "No"
+    }
+  ]
+}) }}
+
+{{ govukRadios({
+  name: "uploadClaimrefradio",
+  fieldset: {
+    legend: {
+      text: "Do you have a customer reference for this upload?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      conditional: {
+        html: claimrefHtml
+      }
+    },
+    {
+      value: "No",
+      text: "No"
+    }
+  ]
+}) }}
+
+
+
+
+
+
+    
+
+        {{ govukInput({
+          label: {
+            text: "First name (optional)",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "upload-first-name",
+          name: "upload-first-name",
+          value: data['First name']
+        }) }}
+        
+        {{ govukInput({
+          label: {
+            text: "Last name (optional)",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "upload-last-name",
+          name: "upload-last-name",
+          value: data['Last name']
+        }) }}
+       
+        {{ govukDateInput({
+          id: "upload-dob",
+          namePrefix: "upload-dob",
+          fieldset: {
+            legend: {
+              text: "Date of birth (optional)",
+              classes: "govuk-fieldset__legend--m",
+              value: data['Date of birth']
+            }
+          },
+          hint: {
+            text: "For example, 31 3 1980"
+          }
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Postcode (optional)",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-input--width-10",
+          id: "upload-postcode",
+          name: "upload-postcode",
+          value: data['Postcode']
+        }) }}
+
+         {{ govukButton({
+        text: "Continue",
+        href: "upload-benefit-type"
+      }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

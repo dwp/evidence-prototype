@@ -47,7 +47,7 @@
        <!-- ACTION BUTTONS -->
       <div class="govuk-button-group govuk-!-margin-bottom-0">
         {{ govukButton({
-            text: "View Microfiches",
+            text: "View HR documents",
             href: "/public/files/Test_document.pdf",
             attributes: {
             target: "_blank",
@@ -87,7 +87,7 @@
                         classes: "govuk-button--secondary govuk-!-margin-right-4",
                         id: "toggle-filter" 
                     }) }}
-                    <!-- SORT SELECT-->
+                    <!-- SORT SELECT NOT NEEDED FOR HR SEARCH-->
                     {{ govukSelect({
                     id: "sort",
                     name: "sort",
@@ -116,7 +116,7 @@
                     ]
                     }) }}
             </div><!--govuk-button-group -->
-            <!-- MOJ Filter -->
+            <!-- MOJ Filter NOT NEEDED FOR HR SEARCH-->
             <div class="moj-filter-layout">   
                 <div class="moj-filter-layout__filter">
                     <div id="toggle-display" class="moj-filter" data-module="moj-filter" hidden>

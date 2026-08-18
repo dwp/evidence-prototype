@@ -1,0 +1,164 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Iterations: Report search – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        User research: Round 2
+      </h1>
+
+    </div>
+  </div>
+  <div class="govuk-!-padding-bottom-4"></div>
+   <div class="govuk-grid-row">
+    
+    <div class="govuk-grid-column-two-thirds"> 
+    <h2 class="govuk-heading-m">
+   About this round of testing
+    </h2>
+
+<dl class="govuk-summary-list govuk-summary-list--no-border">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Date
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <strong class="govuk-tag govuk-tag--grey">
+         September 2026
+        </strong>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      What we're testing
+    </dt>
+    <dd class="govuk-summary-list__value">
+          <p class="govuk-body">This round of user research focuses on testing the upload journey for documents.</p>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Team
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">Interaction designer: Alexandra Aggelidis</p>
+      <p class="govuk-body">Content designer: Toby Cryne</p>
+      <p class="govuk-body">User researcher: Aimee Fulton</p>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Documentation
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <a href="#" class="govuk-link">Research findings (comming soon)</a>
+    </dd>
+  </div>
+</dl>
+    </div>
+  </div>
+  <div class="govuk-!-padding-bottom-4"></div>
+  
+  <!-- SCENARIOS-->
+  <h2 class="govuk-heading-m">
+    Scenarios for user research
+    </h2>
+
+ <div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
+  <div class="govuk-!-padding-bottom-2"></div>
+
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+      <!-- SC 1-->
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header app-custom-class">Scenarios</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Link</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Scenario 1</th>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">Singe file upload</p>
+      </td>
+    <td class="govuk-table__cell"><a href="/ecms-v1/upload-ur/records?upload-role=single" class="govuk-link">Start scenario 1</a></td>
+    </tr>
+      <!-- SC 2-->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Scenario 2</th>
+      <td class="govuk-table__cell">
+       <p class="govuk-body">Multi file upload</p>
+      </td>
+    <td class="govuk-table__cell"><a href="/ecms-v1/upload-ur/records?upload-role=multi-single-file" class="govuk-link">Start scenario 2</a></td>
+    </tr>
+  </tbody>
+</table>
+
+
+</div>
+  <!-- PREVIOUS ITERATIONS 
+ <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">
+      Previous Iterations    
+    </h2>
+
+
+    <table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Version</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+    </tr>
+  </thead>
+  
+  
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Placeholder</th>
+            <td class="govuk-table__cell">
+        <p class="govuk-body">Vx.x</p>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">Placeholder</p>
+      </td>
+      <td class="govuk-table__cell">
+        <p class="govuk-body">Date</p>
+      </td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--grey">
+          Status
+    </strong>
+    </td>
+    <td class="govuk-table__cell"><a href="#" class="govuk-link">View</a></td>
+    </tr>
+  </tbody>
+  
+</table>
+-->
+ </div>
+
+ 
+
+
+
+{% endblock %}

@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %} {% block pageTitle %} Search microfiches –
+{% extends "layouts/main.html" %} {% block pageTitle %} Search microfiche –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
 %}
 
@@ -51,17 +51,17 @@
 <div class="govuk-width-container">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-     <h1 class="govuk-heading-l">Search microfiches</h1>
+     <h1 class="govuk-heading-l">Search microfiche</h1>
       <!--SEARCH COMBOS -->
       {{ govukDetails({
           summaryText: "Accepted search combinations",
           html: '<p class="govuk-body">You can search by:</p>
                 <ul class="govuk-list govuk-list--bullet">
-                  <li>Year and HR reference</li>
-                  <li>Year, staff number ending and HR reference</li>
-                  <li>Year, staff number ending</li>
+                  <li>Year</li>
+                  <li>Month and year</li>
+                  <li>Staff number ending</li>
                   <li>Month, year and staff number ending</li>
-                  <li>Month, year, staff number ending and HR reference</li>
+                  <li>HR reference</li>
                 </ul>'
         }) }}
 
@@ -72,7 +72,7 @@
             Date
           </legend>
           <div id="microfiche-date-hint" class="govuk-hint">
-            For example, 3 2007
+            For example, 3 2007. If you don't know the month, you can leave it blank
           </div>
           <div class="govuk-date-input" id="microfiche-date">
             <div class="govuk-date-input__item">
@@ -102,9 +102,9 @@
           text: "Staff number ending",
           classes: "govuk-label--m"
         },
-        classes: "govuk-input--width-5 govuk-input--extra-letter-spacing",
+        classes: "govuk-input--width-3 govuk-input--extra-letter-spacing",
         hint: {
-        text: "Enter the last 4 digits of a staff number"
+        text: "Enter the last 2 digits of a staff number"
         },
         id: "staff-ending",
         name: "staffEnding",

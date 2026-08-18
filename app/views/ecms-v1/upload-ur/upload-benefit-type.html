@@ -1,0 +1,364 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Select a benefit type –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
+
+{% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="records" href="upload-interruption" class="dwp-horizontal-navigation__link">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="../report-search/reports" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+
+        <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="../hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+        -->
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="documentUpload" href="upload-customer-details" class="dwp-horizontal-navigation__link" aria-current="true">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+{% if data['edit-cya'] == 'true'%}
+{% else%}
+<div class="govuk-!-padding-bottom-4"></div>
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endif%}
+
+{% endblock %} 
+
+{% block content %}
+ {% from "govuk/components/radios/macro.njk" import govukRadios %}
+ {% from "govuk/components/select/macro.njk" import govukSelect %}
+ {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+
+
+{% set businessUnitMap = {
+  "fraud": "Fraud",
+  "nissa": "NISSA"
+} %}
+
+{% set uploadBusinessUnit = businessUnitMap[data['benefitType']] or "Social Fund" %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+{% if data['edit-cya'] == 'true'%}
+<form action="upload-check-answers" method="post" novalidate>
+{% else%}
+ <form  action="upload-document-details" method="post" novalidate>
+{% endif%}
+
+<input type="hidden" name="uploadBusinessUnit" value="{{ uploadBusinessUnit }}">
+    
+    {% if data['benefitType'] == 'fraud' %}
+    
+      <h1 class="govuk-heading-l">
+        Select a benefit type
+      </h1>
+      {{ govukInsetText({
+        html: '<p class="govuk-body">Fraud</p>'
+      }) }}
+      <input type="hidden" name="uploadBenefitType" value="Fraud">
+       
+ {% elif data['benefitType'] == 'nissa' %}
+        {{ govukSelect({
+          id: "sort",
+          name: "uploadBenefitType",
+          label: {
+            text: "Select a benefit type",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          },
+          items: [
+          {
+              value: "",
+              text: "Select a benefit type"
+            },
+            {
+              value: "NISSA Attendance Allowance Unit",
+              text: "NISSA Attendance Allowance Unit"
+            },
+            {
+              value: "NISSA BB",
+              text: "NISSA BB"
+            },
+            {
+              value: "NISSA BSP",
+              text: "NISSA BSP"
+            },
+            {
+              value: "NISSA Budgeting Loans",
+              text: "NISSA Budgeting Loans"
+            },
+            {
+              value: "NISSA Carers Allowance",
+              text: "NISSA Carers Allowance"
+            },
+            {
+              value: "NISSA CRS",
+              text: "NISSA CRS"
+            },
+            {
+              value: "NISSA Disability Living Allowance",
+              text: "NISSA Disability Living Allowance"
+            },
+            {
+              value: "NISSA ESA",
+              text: "NISSA ESA"
+            },
+            {
+              value: "NISSA Funeral Payments",
+              text: "NISSA Funeral Payments"
+            },
+            {
+              value: "NISSA IIDB",
+              text: "NISSA IIDB"
+            },
+            {
+              value: "NISSA INC New",
+              text: "NISSA INC New"
+            },
+            {
+              value: "NISSA JSA New",
+              text: "NISSA JSA New"
+            },
+            {
+              value: "NISSA MA",
+              text: "NISSA MA"
+            },
+            {
+              value: "NISSA NINO Allocation",
+              text: "NISSA NINO Allocation"
+            },
+            {
+              value: "NISSA Pension Credit",
+              text: "NISSA Pension Credit"
+            },
+            {
+              value: "NISSA PIP",
+              text: "NISSA PIP"
+            },
+            {
+              value: "NISSA SIS",
+              text: "NISSA SIS"
+            },
+            {
+              value: "NISSA SSMG",
+              text: "NISSA SSMG"
+            },
+            {
+              value: "NISSA State Pension",
+              text: "NISSA State Pension"
+            },
+            {
+              value: "NISSA UCs",
+              text: "NISSA UC"
+            }
+          ]
+        }) }}
+
+{% else %}
+ {{ govukRadios({
+          name: "uploadBenefitType",
+          fieldset: {
+            legend: {
+              text: "Select a benefit type",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Budgeting Loans",
+              text: "Budgeting Loans"
+            },
+            {
+              value: "Sure Start Maternity Grant",
+              text: "Sure Start Maternity Grant"
+            },
+            {
+              value: "Funeral Payment",
+              text: "Funeral Payment"
+            }
+          ]
+        }) }}
+
+       
+{% endif %}
+
+      {{ govukButton({
+      text: "Continue"
+    }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+
+    {# SCRIPT FOR AUTOSUGGEST FOR BENEFIT TYPE
+  <script>
+  (function () {
+    const benefitTypes = [
+            "Access to Work",
+            "Alternative Format",
+            "Attendance Allowance unit",
+            "B2OL",
+            "Bereavement benefit",
+            "Bereavement Support Payment",
+            "Budgeting Loans",
+            "Carer's Allowance",
+            "Carer's Credit",
+            "CFEMS",
+            "Compensation Recovery unit",
+            "Debt",
+            "Disability Living Allowance 65",
+            "Disability Living Allowance Adult",
+            "Disability Living Allowanc Child",
+            "Employment and Support Allowance (ESA)",
+            "Fraud",
+            "Funeral Payments",
+            "Future Pensions Centre",
+            "Human resources",
+            "Integrated Loan Scheme (ILS), Eligible Loan Deduction Scheme (ELDS)",
+            "Industrial Injuries Disablement Benefit",
+            "International Pension Centre BB",
+            "International Pension Centre BSP",
+            "International Pension Centre ESA",
+            "International Pension Centre IB",
+            "International Pension Centre IIDB",
+            "International Pension Centre JSA",
+            "International Pension Centre MA",
+            "International Pension Centre PC",
+            "International Pension Centre SP",
+            "International Pension Centre WFP",
+            "Income Support (IS)",
+            "Jobseeker's Allowance (JSA)",
+            "Maternity Allowance",
+            "New Style Jobseeker's Allowance",
+            "National Insurance Delivery Centre",
+            "NISSA Attendance Allowance Unit",
+            "NISSA BB",
+            "NISSA BSP",
+            "NISSA Budgeting Loans",
+            "NISSA Carers Allowance",
+            "NISSA CRS",
+            "NISSA Disability Living Allowance",
+            "NISSA ESA",
+            "NISSA Funeral Payments",
+            "NISSA IIDB",
+            "NISSA INC New",
+            "NISSA JSA New",
+            "NISSA MA",
+            "NISSA NINO Allocation",
+            "NISSA Pension Credit",
+            "NISSA PIP",
+            "NISSA SIS",
+            "NISSA SSMG",
+            "NISSA State Pension",
+            "NISSA UC",
+            "Notification Online (NOL)",
+            "Payment Services",
+            "Pension Credit",
+            "Performance Measurement",
+            "Personal Independence Payment (PIP)",
+            "Right of Access Request",
+            "Severe Disablement Allowance (SDA), Incapacity Benefit (IB)",
+            "Serious & Organised Crime",
+            "State Pension",
+            "Support for Mortgage Interest",
+            "SureStart Maternity Grant",
+            "Universal Credit",
+    ];
+
+
+  
+
+    const input = document.getElementById("benefit-type");
+    const listbox = document.getElementById("benefit-type-listbox");
+    let activeIndex = -1;
+
+    function closeMenu() {
+      listbox.hidden = true;
+      activeIndex = -1;
+    }
+
+    function openMenu() {
+      listbox.hidden = false;
+    }
+
+    function renderOptions(options) {
+      listbox.innerHTML = "";
+      activeIndex = -1;
+
+      options.forEach((text) => {
+        const li = document.createElement("li");
+        li.textContent = text;
+
+        li.addEventListener("mousedown", () => {
+          input.value = text;
+          closeMenu();
+        });
+
+        listbox.appendChild(li);
+      });
+
+      options.length ? openMenu() : closeMenu();
+    }
+
+    input.addEventListener("input", () => {
+      const query = input.value.toLowerCase();
+      if (!query) return closeMenu();
+
+      renderOptions(
+        benefitTypes.filter((d) => d.toLowerCase().includes(query)),
+      );
+    });
+
+    input.addEventListener("keydown", (e) => {
+      const options = listbox.querySelectorAll("li");
+      if (!options.length) return;
+
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        activeIndex = (activeIndex + 1) % options.length;
+      }
+
+      if (e.key === "ArrowUp") {
+        e.preventDefault();
+        activeIndex = (activeIndex - 1 + options.length) % options.length;
+      }
+
+      if (e.key === "Enter" && activeIndex >= 0) {
+        e.preventDefault();
+        input.value = options[activeIndex].textContent;
+        closeMenu();
+      }
+
+      if (e.key === "Escape") closeMenu();
+
+      options.forEach((el, i) =>
+        el.classList.toggle("active", i === activeIndex),
+      );
+    });
+  })();
+</script>
+#}
+{% endblock %}
