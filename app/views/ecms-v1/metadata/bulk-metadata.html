@@ -247,25 +247,20 @@
         value: data['bulk-lob-case-id']
       }) }}
 
-    <div class="govuk-form-group">
-      <label class="govuk-label govuk-label--m" for="benefit-type">
-        Benefit type (optional)
-      </label>
-        <div class="govuk-grid-row">
-          <div class="govuk-grid-column-two-thirds">
-            <div class="typeahead">
-              <input
-                id="benefit-type"
-                name="bulkBenefitType"
-                class="govuk-input"
-                type="text"
-                autocomplete="off"
-              />
-              <ul id="benefit-type-listbox" class="typeahead-menu" hidden></ul>
-            </div>
-          </div>
+<div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="benefit-type">
+          Benefit type (optional)
+        </label>
+        <div class="typeahead">
+      
+          <input id="benefit-type" name="bulkBenefitType" class="govuk-input govuk-!-width-two-thirds" type="text" autocomplete="off" role="combobox"
+            aria-autocomplete="list" aria-expanded="false" aria-controls="benefit-type-listbox" aria-haspopup="listbox" />
+      
+          <ul id="benefit-type-listbox" class="typeahead-menu" role="listbox" hidden>
+          </ul>
+      
         </div>
-    </div>
+      </div>
 
 
         {{ govukInput({
@@ -310,151 +305,304 @@
   
 </div>
 
+{# SCRIPT FOR AUTOSUGGEST FOR BENEFIT TYPE -- TYPEAHEAD SECOND VERSION #}
+
 <script>
-  (function () {
-    const benefitTypes = [
-            "Access to Work",
-            "Alternative Format",
-            "Attendance Allowance unit",
-            "B2OL",
-            "Bereavement benefit",
-            "Bereavement Support Payment",
-            "Budgeting Loans",
-            "Carer's Allowance",
-            "Carer's Credit",
-            "CFEMS",
-            "Compensation Recovery unit",
-            "Debt",
-            "Disability Living Allowance 65",
-            "Disability Living Allowance Adult",
-            "Disability Living Allowanc Child",
-            "Employment and Support Allowance (ESA)",
-            "Fraud",
-            "Funeral Payments",
-            "Future Pensions Centre",
-            "Human resources",
-            "Integrated Loan Scheme (ILS), Eligible Loan Deduction Scheme (ELDS)",
-            "Industrial Injuries Disablement Benefit",
-            "International Pension Centre BB",
-            "International Pension Centre BSP",
-            "International Pension Centre ESA",
-            "International Pension Centre IB",
-            "International Pension Centre IIDB",
-            "International Pension Centre JSA",
-            "International Pension Centre MA",
-            "International Pension Centre PC",
-            "International Pension Centre SP",
-            "International Pension Centre WFP",
-            "Income Support (IS)",
-            "Jobseeker's Allowance (JSA)",
-            "Maternity Allowance",
-            "New Style Jobseeker's Allowance",
-            "National Insurance Delivery Centre",
-            "NISSA Attendance Allowance Unit",
-            "NISSA BB",
-            "NISSA BSP",
-            "NISSA Budgeting Loans",
-            "NISSA Carers Allowance",
-            "NISSA CRS",
-            "NISSA Disability Living Allowance",
-            "NISSA ESA",
-            "NISSA Funeral Payments",
-            "NISSA IIDB",
-            "NISSA INC New",
-            "NISSA JSA New",
-            "NISSA MA",
-            "NISSA NINO Allocation",
-            "NISSA Pension Credit",
-            "NISSA PIP",
-            "NISSA SIS",
-            "NISSA SSMG",
-            "NISSA State Pension",
-            "NISSA UC",
-            "Notification Online (NOL)",
-            "Payment Services",
-            "Pension Credit",
-            "Performance Measurement",
-            "Personal Independence Payment (PIP)",
-            "Right of Access Request",
-            "Severe Disablement Allowance (SDA), Incapacity Benefit (IB)",
-            "Serious & Organised Crime",
-            "State Pension",
-            "Support for Mortgage Interest",
-            "SureStart Maternity Grant",
-            "Universal Credit",
-    ];
+(function () {
+  const benefitTypes = [
+      "Access to Work",
+      "Alternative Format",
+      "Attendance Allowance unit",
+      "B2OL",
+      "Bereavement benefit",
+      "Bereavement Support Payment",
+      "Budgeting Loans",
+      "Carer's Allowance",
+      "Carer's Credit",
+      "CFEMS",
+      "Compensation Recovery unit",
+      "Debt",
+      "Disability Living Allowance 65",
+      "Disability Living Allowance Adult",
+      "Disability Living Allowanc Child",
+      "Employment and Support Allowance (ESA)",
+      "Fraud",
+      "Funeral Payments",
+      "Future Pensions Centre",
+      "Human resources",
+      "Integrated Loan Scheme (ILS), Eligible Loan Deduction Scheme (ELDS)",
+      "Industrial Injuries Disablement Benefit",
+      "International Pension Centre BB",
+      "International Pension Centre BSP",
+      "International Pension Centre ESA",
+      "International Pension Centre IB",
+      "International Pension Centre IIDB",
+      "International Pension Centre JSA",
+      "International Pension Centre MA",
+      "International Pension Centre PC",
+      "International Pension Centre SP",
+      "International Pension Centre WFP",
+      "Income Support (IS)",
+      "Jobseeker's Allowance (JSA)",
+      "Maternity Allowance",
+      "New Style Jobseeker's Allowance",
+      "National Insurance Delivery Centre",
+      "NISSA Attendance Allowance Unit",
+      "NISSA BB",
+      "NISSA BSP",
+      "NISSA Budgeting Loans",
+      "NISSA Carers Allowance",
+      "NISSA CRS",
+      "NISSA Disability Living Allowance",
+      "NISSA ESA",
+      "NISSA Funeral Payments",
+      "NISSA IIDB",
+      "NISSA INC New",
+      "NISSA JSA New",
+      "NISSA MA",
+      "NISSA NINO Allocation",
+      "NISSA Pension Credit",
+      "NISSA PIP",
+      "NISSA SIS",
+      "NISSA SSMG",
+      "NISSA State Pension",
+      "NISSA UC",
+      "Notification Online (NOL)",
+      "Payment Services",
+      "Pension Credit",
+      "Performance Measurement",
+      "Personal Independence Payment (PIP)",
+      "Right of Access Request",
+      "Severe Disablement Allowance (SDA), Incapacity Benefit (IB)",
+      "Serious & Organised Crime",
+      "State Pension",
+      "Support for Mortgage Interest",
+      "SureStart Maternity Grant",
+      "Universal Credit",
+  ];
 
+  const input = document.getElementById("benefit-type");
+  const listbox = document.getElementById("benefit-type-listbox");
 
-  
+  let activeIndex = -1;
+  let currentOptions = [];
+  let selectedValue = "";
 
-    const input = document.getElementById("benefit-type");
-    const listbox = document.getElementById("benefit-type-listbox");
-    let activeIndex = -1;
+  function openMenu() {
+    listbox.hidden = false;
+    input.setAttribute("aria-expanded", "true");
+  }
 
-    function closeMenu() {
-      listbox.hidden = true;
-      activeIndex = -1;
-    }
+  function closeMenu() {
+    listbox.hidden = true;
+    input.setAttribute("aria-expanded", "false");
+    input.removeAttribute("aria-activedescendant");
+    activeIndex = -1;
+  }
 
-    function openMenu() {
-      listbox.hidden = false;
-    }
+  function selectOption(value) {
+    input.value = value;
+    selectedValue = value;
+    closeMenu();
+  }
 
-    function renderOptions(options) {
-      listbox.innerHTML = "";
-      activeIndex = -1;
+  function updateHighlight() {
 
-      options.forEach((text) => {
-        const li = document.createElement("li");
-        li.textContent = text;
+    const options = listbox.querySelectorAll('[role="option"]');
 
-        li.addEventListener("mousedown", () => {
-          input.value = text;
-          closeMenu();
+    options.forEach((option, index) => {
+      const isActive = index === activeIndex;
+
+      option.classList.toggle("active", isActive);
+      option.setAttribute("aria-selected", isActive);
+
+      if (isActive) {
+        input.setAttribute(
+          "aria-activedescendant",
+          option.id
+        );
+
+        option.scrollIntoView({
+          block: "nearest"
         });
+      }
+    });
 
-        listbox.appendChild(li);
+    if (activeIndex === -1) {
+      input.removeAttribute("aria-activedescendant");
+    }
+  }
+
+  function renderOptions(options) {
+
+    listbox.innerHTML = "";
+    activeIndex = -1;
+    currentOptions = options;
+
+    if (!options.length) {
+
+      const li = document.createElement("li");
+
+      li.className = "no-results";
+      li.textContent = "No results found";
+      li.setAttribute("aria-disabled", "true");
+
+      listbox.appendChild(li);
+
+      openMenu();
+      return;
+    }
+
+    options.forEach((text, index) => {
+
+      const li = document.createElement("li");
+
+      li.id = `benefit-type-option-${index}`;
+      li.textContent = text;
+      li.setAttribute("role", "option");
+      li.setAttribute("aria-selected", "false");
+
+      li.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        selectOption(text);
       });
 
-      options.length ? openMenu() : closeMenu();
+      listbox.appendChild(li);
+    });
+
+    openMenu();
+  }
+
+  input.addEventListener("input", () => {
+
+    const query = input.value.trim().toLowerCase();
+
+    if (!query) {
+      closeMenu();
+      return;
     }
 
-    input.addEventListener("input", () => {
-      const query = input.value.toLowerCase();
-      if (!query) return closeMenu();
+    const matches = benefitTypes
+      .filter(item =>
+        item.toLowerCase().includes(query)
+      )
+      .sort((a, b) => a.localeCompare(b));
 
-      renderOptions(
-        benefitTypes.filter((d) => d.toLowerCase().includes(query)),
-      );
-    });
+    renderOptions(matches);
+  });
 
-    input.addEventListener("keydown", (e) => {
-      const options = listbox.querySelectorAll("li");
-      if (!options.length) return;
+  input.addEventListener("keydown", (e) => {
 
-      if (e.key === "ArrowDown") {
+    if (!currentOptions.length) return;
+
+    switch (e.key) {
+
+      case "ArrowDown":
+
         e.preventDefault();
-        activeIndex = (activeIndex + 1) % options.length;
-      }
 
-      if (e.key === "ArrowUp") {
-        e.preventDefault();
-        activeIndex = (activeIndex - 1 + options.length) % options.length;
-      }
+        activeIndex =
+          activeIndex < currentOptions.length - 1
+            ? activeIndex + 1
+            : 0;
 
-      if (e.key === "Enter" && activeIndex >= 0) {
+        updateHighlight();
+        break;
+
+      case "ArrowUp":
+
         e.preventDefault();
-        input.value = options[activeIndex].textContent;
+
+        activeIndex =
+          activeIndex > 0
+            ? activeIndex - 1
+            : currentOptions.length - 1;
+
+        updateHighlight();
+        break;
+
+      case "Enter":
+
+        if (activeIndex >= 0) {
+
+          e.preventDefault();
+
+          selectOption(
+            currentOptions[activeIndex]
+          );
+        }
+
+        break;
+
+      case "Escape":
+
         closeMenu();
+        break;
+    }
+  });
+
+  input.addEventListener("focus", () => {
+
+    if (selectedValue) {
+
+      setTimeout(() => {
+        input.select();
+      }, 0);
+    }
+  });
+
+  input.addEventListener("blur", () => {
+
+    setTimeout(() => {
+
+      const validValue = benefitTypes.find(
+        item =>
+          item.toLowerCase() ===
+          input.value.trim().toLowerCase()
+      );
+
+      if (validValue) {
+
+        input.value = validValue;
+        selectedValue = validValue;
+
+      } else {
+
+        input.value = "";
+        selectedValue = "";
       }
 
-      if (e.key === "Escape") closeMenu();
+      closeMenu();
 
-      options.forEach((el, i) =>
-        el.classList.toggle("active", i === activeIndex),
+    }, 150);
+  });
+
+  document.addEventListener("mousedown", (e) => {
+
+    const clickedInput = e.target === input;
+    const clickedListbox = listbox.contains(e.target);
+
+    if (clickedInput || clickedListbox) {
+      return;
+    }
+
+    if (
+      activeIndex >= 0 &&
+      currentOptions[activeIndex]
+    ) {
+
+      selectOption(
+        currentOptions[activeIndex]
       );
-    });
-  })();
+
+    } else {
+
+      closeMenu();
+    }
+  });
+
+})();
 </script>
+
  
 {% endblock %}

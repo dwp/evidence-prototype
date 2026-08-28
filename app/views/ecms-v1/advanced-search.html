@@ -173,6 +173,24 @@
       name: "claimReference",
       spellcheck: false
     }) }}
+      <!-- TYPEAHEAD SECOND VERSION -->
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="document-type">
+          Document type
+        </label>
+        <div class="typeahead">
+      
+          <input id="document-type" name="documentType" class="govuk-input govuk-!-width-two-thirds" type="text" autocomplete="off" role="combobox"
+            aria-autocomplete="list" aria-expanded="false" aria-controls="document-type-listbox" aria-haspopup="listbox" />
+      
+          <ul id="document-type-listbox" class="typeahead-menu" role="listbox" hidden>
+          </ul>
+      
+        </div>
+      </div>
+
+
+    <!-- TYPEAHEAD FIRST VERSION
 
        <div class="govuk-form-group">
         <label class="govuk-label govuk-label--m" for="document-type">
@@ -193,6 +211,8 @@
           </div>
         </div>
       </div>
+
+      -->
 
     {{ govukInput({
       label: {
@@ -280,6 +300,256 @@
 </div>
 </div>
 
+<!-- TYPEAHEAD SECOND VERSION -->
+
+<script>
+(function () {
+
+  const documentTypes = [
+    "Test Document 1",
+    "Test Document 2",
+    "Test Document 3",
+    "Decision letter",
+    "Supporting document",
+    "ANSoD",
+    "BD8",
+    "BF600",
+    "CA4140",
+    "CIS500",
+    "Email body",
+    "ESA50a",
+    "MatB1",
+    "VO cover letter",
+    "Whitemail unstructured"
+  ];
+
+  const input = document.getElementById("document-type");
+  const listbox = document.getElementById("document-type-listbox");
+
+  let activeIndex = -1;
+  let currentOptions = [];
+  let selectedValue = "";
+
+  function openMenu() {
+    listbox.hidden = false;
+    input.setAttribute("aria-expanded", "true");
+  }
+
+  function closeMenu() {
+    listbox.hidden = true;
+    input.setAttribute("aria-expanded", "false");
+    input.removeAttribute("aria-activedescendant");
+    activeIndex = -1;
+  }
+
+  function selectOption(value) {
+    input.value = value;
+    selectedValue = value;
+    closeMenu();
+  }
+
+  function updateHighlight() {
+
+    const options = listbox.querySelectorAll('[role="option"]');
+
+    options.forEach((option, index) => {
+      const isActive = index === activeIndex;
+
+      option.classList.toggle("active", isActive);
+      option.setAttribute("aria-selected", isActive);
+
+      if (isActive) {
+        input.setAttribute(
+          "aria-activedescendant",
+          option.id
+        );
+
+        option.scrollIntoView({
+          block: "nearest"
+        });
+      }
+    });
+
+    if (activeIndex === -1) {
+      input.removeAttribute("aria-activedescendant");
+    }
+  }
+
+  function renderOptions(options) {
+
+    listbox.innerHTML = "";
+    activeIndex = -1;
+    currentOptions = options;
+
+    if (!options.length) {
+
+      const li = document.createElement("li");
+
+      li.className = "no-results";
+      li.textContent = "No results found";
+      li.setAttribute("aria-disabled", "true");
+
+      listbox.appendChild(li);
+
+      openMenu();
+      return;
+    }
+
+    options.forEach((text, index) => {
+
+      const li = document.createElement("li");
+
+      li.id = `document-type-option-${index}`;
+      li.textContent = text;
+      li.setAttribute("role", "option");
+      li.setAttribute("aria-selected", "false");
+
+      li.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        selectOption(text);
+      });
+
+      listbox.appendChild(li);
+    });
+
+    openMenu();
+  }
+
+  input.addEventListener("input", () => {
+
+    const query = input.value.trim().toLowerCase();
+
+    if (!query) {
+      closeMenu();
+      return;
+    }
+
+    const matches = documentTypes
+      .filter(item =>
+        item.toLowerCase().includes(query)
+      )
+      .sort((a, b) => a.localeCompare(b));
+
+    renderOptions(matches);
+  });
+
+  input.addEventListener("keydown", (e) => {
+
+    if (!currentOptions.length) return;
+
+    switch (e.key) {
+
+      case "ArrowDown":
+
+        e.preventDefault();
+
+        activeIndex =
+          activeIndex < currentOptions.length - 1
+            ? activeIndex + 1
+            : 0;
+
+        updateHighlight();
+        break;
+
+      case "ArrowUp":
+
+        e.preventDefault();
+
+        activeIndex =
+          activeIndex > 0
+            ? activeIndex - 1
+            : currentOptions.length - 1;
+
+        updateHighlight();
+        break;
+
+      case "Enter":
+
+        if (activeIndex >= 0) {
+
+          e.preventDefault();
+
+          selectOption(
+            currentOptions[activeIndex]
+          );
+        }
+
+        break;
+
+      case "Escape":
+
+        closeMenu();
+        break;
+    }
+  });
+
+  input.addEventListener("focus", () => {
+
+    if (selectedValue) {
+
+      setTimeout(() => {
+        input.select();
+      }, 0);
+    }
+  });
+
+  input.addEventListener("blur", () => {
+
+    setTimeout(() => {
+
+      const validValue = documentTypes.find(
+        item =>
+          item.toLowerCase() ===
+          input.value.trim().toLowerCase()
+      );
+
+      if (validValue) {
+
+        input.value = validValue;
+        selectedValue = validValue;
+
+      } else {
+
+        input.value = "";
+        selectedValue = "";
+      }
+
+      closeMenu();
+
+    }, 150);
+  });
+
+  document.addEventListener("mousedown", (e) => {
+
+    const clickedInput = e.target === input;
+    const clickedListbox = listbox.contains(e.target);
+
+    if (clickedInput || clickedListbox) {
+      return;
+    }
+
+    if (
+      activeIndex >= 0 &&
+      currentOptions[activeIndex]
+    ) {
+
+      selectOption(
+        currentOptions[activeIndex]
+      );
+
+    } else {
+
+      closeMenu();
+    }
+  });
+
+})();
+</script>
+
+
+
+
+<!-- TYPEAHEAD FIRST VERSION
 <script>
   (function () {
     const documentTypes = [
@@ -369,6 +639,7 @@
     });
   })();
 </script>
+-->
  
 {% endblock %}
 

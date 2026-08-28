@@ -1,217 +1,60 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Iterations: Actions – {{ serviceName }} – GOV.UK Prototype Kit
+Iterations: Actions – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        <span class="govuk-caption-m">Designs for developers</span>
-        Iterations: Actions
-      </h1>
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-m">Designs for developers</span>
+      Iterations: Actions
+    </h1>
 
-    </div>
   </div>
-
-  <div class="govuk-!-padding-bottom-4"></div>
-  
-  <!-- LATEST ITERATION CLOSE DOCUMENTS -->
-  <h2 class="govuk-heading-m">
-    Latest iteration: Close documents
-    </h2>
-
- <div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
-  <div class="govuk-!-padding-bottom-2"></div>
-
-
-<table class="govuk-table">
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Version</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Description</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Status</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Action</th>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Close documents</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-       <p class="govuk-body">Screen for documents selected for closure</p>
-       
-        <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-      <li><strong>19 May 2026:</strong> Content changes</li>
-  <li><strong>27 Apr 2026:</strong> published</li>
-</ul>
-  </div>
-</details> 
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">19 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-close?closure-date" class="govuk-link">View</a></td>
-    </tr>
-     <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Close documents with closure date</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-       <p class="govuk-body">Screen for documents selected for closure including closure date in table; and setting closure date</p>
-        
-        <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-      <li><strong>22 Jun 2026:</strong> Closure date column added to table of selected documents</li>
-      <li><strong>28 May 2026:</strong> Content change for closure date label and hint text added</li>
-      <li><strong>30 Apr 2026:</strong> Closure date changed to optional with updated hint text</li>
-      <li><strong>27 Apr 2026:</strong> published</li>
-    </ul>
-  </div>
-</details> 
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">22 June 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-close?closure-date=true" class="govuk-link">View</a></td>
-    </tr>
-     <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Confirmation screen</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-       <p class="govuk-body">Confirmation for documents scheduled to close today, in the past or no date set</p>
-       
-        <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-      <li><strong>28 May 2026:</strong> Content change for panel text and 'What happens next' text</li>
-      <li><strong>30 Apr 2026:</strong> Link changed to return to search results</li>
-      <li><strong>27 Apr 2026:</strong> published</li>
-    </ul>
-  </div>
-</details>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">28 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-close-confirmation?closure-date" class="govuk-link">View</a></td>
-    </tr>
-     <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Confirmation screen with date</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-       <p class="govuk-body">Confirmation for documents selected for closure in future</p>
-       <!-- 
-        <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-  <li><strong>23 Apr 2026:</strong> published</li>
-</ul>
-  </div>
-</details>  --> 
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">30 April 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-close-confirmation?closure-date=true" class="govuk-link">View</a></td>
-    </tr>
-  </tbody>
-</table>
 </div>
-<div class="govuk-!-padding-bottom-6"></div>
- 
 
-<!-- LATEST ITERATION REQUEST RESCAN -->
-  <h2 class="govuk-heading-m">
-    Latest iteration: Request rescan
-    </h2>
+<div class="govuk-!-padding-bottom-4"></div>
 
- <div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
+<!-- LATEST ITERATION CLOSE DOCUMENTS -->
+<h2 class="govuk-heading-m">
+  Latest iteration: Close documents
+</h2>
+
+<div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
   <div class="govuk-!-padding-bottom-2"></div>
 
 
-<table class="govuk-table">
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Version</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Description</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Status</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Action</th>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Request rescan</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-       <p class="govuk-body">Screen for documents selected for rescan</p>
-       
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Version</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Close documents</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Screen for documents selected for closure</p>
+
           <details class="govuk-details">
             <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
@@ -220,31 +63,196 @@
             </summary>
             <div class="govuk-details__text">
               <ul class="govuk-list govuk-list--bullet">
-                <li><strong>14 July 2026:</strong> Only one document in table, content changes to reflect it's a single document, link data displayed only</li>
+                <li><strong>19 May 2026:</strong> Content changes</li>
+                <li><strong>27 Apr 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">19 May 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-close?closure-date" class="govuk-link">View</a>
+        </td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Close documents with closure date</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Screen for documents selected for closure including closure date in table; and setting
+            closure date</p>
+
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>22 Jun 2026:</strong> Closure date column added to table of selected documents</li>
+                <li><strong>28 May 2026:</strong> Content change for closure date label and hint text added</li>
+                <li><strong>30 Apr 2026:</strong> Closure date changed to optional with updated hint text</li>
+                <li><strong>27 Apr 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">22 June 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-close?closure-date=true"
+            class="govuk-link">View</a></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Confirmation screen</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Confirmation for documents scheduled to close today, in the past or no date set</p>
+
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>28 May 2026:</strong> Content change for panel text and 'What happens next' text</li>
+                <li><strong>30 Apr 2026:</strong> Link changed to return to search results</li>
+                <li><strong>27 Apr 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">28 May 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-close-confirmation?closure-date"
+            class="govuk-link">View</a></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Confirmation screen with date</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Confirmation for documents selected for closure in future</p>
+
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>27 Aug 2026:</strong> content change for panel text and what happens next text.</li>
+                <li><strong>30 Apr 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">27 August 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-close-confirmation?closure-date=true"
+            class="govuk-link">View</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="govuk-!-padding-bottom-6"></div>
+
+
+<!-- LATEST ITERATION REQUEST RESCAN -->
+<h2 class="govuk-heading-m">
+  Latest iteration: Request rescan
+</h2>
+
+<div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
+  <div class="govuk-!-padding-bottom-2"></div>
+
+
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Version</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Request rescan</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Screen for documents selected for rescan</p>
+
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>14 July 2026:</strong> Only one document in table, content changes to reflect it's a single
+                  document, link data displayed only</li>
                 <li><strong>28 May 2026:</strong> Content change for description text</li>
                 <li><strong>1 May 2026:</strong> published</li>
               </ul>
             </div>
           </details>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">14 July 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag" style="white-space: nowrap">
-          In review
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-rescan?rescan-link-data" class="govuk-link">View</a></td>
-    </tr>
-     <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Request rescan - no link data</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-       <p class="govuk-body">Rescan screen with link data not available</p>
-       
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">14 July 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-rescan?rescan-link-data"
+            class="govuk-link">View</a></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Request rescan - no link data</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Rescan screen with link data not available</p>
+
           <details class="govuk-details">
             <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
@@ -257,207 +265,214 @@
               </ul>
             </div>
           </details>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">14 July 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag" style="white-space: nowrap">
-          In review
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-rescan?rescan-link-data=none" class="govuk-link">View</a></td>
-    </tr>
-     <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Confirmation screen</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-       <p class="govuk-body">Confirmation for rescan requested</p>
-       
-        <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Changes
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <ul class="govuk-list govuk-list--bullet">
-                <li><strong>28 May 2026:</strong>Content change for panel text, content change for 'What happens next' text</li>
-            <li><strong>1 May 2026:</strong> published</li>
-          </ul>
-        </div>
-      </details> 
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">28 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag" style="white-space: nowrap">
-          In review
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-rescan-confirmation" class="govuk-link">View</a></td>
-    </tr>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">14 July 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-rescan?rescan-link-data=none"
+            class="govuk-link">View</a></td>
+      </tr>
       <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Rejection screen</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-       <p class="govuk-body">Rejection screen when rescan cannot be processed</p>
-       
-        <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Changes
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <ul class="govuk-list govuk-list--bullet">
-            <li><strong>14 July 2026:</strong> published</li>
-          </ul>
-        </div>
-      </details> 
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">14 July 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag" style="white-space: nowrap">
-          In review
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-rescan-rejection" class="govuk-link">View</a></td>
-    </tr>
+        <th scope="row" class="govuk-table__header">Confirmation screen</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Confirmation for rescan requested</p>
 
-  </tbody>
-</table>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>28 May 2026:</strong>Content change for panel text, content change for 'What happens next'
+                  text</li>
+                <li><strong>1 May 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">28 May 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-rescan-confirmation" class="govuk-link">View</a>
+        </td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Rejection screen</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Rejection screen when rescan cannot be processed</p>
+
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>14 July 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">14 July 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-rescan-rejection" class="govuk-link">View</a>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
 </div>
 
 <!-- LATEST ITERATION CREATE COPY -->
- <div class="govuk-!-padding-bottom-6"></div>
-  <h2 class="govuk-heading-m">
-    Latest iteration: Create copy
-    </h2>
+<div class="govuk-!-padding-bottom-6"></div>
+<h2 class="govuk-heading-m">
+  Latest iteration: Create copy
+</h2>
 
- <div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
+<div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
   <div class="govuk-!-padding-bottom-2"></div>
 
 
-<table class="govuk-table">
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Version</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Description</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Status</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Action</th>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Create copy: Option 3</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0 C</p>
-      </td>
-      <td class="govuk-table__cell">
-       <p class="govuk-body">Screen for documents selected to copy with business unit as pre-filter and select list for benefit type</p>
-       
-        <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-      <li><strong>28 May 2026:</strong> Content change for description text</li>
-  <li><strong>5 May 2026:</strong> published</li>
-</ul>
-  </div>
-</details>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">28 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-create-copy?copy-option=option3" class="govuk-link">View</a></td>
-    </tr>
-    
-     <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Confirmation screen</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-       <p class="govuk-body">Confirmation for documents copied</p>
-       
-        <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Changes
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <ul class="govuk-list govuk-list--bullet">
-      <li><strong>28 May 2026:</strong> Content change for 'What happens next' text</li>
-  <li><strong>5 May 2026:</strong> published</li>
-</ul>
-  </div>
-</details>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">5 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-create-copy-confirmation" class="govuk-link">View</a></td>
-    </tr>
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Version</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Create copy: Option 3</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0 C</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Screen for documents selected to copy with business unit as pre-filter and select list
+            for benefit type</p>
 
-  </tbody>
-</table>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>28 May 2026:</strong> Content change for description text</li>
+                <li><strong>5 May 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">28 May 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-create-copy?copy-option=option3"
+            class="govuk-link">View</a></td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Confirmation screen</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Confirmation for documents copied</p>
+
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>28 May 2026:</strong> Content change for 'What happens next' text</li>
+                <li><strong>5 May 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">5 May 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-create-copy-confirmation"
+            class="govuk-link">View</a></td>
+      </tr>
+
+    </tbody>
+  </table>
 </div>
 
 <!-- LATEST ITERATION DOWNLOAD -->
-  <div class="govuk-!-padding-bottom-6"></div>
-  <h2 class="govuk-heading-m">
-    Latest iteration: Download
-    </h2>
+<div class="govuk-!-padding-bottom-6"></div>
+<h2 class="govuk-heading-m">
+  Latest iteration: Download
+</h2>
 
- <div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
+<div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
   <div class="govuk-!-padding-bottom-2"></div>
 
 
-<table class="govuk-table">
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Version</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Description</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Status</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Action</th>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Download</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-       <p class="govuk-body">Instant download of a document upon button click from search results page</p>
-       <!-- 
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Version</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Download</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Instant download of a document upon button click from search results page</p>
+          <!-- 
         <details class="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
@@ -469,118 +484,123 @@
   <li><strong>23 Apr 2026:</strong> published</li>
 </ul>
   </div>
-</details>  --> 
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">5 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/search-results-v3?user-group=download" class="govuk-link">View</a></td>
-    </tr>
+</details>  -->
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">5 May 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/search-results-v3?user-group=download"
+            class="govuk-link">View</a></td>
+      </tr>
 
-  </tbody>
-</table>
+    </tbody>
+  </table>
 </div>
 
 <!-- LATEST ITERATION APPLY HOLD -->
- <div class="govuk-!-padding-bottom-6"></div>
-  <h2 class="govuk-heading-m">
-    Latest iteration: Apply hold
-    </h2>
+<div class="govuk-!-padding-bottom-6"></div>
+<h2 class="govuk-heading-m">
+  Latest iteration: Apply hold
+</h2>
 
- <div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
+<div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
   <div class="govuk-!-padding-bottom-2"></div>
 
 
-<table class="govuk-table">
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Version</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Description</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Status</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Action</th>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Apply hold</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-       <p class="govuk-body">Screen for documents selected to put on hold</p>
-       
-        <details class="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              Changes
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-            <ul class="govuk-list govuk-list--bullet">
-              <li><strong>28 May 2026:</strong> Content change for description text, content change for question label, content change for CRU option</li>
-              <li><strong>6 May 2026:</strong> published</li>
-            </ul>
-          </div>
-        </details> 
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">28 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-apply-hold?user-group" class="govuk-link">View</a></td>
-    </tr>
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Version</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Apply hold</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Screen for documents selected to put on hold</p>
 
-        <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">On hold with overpayment reason</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-       <p class="govuk-body">Screen for documents selected to put on hold for 'Overpayment hold users'</p>
-        <details class="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              Changes
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-            <ul class="govuk-list govuk-list--bullet">
-              <li><strong>28 May 2026:</strong> Content change for description text, content change for question label, content change for CRU option</li>
-              <li><strong>6 May 2026:</strong> published</li>
-            </ul>
-          </div>
-        </details> 
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">28 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-apply-hold?user-group=overpayment-hold-user" class="govuk-link">View</a></td>
-    </tr>
-    
-     <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Confirmation screen</th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-       <p class="govuk-body">Confirmation for put on hold</p>
-       <!--
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>28 May 2026:</strong> Content change for description text, content change for question
+                  label, content change for CRU option</li>
+                <li><strong>6 May 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">28 May 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-apply-hold?user-group"
+            class="govuk-link">View</a></td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">On hold with overpayment reason</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Screen for documents selected to put on hold for 'Overpayment hold users'</p>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>28 May 2026:</strong> Content change for description text, content change for question
+                  label, content change for CRU option</li>
+                <li><strong>6 May 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">28 May 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-apply-hold?user-group=overpayment-hold-user"
+            class="govuk-link">View</a></td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Confirmation screen</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Confirmation for put on hold</p>
+          <!--
         <details class="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
@@ -594,30 +614,192 @@
 </ul>
   </div>
 </details> -->
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">6 May 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-apply-hold-confirmation?holdReason=Appeals" class="govuk-link">View</a></td>
-    </tr>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">6 May 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-apply-hold-confirmation?holdReason=Appeals"
+            class="govuk-link">View</a></td>
+      </tr>
 
-  </tbody>
-</table>
+    </tbody>
+  </table>
 </div>
 
 <!-- LATEST ITERATION REMOVE HOLD -->
- <div class="govuk-!-padding-bottom-6"></div>
-  <h2 class="govuk-heading-m">
-    Latest iteration: Remove hold
-    </h2>
+<div class="govuk-!-padding-bottom-6"></div>
+<h2 class="govuk-heading-m">
+  Latest iteration: Remove hold
+</h2>
 
- <div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
+<div class="width-container govuk-!-padding-4" style="border-radius:10px; background-color:#f3f2f1">
   <div class="govuk-!-padding-bottom-2"></div>
+
+
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Version</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Remove hold: General</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">No radios to select which hold type to remove </p>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>22 Jun 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">22 June 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-remove-hold?user-group"
+            class="govuk-link">View</a></td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Remove hold: Overpayment</th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Radios to select which hold type to remove </p>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>8 May 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">8 May 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-remove-hold?user-group=overpayment-hold-user"
+            class="govuk-link">View</a></td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Confirmation: General hold </th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Confirmation for general hold removed</p>
+
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>30 Jul 2026:</strong> Content update for 'What happens next' text</li>
+                <li><strong>22 Jun 2026:</strong> Content tailored to general hold type removed</li>
+                <li><strong>8 May 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">30 July 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a
+            href="/ecms-v1/actions/actions-remove-hold-confirmation?remove-hold-type=general-hold"
+            class="govuk-link">View</a></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Confirmation: Overpayment hold </th>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">V1.0</p>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">Confirmation for overpayment hold removed</p>
+
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Changes
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>30 Jul 2026:</strong> Content update for 'What happens next' text</li>
+                <li><strong>22 Jun 2026:</strong> Content tailored to overpayment hold type removed</li>
+                <li><strong>8 May 2026:</strong> published</li>
+              </ul>
+            </div>
+          </details>
+        </td>
+        <td class="govuk-table__cell">
+          <p class="govuk-body">30 July 2026</p>
+        </td>
+        <td class="govuk-table__cell">
+          <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
+            Ready
+          </strong>
+        </td>
+        <td class="govuk-table__cell"><a
+            href="/ecms-v1/actions/actions-remove-hold-confirmation?remove-hold-type=overpayment-hold"
+            class="govuk-link">View</a></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+<!-- PREVIOUS ITERATIONS -->
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+<h2 class="govuk-heading-m">
+  Previous Iterations
+</h2>
 
 
 <table class="govuk-table">
@@ -631,163 +813,8 @@
       <th scope="col" class="govuk-table__header app-custom-class">Action</th>
     </tr>
   </thead>
-  <tbody class="govuk-table__body">
-  
-   <tr class="govuk-table__row">
-    <th scope="row" class="govuk-table__header">Remove hold: General</th>
-    <td class="govuk-table__cell">
-      <p class="govuk-body">V1.0</p>
-    </td>
-    <td class="govuk-table__cell">
-      <p class="govuk-body">No radios to select which hold type to remove </p>
-      <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Changes
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <ul class="govuk-list govuk-list--bullet">
-            <li><strong>22 Jun 2026:</strong> published</li>
-          </ul>
-        </div>
-      </details>
-    </td>
-    <td class="govuk-table__cell">
-      <p class="govuk-body">22 June 2026</p>
-    </td>
-    <td class="govuk-table__cell">
-      <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-        Ready
-      </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-remove-hold?user-group" class="govuk-link">View</a></td>
-    </tr>
-
-   <tr class="govuk-table__row">
-    <th scope="row" class="govuk-table__header">Remove hold: Overpayment</th>
-    <td class="govuk-table__cell">
-      <p class="govuk-body">V1.0</p>
-    </td>
-    <td class="govuk-table__cell">
-      <p class="govuk-body">Radios to select which hold type to remove </p>
-      <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Changes
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <ul class="govuk-list govuk-list--bullet">
-            <li><strong>8 May 2026:</strong> published</li>
-          </ul>
-        </div>
-      </details>
-    </td>
-    <td class="govuk-table__cell">
-      <p class="govuk-body">8 May 2026</p>
-    </td>
-    <td class="govuk-table__cell">
-      <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-        Ready
-      </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-remove-hold?user-group=overpayment-hold-user" class="govuk-link">View</a></td>
-    </tr>
-    
-     <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Confirmation: General hold </th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-       <p class="govuk-body">Confirmation for general hold removed</p>
-
-        <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Changes
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <ul class="govuk-list govuk-list--bullet">
-            <li><strong>30 Jul 2026:</strong> Content update for 'What happens next' text</li>
-            <li><strong>22 Jun 2026:</strong> Content tailored to general hold type removed</li>
-            <li><strong>8 May 2026:</strong> published</li>
-          </ul>
-        </div>
-      </details>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">30 July 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-remove-hold-confirmation?remove-hold-type=general-hold" class="govuk-link">View</a></td>
-    </tr>
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Confirmation: Overpayment hold </th>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">V1.0</p>
-      </td>
-      <td class="govuk-table__cell">
-       <p class="govuk-body">Confirmation for overpayment hold removed</p>
-
-        <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Changes
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <ul class="govuk-list govuk-list--bullet">
-            <li><strong>30 Jul 2026:</strong> Content update for 'What happens next' text</li>
-            <li><strong>22 Jun 2026:</strong> Content tailored to overpayment hold type removed</li>
-            <li><strong>8 May 2026:</strong> published</li>
-          </ul>
-        </div>
-      </details>
-      </td>
-      <td class="govuk-table__cell">
-        <p class="govuk-body">30 July 2026</p>
-      </td>
-      <td class="govuk-table__cell">
-        <strong class="govuk-tag govuk-tag--green" style="white-space: nowrap">
-          Ready
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-remove-hold-confirmation?remove-hold-type=overpayment-hold" class="govuk-link">View</a></td>
-    </tr>
-
-  </tbody>
-</table>
-</div>
 
 
-  <!-- PREVIOUS ITERATIONS -->
- <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-    <h2 class="govuk-heading-m">
-      Previous Iterations    
-    </h2>
-
-
-    <table class="govuk-table">
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header app-custom-class">Variants</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Version</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Description</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Last updated</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Status</th>
-      <th scope="col" class="govuk-table__header app-custom-class">Action</th>
-    </tr>
-  </thead>
-  
-  
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">Create copy: Option 1</th>
@@ -795,8 +822,8 @@
         <p class="govuk-body">V1.0 A</p>
       </td>
       <td class="govuk-table__cell">
-       <p class="govuk-body">Screen for documents selected to copy with select list for benefit type</p>
-       <!-- 
+        <p class="govuk-body">Screen for documents selected to copy with select list for benefit type</p>
+        <!-- 
         <details class="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
@@ -808,7 +835,7 @@
   <li><strong>23 Apr 2026:</strong> published</li>
 </ul>
   </div>
-</details>  --> 
+</details>  -->
       </td>
       <td class="govuk-table__cell">
         <p class="govuk-body">5 May 2026</p>
@@ -816,9 +843,10 @@
       <td class="govuk-table__cell">
         <strong class="govuk-tag govuk-tag--red" style="white-space: nowrap">
           Rejecetd
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-create-copy?copy-option=option1" class="govuk-link">View</a></td>
+        </strong>
+      </td>
+      <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-create-copy?copy-option=option1"
+          class="govuk-link">View</a></td>
     </tr>
 
     <tr class="govuk-table__row">
@@ -827,8 +855,8 @@
         <p class="govuk-body">V1.0 B</p>
       </td>
       <td class="govuk-table__cell">
-       <p class="govuk-body">Screen for documents selected to copy with autosuggest for benefit type</p>
-       <!-- 
+        <p class="govuk-body">Screen for documents selected to copy with autosuggest for benefit type</p>
+        <!-- 
         <details class="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
@@ -840,7 +868,7 @@
   <li><strong>23 Apr 2026:</strong> published</li>
 </ul>
   </div>
-</details>  --> 
+</details>  -->
       </td>
       <td class="govuk-table__cell">
         <p class="govuk-body">5 May 2026</p>
@@ -848,9 +876,10 @@
       <td class="govuk-table__cell">
         <strong class="govuk-tag govuk-tag--red" style="white-space: nowrap">
           Rejected
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-create-copy?copy-option=option2" class="govuk-link">View</a></td>
+        </strong>
+      </td>
+      <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-create-copy?copy-option=option2"
+          class="govuk-link">View</a></td>
     </tr>
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">Remove hold with warning text</th>
@@ -858,7 +887,7 @@
         <p class="govuk-body">V1.0</p>
       </td>
       <td class="govuk-table__cell">
-       <p class="govuk-body">Screen for documents selected to remove hold with warning text for overpayment hold</p>
+        <p class="govuk-body">Screen for documents selected to remove hold with warning text for overpayment hold</p>
 
       </td>
       <td class="govuk-table__cell">
@@ -867,19 +896,20 @@
       <td class="govuk-table__cell">
         <strong class="govuk-tag govuk-tag--red" style="white-space: nowrap">
           Rejected
-    </strong>
-    </td>
-    <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-remove-hold?user-group" class="govuk-link">View</a></td>
+        </strong>
+      </td>
+      <td class="govuk-table__cell"><a href="/ecms-v1/actions/actions-remove-hold?user-group"
+          class="govuk-link">View</a></td>
     </tr>
   </tbody>
-  
+
 </table>
 
- </div>
+</div>
 
- 
 
- 
+
+
 
 
 

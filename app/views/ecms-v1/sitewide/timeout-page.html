@@ -10,15 +10,14 @@
 
 {% block content %}
 <h1 id="dialog-title" class="govuk-heading-l">
-  You have been signed out
+  Your page has timed out
 </h1>
 <div class="govuk-body">
-  <p>You have been signed out and any information you have not saved has been deleted because you did not do anything
-    for 20 minutes.</p>
+  <p>Any information you have not saved or submitted has been deleted because your session was inactive for 2 hours.</p>
   <p>This is to protect customer information.</p>
 </div>
 {{ govukButton({
-      text: "Sign back in",
+      text: "Back to search",
       classes: "govuk-button dialog-button js-dialog-close",
       href: "../records"
     }) }}

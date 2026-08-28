@@ -42,7 +42,7 @@
  {% if data['closure-date'] == 'true' %}
        {{ govukPanel({
         titleText: "Documents scheduled to close",
-        html: "The documents will be closed on 25 December 2026"
+        html: "on 25 December 2026"
       }) }}
 
       <h2 class="govuk-heading-m">
@@ -50,7 +50,10 @@
       </h2>
 
       <p>
-       The documents remain open until their scheduled closure date.
+      The documents will show as closed immediately.
+      </p>
+      <p>
+The countdown to delete the documents will begin on the document closure date.
       </p>
 
 

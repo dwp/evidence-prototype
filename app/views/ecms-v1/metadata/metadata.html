@@ -198,6 +198,14 @@
               text: data['metadata-harmful-indicator'] or "Not harmful"
             }
     },
+     {
+      key: {
+        text: "Inhibit automatic closure"
+      },
+      value: {
+              text: data['metadata-automatic-closure'] or "No"
+            }
+    },
     {
       key: {
         text: "Document status"
@@ -212,12 +220,8 @@
   {% if data['metadata-doc-status'] == 'On hold' %}
 
   {# HOLD DETAILS DETAILS - HOLD #}
-
-{{ govukSummaryList({
-  card: {
-    title: {
-      text: "Hold details"
-    },
+  {# edit link removed - can add back in if needed
+,
     actions: {
       items: [
         {
@@ -225,17 +229,15 @@
           text: "Edit"
         }
       ]
+    } #}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Hold details"
     }
   },
   rows: [
-    {
-      key: {
-        text: "Inhibit automatic closure"
-      },
-      value: {
-              text: data['metadata-automatic-closure'] or "No"
-            }
-    },
     {
       key: {
         text: "Overpayment hold"
@@ -284,11 +286,8 @@
 
 {# HOLD DETAILS DETAILS -  NO HOLD #}
 
-{{ govukSummaryList({
-  card: {
-    title: {
-      text: "Hold details"
-    },
+{# edit link removed - can add back in if needed
+,
     actions: {
       items: [
         {
@@ -296,17 +295,17 @@
           text: "Edit"
         }
       ]
+    } #}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Hold details"
     }
+   
   },
   rows: [
-    {
-      key: {
-        text: "Inhibit automatic closure"
-      },
-      value: {
-              text: data['metadata-automatic-closure'] or "No"
-            }
-    },
+   
     {
       key: {
         text: "Overpayment hold"
