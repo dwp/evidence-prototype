@@ -1,0 +1,23 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} You don't have access –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+
+{% endblock %} 
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">You don't have access</h1>
+        <p class="govuk-body">
+         You do not have permission to access ECMS.
+        </p>
+        <p class="govuk-body">
+          Contact a system administrator if you need to be given access.
+        </p>
+    </div>
+  </div>
+{% endblock %}

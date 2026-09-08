@@ -105,11 +105,14 @@
   <div class="govuk-grid-column-two-thirds">      
 
     <h2 class="govuk-heading-l">Edit metadata for selected documents</h2>
-    {{ govukWarningText({
-      text: "Only complete the fields that require updates. Leave any fields blank if no update is needed.",
-      iconFallbackText: "Warning"
-      }) }}
-
+    <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    Only complete the fields that require updates. <br>Leave any fields blank if no update is needed. <br>To remove any information without replacing it, go to Manage metadata.
+  </strong>
+</div>
+  
 
       {{ govukInput({
         label: {
