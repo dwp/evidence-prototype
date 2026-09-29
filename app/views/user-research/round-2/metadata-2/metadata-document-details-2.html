@@ -1,0 +1,1274 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Edit document details –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="#" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+           <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+            -->
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="#" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{% endblock %}
+
+{% block content %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Edit document details</h1>
+
+    <form action="metadata-document-details-2" method="post" novalidate>
+
+      {# /// OPTION WITH AUTOSELECT FOR BENEFIT TYPE ///#}
+<div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="benefit-type-2">
+          Benefit type
+        </label>
+        <div class="typeahead">
+      
+          <input id="benefit-type-2" name="metadataBenefitType-2" class="govuk-input govuk-!-width-two-thirds" type="text" {% if
+                data['metadataBenefitType-2'] %} value="{{ data['metadataBenefitType-2'] }}" {% else %}
+                value="Personal Independence Payment (PIP)" {% endif %} autocomplete="off" role="combobox"
+            aria-autocomplete="list" aria-expanded="false" aria-controls="benefit-type-listbox" aria-haspopup="listbox" />
+      
+          <ul id="benefit-type-listbox" class="typeahead-menu" role="listbox" hidden>
+          </ul>
+      
+        </div>
+      </div>
+
+
+     
+       <!-- TYPEAHEAD SECOND VERSION -->
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="metadata-doc-type-2">
+          Document type
+        </label>
+        <div class="typeahead">
+      
+          <input id="metadata-doc-type-2" name="metadata-doc-type-2" class="govuk-input govuk-!-width-two-thirds" type="text" {% if
+                data['metadata-doc-type-2'] %} value="{{ data['metadata-doc-type-2'] }}" {% else %}
+                value="PIP.4005 Change of account details" {% endif %} autocomplete="off" role="combobox"
+            aria-autocomplete="list" aria-expanded="false" aria-controls="metadata-doc-type-listbox" aria-haspopup="listbox" />
+      
+          <ul id="metadata-doc-type-listbox" class="typeahead-menu" role="listbox" hidden>
+          </ul>
+      
+        </div>
+      </div>
+
+      
+
+      {{ govukRadios({
+      name: "metadata-classification-2",
+      value: data['metadata-classification-2'],
+      fieldset: {
+      legend: {
+      text: "Document classification",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+      }
+      },
+      items: [
+      {
+      value: "Supporting",
+      text: "Supporting",
+      hint: {
+      html: "<p class='govuk-hint'>Documents or information that influence benefit case decisions. These may be needed
+        for appeals, fraud investigations, or payment assessments </p>"
+      },
+      checked: true
+      },
+      {
+      value: "Ephemeral",
+      text: "Ephemeral",
+      hint: {
+      html: "<p class='govuk-hint'>General documents that do not impact a claim. These are not stored as supporting
+        evidence.</p>
+      <p class='govuk-hint'>For example, enquiries, templates, or cover sheets </p>"
+      }
+      },
+      {
+      value: "Untraceable",
+      text: "Untraceable",
+      hint: {
+      html: "<p class='govuk-hint'>A document where a reference number or National Insurance number can't be found</p>"
+      }
+      }
+      ]
+      }) }}
+      {#Hint text code for Untraceable radio - ADD BACK IN WHEN CONTENT READY
+      ,
+      hint: {
+      html: "<p class='govuk-hint'>[Placeholder]</p>
+      <p class='govuk-hint'>[Placeholder]</p>"
+      }
+
+      #}
+
+      {{ govukRadios({
+      name: "metadata-harmful-indicator-2",
+      value: data['metadata-harmful-indicator-2'],
+      fieldset: {
+      legend: {
+      text: "Harmful indicator",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+      }
+      },
+      hint: {
+      text: "Harmful information is medical information that should not be shared with a customer or their
+      representative if it could harm their health"
+      },
+      items: [
+      {
+      value: "Not harmful",
+      text: "Not harmful",
+      checked: true
+      },
+      {
+      value: "Potentially harmful",
+      text: "Potentially harmful"
+      },
+      {
+      value: "Harmful",
+      text: "Harmful"
+      }
+      ]
+      }) }}
+
+       {{ govukRadios({
+      classes: "govuk-radios--inline",
+      name: "metadata-automatic-closure-2",
+      value: data['metadata-automatic-closure-2'],
+      fieldset: {
+        legend: {
+          text: "Inhibit automatic closure",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "This stops open documents from automatically closing"
+      },
+      items: [
+        {
+          value: "No",
+          text: "No",
+          checked: true
+        },
+        {
+          value: "Yes",
+          text: "Yes"
+        }
+      ]
+    }) }}
+
+      <div class="govuk-!-padding-bottom-4"></div>
+      <h2 class="govuk-heading-m">Document details you can't edit</h2>
+      {{ govukSummaryList({
+      classes: "govuk-summary-list--no-border",
+      rows: [
+      {
+      key: {
+      text: "Document status"
+      },
+      value: {
+      text: "Open"
+      }
+      }
+      ]
+      }) }}
+
+
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+        text: "Continue"
+        }) }}
+
+        <a class="govuk-link"
+          href="metadata-2?metadataBusinessUnit-2&metadataBenefitType-2&metadata-doc-type-2&metadata-classification-2&metadata-harmful-indicator-2&edit-metadata">Cancel</a>
+      </div>
+
+    </form>
+
+
+  </div>
+</div>
+{# SCRIPT FOR AUTOSUGGEST FOR BENEFIT TYPE -- TYPEAHEAD SECOND VERSION #}
+
+<script>
+(function () {
+  const benefitTypes2 = [
+      "Access to Work",
+      "Alternative Format",
+      "Attendance Allowance unit",
+      "B2OL",
+      "Bereavement benefit",
+      "Bereavement Support Payment",
+      "Budgeting Loans",
+      "Carer's Allowance",
+      "Carer's Credit",
+      "CFEMS",
+      "Compensation Recovery unit",
+      "Debt",
+      "Disability Living Allowance 65",
+      "Disability Living Allowance Adult",
+      "Disability Living Allowanc Child",
+      "Employment and Support Allowance (ESA)",
+      "Fraud",
+      "Funeral Payments",
+      "Future Pensions Centre",
+      "Human resources",
+      "Integrated Loan Scheme (ILS), Eligible Loan Deduction Scheme (ELDS)",
+      "Industrial Injuries Disablement Benefit",
+      "International Pension Centre BB",
+      "International Pension Centre BSP",
+      "International Pension Centre ESA",
+      "International Pension Centre IB",
+      "International Pension Centre IIDB",
+      "International Pension Centre JSA",
+      "International Pension Centre MA",
+      "International Pension Centre PC",
+      "International Pension Centre SP",
+      "International Pension Centre WFP",
+      "Income Support (IS)",
+      "Jobseeker's Allowance (JSA)",
+      "Maternity Allowance",
+      "New Style Jobseeker's Allowance",
+      "National Insurance Delivery Centre",
+      "NISSA Attendance Allowance Unit",
+      "NISSA BB",
+      "NISSA BSP",
+      "NISSA Budgeting Loans",
+      "NISSA Carers Allowance",
+      "NISSA CRS",
+      "NISSA Disability Living Allowance",
+      "NISSA ESA",
+      "NISSA Funeral Payments",
+      "NISSA IIDB",
+      "NISSA INC New",
+      "NISSA JSA New",
+      "NISSA MA",
+      "NISSA NINO Allocation",
+      "NISSA Pension Credit",
+      "NISSA PIP",
+      "NISSA SIS",
+      "NISSA SSMG",
+      "NISSA State Pension",
+      "NISSA UC",
+      "Notification Online (NOL)",
+      "Payment Services",
+      "Pension Credit",
+      "Performance Measurement",
+      "Personal Independence Payment (PIP)",
+      "Right of Access Request",
+      "Severe Disablement Allowance (SDA), Incapacity Benefit (IB)",
+      "Serious & Organised Crime",
+      "State Pension",
+      "Support for Mortgage Interest",
+      "SureStart Maternity Grant",
+      "Universal Credit",
+  ];
+
+  const input = document.getElementById("benefit-type-2");
+  const listbox = document.getElementById("benefit-type-listbox");
+
+  let activeIndex = -1;
+  let currentOptions = [];
+  let selectedValue = "";
+
+  function openMenu() {
+    listbox.hidden = false;
+    input.setAttribute("aria-expanded", "true");
+  }
+
+  function closeMenu() {
+    listbox.hidden = true;
+    input.setAttribute("aria-expanded", "false");
+    input.removeAttribute("aria-activedescendant");
+    activeIndex = -1;
+  }
+
+  function selectOption(value) {
+    input.value = value;
+    selectedValue = value;
+    closeMenu();
+  }
+
+  function updateHighlight() {
+
+    const options = listbox.querySelectorAll('[role="option"]');
+
+    options.forEach((option, index) => {
+      const isActive = index === activeIndex;
+
+      option.classList.toggle("active", isActive);
+      option.setAttribute("aria-selected", isActive);
+
+      if (isActive) {
+        input.setAttribute(
+          "aria-activedescendant",
+          option.id
+        );
+
+        option.scrollIntoView({
+          block: "nearest"
+        });
+      }
+    });
+
+    if (activeIndex === -1) {
+      input.removeAttribute("aria-activedescendant");
+    }
+  }
+
+  function renderOptions(options) {
+
+    listbox.innerHTML = "";
+    activeIndex = -1;
+    currentOptions = options;
+
+    if (!options.length) {
+
+      const li = document.createElement("li");
+
+      li.className = "no-results";
+      li.textContent = "No results found";
+      li.setAttribute("aria-disabled", "true");
+
+      listbox.appendChild(li);
+
+      openMenu();
+      return;
+    }
+
+    options.forEach((text, index) => {
+
+      const li = document.createElement("li");
+
+      li.id = `benefit-type-option-${index}`;
+      li.textContent = text;
+      li.setAttribute("role", "option");
+      li.setAttribute("aria-selected", "false");
+
+      li.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        selectOption(text);
+      });
+
+      listbox.appendChild(li);
+    });
+
+    openMenu();
+  }
+
+  input.addEventListener("input", () => {
+
+    const query = input.value.trim().toLowerCase();
+
+    if (!query) {
+      closeMenu();
+      return;
+    }
+
+    const matches = benefitTypes2
+      .filter(item =>
+        item.toLowerCase().includes(query)
+      )
+      .sort((a, b) => a.localeCompare(b));
+
+    renderOptions(matches);
+  });
+
+  input.addEventListener("keydown", (e) => {
+
+    if (!currentOptions.length) return;
+
+    switch (e.key) {
+
+      case "ArrowDown":
+
+        e.preventDefault();
+
+        activeIndex =
+          activeIndex < currentOptions.length - 1
+            ? activeIndex + 1
+            : 0;
+
+        updateHighlight();
+        break;
+
+      case "ArrowUp":
+
+        e.preventDefault();
+
+        activeIndex =
+          activeIndex > 0
+            ? activeIndex - 1
+            : currentOptions.length - 1;
+
+        updateHighlight();
+        break;
+
+      case "Enter":
+
+        if (activeIndex >= 0) {
+
+          e.preventDefault();
+
+          selectOption(
+            currentOptions[activeIndex]
+          );
+        }
+
+        break;
+
+      case "Escape":
+
+        closeMenu();
+        break;
+    }
+  });
+
+  input.addEventListener("focus", () => {
+
+    if (selectedValue) {
+
+      setTimeout(() => {
+        input.select();
+      }, 0);
+    }
+  });
+
+  input.addEventListener("blur", () => {
+
+    setTimeout(() => {
+
+      const validValue = benefitTypes2.find(
+        item =>
+          item.toLowerCase() ===
+          input.value.trim().toLowerCase()
+      );
+
+      if (validValue) {
+
+        input.value = validValue;
+        selectedValue = validValue;
+
+      } else {
+
+        input.value = "";
+        selectedValue = "";
+      }
+
+      closeMenu();
+
+    }, 150);
+  });
+
+  document.addEventListener("mousedown", (e) => {
+
+    const clickedInput = e.target === input;
+    const clickedListbox = listbox.contains(e.target);
+
+    if (clickedInput || clickedListbox) {
+      return;
+    }
+
+    if (
+      activeIndex >= 0 &&
+      currentOptions[activeIndex]
+    ) {
+
+      selectOption(
+        currentOptions[activeIndex]
+      );
+
+    } else {
+
+      closeMenu();
+    }
+  });
+
+})();
+</script>
+
+{# SCRIPT FOR AUTOSUGGEST DOCUMENT TYPES - TYPEAHEAD SECOND VERSION #}
+
+<script>
+(function () {
+
+  const documentTypes2 = [
+    "BD8",
+"BF600",
+"BF9",
+"GL24",
+"MP Letter",
+"Remittance",
+"Death Certificates",
+"Verification Document",
+"Non-Monetary Valuable",
+"Returned IoP",
+"DPGEN",
+"BF56",
+"DLO",
+"Envelope",
+"Whitemail COA",
+"Whitemail COB",
+"Whitemail unstructured",
+"BF57",
+"BF57A",
+"BF57B",
+"Voice recording link (VRVR)",
+"BF57/a Appointee Review",
+"PIP.1001 Application - Acknowledgement letter",
+"PIP.1002 Confirmation of withdrawal letter",
+"PIP.3000 Absence abroad Date Enquiry",
+"PIP.4001 Daily Payment Letter",
+"PIP.4002 Payment Recall Notification",
+"PIP.4003 Change of Payment",
+"PIP.4004 Re-Issue Payment",
+"PIP.4005 Change of account details",
+"PIP.5000 Full Motability Agreement",
+"PIP.5001 Motability: Advise Claimant/PAB that Motability Component Held from Safe Date",
+"PIP.0500 Statement of Entitlement",
+"PIP.0501 – Certificate of Entitlement",
+"PIP.0504 – Enduring Power of Attorney Verification",
+"PIP.0504 (R) – Enduring Power of Attorney Verification Reminder",
+"PIP.3002 – Detention in Legal Custody – No Prison Address",
+"PIP.3002 (R) – Detention in Legal Custody – No Prison Address (Reminder)",
+"PIP.7000 – Lay Disallowance Letter",
+"PIP.1006 PIP2 Reminder",
+"PIP.0505 Gender mismatch From CIS",
+"PIP1 - NON Repudiation copy",
+"PIP1 - Clerical Application form",
+"Generic Home Office Document",
+"Gender recognition Certificate",
+"Certificate of Visual Impairment",
+"PIP.3005 Verify Personal details",
+"PIP.3004 Generic Reminder Letter",
+"PIP.4010 Payment in Care Home ",
+"PIP.4011 In Hospital - Payment not affected less than 28 days",
+"PIP.4012 Inform Customer When Payment Reinstated (all Hospital & Other Accommodation)",
+"PIP.4013 Inform Customer When Payments Affected but No Overpayment (Hospital)",
+"PIP.4014 Inform Customer When Payments Affected but No Overpayment (Not Hospital)",
+"PIP.4015 Notification of Change Of Address Action",
+"Further Evidence",
+"DS1500",
+"DS1500 Fee",
+"Prescriptions",
+"Care plan",
+"Customer expenditure receipt",
+"Generic HMRC letter",
+"PIP.3019 Hospital Dates Enquiry",
+"Photographic Evidence",
+"PIP.4016 Overlapping Benefit",
+"BI105 Overlapping benefit form",
+"End of award notification",
+"Generic Acknowledgement (NON application) letter",
+"Christmas bonus",
+"Winter Fuel payment",
+"DBD106 Consent form",
+"Compensation Recovery Unit form",
+"Bereavement questionnaire",
+"PIP.4006 - Advise Claimant of Suspension of Benefit",
+"MF47",
+"AP Assessment Report",
+"AP Supplementary Report",
+"AP Assessment Report where assessment could not be completed",
+"Unacceptable Claimant Behaviour (UCB) Incident Report Form",
+"UCB Repeat Behaviour Form",
+"PIP2 questionnaire",
+"PIP.7001Entitlement Letter New Claim award",
+"PIP.7011 Enhanced Disallowance Letter",
+"PIP.7003 Entitlement Letter- intervention still entitled",
+"PIP.7013 Entitlement Letter - intervention disallowed",
+"PIP.7002 Reconsideration - award",
+"PIP.7012 Reconsideration - disallowance",
+"PIP.0506 End Of Award Letter Short Term Award",
+"PIP.0502 Progress Letter",
+"Generic Reminder",
+"PIP.3008 Care Home Enquiry",
+"PIP.3008 Care Home Enquiry reminder",
+"PIP.3007 Local Authority Funding Enquiry",
+"PIP.3007 Local Authority Funding Enquiry reminder",
+"PIP.3006 Residential Health Authority Enquiry",
+"PIP.3006(R) Residential Health Authority Enquiry Reminder",
+"PIP.0504 Relationship Verification",
+"PIP.0504(R) – Relationship Verification Reminder",
+"PIP.4008 Payment arrears",
+"PIP.3009 Verification Request",
+"PIP.1007 PIP 1 Cover letter",
+"PIP.2000 Appeal outcome delay",
+"PIP.4009 NOK following Claimants death",
+"PIP.1005 Additional Information Request to Support Decision",
+"PIP.3011 Northern Ireland Funding Enquiry",
+"PIP.3027 Death Notification Further Information",
+"DBD316APP - Customer Deceased – O/S Event",
+"DBD316NC - Customer Deceased – O/S Claim",
+"DBD545 - Enquiry – C of C Prior to Payment",
+"DBD305R - Reasons for Lateness - Reconsideration",
+"DBD384 - Letter of Entitlement for passporting (DBD384A)",
+"DBD237 - Customer Deceased – More Info Required",
+"PIP.7015 Reconsideration Not Revised",
+"PIP.1004 PIP2 covering letter TI",
+"PIP.1003 PIP2 Covering Letter (Not TI)",
+"PIP.3001R - Letter claimant in prison",
+"PIP.3003 - Enquiry following claimant's death i.e. Hosp dates or executor",
+"PIP.3009R - Verification request reminder",
+"PIP.4007 - Returned Payment",
+"PIP.7015 - Reconsideration - Decision not revised",
+"EBS1 - Notification of Admission to Custody",
+"EBS2 - Notification of Pre-release from Custody - resettlement action plan",
+"PIP.6000 - Failure to attend appointment",
+"DBD231 - Residence Status Notification",
+"PA 7 - Harmful Information",
+"AP Document Cover Letter",
+"AP Contact History",
+"PIP.2500 Reconsideration - Out of Time",
+"Claimant Requests Explanation",
+"PIP.0010 Claim in Addition",
+"GP Factual Report",
+"Hospital Factual Report",
+"AP Request for Information",
+"Appeal Outcome",
+"PIP.0009 PIP2 returned - no signature",
+"PIP.0100 Representative Cover Letter",
+"PIP.0110 Generic Letter",
+"PIP.0111 HMRC Interest",
+"PIP.0200 Reassessment Self Select",
+"PIP.0420 Payment Suspension No response",
+"PIP.0421 Payment Suspension entitlement query",
+"PIP.0422 Payment Suspension No Response",
+"PIP.1016 Claim in the alternative",
+"PIP.1018 Request Claim",
+"PIP.1019 DS1500 Further Information Required",
+"PIP.1022 Progress Letter",
+"PIP.1024 Reconsideration Acknowledgment",
+"PIP.2008 PAB Further Evidence Request",
+"PIP.3013 Unable to Contact Claimant",
+"PIP.3033 General Enquiry",
+"PIP.3034 Sensitive General Enquiry",
+"PIP.7017 PIP Cessation Claimant Request",
+"PIP.7018 PIP Cessation Confirmation",
+"PIP.0107 Uprating",
+"PIP.0185 Rising 16 Invite to Claim",
+"PIP.0186 Rising 16s invite to claim reminder",
+"PIP.0201",
+"PIP.0202 Reassessment - Claim invite letter Renewals",
+"PIP.0204 Reassessment - Claim invite letter 5 Supersessions",
+"PIP.0203 Reassessment - Claim Invite Reminder",
+"PIP.1021 Interventions PIP 2 Cover Letter",
+"Interventions PIP2 Questionnaire",
+"PIP.1025 Interventions Part 2 reminder",
+"PIP.2001a Late Response to Appeal",
+"PIP.7010 Reassessment: disallowance lay rules",
+"PIP.7016 Reassessment: disallowance",
+"PIP.7006 Reassessment: award",
+"NHS Hospital appointment letter",
+"Med 3 (FIT Note)",
+"NHS Hospital report",
+"GP letter",
+"Specialist Nurse letter",
+"GP Data print",
+"PIP.ASCR02",
+"Representative Letter",
+"Medical Evidence not relevant to the Claim",
+"PIP.2006",
+"PIP.2009",
+"PIP.4225",
+"PIP.7031",
+"Appointment",
+"Complaint / Feedback",
+"A6",
+"Power of Attorney",
+"SSCS1",
+"GAPS DL 16",
+"H001",
+"H002",
+"AT38",
+"DS1500 - fee form",
+"Statement of Reasons",
+"DIGITAL PIP1",
+"DIGITAL PIP2",
+"PIP0182",
+"PIP0183",
+"PIP0184",
+"ESA85",
+"PG1",
+"Overpayment (OP) Decision",
+"Award Review AR1",
+"Award Review AR1 Covering Letter",
+"Award Review AR1 Reminder Letter",
+"Non-return of Award Review AR1 Notification",
+"OS1",
+"Direction Notice Letter",
+"Adjournment Notice",
+"Hearing Date Letter",
+"DL6 (Register Appeal)",
+"Appeal Withdrawn",
+"Appeal to the Upper Tribunal (Commission)",
+"CRMR1",
+"Appeal Response",
+"Appeal Response (Harmful)",
+"Appeal Bundle",
+"Appeal Bundle (Harmful)",
+"Appeal Supplementary Response",
+"Appeal Supplementary Response (Harmful)",
+"Appeal Supplementary Bundle",
+"Appeal Supplementary Bundle (Harmful)",
+"GPFR fee form",
+"Travel Expenses Claim Form",
+"Expenses receipt",
+"DC12",
+"Initial Review Complete",
+"Home Appointment",
+"Clinic Appointment",
+"Rescheduled-short notice clinic appointment",
+"Appointment Reminder",
+"GP factual report Request",
+"Rescheduled-short notice home appointment",
+"Expenses paid",
+"Expenses rejected",
+"Expenses reclaim",
+"Hospital factual report request",
+"Standard factual report request",
+"Standard factual report",
+"Appointment Cancellation text",
+"Appointment Reminder text",
+"PIP.7051",
+"PIP.7053",
+"PIP.7052",
+"PIP.7051s",
+"PIP.7052R",
+"PIP.7054",
+"PIP.7054R",
+"PIP.7055",
+"PIP.7056",
+"PIP.7057",
+"PIP.7057R",
+"PIP.7058",
+"PIP.7050MC",
+"PIP.7051MC",
+"PIP.7055MC",
+"PIP.7056MC",
+"PIP.7059",
+"PIP.7059MC",
+"PIP.7070",
+"PIP.7070MC",
+"PIP.7052 Reply Slip",
+"PIP.7053 Reply Slip",
+"PIP.7054 Reply Slip",
+"PIP.7050",
+"PIP DMR Template",
+"LEAP Case Completer Template",
+"PIP.7101",
+"PIP.7102",
+"PIP.7103",
+"PIP.7104",
+"PIP.7105",
+"PIP.7106",
+"BLS1A",
+"BF56B",
+"BF56 Decision",
+"BF58",
+"PIP.7201 CV-19 Award Review, PIP Award Extended",
+"PIP.7205 CV-19 Reassessment suspended, DLA award extended",
+"PIP.7210 CV-19 Fixed term award extended, no advance claim made",
+"PIP.7203 CV-19 Fixed term award extended, advance claim made",
+"H003",
+"H004",
+"H005",
+"H006",
+"H010",
+"H011",
+"H012",
+"H020",
+"H021",
+"H061",
+"H062",
+"H065",
+"H066",
+"H070",
+"H120",
+"H121",
+"H130",
+"H131",
+"X001",
+"X002",
+"X003",
+"X004",
+"X005",
+"X006",
+"X007",
+"X008",
+"X009",
+"X010",
+"X011",
+"X012",
+"X013",
+"X050",
+"X100",
+"R001",
+"R002",
+"R003",
+"R004",
+"R005",
+"R006",
+"R008",
+"R009",
+"S001",
+"S003",
+"S005",
+"S040",
+"S041",
+"S046",
+"S047",
+"S048",
+"S055",
+"S056",
+"S057",
+"AR1 UI",
+"PIP1 SRTI",
+"P6000",
+"UC85",
+"BLS1",
+"BLS3",
+"PIP GSL",
+"PIP OP Accommodation",
+"PIP OP Hospital",
+"PIP OP Prison",
+"PIP.0226 Reassessment, Request to claim PIP - CoC Enquiry",
+"PIP.0229 Enquiry following request to claim PIP",
+"PIP.2016 Appeal Further Response cover sheet",
+"PIP.2020 Appeal Lapsed Offer letter",
+"PIP.3001 Detention in legal custody",
+"PIP.3012 establish good reasons for non return of PIP2 (UI)",
+"PIP.3020 Enquiry to customer following Appeal Outcome",
+"PIP.3024 EEA claim form",
+"PIP.3031 Representative written consent letter",
+"PIP.3040 Secure Unit/ Hospital Enquiry",
+"PIP.3041 Late notification of change of circumstances enquiry",
+"PIP.3042 COA to claimant ( care home enquiry)",
+"PIP.3049 Death Arrears Payee Enquiry Letter",
+"PIP.6000a Request reasons for failed to comply at Consultation",
+"PIP.6000b Request return of PIP2",
+"PIP.6000d Request reasons for late return of PIP2 - DLA suspended",
+"PIP.6002 Joint complaint received cover sheet",
+"PIP.7084 Leap Letter",
+"PIP.3032 Prison release- Confirmation of address",
+"PIP.3037 Arrange medical exam for claimant abroad",
+"PIP.0114 Alternative Name & NINO held on computer",
+"PIP.3022 Residence & Presence / Foreign Residency - General Enquiry Letter",
+"PIP.3023 Residence & Presence / Foreign Residency- General Enquiry Letter to be issued with PIP.3022",
+"PIP Decision Notification",
+"PIP Enquiry Letter",
+"Claimant Letter",
+"CRT Referral",
+"Appeal Letter (Law Centre Rep)",
+"CAP40",
+"FF146",
+"Foreign Authority Cover Page",
+"Foreign Authority Customer letter",
+"PIPR11",
+"PIPR13",
+"OS1 Temporary Appointee Process",
+"SPT CIC stencil",
+"PIP.0113 Confirmation of award change for appointee / new appointee",
+"PIP.0116.O65",
+"PIP.0116.U16",
+"PIP.0141 Assessment returned for rework",
+"PIP.0209 Reassessment - DLA Extended on renewal where delay in PIP",
+"PIP.0210 Reassessment PIPR16 no DLA decision",
+"PIP.0212 Reassessment Claimant Requests DLA Relinquishment - PIP Claim Received",
+"PIP.0150 Claimant Feedback including Special Payments",
+"PIP.0213 Reassessment DLA still terminated",
+"PIP.0214 Reassessment DLA reinstated after termination",
+"PIP.0215 Reassessment Suspension",
+"PIP.0216 Reassessment Claimant writes in to state no claim PIP - vulnerable",
+"PIP.0217 Reassessment Claimant writes in / telephones to state no PIP claim - vulnerable",
+"PIP.0218 Reassessment Change in Circumstance after invited to claim PIP",
+"PIP.0219 Reassessment Died DLA arrears & PIP invite sent/PIP claim made no decision",
+"PIP.0222 eligible self selector",
+"PIP.0305 Certificate of Appointment to Act for Deceased Person",
+"PIP.1002a confirmation of claimants withdrawal of claim for claimants requiring additional support",
+"PIP.1003_EEA PIP2 covering letter",
+"PIP.1003_EXP PIP2 covering letter for claimants in Switzerland / a country in the EEA other than the UK",
+"PIP.1006_EXP PIP2 reminder",
+"PIP.1020 Part 2 extension request - Decision",
+"PIP.1032 Overlapping benefits (internal)",
+"PIP.1045 reminder please return your Award review",
+"PIP.2002 request statement of reasons",
+"PIP.2007 Further evidence received for appeal- no change",
+"PIP.2007A Further evidence received after Decision no change",
+"PIP.2008 no evidence to support appeal/reconsideration received",
+"PIP.2017 Further Evidence received for appeal - no change - representative",
+"PIP.3010 Potential move abroad/moving to EEC",
+"PIP.3011R NI Funding Enquiry reminder",
+"PIP.3014 unentitled to VED notification",
+"PIP.4018 Missing Payment notification to claimant/appointee",
+"PIP.4035 Overpayment Reconsideration - change/no change",
+"PIP.4037 Decision notification for legal detention/ prison",
+"PIP.4038 Boarder Decision Notification",
+"PIP.4223 susterm PIP equivalent",
+"PIP.4224 Statement of Reasons to Claimant",
+"PIP.4226 susterm 8 PIP equivalent",
+"PIP.4500 Notification of an ongoing award for State Pension age claimants",
+"PIP.6000c Claim disallowed PIP2 returned late",
+"PIP.6000e Failure to attend / complete a consultation - Good Reason accepted",
+"PIP.6000f Late return of PIP2 - Good Reason accepted",
+"PIP.6000g Failure to notify hospital discharge date - Good Reason Accepted",
+"PIP.6000H Failure to notify hospital discharge date - No reasons given",
+"PIP.6000J Failure to notify hospital discharge date - Good Reason Rejected",
+"PIP.6000K Failure to notify hospital discharge date - Reconsideration - No change",
+"PIP.6000L Failure to notify hospital discharge date - Reconsideration - Revised decision",
+"PIP.6001 AP response to joint complaint",
+"PIP.7004 Lay decisions - non-attendance- defective claim disallowance",
+"PIP.7005 Decision no supersession",
+"PIP.7007 reassessment negative determination decision",
+"PIP.7008 reassessment s of s intervention out of scope",
+"PIP.7014 duplicate claim decision",
+"PIP.7015 EXP - Reconsideration unrevised abroad",
+"PIP.7019 Change of Circumstance Award review - Non-admitted reason notification",
+"PIP.7021 Change of Circumstance Award review - Disallowance non return of Part 2",
+"PIP.7022 no nino disallowance",
+"PIP.7024 Lay decision reconsideration - decision maintained",
+"PIP.7030 Bereavement death award/disallowance notification",
+"PIP.7032 decision outcome claimant has died",
+"PIP.7041 Disallowance due to non-return of AR",
+"PIP.7211 CV-19 Award Review & DLA Reassessment journey restart",
+"PIP.8020 New Claim Negative Determination Reconsideration - Good reason accepted by CM",
+"PIP.8021 Reassessment Negative Determination Reconsideration - Good Reason accepted by CM",
+"PIP.8022 Award Review Negative Determination Reconsideration - Good Reason accepted by CM",
+"PIP.8024 New Claim Negative Determination Appeal- Good Reason accepted by CM",
+"PIP.8025 Reassessment Negative Determination Appeal - Good Reason accepted by CM",
+"PIP.8028 New Claim Negative Determination Appeal - Good Reason accepted by Tribunal",
+"PIP.8029 Reassessment Negative Determination Appeal - Good Reason accepted by Tribunal",
+"Copy Docs Request",
+"PIP.0101 General reminder Letter",
+"PIP.0103 Winter Fuel Letter",
+"PIP.0104 Copy Documents Accompanying Letter",
+"PIP.0105 Death certificate Damaged",
+"PIP.0106 Claim In the Alternative",
+"PIP.0108 Christmas Bonus Letter",
+"PIP.0109 Winter Fuel Payment Letter",
+"PIP.0119 PIP Payment details for Specific periods ( for tax purposes)",
+"PIP.0155 Return of Death Certificate",
+"PIP.0201_EXP reassessment invite",
+"PIP.0203_EXP reassessment invite reminder",
+"PIP.0211 Reassessment No Invite / claim to PIP sent / received",
+"PIP.0221 Copy of DLA medical evidence required by PIP Claimant",
+"PIP.0223 Reassessment - PIP claim invite",
+"PIP.0224 reassessment out of scope",
+"PIP.0225 PIP unavailable in customer area",
+"PIP.0226R Reassessment, Request to claim PIP - CoC Enquiry reminder",
+"PIP.0228 Advice following request to claim PIP",
+"PIP.0300 exempt valuable referral sheet",
+"PIP.1023 Written request to claim - Information Signposting Letter",
+"PIP.2008R evidence to support appeal/reconsideration reminder",
+"PIP.2010 Appeal response cover letter to claimant",
+"PIP.3005R verify nationality & date of birth reminder",
+"PIP.3022R Residence & Presence / Foreign Residency - General Enquiry Letter reminder",
+"PIP.3048 DPGEN-Cover letter & reply page",
+"PIP.4028 Manual Payment - payments breakdown",
+"PIP.7042 PIP unavailable in customer area",
+"PIP.7084R Leap Letter reminder",
+"BF56A",
+"Overpayment Letter",
+"SR1",
+"SR1 Fee Form",
+"PIP.7060 - AE enquiry letter (customer deceased)",
+"PIP.7321 - AE decision letter - no change - no reply to enquiry form",
+"PIP.7057MM - AE enquiry letter for MM",
+"PIP.7057MM2 - AE enquiry letter for MM reminder",
+"PIP.7060MM - AE enquiry letter for MM (customer deceased)",
+"PIP.7060MM2 - AE enquiry letter for MM (customer deceased) reminder",
+"BASRiS",
+"Care Home Notification",
+"PIP.1050 LTR AR2 Cover Letter",
+"PIP.1044 LTR Cover Letter",
+"DLA Medical Evidence",
+"Audit Process Explanatory Note",
+"AP Audit documents",
+"BF56 Part 7",
+"BF57C",
+"BF57D",
+"CAP40a",
+"CAP41",
+"CAP41a",
+"PIP.8030 Mandatory Recon Ack Letter",
+"AT 39 (Gen)",
+"AR2 Award Review form",
+"PIP.1046 LTR no supersede Decision notification",
+"Hospital Care Home Admission Discharge",
+"PIP.2007B Further evidence recd (no change to appeal)",
+"PIP Other AF GB",
+"PIP Other AF NI",
+"PIP Welsh Language",
+"Claimant assessment report",
+"VO Cover Letter",
+"PIPPS.7004 Lay Decisions - Non-Attendance - Defective Claim Disallowance",
+"PIPPS.7001 Entitlement Letter New Claim Award",
+"PIPPS.7011 Enhanced Disallowance Letter",
+"SDPIPL08 PIP Scotland Cross Border Decision notification",
+"DBL2",
+"PIPSUS1 Benefit in doubt letter",
+"PIPSUSREQ1 Benefit in doubt stencil",
+"PIP.3015 Identity Verification",
+"VR1 VO Control Sheet",
+"PIPPS.0107 Uprating",
+"PIP.3028",
+"PIP.3028R",
+"Report Cover Letter",
+"Report Notes"
+  ];
+
+  const input = document.getElementById("metadata-doc-type-2");
+  const listbox = document.getElementById("metadata-doc-type-listbox");
+
+  let activeIndex = -1;
+  let currentOptions = [];
+  let selectedValue = "";
+
+  function openMenu() {
+    listbox.hidden = false;
+    input.setAttribute("aria-expanded", "true");
+  }
+
+  function closeMenu() {
+    listbox.hidden = true;
+    input.setAttribute("aria-expanded", "false");
+    input.removeAttribute("aria-activedescendant");
+    activeIndex = -1;
+  }
+
+  function selectOption(value) {
+    input.value = value;
+    selectedValue = value;
+    closeMenu();
+  }
+
+  function updateHighlight() {
+
+    const options = listbox.querySelectorAll('[role="option"]');
+
+    options.forEach((option, index) => {
+      const isActive = index === activeIndex;
+
+      option.classList.toggle("active", isActive);
+      option.setAttribute("aria-selected", isActive);
+
+      if (isActive) {
+        input.setAttribute(
+          "aria-activedescendant",
+          option.id
+        );
+
+        option.scrollIntoView({
+          block: "nearest"
+        });
+      }
+    });
+
+    if (activeIndex === -1) {
+      input.removeAttribute("aria-activedescendant");
+    }
+  }
+
+  function renderOptions(options) {
+
+    listbox.innerHTML = "";
+    activeIndex = -1;
+    currentOptions = options;
+
+    if (!options.length) {
+
+      const li = document.createElement("li");
+
+      li.className = "no-results";
+      li.textContent = "No results found";
+      li.setAttribute("aria-disabled", "true");
+
+      listbox.appendChild(li);
+
+      openMenu();
+      return;
+    }
+
+    options.forEach((text, index) => {
+
+      const li = document.createElement("li");
+
+      li.id = `metadata-doc-type-option-${index}`;
+      li.textContent = text;
+      li.setAttribute("role", "option");
+      li.setAttribute("aria-selected", "false");
+
+      li.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        selectOption(text);
+      });
+
+      listbox.appendChild(li);
+    });
+
+    openMenu();
+  }
+
+  input.addEventListener("input", () => {
+
+    const query = input.value.trim().toLowerCase();
+
+    if (!query) {
+      closeMenu();
+      return;
+    }
+
+    const matches = documentTypes2
+      .filter(item =>
+        item.toLowerCase().includes(query)
+      )
+      .sort((a, b) => a.localeCompare(b));
+
+    renderOptions(matches);
+  });
+
+  input.addEventListener("keydown", (e) => {
+
+    if (!currentOptions.length) return;
+
+    switch (e.key) {
+
+      case "ArrowDown":
+
+        e.preventDefault();
+
+        activeIndex =
+          activeIndex < currentOptions.length - 1
+            ? activeIndex + 1
+            : 0;
+
+        updateHighlight();
+        break;
+
+      case "ArrowUp":
+
+        e.preventDefault();
+
+        activeIndex =
+          activeIndex > 0
+            ? activeIndex - 1
+            : currentOptions.length - 1;
+
+        updateHighlight();
+        break;
+
+      case "Enter":
+
+        if (activeIndex >= 0) {
+
+          e.preventDefault();
+
+          selectOption(
+            currentOptions[activeIndex]
+          );
+        }
+
+        break;
+
+      case "Escape":
+
+        closeMenu();
+        break;
+    }
+  });
+
+  input.addEventListener("focus", () => {
+
+    if (selectedValue) {
+
+      setTimeout(() => {
+        input.select();
+      }, 0);
+    }
+  });
+
+  input.addEventListener("blur", () => {
+
+    setTimeout(() => {
+
+      const validValue = documentTypes2.find(
+        item =>
+          item.toLowerCase() ===
+          input.value.trim().toLowerCase()
+      );
+
+      if (validValue) {
+
+        input.value = validValue;
+        selectedValue = validValue;
+
+      } else {
+
+        input.value = "";
+        selectedValue = "";
+      }
+
+      closeMenu();
+
+    }, 150);
+  });
+
+  document.addEventListener("mousedown", (e) => {
+
+    const clickedInput = e.target === input;
+    const clickedListbox = listbox.contains(e.target);
+
+    if (clickedInput || clickedListbox) {
+      return;
+    }
+
+    if (
+      activeIndex >= 0 &&
+      currentOptions[activeIndex]
+    ) {
+
+      selectOption(
+        currentOptions[activeIndex]
+      );
+
+    } else {
+
+      closeMenu();
+    }
+  });
+
+})();
+</script>
+
+{% endblock %}

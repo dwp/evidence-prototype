@@ -1,0 +1,449 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Manage metadata –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="#" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+           <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+            -->
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="#" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+  {% if data['edit-metadata'] == 'true' %}
+  {% else %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+  {% endif %}
+
+{% endblock %} {% block content %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+<div class="govuk-width-container">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+     {% if data['edit-metadata'] == 'true' %}
+
+
+    <h1 class="govuk-heading-l">Check your updates</h1>
+    <p class="govuk-body govuk-!-margin-bottom-7">Make sure the updated details are correct before you continue.</p>
+    
+
+  {% else %}
+<h1 class="govuk-heading-l">Manage metadata</h1>
+  {% endif %}
+
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{# CUSTOMER DETAILS #}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Customer details"
+    },
+    actions: {
+      items: [
+        {
+          href: "metadata-customer-details-3?edit-metadata=true",
+          text: "Edit"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "National Insurance number"
+      },
+      value: {
+              html: data['metadata-nino-3'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+              
+      html: formatDate (
+        data['metadata-dob-day-3'],
+        data['metadata-dob-month-3'],
+        data['metadata-dob-year-3'])
+        if data['metadata-dob-day-3'] else '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+     {
+      key: {
+        text: "First name"
+      },
+      value: {
+              html: data['metadata-first-name-3'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+      {
+      key: {
+        text: "Last name"
+      },
+      value: {
+              html: data['metadata-last-name-3'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+      {
+      key: {
+        text: "Postcode"
+      },
+      value: {
+              html: data['metadata-post-code-3'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+      {
+      key: {
+        text: "Customer reference number (CRN)"
+      },
+      value: {
+              html: data['metadata-crn-3'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+      {
+      key: {
+        text: "Claim reference"
+      },
+      value: {
+              html: data['metadata-claim-ref-3'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    }
+  ]
+}) }}
+
+{# DOCUMENT DETAILS #}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Document details"
+    },
+    actions: {
+      items: [
+        {
+          href: "metadata-document-details-3?edit-metadata=true",
+          text: "Edit"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Business unit"
+      },
+      value: {
+              text: data['metadataBusinessUnit-3'] or "Personal Independence Payment (PIP)"
+            }
+    },
+    {
+      key: {
+        text: "Benefit type"
+      },
+      value: {
+              text: data['metadataBenefitType-3'] or "Personal Independence Payment (PIP)"
+            }
+    },
+    {
+      key: {
+        text: "Document type"
+      },
+      value: {
+              text: data['metadata-doc-type-3'] or "BF600"
+            }
+    },
+    {
+      key: {
+        text: "Document classification"
+      },
+      value: {
+              text: data['metadata-classification-3'] or "Supporting"
+            }
+    },
+    {
+      key: {
+        text: "Harmful indicator"
+      },
+      value: {
+              text: data['metadata-harmful-indicator-3'] or "Not harmful"
+            }
+    },
+     {
+      key: {
+        text: "Inhibit automatic closure"
+      },
+      value: {
+              text: data['metadata-automatic-closure-3'] or "No"
+            }
+    },
+    {
+      key: {
+        text: "Document status"
+      },
+      value: {
+              text: data['metadata-doc-status-3'] or "Closed"
+            }
+    }
+  ]
+}) }}
+
+
+  {# HOLD DETAILS DETAILS - NO HOLD #}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Hold details"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Overpayment hold"
+      },
+      value: {
+              text: data['metadata-overpayment-hold-3'] or "No"
+            }
+    },
+    {
+      key: {
+        text: "Overpayment hold date"
+      },
+      value: {
+              text: data['metadata-overpayment-hold-date-3'] or "Not applicable"
+            }
+    },
+    {
+      key: {
+        text: "General hold"
+      },
+      value: {
+              text: data['metadata-general-hold-3'] or "No"
+            }
+    },
+    {
+      key: {
+        text: "General hold date"
+      },
+      value: {
+              text: data['metadata-general-hold-date-3'] or "Not applicable"
+            }
+    },
+    {
+      key: {
+        text: "General hold reason"
+      },
+      value: {
+              text: data['metadata-hold-reason-3'] or "Not applicable"
+            }
+    }
+  ]
+}) }}
+
+
+  
+
+{# REFERENCE DOCUMENT DETAILS #}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Reference document details"
+    },
+    actions: {
+      items: [
+        {
+          href: "metadata-ref-document-details-3?edit-metadata=true",
+          text: "Edit"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Line of business (LOB) case ID"
+      },
+      value: {
+              html: data['metadata-lob-case-id-3'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+    {
+      key: {
+        text: "Office postcode"
+      },
+      value: {
+              html: data['metadata-office-postcode-3'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+    {
+      key: {
+        text: "Link data"
+      },
+      value: {
+              html: data['metadata-link-data-3'] or '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+    {
+      key: {
+        text: "Document ID"
+      },
+      value: {
+              text: data['metadata-doc-id-3'] or "(ba8efda4-d2e0-414f-9ab2-949e29f76336)"
+            }
+    }
+  ]
+}) }}
+
+{# SCAN DETAILS #}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Scan details"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Receipt date"
+      },
+      value: {
+              text: "15 August 2026"
+            }
+    },
+ {
+      key: {
+        text: "Scan date"
+      },
+      value: {
+              text: "15 August 2026"
+            }
+    },
+ {
+      key: {
+        text: "Index date"
+      },
+      value: {
+              text: "15 August 2026"
+            }
+    },
+ {
+      key: {
+        text: "Issue date"
+      },
+      value: {
+              html: '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+ {
+      key: {
+        text: "Scan envelope ID"
+      },
+      value: {
+              text: "12309876543210123"
+            }
+    },
+ {
+      key: {
+        text: "Scan batch ID"
+      },
+      value: {
+              html: '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+ {
+      key: {
+        text: "Scan centre ID"
+      },
+      value: {
+              html: '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+ {
+      key: {
+        text: "Scan operator ID"
+      },
+      value: {
+              html: '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+ {
+      key: {
+        text: "Index operator ID"
+      },
+      value: {
+              html: '<span class="govuk-hint">Not provided</span>'
+            }
+    },
+ {
+      key: {
+        text: "Number of pages"
+      },
+      value: {
+              text: "1"
+            }
+    }
+  ]
+}) }}
+
+ {% if data['edit-metadata'] == 'true' %}
+
+ <div class="govuk-button-group">
+      <form action="metadata-confirmation-3" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Confirm updates"
+        }) }}
+
+    
+          <a class="govuk-link" href="../search-results-v4?edit-metadata">Cancel and return to search results</a>
+</div>
+  </form>
+      
+
+
+  {% else %}
+
+      <p> 
+        <a href="../search-results-v4?edit-metadata">
+          Return to search results
+        </a>
+      </p>
+  {% endif %}
+    
+  </div>
+</div>
+</div>
+
+{% endblock %}

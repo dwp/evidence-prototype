@@ -26,3 +26,11 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // This moves 'ecms-v1' routing to 'ecms-v1' directory
 require('./views/ecms-v1/_routes')(router)
+
+
+///////////////////////
+//   USER RESEARCH ROUTES : ROUND 2   //
+//////////////////////
+
+// This moves 'round-2' routing to 'user-research/round-2' directory
+require('./views/user-research/round-2/_routes')(router)

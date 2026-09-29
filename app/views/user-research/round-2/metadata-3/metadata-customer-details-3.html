@@ -1,0 +1,166 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Edit customer details –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent
+%}
+
+  <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
+            <a id="records" href="../records" class="dwp-horizontal-navigation__link" aria-current="true">Document search</a>
+            </li> 
+
+            <li class="dwp-horizontal-navigation__item">
+            <a id="reports" href="#" class="dwp-horizontal-navigation__link">Report search</a>
+            </li> 
+           <!--
+            <li class="dwp-horizontal-navigation__item">
+            <a id="HR-Records" href="hr-search" class="dwp-horizontal-navigation__link">HR search</a>
+            </li>
+            -->
+            <li class="dwp-horizontal-navigation__item">
+            <a id="documentUpload" href="#" class="dwp-horizontal-navigation__link">Document upload</a>
+            </li> 
+        
+        </ul>
+    </nav>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+{% endblock %} 
+
+{% block content %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Edit customer details</h1>
+
+      <form action="metadata-3" method="post" novalidate>
+      <!-- Alternative link going to indiviual check answers page <form action="metadata-check-customer-details" method="post" novalidate> -->
+
+              {{ govukInput({
+          label: {
+            text: "National Insurance number",
+            classes: "govuk-label--m"
+          },
+           hint: {
+          text: "For example, ‘QQ123456C’"
+        },
+          classes: "govuk-!-width-two-thirds",
+          id: "metadata-nino-3",
+          name: "metadata-nino-3",
+          value: data['metadata-nino-3'] or ""
+        }) }}
+
+         
+       
+{{ govukDateInput({
+  id: "metadata-dob-3",
+  namePrefix: "metadata-dob-3",
+  fieldset: {
+    legend: {
+      text: "Date of birth",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "For example, 31 3 1980"
+  },
+  items: [
+    {
+      classes: "govuk-input--width-2",
+      name: "day-3",
+      value: data['metadata-dob-day-3'] or "3"
+    },
+    {
+      classes: "govuk-input--width-2",
+      name: "month-3",
+      value: data['metadata-dob-month-3'] or "5"
+    },
+    {
+      classes: "govuk-input--width-4",
+      name: "year-3",
+      value: data['metadata-dob-year-3'] or "1989"
+    }
+  ]
+}) }}
+
+        
+
+        {{ govukInput({
+          label: {
+            text: "First name",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "metadata-first-name-3",
+          name: "metadata-first-name-3",
+          value: data['metadata-first-name-3']
+        }) }}
+        
+        {{ govukInput({
+          label: {
+            text: "Last name",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "metadata-last-name-3",
+          name: "metadata-last-name-3",
+          value: data['metadata-last-name-3']
+        }) }}
+      
+
+        {{ govukInput({
+          label: {
+            text: "Postcode",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-input--width-10",
+          id: "metadata-post-code-3",
+          name: "metadata-post-code-3",
+          value: data['metadata-post-code-3']
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Customer reference number (CRN)",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "metadata-crn-3",
+          name: "metadata-crn-3",
+          value: data['metadata-crn-3']
+        }) }}
+       
+        {{ govukInput({
+          label: {
+            text: "Claim reference",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "metadata-claim-ref-3",
+          name: "metadata-claim-ref-3",
+          value: data['metadata-claim-ref-3']
+        }) }}
+
+
+
+      <div class="govuk-button-group">
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+  <a class="govuk-link" href="metadata-3?metadata-nino-3&metadata-dob-3&metadata-first-name-3&metadata-last-name-3&metadata-post-code-3&metadata-crn-3&metadata-claim-ref-3&edit-metadata">Cancel</a>
+</div>
+
+      </form>
+
+      
+    </div>
+  </div>
+{% endblock %}
