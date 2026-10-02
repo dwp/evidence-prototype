@@ -1,0 +1,204 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% from "govuk/components/select/macro.njk" import govukSelect %}
+<!--
+{{ govukSelect({
+  id: "sort",
+  name: "sort",
+  label: {
+    text: "Sort by"
+  },
+  items: [
+    {
+      value: "date",
+      text: "Date most recent",
+      selected: true
+    },
+    {
+      value: "lob-ascending",
+      text: "LOB case ID ascending"
+    },
+    {
+      value: "lob-descending",
+      text: "LOB case ID descending"
+    }
+  ]
+}) }}
+-->
+
+
+<!-- SEARCH RESULTS CARDS-->
+
+<!-- <ol class="search-results govuk-list govuk-list--number"> -->
+
+     <!-- CARD 1-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-1" name="selectedDocuments" type="checkbox" value="doc-01">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-1">
+                    <span class="govuk-visually-hidden">
+                        Select result 1, PIP.1001 Application - Acknowledgement letter, date 11 February 2024
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">11 February 2024</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="" class="govuk-link govuk-link--no-visited-state">PIP.1001 Application - Acknowledgement letter</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Personal Independence Payment (PIP)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            },
+            {
+            key: {
+                text: "LOB case ID"
+            },
+            value: {
+                text: "UPLOADpip005UPLOADpip005UPLOADpip005"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--green"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+     <!-- CARD 2-->
+    <li class="search-result govuk-!-margin-bottom-4">
+        <div class="search-result__number"></div>
+        
+        <div class="search-result__checkbox">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="result-2" name="selectedDocuments" type="checkbox" value="doc-02">
+                    <label class="govuk-label govuk-checkboxes__label" for="result-2">
+                    <span class="govuk-visually-hidden">
+                        Select result 2, Winter Fuel payment, date 27 November 2024
+                    </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-card">
+        <p class="govuk-body govuk-!-margin-bottom-1">27 November 2024</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a href="" class="govuk-link govuk-link--no-visited-state">Winter Fuel payment</a>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">Personal Independence Payment (PIP)</p>
+        {{ govukSummaryList({
+        classes: "search-result-card__summary govuk-!-margin-bottom-4",
+        rows: [
+            {
+            key: {
+                text: "National Insurance number"
+            },
+            value: {
+                text: "QQ 123456 C"
+            }
+            },
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Jane Doe"
+            }
+            }
+        ]
+        }) }}
+
+        <div class="search-result-card__tags">
+        {{govukTag({
+          text: "On hold",
+          classes: "govuk-tag--yellow"
+        })}}
+        {{govukTag({
+          text: "Supporting",
+          classes: "govuk-tag--grey"
+        })}}
+        {{govukTag({
+          text: "Not harmful",
+          classes: "govuk-tag--grey"
+        })}}
+        </div>
+        </div>
+    </li>
+<!-- </ol> -->
+
+<!-- SORT SCRIPT
+
+<script>
+  document.getElementById("sort").addEventListener("change", function () {
+    const value = this.value;
+    const tbody = document.querySelector("#search-results tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+
+    // --- Column indexes based on your table ---
+    const DATE_COL = 1;         // "12 Feb 2024"
+    const LOB_COL = 2;          // "001"
+
+    // --- Helper: parse date "12 Feb 2024" reliably ---
+    const getDate = row => {
+      const text = row.children[DATE_COL].innerText.trim();
+      return new Date(text); // JS correctly parses "12 Feb 2024"
+    };
+
+    // --- Helper: get numeric LOB value (turn "001" → 1) ---
+    const getLOB = row => {
+      return Number(row.children[LOB_COL].innerText.trim());
+    };
+
+    // --- Sorting logic ---
+    if (value === "date") {
+      rows.sort((a, b) => getDate(b) - getDate(a)); // newest first
+    }
+
+    if (value === "lob-ascending") {
+      rows.sort((a, b) => getLOB(a) - getLOB(b)); // 1 → 100
+    }
+
+    if (value === "lob-descending") {
+      rows.sort((a, b) => getLOB(b) - getLOB(a)); // 100 → 1
+    }
+
+    // --- Re-render table rows ---
+    rows.forEach(row => tbody.appendChild(row));
+  });
+</script>
+-->

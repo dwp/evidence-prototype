@@ -17,34 +17,178 @@ module.exports = function (router) {
   // add all routing here
 
 
-// reset the "Document upload" data back to defaults when end is got at confirmation screen
-router.get('/upload-end', function (req, res) {
-  let data = req.session.data;
+//Bulk update mapping bulk data to metadata for doc 1, 2 and 3
+
+router.post(
+  '/user-research/round-2/metadata/bulk-metadata-confirmation',
+  function (req, res) {
+
+    const data = req.session.data;
+
+    let selectedDocs = data.selectedDocuments || [];
+
+    if (typeof selectedDocs === 'string') {
+      selectedDocs = JSON.parse(selectedDocs);
+    }
+
+    function updateValue(value, field1, field2, field3) {
+
+      if (!value) {
+        return;
+      }
+
+      if (selectedDocs.includes('result-1')) {
+        data[field1] = value;
+      }
+
+      if (selectedDocs.includes('result-2')) {
+        data[field2] = value;
+      }
+
+      if (selectedDocs.includes('result-3')) {
+        data[field3] = value;
+      }
+
+    }
+
+    // NINO
+    updateValue(
+      data['bulk-nino'],
+      'metadata-nino',
+      'metadata-nino-2',
+      'metadata-nino-3'
+    );
+
+    // CRN
+    updateValue(
+      data['bulk-crn'],
+      'metadata-crn',
+      'metadata-crn-2',
+      'metadata-crn-3'
+    );
+
+    // Claim reference
+    updateValue(
+      data['bulk-claim-ref'],
+      'metadata-claim-ref',
+      'metadata-claim-ref-2',
+      'metadata-claim-ref-3'
+    );
+
+    // First name
+    updateValue(
+      data['bulk-first-name'],
+      'metadata-first-name',
+      'metadata-first-name-2',
+      'metadata-first-name-3'
+    );
+
+    // Last name
+    updateValue(
+      data['bulk-last-name'],
+      'metadata-last-name',
+      'metadata-last-name-2',
+      'metadata-last-name-3'
+    );
+
+    // Classification
+    updateValue(
+      data['bulk-classification'],
+      'metadata-classification',
+      'metadata-classification-2',
+      'metadata-classification-3'
+    );
+
+    // LOB case ID
+    updateValue(
+      data['bulk-lob-case-id'],
+      'metadata-lob-case-id',
+      'metadata-lob-case-id-2',
+      'metadata-lob-case-id-3'
+    );
+
+    // Benefit type
+    updateValue(
+      data['bulkBenefitType'],
+      'metadataBenefitType',
+      'metadataBenefitType-2',
+      'metadataBenefitType-3'
+    );
+
+    // Office postcode
+    updateValue(
+      data['bulk-office-postcode'],
+      'metadata-office-postcode',
+      'metadata-office-postcode-2',
+      'metadata-office-postcode-3'
+    );
+
+    // Link data
+    updateValue(
+      data['bulk-link-data'],
+      'metadata-link-data',
+      'metadata-link-data-2',
+      'metadata-link-data-3'
+    );
+
+    // Date of birth
+
+    const day = data['bulk-dob-day'];
+    const month = data['bulk-dob-month'];
+    const year = data['bulk-dob-year'];
+
+    if (day || month || year) {
+
+      if (selectedDocs.includes('result-1')) {
+        data['metadata-dob-day'] = day;
+        data['metadata-dob-month'] = month;
+        data['metadata-dob-year'] = year;
+      }
+
+      if (selectedDocs.includes('result-2')) {
+        data['metadata-dob-day-2'] = day;
+        data['metadata-dob-month-2'] = month;
+        data['metadata-dob-year-2'] = year;
+      }
+
+      if (selectedDocs.includes('result-3')) {
+        data['metadata-dob-day-3'] = day;
+        data['metadata-dob-month-3'] = month;
+        data['metadata-dob-year-3'] = year;
+      }
+
+    }
+
+    // Clear bulk update fields
+ 
+      delete data['bulk-nino'];
+      delete data['bulk-crn'];
+      delete data['bulk-claim-ref'];
+      delete data['bulk-first-name'];
+      delete data['bulk-last-name'];
+       
+      delete data['bulk-dob-day'];
+      delete data['bulk-dob-month'];
+      delete data['bulk-dob-year'];
+       
+      delete data['bulk-classification'];
+      delete data['bulk-lob-case-id'];
+       
+      delete data['bulkBenefitType'];
+       
+      delete data['bulk-office-postcode'];
+      delete data['bulk-link-data'];
+
+      delete data.selectedDocuments;
+
+    res.redirect(
+      '/user-research/round-2/metadata/bulk-metadata-confirmation'
+    );
+
+  }
+);
 
 
-  delete data['upload-nino'];
-  delete data['upload-crn'];
-  delete data['upload-claimref'];
-  delete data['upload-first-name'];
-  delete data['upload-last-name'];
-  delete data['upload-dob-day'];
-  delete data['upload-dob-month'];
-  delete data['upload-dob-year'];
-  delete data['upload-postcode'];
-  delete data['uploadBusinessUnit'];
-  delete data['uploadBenefitType'];
-  delete data['uploadClassification'];
-  delete data['uploadHarmful'];
-  delete data['upload-issue-date-day'];
-  delete data['upload-issue-date-month'];
-  delete data['upload-issue-date-year'];
-  delete data['upload-lob'];
-  delete data['upload-link-data'];
-  delete data['documentType'];
-
-  
-  res.redirect('/user-research/round-2/records');
-});
 
 // Clear the "Advanced search" fields when clicking clear search link
 router.get('/clear-advanced-search-ur', function (req, res) {
@@ -63,25 +207,9 @@ router.get('/clear-advanced-search-ur', function (req, res) {
   delete data['from'];
   delete data['To'];
   
-  res.redirect('/user-research/round-2/advanced-search');
+  res.redirect('bulk-metadata-confirmation');
 });
 
-
-// default settings for metadata business unit and benefit type
-/*
-  router.get('/user-research/round-2/metadata/metadata-document-details', function (req, res) {
-
-    if (!req.session.data.metadataBusinessUnit) {
-      req.session.data.metadataBusinessUnit = 'Personal Independence Payment (PIP)'
-    }
-
-    if (!req.session.data.metadataBenefitType) {
-      req.session.data.metadataBenefitType = 'Personal Independence Payment (PIP)'
-    }
-
-    res.render('user-research/round-2/metadata/metadata-document-details')
-  })
-*/
 
 // Mapping benefit type to business unit for Manage metadata
 

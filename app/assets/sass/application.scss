@@ -82,7 +82,7 @@
 
 .search-result {
   display: grid;
-  grid-template-columns: 20px 40px 1fr;
+  grid-template-columns: 20px 40px minmax(0, 1fr);
   column-gap: govuk-spacing(3);
   align-items: start;
   counter-increment: results;

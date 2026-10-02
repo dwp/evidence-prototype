@@ -37,6 +37,7 @@ text: "Back",
 href: "records"
 }) }}
 
+
 {% endblock %}
 
 {% block content %}
@@ -91,7 +92,10 @@ href: "records"
                 },
                 {
                 text: "Bulk update",
-                href: "metadata/bulk-metadata"
+                href: "#",
+                attributes: {
+                id: "bulk-update"
+                }
                 },
                 {
                 text: "Download",
@@ -250,8 +254,7 @@ href: "records"
                 <!--SEARCH RESULTS-->
                 <div class="moj-filter-layout__content">
 
-                    <!-- CARDS 20 results-->
-                    {# {% include "user-research/round-2/includes/cards-20results.html" %} #}
+                    
 
                     <ol class="search-results govuk-list govuk-list--number">
                         <!-- CARD 1-->
@@ -262,10 +265,10 @@ href: "records"
                                 <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                                     <div class="govuk-checkboxes__item">
                                         <input class="govuk-checkboxes__input" id="result-1" name="selectedDocuments"
-                                            type="checkbox" value="doc-001">
+                                            type="checkbox" value="result-1">
                                         <label class="govuk-label govuk-checkboxes__label" for="result-1">
                                             <span class="govuk-visually-hidden">
-                                                Whitemail unstructured
+                                               Select result 1, Whitemail unstructured, date 1 September 2026
                                             </span>
                                         </label>
                                     </div>
@@ -274,7 +277,7 @@ href: "records"
                             <div class="search-result-card">
                                 <p class="govuk-body govuk-!-margin-bottom-1">1 September 2026</p>
                                 <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
-                                    <a href="/public/files/test_document.pdf" class="govuk-link"
+                                    <a href="/public/files/Test_document.pdf" class="govuk-link"
                                         rel="noreferrer noopener" target="_blank">{{ data['metadata-doc-type']or 'Whitemail unstructured'}}</a>
                                 </h2>
                                 <p class="govuk-body govuk-!-margin-bottom-4">{{ data['metadataBenefitType'] or 'Personal Independence Payment (PIP)'}}</p>
@@ -364,10 +367,11 @@ href: "records"
                                 <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                                     <div class="govuk-checkboxes__item">
                                         <input class="govuk-checkboxes__input" id="result-2" name="selectedDocuments"
-                                            type="checkbox" value="doc-002">
+                                            type="checkbox" value="result-2">
                                         <label class="govuk-label govuk-checkboxes__label" for="result-2">
                                             <span class="govuk-visually-hidden">
-                                                PIP.4005 Change of account details
+                                                Select result 2, PIP.4005 Change of account details, date 28 August 2026
+    
                                             </span>
                                         </label>
                                     </div>
@@ -376,7 +380,7 @@ href: "records"
                             <div class="search-result-card">
                                 <p class="govuk-body govuk-!-margin-bottom-1">28 August 2026</p>
                                 <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
-                                    <a href="/public/files/test_document.pdf" class="govuk-link"
+                                    <a href="/public/files/Test_document.pdf" class="govuk-link"
                                         rel="noreferrer noopener" target="_blank">{{ data['metadata-doc-type-2']or 'PIP.4005 Change of account details'}}</a>
                                 </h2>
                                 <p class="govuk-body govuk-!-margin-bottom-4">{{ data['metadataBenefitType-2'] or 'Personal Independence Payment (PIP)'}}</p>
@@ -466,10 +470,10 @@ href: "records"
                                 <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                                     <div class="govuk-checkboxes__item">
                                         <input class="govuk-checkboxes__input" id="result-3" name="selectedDocuments"
-                                            type="checkbox" value="doc-003">
+                                            type="checkbox" value="result-3">
                                         <label class="govuk-label govuk-checkboxes__label" for="result-3">
                                             <span class="govuk-visually-hidden">
-                                                BF600
+                                                Select result 3, BF600, date 15 August 2026
                                             </span>
                                         </label>
                                     </div>
@@ -478,7 +482,7 @@ href: "records"
                             <div class="search-result-card">
                                 <p class="govuk-body govuk-!-margin-bottom-1">15 August 2026</p>
                                 <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
-                                    <a href="/public/files/test_document.pdf" class="govuk-link"
+                                    <a href="/public/files/Test_document.pdf" class="govuk-link"
                                         rel="noreferrer noopener" target="_blank">{{ data['metadata-doc-type-3']or 'BF600'}}</a>
                                 </h2>
                                 <p class="govuk-body govuk-!-margin-bottom-4">{{ data['metadataBenefitType-3'] or 'Personal Independence Payment (PIP)'}}</p>
@@ -560,32 +564,37 @@ href: "records"
                                 </div>
                             </div>
                         </li>
+
+                        <!-- CARDS 20 results-->
+                     {% include "user-research/round-2/includes/cards-20results.html" %}
                     </ol>
 
-                    <!-- PAGINATION-->
+                
 
 
 
                 </div><!--moj-filter-layout__content-->
             </div><!--moj-filter-layout-->
 
+              <!-- PAGINATION-->
+
                    {{ govukPagination({
                     next: {
-                        href: "#"
+                        href: "search-results-v4-page2"
                     },
                     items: [
                         {
                         number: 1,
                         current: true,
-                        href: "#"
+                        href: "search-results-v4"
                         },
                         {
                         number: 2,
-                        href: "#"
+                        href: "search-results-v4-page2"
                         },
                         {
                         number: 3,
-                        href: "#"
+                        href: "search-results-v4-page3"
                         }
                     ]
                     }) }}
@@ -610,6 +619,7 @@ href: "records"
     document.addEventListener('DOMContentLoaded', function () {
 
     const manageMetadata = document.getElementById('manage-metadata');
+    const bulkUpdate = document.getElementById('bulk-update');
 
     if (!manageMetadata) return;
 
@@ -641,7 +651,34 @@ href: "records"
             break;
         }
     });
+
+    // Bulk update results 1 to 3
+if (bulkUpdate) {
+bulkUpdate.addEventListener('click', function (event) {
+event.preventDefault();
+
+const selected = document.querySelectorAll(
+'input[name="selectedDocuments"]:checked'
+);
+
+if (selected.length === 0) {
+return;
+}
+const selectedDocuments = Array.from(selected).map(
+checkbox => checkbox.value
+);
+
+sessionStorage.setItem(
+'selectedDocuments',
+JSON.stringify(selectedDocuments)
+);
+
+window.location.href = 'metadata/bulk-metadata';
+});
+}
     });
+
+    
 
 
 </script>
