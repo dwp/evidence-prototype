@@ -146,15 +146,15 @@ router.post(
       }
 
       if (selectedDocs.includes('result-2')) {
-        data['metadata-dob-day-2'] = day;
-        data['metadata-dob-month-2'] = month;
-        data['metadata-dob-year-2'] = year;
+        data['metadata-dob-2-day'] = day;
+        data['metadata-dob-2-month'] = month;
+        data['metadata-dob-2-year'] = year;
       }
 
       if (selectedDocs.includes('result-3')) {
-        data['metadata-dob-day-3'] = day;
-        data['metadata-dob-month-3'] = month;
-        data['metadata-dob-year-3'] = year;
+        data['metadata-dob-3-day'] = day;
+        data['metadata-dob-3-month'] = month;
+        data['metadata-dob-3-year'] = year;
       }
 
     }
